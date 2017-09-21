@@ -24,13 +24,6 @@
          */
         public function index()
         {
-//            $res = InternationalLead::with('comments')->desc()->get();
-//            dd($res);
-//            $internationalLeads = InternationalLead::with([
-//                'comments' => function ($query)
-//                {
-//                    $query->orderBy('updated_at' , 'DESC')->first();
-//                }])->orderBy('updated_at' , 'DESC')->paginate(1);
             $internationalLeads = InternationalLead::with('latestComment')->desc()->paginate(1);
             
             return view("admin.international_leads.index" , compact('internationalLeads'));
@@ -116,8 +109,11 @@
             $follow_list = FollowUp::all();
 //            $leadData = InternationalLead::where('lead_id' , $id)->first();
 //            $leadComment = InternationalLeadComment::where('lid' , $leadData->lead_id)->orderBy('updated_at' , 'DESC')->get();
-            $leadData = InternationalLead::with('comments')->where('lead_id',$id)->first();
-            
+//            $leadData = InternationalLead::with('comments')->where('lead_id',$id)->first();
+
+//            $leadData = InternationalLead::with('latestComment')->where('lead_id',$id)->first();
+            $leadData = InternationalLead::with('latestComment')->find($id);
+//            dd($leadData);
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list'));
         }
         
@@ -154,11 +150,7 @@
             else
                 dd("failed");
             
-            $comment_arr = array();
-            foreach ($request->lead_comment as $k => $v)
-            {
-                echo $v;
-            }
+            
             
             return view('admin.international_leads.update');
         }

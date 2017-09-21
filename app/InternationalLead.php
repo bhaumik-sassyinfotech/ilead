@@ -19,11 +19,10 @@ class InternationalLead extends Model
         return $query->orderBy( 'updated_at' , 'DESC');
     }
     
-    public function comments()
-    {
+//    public function comments()
+//    {
 //        return $this->hasMany('App\InternationalLeadComment', 'lid','lead_id')->orderBy( 'updated_at' , 'DESC');
-        return $this->hasMany('App\InternationalLeadComment', 'lid','lead_id')->orderBy( 'updated_at' , 'DESC');
-    }
+//    }
     
     public function latestComment()
     {

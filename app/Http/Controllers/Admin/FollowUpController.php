@@ -89,9 +89,8 @@
          */
         public function edit($id)
         {
-            //
-            $follow = FollowUp::where(array('id' => $id , 'deleted_at' => NULL))->first();
-            $follow_up_list = FollowUp::whereNull('deleted_at')->paginate(10);
+            $follow = FollowUp::find($id); //->first();
+            
             if (empty($follow))
             {
                 return redirect()->route('follow_up.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
@@ -105,7 +104,6 @@
          * Update the specified resource in storage.
          *
          * @param  \Illuminate\Http\Request $request
-         * @param  \App\FollowUp            $followUp
          * @return \Illuminate\Http\Response
          */
         public function update($id , Request $request)
@@ -119,6 +117,7 @@
             
             if ($validator->fails())
             {
+//                dd($validator);
                 return Redirect::back()->withErrors($validator)->withInput();
             }
             

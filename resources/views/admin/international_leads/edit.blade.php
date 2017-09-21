@@ -98,26 +98,11 @@
                 </div>
                 <div class="row form-group" id="dynamic-div">
                     <input type="button" class="btn btn-success addComment" value="Add More">
-                    {{--<?php $count=0; ?>--}}
-                    {{--@foreach($leadData->comments as $comment)--}}
-                        {{--<?php $msg = ''; ?>--}}
-                        {{--@if($comment->created_at < Carbon\Carbon::today()->toDateString())--}}
-                        {{--<div class="col-md-12 commentContainer">--}}
-                            {{--<div class="col-md-8">--}}
-                            {{--<textarea placeholder="Enter Comment" name="edit_lead_comment[]" id="lead_comment_{{ $count }}" cols="30" rows="10" class="form-control">--}}
-                                {{--{{ $comment->lead_comment }}--}}
-                            {{--</textarea>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-4">--}}
-                                {{--<input class="btn btn-danger removeBtn" type="button" value="Remove">--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--@endif--}}
-                    {{--@endforeach--}}
                     <div class="col-md-12 commentContainer">
                         <div class="col-md-8">
-                            <textarea placeholder="Enter Comment" name="lead_comment[]" id="lead_comment_0" cols="30" rows="10"
-                                      class="form-control"></textarea>
+                            <textarea placeholder="Enter Comment" name="lead_comment" id="lead_comment" cols="30" rows="10" class="form-control">
+                             {{ $leadData->latestComment->lead_comment }}
+                            </textarea>
                         </div>
                         <div class="col-md-4">
                             <input class="btn btn-danger removeBtn" type="button" value="Remove">
