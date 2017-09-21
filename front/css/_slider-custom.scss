@@ -1,0 +1,120 @@
+/*sLIDER*/
+.navigation{
+        text-align: center;
+        div{
+            display: inline-block;
+            padding:5px 15px
+        }
+    }
+.choose_slider {
+        height: 440px;
+        position: relative;
+    overflow: hidden;
+    
+    #mySlider2{
+        li{
+        .got-this{
+            width: 220px;
+            display: block;
+//            background-color: #fff;
+//            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            padding: 15px;
+            
+            &__img{
+                text-align: center;
+                margin-bottom: 10px;
+                img{
+                    display: inline-block;
+                }
+            }
+            h3{
+                margin-top: 0;
+                font-size: 19px;
+            }
+            p{
+                font-size: 12.5px;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        }
+    }
+    
+     #mySlider2{         
+    .current_item{        
+        .got-this{
+            width: 220px;
+            display: block;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.12);
+            padding: 15px;
+            transition: all 0.3s linear;
+            
+            
+            &__img{
+                text-align: center;
+                margin-bottom: 10px;
+                img{
+                    display: inline-block;
+                }
+            }
+            h3{
+                margin-top: 0;
+                font-size: 19px;
+            }
+            p{
+                font-size: 12.5px;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        }
+    }
+    
+}
+.choose_slider_items .current_item {   
+    top: 200px;
+    left: 50%;
+    z-index: 100;
+    transform: translateX(-50%);
+}
+.choose_slider_items .next_item {
+  
+    top: 160px;
+    left: 60%;
+    z-index: 1;
+}
+.choose_slider_items .previous_item {
+  
+    top: 160px;
+    left: 25%;
+    z-index: 1;
+}
+.choose_slider_items .next_item_2 {
+  
+    top: 68px;
+    left: 74%;
+    z-index: 0;
+}
+.choose_slider_items .previous_item_2 {
+    top: 68px;
+    left: 12%;
+    z-index: 0;
+}
+
+.choose_slider_items .next_hidden {   
+  
+     top: 68px;
+    left: 12%;
+    z-index: 0;
+    opacity: 0.3; 
+}
+
+.choose_slider_items .previous_hidden{
+      opacity: 0.3;    
+    top: 68px;
+    left: 74%;
+    z-index: 0;
+}
+
+/*sLIDER*/

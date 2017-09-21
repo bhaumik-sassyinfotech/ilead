@@ -1,0 +1,156 @@
+$b: #2d7d91;
+$dark-pink:#fe8f95;
+$baby-pink:#ffbfc3;
+$baby-yellow:#ffdcc0;
+$dark-yellow:#ffb366;
+$bLight1: #b1ddd2;
+$btncolor:#b1ddd2;
+$white: #fff;
+$font-roboto:'Roboto', sans-serif;
+$font-suomi:'SuomiHand', sans-serif;
+$font-avenir:'Avenir';
+$font-avenir-book:'Avenir Book';;
+$l-b:#80ceca;
+$font-bibest:'Bibest Extra';
+$black:#040e11;
+$txt-color:#646464; 
+$txt-dark:#323232;
+$txt-light:#878d8e;
+$btn-sh-color:#66b38c;
+$bor-color:#7acbbc;
+
+%tbl {
+    display: table;
+    width: 100%;
+}
+%tbl-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+%full{
+    float: left;
+    width: 100%;
+}
+
+
+
+@keyframes wobbles  {
+  0%  { -webkit-transform:  rotate(0deg); }
+  20%  { -webkit-transform:  rotate(2deg); }
+  50%  { -webkit-transform:  rotate(-2deg); }
+  100%  { -webkit-transform:  rotate(0deg); }
+}
+%wobble { -webkit-animation: wobbles 1s infinite;
+
+ animation-play-state: paused; 
+    &:hover{
+         animation-play-state: running; 
+    }
+}
+        
+%sub-title {
+    h2 {
+    font-family: "SuomiHand", sans-serif;
+    color: $black;
+    font-size: 52.74px;
+    margin: 0;
+    text-align: center;
+}
+}
+%underline {
+    
+    position: relative;
+    margin-bottom: 25px;
+    &::after {
+    content: '';
+    background-image: url(../images/texture/line1.png);
+    background-repeat: no-repeat;
+    width: 68px;
+    height: 14px;
+    background-position: left top;
+    background-size: contain;
+    display: inline-block;
+    left: 15px;
+    position: relative;
+}
+}
+
+
+  @keyframes keyframes1 {
+            0% {
+                transform: rotate(-1deg);
+                animation-timing-function: ease-in;
+            }
+            50% {
+                transform: rotate(1.5deg);
+                animation-timing-function: ease-out;
+            }
+        }
+ 
+%swingimage{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+%spin {
+  animation: spin 10s linear infinite;
+  /*Set our animation play state to paused initially */
+  animation-play-state: running; 
+    &:hover {
+  /* Toggle our animation play state to running when we are hovering over our sticker */
+  animation-play-state: paused;
+}
+}
+
+@keyframes spin {
+  100% {transform: rotate(1turn); }
+}
+
+/*********************************************************************************************************************************************************************************************Media***********************************************************************************************************************************************************************************************************/
+
+$tablet: 768px;
+$desktop: 1366px;
+$desktop-small: 1260px;
+$desktop2000: 1200px;
+$tab1023: 1023px;
+
+@mixin tablet {
+    @media (min-width: #{$tablet-width})  {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktopSmall {
+  @media (max-width: #{$desktop-small}) {
+    @content;
+  }
+}
+@mixin desktop2000 {
+  @media (max-width: #{$desktop2000}) {
+      
+    @content;
+  }
+}
+@mixin tab1023 {
+  @media (max-width: #{$tab1023}) {
+      
+    @content;
+  }
+}
+
+
+
+
+
+/*********************************************************************************************************************************************************************************************Media***********************************************************************************************************************************************************************************************************/
+
+
+

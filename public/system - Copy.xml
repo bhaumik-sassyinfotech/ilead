@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!-- was: <?xml version="1.0" encoding="UTF 8" ?> -->
+<tabs>
+    <tab id="websiteid" label="Website">
+        <section id="general" label="General123">
+             <field id="websitename1" label="Website name1">
+                <type>text</type> 
+                <placeholder>Enter website name</placeholder> 
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+            <field id="websitename2" label="Website name2">
+                <type>textarea</type> 
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+             
+             <field id="gender" label="Gender1">
+                <type>radio</type> 
+                  <options>
+                    <option label="Male" value="1" name="gender"/> 
+                    <option label="Female" value="0"  name="gender"/> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+              <field id="gende" label="Gender2">
+                <type>select</type> 
+                  <options>
+                    <option label="Male" value="1" /> 
+                    <option label="Female" value="0" /> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+              <field id="game" label="Game1">
+                <type>checkbox</type> 
+                  <options>
+                    <option label="Cricket" value="clicket" /> 
+                    <option label="Hockey" value="hockey" /> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+              <field id="gende" label="Gender3">
+                <type>multi select</type> 
+                  <options>
+                    <option label="Male" value="1" /> 
+                    <option label="Female" value="0" /> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+        </section>
+       
+        <section id="general" label="General123">
+              <field id="websitename1" label="Website name1">
+                <type>text</type> 
+                <placeholder>Enter website name</placeholder> 
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+             
+              <field id="game" label="Game1">
+                <type>checkbox</type> 
+                  <options>
+                    <option label="Cricket" value="clicket" /> 
+                    <option label="Hockey" value="hockey" /> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+              <field id="gende" label="Gender3">
+                <type>multi select</type> 
+                  <options>
+                    <option label="Male" value="1" /> 
+                    <option label="Female" value="0" /> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+        </section>
+    </tab>
+    <tab id="social" label="Social Icon">
+        <section id="social_icon" label="Social Icon">
+              <field id="facebook" label="Facebook Link">
+                <type>text</type> 
+                <placeholder>Enter facebook page link</placeholder> 
+                <note>Enter only facebook page link</note> 
+                <required>false</required> 
+                <classname /> 
+            </field>
+              <field id="instagram" label="Instagram Link">
+                <type>text</type> 
+                <placeholder>Enter Instagram page link</placeholder> 
+                <note>Enter only instagram page link</note> 
+                <required>false</required> 
+                <classname /> 
+            </field>
+               <field id="twitter" label="Twitter Link">
+                <type>text</type> 
+                <placeholder>Enter Twitter page link</placeholder> 
+                <note>Enter only twitter page link</note> 
+                <required>false</required> 
+                <classname /> 
+            </field>
+             <field id="google_plus" label="Google +">
+                <type>text</type> 
+                <placeholder>Enter google + page link</placeholder> 
+                <note>Enter only google + page link</note> 
+                <required>false</required> 
+                <classname /> 
+            </field>
+             
+             
+              <field id="gende" label="Gender">
+                <type>select</type> 
+                  <options>
+                    <option label="Male" value="1" /> 
+                    <option label="Female" value="0" /> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+              <field id="game" label="Game">
+                <type>checkbox</type> 
+                  <options>
+                    <option label="Cricket" value="clicket" /> 
+                    <option label="Hockey" value="hockey" /> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+              <field id="gende" label="Gender">
+                <type>multi select</type> 
+                  <options>
+                    <option label="Male" value="1" /> 
+                    <option label="Female" value="0" /> 
+                </options>
+                <note>Enter only alpha numetic data</note> 
+                <required>true</required> 
+                <classname /> 
+            </field>
+        </section>
+    </tab>
+</tabs>

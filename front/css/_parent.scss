@@ -1,0 +1,218 @@
+.video{
+    height: 100vh;
+}
+
+
+.beingMummaCoParent{
+    text-align: center;
+    p{
+        font-size: 16px;
+        margin-bottom: 30px;
+        font-family: $font-avenir-book;
+        color: $txt-light;
+        padding: 0 36px;
+    }
+    &__gotthis{
+        font-family: $font-suomi;
+        font-size: 32px;
+        margin-bottom: 60px;
+    }
+    &__shiw{
+        font-size: 20px;
+        background: url(../images/icon/right-arrow-s.png) no-repeat;
+        padding-right: 35px;
+        background-position: right center;
+        color: $black;
+        font-weight: 500;
+          margin-bottom: 60px;
+        display: inline-block;
+    }
+}
+.booking{
+    @extend %sub-title;
+    margin-bottom: 60px;
+     .underline {
+           @extend %underline;
+         text-align: center;
+    }
+    .sub-title{
+        margin-bottom: 50px;
+    }
+    &__icon-wrp{
+        text-align: center;
+        img{
+            display: inline-block;
+        }
+    }
+    &__grid-parent{
+        text-align: justify;
+        font-size: 0;
+        &:after{
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+    }
+    &__col{
+        font-size: 16px;
+        width: 22%;
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+    }
+    &__heading{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    &__content{
+        font-size: 16px;
+        &__text{
+            font-family: $font-suomi;
+            font-size: 35px;
+        }
+    }
+    
+}
+.sitterProfile{
+    &__bgcolor{
+        background-color: #e7f5f1;
+        padding:70px 0;
+        
+    }
+    &__tbl{
+        display: table;
+        width: 100%;
+    }
+    &__cell{
+        display: table-cell;
+        vertical-align: middle;
+        width: 50%;
+        @extend %sub-title;
+        .sub-title{
+            h2{
+                text-align: left;
+            }
+            
+        }        
+       .underline {
+          @extend %underline;
+          margin-bottom: 0 !important;
+          padding-left: 38px;
+    }
+        
+        p{
+            font-size: 16px;
+            color: $txt-light;
+        }
+        
+        &__inner{          
+            padding: 0 87px 0 46px;
+            text-align: justify;
+            line-height: 26px;
+        }
+    }
+}
+.safty{
+    padding-top: 135px;
+    float: left;
+    width: 100%;
+    &__title{
+     @extend %sub-title;    
+     .underline {
+           @extend %underline;  
+         text-align: center;
+    }
+    
+    }
+    
+    &__content{
+        font-size: 16px;
+        color: $txt-light;
+        &__margin-bottom{
+            margin-bottom: 130px;
+        }
+        
+    }
+    &__alternate{
+        display: table;
+        margin-bottom: 110px;
+        &__cell{
+            display: table-cell;
+            width: 50%;
+            vertical-align: middle;
+            font-family: $font-avenir-book;
+            
+            &__inner__right{               
+                padding-right: 76px;
+                text-align: justify;
+            }
+            &__inner__left{               
+                padding-left: 76px;
+                text-align: justify;
+            }
+            &__content{
+                font-size: 16px;
+                color: $txt-light;
+                line-height: 26px;
+            }
+        }
+    }
+    &__subtitle{
+         @extend %sub-title;
+         h2{
+             text-align: left !important;
+         }
+     .underline {
+           @extend %underline;    
+    }
+    
+    }
+    &__img-wrapper{
+        img{
+            margin: auto;
+        }
+    }
+    
+}
+.stay-connected{
+    float: left;
+    width: 100%;
+    padding-bottom: 100px;
+    &__inline-parent{
+        text-align: justify;
+        font-size: 0;
+        width: 88%;
+        margin: auto;
+        &:after{
+            content: '';
+            display:inline-block;
+            width:100%;
+        }
+    }
+    &__inline{
+       display: inline-block;
+        vertical-align: top;
+       width: 29.33%;
+       font-size: 16px;
+        text-align: center;
+      
+    }
+    &__subtitle{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    &__content{
+        font-size: 16px;
+        line-height: 30px;
+    }
+    &__title{
+        margin-bottom: 50px;
+    }
+    
+}
+
+.how-it-works{
+    float: left;
+    width: 100%;
+    
+}

@@ -1,0 +1,1302 @@
+@import 'var';
+
+/*******************************************************************************************************************************************/
+
+body {
+    font-family: $roboto;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+input:not([type="submit"]) {
+    outline: 0;
+    padding: 10px 15px;
+    &:active,
+    &:focus {
+        outline: 0;
+    }
+}
+
+a {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.sub-title {
+    font-size: 26px;
+    font-weight: normal;
+    font-family: $roboto;
+    color: $blue-txt;
+    position: relative;
+    &:after {
+        @include pseudo;
+        width: 52px;
+        height: 2px;
+        background-color: $green;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+    }
+}
+
+.block-center {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+
+/**********************************************************************************************************************************************************************************************************Start Common Css*******************************************/
+
+.wrapper {
+    width: 93.4%;
+    margin: auto;
+    display: block;
+}
+
+.tbl {
+    display: table;
+    width: 100%;
+}
+
+.cell {
+    display: table-cell;
+    width: auto;
+    vertical-align: middle;
+}
+
+.inline-parent {
+    width: 100%;
+    font-size: 0;
+    text-align: justify;
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.inline {
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.nolist {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.inline-block {
+    display: inline-block;
+    width: auto;
+}
+
+.pr-7 {
+    padding-right: 7px;
+}
+
+.pl-7 {
+    padding-left: 7px;
+}
+
+.main-btn {
+    width: 146px;
+    height: 38px;
+    border: 2px solid $white;
+    text-align: center;
+    line-height: 33px;
+    display: inline-block;
+    font-weight: 100;
+    border-radius: 17px;
+    padding: 0;
+    @extend %smooth;
+    &.fullbtn{
+        width: 100%;
+        
+    }
+    &.drkbluebtn{
+        background:$blue-txt;
+        color: $white;
+        height: 52px;
+        font-weight: bold;
+        line-height: 50px;border-radius: 28px;
+    }
+    &.blue-btn {
+        border-color: $blue;
+        color: $blue;
+        &:hover {
+            background-color: $blue;
+            color: $white;
+            text-decoration: none;
+        }
+    }
+    &.bluegrad {
+        @extend %bluegrad;
+        width: auto;
+        color: $white;
+        padding: 0 20px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        &.btnlg {
+            height: 52px;
+            line-height: 47px;
+            padding: 0 54px;
+            border-radius: 25px;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            @extend %greengrad;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0;
+            @extend %smooth;
+        }
+        &:hover {
+            &:before {
+                opacity: 1;
+                @extend %smooth;
+            }
+        }
+        .star-icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    }
+    &.facebookbtn {
+        width: 100%;
+        color: $white;
+        background-color: $fb-color;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 53px;
+        border-radius: 28px;
+        line-height: 48px;
+        &:hover {
+            background-color: $green;
+            border-color: $green;
+        }
+    }
+    &.bluelogin-btn {
+        width: 100%;
+        color: $white;
+        background-color: $blue-txt;
+        border-color: $blue-txt;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 53px;
+        border-radius: 28px;
+        line-height: 48px;
+        &:hover {
+            background-color: $green;
+            border-color: $green;
+        }
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.avtor-wrapper{
+        width: 130px;
+        height: 130px;
+        overflow: hidden;
+    border-radius: 50%;
+        img{
+            width: 100%;
+        }
+    }
+
+.full {
+    width: 100%;
+    float: left;
+}
+
+.center {
+    margin: auto;
+}
+
+.main-spacing {
+    padding: 100px 0;
+    @extend %full;
+}
+
+.pb146 {
+    padding-bottom: 146px
+}
+
+
+/*================================================================================================================================================================================Start Checkbox=================================================================*/
+
+.choice-chkbox {
+    width: 15px;
+    position: relative;
+    height: 15px;
+    label {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent;
+        padding: 0 !important;
+        border-radius: 50%;
+        border: 1px solid $blue-txt;
+        &:after {
+            content: '';
+            position: absolute;
+            background: transparent;
+            background-color: transparent;
+            opacity: 0;
+            background-color: $blue-txt;
+            left: 2px;
+            top: 2px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+        &:focus::after,
+        &:hover::after {
+            opacity: 0.3;
+        }
+    }
+    input[type=checkbox] {
+        padding: 0;
+        height: auto;
+        margin: 0;
+        visibility: hidden;
+        &:checked+label:after {
+            opacity: 1;
+        }
+    }
+    input[type=radio] {
+        padding: 0;
+        height: auto;
+        margin: 0;
+        visibility: hidden;
+        &:checked+label:after {
+            opacity: 1;
+        }
+    }
+}
+
+
+/*================================================================================================================================================================================End Checkbox=================================================================*/
+
+
+/*********************************************************************************************************************************************************************************************************End Common Css*******************************************/
+
+
+/*********************************************************************Start Header Css*******************************************/
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    @extend %revdarkbluegrad;
+}
+
+.vector-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 50%;
+}
+
+.vector-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    img {
+        position: absolute;
+        left: 50%;
+        width: 73%;
+        transform: translateX(-50%);
+        bottom: -32%;
+    }
+}
+
+.banner-wrapper {
+    position: relative;
+    .banner-content-wrapper {
+        position: absolute;
+        width: 50%;
+        top: 80px;
+        z-index: 2;
+        right: 0;
+        bottom: 0;
+        .banner-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            .inline-parent {
+                width: 229px;
+                margin: auto;
+                .inline {
+                    width: 50%;
+                    a {
+                        svg {
+                            width: 100%;
+                            fill: $blue;
+                            @extend %smooth;
+                        }
+                        &:hover {
+                            svg {
+                                fill: $white;
+                            }
+                        }
+                    }
+                }
+            }
+            h1 {
+                margin-top: 0;
+                margin-bottom: 0;
+                font-family: $font-go;
+                color: $green;
+                font-size: 42px;
+            }
+            p {
+                font-weight: 300;
+                margin-bottom: 30px;
+                color: $white;
+            }
+            .banner-inner {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+            }
+        }
+    }
+}
+
+.logo-wrapper {
+    margin-top: 25px;
+    width: 200px;
+}
+
+.nav-wrapper {
+    width: 100%;
+}
+
+nav {
+    text-align: right;
+    padding-right: 8.1%;
+}
+
+nav {
+    ul {
+        li {
+            display: inline-block;
+            a {
+                color: $white;
+                padding: 31px 15px;
+                display: inline-block;
+                font-weight: 300;
+                @extend %smooth;
+                &:hover {
+                    color: $green;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.sticky-header {
+    header {
+        background-color: $blue-d1;
+    }
+}
+
+
+/*===================================Top 3 borders========================================*/
+
+.top-borders {
+    width: 100%;
+    height: 11px;
+    background-color: $green;
+    position: relative;
+    margin-top: 11px;
+    &:after {
+        @include pseudo;
+        top: 22px;
+        width: 100%;
+        height: 11px;
+        background: #136fb9;
+    }
+}
+
+
+/*===================================Top 3 borders========================================*/
+
+
+/*********************************End Header Css*******************************************/
+
+.ads-wrapper,
+.connection,
+.room-img {
+    img {
+        width: 100%;
+    }
+}
+
+.room {
+    .room-info {
+        padding: 20px;
+        h4 {
+            font-size: 16px;
+            text-transform: capitalize;
+            text-align: left;
+            color: $blue;
+        }
+        h5 {
+            color: $green;
+            text-align: left;
+        }
+        p {
+            font-size: 13px;
+            text-align: left;
+        }
+        .promoted {
+            position: relative;
+            &:before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                background-image: url(../images/room/promoted.png);
+                background-position: top center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 8px;
+            }
+        }
+    }
+    .connection {
+        padding: 0 14px;
+        margin-top: -8%;
+    }
+}
+
+.button-wrapper {
+    width: 300px;
+    a {
+        color: $white;
+        &:hover {
+            background-color: $blue;
+        }
+    }
+}
+
+.tab-wrapper {
+    text-align: center;
+    .tab-content {
+        display: block;
+        margin: auto;
+    }
+    .nav-tabs {
+        display: inline-block;
+        margin: auto;
+        text-align: center;
+        border: 0;
+        margin-bottom: 100px;
+        li {
+            margin-bottom: 0;
+            a {
+                width: 212px;
+                border: 0;
+                color: $grey-border;
+                &:active,
+                &:hover,
+                &:focus {
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    outline: 0;
+                    background: #fff;
+                }
+                border-bottom: 2px solid $grey-border;
+            }
+            &.active {
+                a {
+                    color: $blue-txt;
+                    border-bottom: 2px solid $blue-txt;
+                }
+            }
+        }
+    }
+}
+
+
+/****************************Start Room slider**********************************************/
+
+.promote-slider {
+    margin-bottom: 50px;
+}
+
+
+/********************************End Room slider********************************************/
+
+
+/*===================================Start Common rooms Section===================================*/
+
+.common-rooms {
+    .common-room-list {
+        .inline {
+            width: 32.1%;
+            margin-bottom: 20px;
+            h4 {
+                color: #136fb9;
+            }
+        }
+        .room .room-info {
+            padding: 20px 12px;
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+
+/*===================================ENd Common rooms Section===================================*/
+
+
+/*==================================================================================================================
+                                           Start Coins Page
+================================================================================================================*/
+
+.current-balance {
+    color: #969696;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 60px 0;
+    width: 100%;
+    float: left;
+    .sml-coin {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background: url(../images/banner/small-coin.png) no-repeat;
+        vertical-align: top;
+        background-size: contain;
+    }
+    span {
+        color: $gold;
+        font-weight: normal;
+        margin: 0 2px;
+    }
+}
+
+.coins-wrapper {
+    .coin-container {
+        width: 85%;
+        margin: auto;
+        display: block;
+    }
+    .coins-plan-wrapper {
+        h3 {
+            @extend %gradienttxt;
+            color: $blue;
+            font-size: 53px;
+            font-weight: 900;
+            margin: 0;
+        }
+        .coins-plan-inner {
+            margin-top: 100px;
+        }
+        .package {
+            position: relative;
+            width: 19%;
+            text-align: center;
+            border: 2px solid #ebebeb;
+            padding: 50px 0px 0px 0px;
+            &:after {
+                @include pseudo;
+                width: 83px;
+                height: 83px;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-size: contain !important;
+                background-position: center !important;
+            }
+            .buynow-btn {
+                display: block;
+                background-color: $blue-txt;
+                text-transform: uppercase;
+                color: $white;
+                padding: 15px;
+                @extend %smooth;
+                &:hover {
+                    background-color: $green;
+                }
+            }
+            &.package {
+                &:after {
+                    background: url(../images/banner/Single-Coin.png) no-repeat;
+                }
+            }
+            &.pieofcoin {
+                &:after {
+                    background: url(../images/banner/Pile-Of-Coin.png) no-repeat;
+                }
+            }
+            &.coin-sack {
+                &:after {
+                    background: url(../images/banner/Coin-Sack.png) no-repeat;
+                }
+            }
+            &.coin-sack2 {
+                &:after {
+                    background: url(../images/banner/2-Coin-Sack.png) no-repeat;
+                }
+            }
+            &.coinmain {
+                &:after {
+                    background: url(../images/banner/Coin-Many.png) no-repeat;
+                }
+            }
+        }
+    }
+}
+
+
+/*==================================================================================================================
+                                           End Coins Page
+================================================================================================================*/
+
+
+/*==================================================================================================================
+                                           Start promote room Page
+================================================================================================================*/
+textarea{
+    outline: none;
+}
+input {
+    width: 100%;
+    border: 2px solid $blue-txt;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+}
+
+.promote-room-wrapper {
+    .promteroom-input {
+        margin-bottom: 20px;
+        color: $blue-txt;
+        text-align: center;
+    }
+    .promteroom-btn {
+        display: block;
+        width: 100%;
+        background: #136fb9;
+        &:focus,
+        &:hover {
+            background: $green;
+        }
+    }
+    .mb50 {
+        margin-bottom: 50px;
+    }
+    .promoteroom-container {
+        width: 52%;
+        margin: auto;
+        ul {
+            margin-bottom: 100px;
+        }
+        .inline {
+            text-align: center;
+            padding: 22px;
+            width: 33.3%;
+            .icon-wrap {
+                width: 65px;
+                height: 65px;
+                margin-right: auto;
+                margin-left: auto;
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 21.3px;
+                color: #323232;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.mt100 {
+    margin-top: 100px;
+}
+
+
+/*==================================================================================================================
+                                           End promote room Page
+================================================================================================================*/
+
+
+/*==================================================================================================================
+                                           Start login Page
+================================================================================================================*/
+
+#login {
+    width: 500px;
+    margin: auto;
+}
+
+.note {
+    width: 73%;
+    padding-left: 72px;
+    position: relative;
+    margin: auto;
+    color: #969696;
+    font-size: 14px;
+    margin-top: 80px;
+    &:before {
+        @include pseudo;
+        left: 0;
+        top: 0;
+        width: 52px;
+        height: 52px;
+        background-image: url(../images/banner/info.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.login-wrapper {
+    .login-title {
+        margin-bottom: 50px;
+    }
+    input {
+        outline: none;
+        font-weight: normal;
+        @include input-placeholder {
+            color: $blue-txt;
+            opacity: 1;
+        }
+    }
+    .nav-justified {
+        width: 375px;
+        margin: auto;
+        border-radius: 50px;
+        overflow: hidden;
+        li {
+            a {
+                background-color: #eee;
+                border-radius: 0;
+                outline: none;
+            }
+            &.active {
+                a {
+                    background-color: #337ab7;
+                }
+            }
+        }
+    }
+    .remmber-wrp {
+        margin: auto;
+    }
+    .choice-chkbox {
+        top: 4px;
+    }
+    .chk-tbl {
+        @extend %tbl;
+        padding: 0 15px;
+        color: #878787;
+    }
+    .chk-cell {
+        @extend %cell;
+        vertical-align: top;
+        &:first-child {
+            width: 30px;
+        }
+    }
+    .regular-way-txt {
+        margin-bottom: 30px;
+    }
+    input:not([type="submit"]) {
+        margin-bottom: 20px;
+        outline: none;
+    }
+    .fb-spacing {
+        margin: 50px 0 30px 0;
+    }
+    h2 {
+        font-size: 26.5px;
+        color: $blue-txt;
+        font-weight: normal;
+    }
+    #myCarousel .nav a small {
+        display: block;
+    }
+    #myCarousel .nav {
+        background: #eee;
+    }
+    #myCarousel .nav a {
+        border-radius: 0px;
+    }
+}
+
+
+/*==================================================================================================================
+                                           End login Page
+================================================================================================================*/
+
+
+/*==================================================================================================================
+                                           Start Profile Page
+================================================================================================================*/
+
+
+
+/*Toggle btn*/
+
+
+.gender-wrapper {
+    input[type="radio"], input[type="checkbox"] {
+cursor: pointer;
+    margin:0;
+    }
+  position: relative;
+  width: 100%;
+  border: 2px solid $blue-txt;
+    float: left;
+    width: 100%;
+    height: 46px;
+    border-radius: 25px;
+  overflow: hidden;
+  
+}
+
+[name="gender"] {
+  opacity: 0;
+  position: absolute;
+  top: 0%;
+  width: 50%;
+  font-size: 2em;
+  height: 46px;
+  z-index: 2;
+    
+}
+[name="gender"]:first-of-type {
+  left: 0%;
+}
+[name="gender"]:last-of-type {
+  left: 50%;
+    
+}
+
+[name="gender"] + label {
+  margin: 0;
+  width: 50%;
+    height: 46px; 
+
+  font-size: 16px;
+  position: absolute;
+  z-index: 0;
+  text-align: center;
+    line-height: 40px;
+    transition: all 0.1s linear;
+}
+[name="gender"] + label:first-of-type {
+  left: -1px;
+    height: 46px;
+
+ 
+}
+[name="gender"] + label:last-of-type {
+  left: 51%;
+    height: 46px;
+  border-right: 0;
+  border-left: 0;
+
+}
+
+[name="gender"]:checked + label {
+ background: $blue-txt;
+  color: #fff;
+    border-radius: 25px;
+}
+
+[name="gender"]:not(:checked) + label {
+  background: #fff;  
+   border: 0;
+    
+}
+
+/*Toggle btn*/
+
+.ver-top{
+    .cell{
+        vertical-align: top;
+    }
+}
+.upload-avtor{
+    cursor: pointer;
+}
+
+.mobile-admin-menu{
+    display: none;
+}
+.upload-btn{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    left: 0;
+    top: 0;
+    width: 0;
+}
+.profile-wrapper{  
+    .select-wrapper{
+        .inline{
+            width: 25%;
+        }
+        .inline{
+            &:first-child{
+                width: 200px;
+            }
+        }
+    }
+    select { 
+        option{
+           outline: none;
+        }
+    width: 100%;
+    border: 2px solid #136fb9;
+    height: 50px;
+    border-radius: 25px;
+        padding: 10px;
+        color: $blue-txt;
+    -webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;
+        background: #fff url(../images/icon/select.png) no-repeat;
+        background-position: right 15px center;
+        outline: none !important;
+       
+        &:active,
+        &:focus{
+            outline: none !important;
+        }
+        
+       
+    }
+    .profile-sidebar-wrapper{
+        .profile-sidebar{
+            box-shadow: 1px 1px 10px #dad4d4;
+            ul{
+                li{
+                    border-bottom: 1px solid #eee;
+                    a{
+                        &.active{
+                            border-bottom: 1px solid $blue-txt;
+                        }
+                    }
+                    a{
+                        display: block;
+                        padding:18px 32px;
+                        color: #e1e1e1;
+                        &.active{
+                            color: $blue-txt;
+                        }
+                        
+                    }
+                }
+            }
+        }        
+        
+    }
+    .main-form-wrapper{
+         box-shadow: 1px 1px 10px #dad4d4;
+        padding: 45px;
+    .cell input[type="submit"] {   
+    font-weight: bold;
+}
+    .form-row-tbl{       
+        margin-bottom: 20px;
+            .cell{
+                label{
+                    font-weight: normal;
+                }
+                input{
+                    &[type = "submit"]{
+                        background-color: $blue-txt;
+                        color: $white;
+                       @extend %smooth;
+                        &:hover{
+                            background-color: $green;
+                            border-color: $green;
+                        }
+                    }
+                }
+                &:first-child{
+                    width: 162px;
+                }
+                &:last-child{
+                    width: 200px;
+                    span{
+                        padding: 20px;
+                        font-size: 12px;
+display: block;
+                    }
+                }
+                
+                textarea{
+                    height: 88px;
+                    border-radius: 44px;
+                    width: 100%;
+                    border: 2px solid #136fb9;
+                    padding: 20px;
+                }
+            }
+        }
+    
+}}
+
+
+/*==================================================================================================================
+                                           End Profile Page
+================================================================================================================*/
+
+/*================================================================================================================================================================================gift listing =================================================================*/
+
+.category-wrapper{
+    margin-bottom: 50px;
+}
+.newest-store {
+    a {
+        &:hover,
+        &:focus {
+            outline: none;
+            text-decoration: none;
+        }
+    }
+    .inline-parent{
+        text-align: left;
+    }
+    .inline {
+       width: 18%;
+    border: 1px solid #eee;
+    margin-bottom: 14px;
+    margin: 3% 1%;
+        p{
+            color: $blue-txt;
+        }
+        a{
+            float: left;
+            width: 100%;
+            .img-wrapper {
+            padding: 12%;
+            display: block;
+                img{
+                    width: 100%;
+                }
+        }
+        }
+        .giftname {
+            display: block;
+            width: 100%;
+            border-top: 1px solid #eee;
+            padding: 10px;
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+    border-bottom: 1px solid #eee;
+    &.store-spacing {
+        padding: 100px 0;
+    }
+}
+
+.price {
+    position: relative;
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    &:before {
+        content: '';
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: $gold;
+        margin-right: 3px;
+    }
+}
+
+.loadmore-wrapper {
+    padding: 15px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    .inline-parent{
+        text-align: justify;
+    }
+    .inline {
+        border: 0;
+        width:auto;
+        margin: 0;
+        vertical-align: middle;
+        &:last-child{
+            width: 106px;
+        }
+        p {
+            margin: 0;
+        }
+        &:last-child {
+            text-align: right;
+        }
+        .small-btn {
+            width: 100px;
+            height: 27px;
+            border: 1px solid $blue-txt;
+            display: inline-block;
+            text-align: center;
+            border-radius: 15px;
+            font-size: 12px;
+            line-height: 25px;
+            &:hover {
+                background-color: $blue-txt;
+                color: $white;
+            }
+        }
+    }
+}
+
+.gift-category {
+    .owl-dots .owl-dot.active span,
+    .owl-dots .owl-dot:hover span {
+        background: #fff;
+        width: 10px;
+        height: 10px;
+        margin: 5px 7px;
+        top: -1px;
+        position: relative;
+    }
+    .cell {
+        padding: 0 10px;
+        width: 25%;
+    }
+    .owl-nav.disabled+.owl-dots {
+        display: block;
+        background-color: $blue-txt;
+    }
+    .owl-dots .owl-dot {
+        vertical-align: middle;
+    }
+    .owl-dots .owl-dot span {
+        width: 5px;
+        height: 5px;
+        margin: 5px 7px;
+        background: #002B4A;
+    }
+}
+
+
+/*================================================================================================================================================================================gift listing =================================================================*/
+
+
+/*=====================================Start-Footer=============================================================*/
+
+footer {
+    @extend %darkbluegrad;
+    padding: 50px 0;
+}
+
+.footer-link {
+    font-size: 0;
+    li {
+        display: inline-block;
+        font-size: 16px;
+        a {
+            font-weight: 300;
+            color: $white;
+            padding: 0 20px;
+            display: block;
+            position: relative;
+            @extend %smooth;
+            &:hover {
+                color: $green;
+                text-decoration: none;
+            }
+            &:after {
+                @include pseudo;
+                width: 2px;
+                top: 0;
+                right: 0;
+                background-color: #fff;
+                bottom: 0;
+            }
+        }
+        &:first-child {
+            a {
+                padding-left: 0;
+            }
+        }
+        &:last-child {
+            a {
+                padding-right: 0;
+                &:after {
+                    width: 0;
+                }
+            }
+        }
+    }
+}
+
+.social {
+    font-size: 0;
+    li {
+        display: inline-block;
+        font-size: 16px;
+        a {
+            color: $white;
+            padding-left: 18px;
+            @extend %smooth;
+            &:hover {
+                color: $green;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.copywrapper {
+    display: block;
+    text-align: right;
+    p {
+        color: $white;
+        margin: 0;
+    }
+}
+
+
+/*=====================================End-Footer=============================================================*/

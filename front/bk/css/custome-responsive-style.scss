@@ -1,0 +1,985 @@
+@import 'var';
+
+/*******************
+	Min Responsive Media Query
+***************************/
+
+@media (min-width:768px) {
+    .container {
+        width: 750px
+    }
+}
+
+@media (min-width:980px) {
+    .container {
+        width: 940px
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        width: 970px
+    }
+}
+
+@media (min-width:1200px) {}
+
+@media (min-width:1601px) {
+    .avtor-wrapper {
+        width: 160px;
+        height: 160px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .gender-wrapper {
+        height: 72px;
+        border-radius: 36px;
+    }
+    [name="gender"]+label:last-of-type,
+    [name="gender"]+label:first-of-type {
+        height: 72px;
+        line-height: 70px;
+        font-size: 21.5px;
+    }
+    [name="gender"]:checked+label {
+        border-radius: 36px;
+    }
+    .profile-wrapper .select-wrapper .inline:first-child {
+        width: 343px;
+    }
+    .profile-wrapper select {
+        height: 70px;
+        border-radius: 42px;
+        padding: 20px 26px;
+        font-size: 21.5px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:last-child span {
+        font-size: 14px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:first-child {
+        width: 196px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:last-child {
+        width: 220px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell textarea {
+        height: 130px;
+        border-radius: 70px;
+        padding: 30px 40px;
+        font-size: 21.5px;
+    }
+    .main-btn.drkbluebtn {
+        height: 72px;
+        line-height: 70px;
+        border-radius: 38px;
+    }
+    .main-spacing {
+        padding: 150px 0;
+    }
+    .loadmore-wrapper .inline:last-child {
+        width: 144px;
+    }
+    .loadmore-wrapper .inline .small-btn {
+        width: 144px;
+        height: 38px;
+        border-radius: 29px;
+        font-size: 18px;
+        line-height: 36px;
+    }
+    .gift-category .owl-nav.disabled+.owl-dots {
+        height: 38px;
+        line-height: 35px;
+    }
+    .newest-store.store-spacing {
+        padding: 150px 0;
+    }
+    .newest-store .inline .giftname {
+        font-size: 18px;
+        padding: 14px;
+    }
+    .note:before {
+        width: 72px;
+        height: 72px;
+    }
+    .note {
+        font-size: 22.5px;
+        padding-left: 96px;
+    }
+    label {
+        font-size: 22.5px;
+    }
+    input:not([type="submit"]) {
+        padding: 10px 25px;
+    }
+    .main-btn.bluelogin-btn,
+    .main-btn.facebookbtn {
+        height: 75px;
+        border-radius: 40px;
+        line-height: 74px;
+    }
+    .login-wrapper .nav>li>a {
+        padding: 22px 15px;
+    }
+    .login-wrapper .nav-justified {
+        width: 522px;
+        border-radius: 50px;
+    }
+    .login-wrapper h2 {
+        font-size: 37.5px;
+    }
+    #login {
+        width: 676px;
+    }
+    .sub-title:after {
+        width: 80px;
+        height: 3px;
+    }
+    input {
+        height: 70px;
+        border-radius: 36px;
+        font-size: 21.5px;
+    }
+    .promote-room-wrapper .promoteroom-container ul {
+        margin-bottom: 140px;
+    }
+    .promote-room-wrapper .promoteroom-container .inline {
+        padding: 30px;
+    }
+    .promote-room-wrapper .promoteroom-container .inline p {
+        font-size: 30px;
+    }
+    .promote-room-wrapper .promoteroom-container .inline .icon-wrap {
+        width: 76px;
+        height: 76px;
+    }
+    .coins-wrapper .coins-plan-wrapper .package {
+        padding: 70px 0px 0px 0px;
+    }
+    .coins-wrapper .coins-plan-wrapper .package:after {
+        width: 120px;
+        height: 120px;
+    }
+    .coins-wrapper .current-balance {
+        margin: 80px 0;
+    }
+    .coins-wrapper .coins-plan-wrapper h3 {
+        font-size: 75px;
+    }
+    .sub-title {
+        font-size: 37px;
+    }
+    .container {
+        width: 1500px;
+    }
+    .footer-link li a {
+        padding: 0 40px;
+    }
+    .main-btn.bluegrad.btnlg {
+        height: 73px;
+        line-height: 67px;
+        padding: 0 82px;
+        border-radius: 38px;
+    }
+    .room .room-info h5 {
+        font-size: 18px;
+    }
+    .room .room-info p {
+        font-size: 18px;
+    }
+    .room .room-info h4 {
+        font-size: 22.5px;
+    }
+    .tab-wrapper .nav-tabs li a {
+        width: 300px;
+        font-size: 30px;
+    }
+    .top-borders {
+        height: 15px;
+        margin-top: 15px;
+    }
+    .top-borders:after {
+        top: 30px;
+        height: 15px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content .inline-parent {
+        width: 325px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content h1 {
+        font-size: 60px;
+    }
+    .button-wrapper {
+        width: 420px;
+    }
+    .main-btn {
+        width: 202px;
+        height: 53px;
+        line-height: 47px;
+        border-radius: 30px;
+    }
+    .logo-wrapper {
+        margin-top: 25px;
+        width: 279px;
+    }
+}
+
+@media (min-width:1920px) {}
+
+@media (min-width:2000px) {
+    .coins-wrapper .coin-container {
+        max-width: 1920px;
+    }
+    .wrapper {
+        max-width: 1900px;
+    }
+}
+
+
+/*******************
+	Max Responsive Media Query
+***************************/
+
+@media (max-width:1200px) {
+    .profile-wrapper .select-wrapper .inline:first-child {
+        width: 45%;
+    }
+    .avtor-wrapper {
+        width: 94px;
+        height: 94px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:last-child {
+        width: 153px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:first-child {
+        width: 114px;
+    }
+    .profile-wrapper .main-form-wrapper {
+        padding: 25px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:last-child span {
+        font-size: 10px;
+    }
+    .promote-room-wrapper .promoteroom-container ul {
+        margin-bottom: 70px;
+    }
+    .promote-room-wrapper .promoteroom-container {
+        width: 700px;
+    }
+    .coins-wrapper .coins-plan-wrapper .package:after {
+        width: 72px;
+        height: 72px;
+    }
+    .coins-wrapper .coins-plan-wrapper h3 {
+        font-size: 45px;
+    }
+    .pb146 {
+        padding-bottom: 120px;
+    }
+    .main-btn.bluegrad.btnlg {
+        padding: 0 38px;
+    }
+    .nav-tabs>li>a {
+        font-size: 16px;
+    }
+    .top-borders:after {
+        top: 18px;
+        height: 9px;
+    }
+    .top-borders {
+        height: 9px;
+        margin-top: 9px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content p {
+        margin-bottom: 20px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content .inline-parent {
+        width: 196px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content h1 {
+        font-size: 36px;
+    }
+    nav ul li a {
+        padding: 31px 13px;
+    }
+    .main-btn {
+        width: 123px;
+    }
+    .logo-wrapper {
+        width: 167px;
+    }
+    .button-wrapper {
+        width: 254px;
+    }
+}
+
+@media (max-width:1151px) {
+    input {
+        height: 42px;
+    }
+    .mobile-admin-menu {
+        display: block;
+        background-color: $blue-txt;
+        margin-top: 0;
+        color: $white;
+        padding: 15px;
+        font-size: 24px;
+        position: relative;
+        cursor: pointer;
+        &:after {
+            content: '\f078';
+            font-family: 'FOntawesome';
+            font-size: 22px;
+            color: $white;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .profile-sidebar {
+        ul {
+            display: none;
+        }
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell label {
+        font-size: 15px;
+    }
+    .newest-store.store-spacing {
+        padding: 70px 0;
+    }
+    .coins-wrapper .coins-plan-wrapper .package:after {
+        width: 62px;
+        height: 62px;
+    }
+    .coins-wrapper .coins-plan-wrapper .package .buynow-btn {
+        padding: 10px;
+    }
+    .coins-wrapper .coins-plan-wrapper h3 {
+        font-size: 40px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content p {
+        font-size: 11px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content h1 {
+        font-size: 32px;
+    }
+    nav {
+        text-align: right;
+        padding-right: 6.1%;
+    }
+    nav ul li a {
+        padding: 31px 7px;
+    }
+}
+
+@media (max-width:991px) {
+    .main-spacing {
+        padding: 80px 0;
+    }
+    .coins-wrapper .coins-plan-wrapper .coins-plan-inner {
+        margin-top: 80px;
+    }
+    .coins-wrapper .coins-plan-wrapper .package .buynow-btn {
+        padding: 8px;
+    }
+    .coins-wrapper .coins-plan-wrapper .package {
+        padding: 32px 0px 0px 0px;
+    }
+    .coins-wrapper .coins-plan-wrapper .package:after {
+        width: 52px;
+        height: 52px;
+    }
+    .coins-wrapper .coins-plan-wrapper h3 {
+        font-size: 30px;
+    }
+    .coins-wrapper .coin-container {
+        width: 100%;
+        margin: auto;
+        display: block;
+        padding: 0 15px;
+    }
+    .tab-wrapper .nav-tabs {
+        margin-bottom: 80px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content h1 {
+        font-size: 30px;
+    }
+    .banner-wrapper .banner-content-wrapper {
+        width: 62%;
+    }
+    .copywrapper {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .common-rooms .common-room-list .inline {
+        width: 48.6%;
+    }
+    .common-rooms .common-room-list .room .room-info {
+        padding: 10px 12px;
+    }
+    .pb146 {
+        padding-bottom: 100px;
+    }
+    .room .room-info h4 {
+        font-size: 13px;
+    }
+    .main-btn.bluegrad.btnlg {
+        font-size: 14px;
+    }
+    .tab-wrapper .nav-tabs li a {
+        width: 158px;
+    }
+    nav ul li a {
+        padding: 31px 5px;
+    }
+    nav {
+        text-align: right;
+        padding-right: 10px;
+    }
+    .button-wrapper {
+        width: 196px;
+    }
+    .main-btn {
+        width: 95px;
+        font-size: 11px;
+        height: 30px;
+        line-height: 26px;
+    }
+    .logo-wrapper {
+        width: 125px;
+    }
+    nav ul li a {
+        font-size: 11px;
+    }
+}
+
+@media (max-width:980px) {}
+
+@media (max-width:767px) {
+  .profile-wrapper .main-form-wrapper .form-row-tbl .cell  label.upload-avtor{
+        font-size: 14px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl {
+    margin-bottom: 10px;
+}
+    .mobile-admin-menu { 
+    font-size: 20px;
+    }
+    .profile-wrapper select {
+        font-size: 14px;
+    }
+    .avtor-wrapper {
+        width: 57px;
+        height: 57px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:first-child {
+        width: 92px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell label {
+        font-size: 12px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:last-child {
+        width: 114px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:last-child span {
+        font-size: 9px;
+        padding: 10px;
+    }
+    .newest-store .inline-parent {
+        text-align: center;
+    }
+    .newest-store .inline {
+        width: 23%;
+    }
+    .loadmore-wrapper .inline {
+        width: auto;
+    }
+    .loadmore-wrapper .inline-parent {
+        text-align: justify;
+    }
+    .note {
+        font-size: 11px;
+        padding-left: 44px;
+        margin-top: 25px;
+    }
+    .note:before {
+        width: 28px;
+        height: 28px;
+    }
+    .note {
+        width: 100%;
+    }
+    .mt100 {
+        margin-top: 50px;
+    }
+    .main-btn.bluelogin-btn,
+    .main-btn.facebookbtn {
+        font-size: 14px;
+    }
+    .login-wrapper .nav-justified {
+        width: 100%;
+    }
+    .login-wrapper .nav-justified li a {
+        margin: 0;
+    }
+    .nav-justified {
+        display: table;
+    }
+    .nav-justified>li {
+        float: none;
+        display: table-cell;
+        width: 50%;
+    }
+    .promote-room-wrapper .promoteroom-container .inline p {
+        font-size: 18px;
+    }
+    .promote-room-wrapper .promoteroom-container .inline .icon-wrap {
+        width: 40px;
+        height: 40px;
+    }
+    .promote-room-wrapper .promoteroom-container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    .coins-wrapper .coins-plan-wrapper .package .buynow-btn {
+        padding: 4px;
+        font-size: 13px;
+    }
+    .main-spacing {
+        padding: 50px 0;
+    }
+    .pb146 {
+        padding-bottom: 50px;
+    }
+    .common-rooms .common-room-list .room .room-info {
+        padding: 10px 8px;
+    }
+    .room .room-info {
+        padding: 10px;
+    }
+    .tab-wrapper .nav-tabs {
+        margin-bottom: 50px;
+    }
+    .ads-wrapper {
+        display: none;
+    }
+    .banner-wrapper .banner-content-wrapper {
+        top: 51px;
+    }
+    .wrapper {
+        width: 100%;
+    }
+    .button-wrapper {
+        width: 260px;
+    }
+    /*============================================================MobileMenu==================================*/
+    .mobile-menu {
+        display: inline-block;
+    }
+    #nav-icon3 {
+        width: 54px;
+        height: 54px;
+        position: relative;
+        margin: 0px auto;
+        transform: rotate(0deg) scale(0.5);
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        cursor: pointer;
+        transform-origin: 33px 7px;
+    }
+    #nav-icon1 span,
+    #nav-icon3 span,
+    #nav-icon4 span {
+        display: block;
+        position: absolute;
+        height: 9px;
+        width: 100%;
+        background: $green;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+    /* Icon 3 */
+    #nav-icon3 span:nth-child(1) {
+        top: 0px;
+    }
+    #nav-icon3 span:nth-child(2),
+    #nav-icon3 span:nth-child(3) {
+        top: 18px;
+    }
+    #nav-icon3 span:nth-child(4) {
+        top: 36px;
+    }
+    #nav-icon3.open span:nth-child(1) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    #nav-icon3.open span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    #nav-icon3.open span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    #nav-icon3.open span:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    /*============================================================MobileMenu==================================*/
+    .top-borders::after {
+        top: 10px;
+        height: 5px;
+    }
+    .top-borders {
+        height: 5px;
+        margin-top: 5px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content .inline-parent {
+        width: 146px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content p {
+        font-size: 11px;
+        width: 200px;
+        margin: auto;
+        margin-bottom: auto;
+        margin-bottom: 12px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content h1 {
+        font-size: 20px;
+    }
+    .logo-wrapper {
+        width: 125px;
+        margin-top: 14px;
+    }
+    .nav-wrapper {
+        margin-top: 10px;
+    }
+    header {
+        background: $blue-d1;
+        height: 50px;
+    }
+    .slidein {
+        transform: translateX(-100%);
+        transition: all 0.3s linear;
+    }
+    .slideout {
+        transform: translateX(0);
+        transition: all 0.3s linear;
+    }
+    .nav-wrapper {
+        nav {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background: $blue-d1;
+            z-index: 5;
+            width: 70%;
+            padding: 0;
+            max-width: 310px;
+            border-right: 3px solid $blue;
+            overflow-y: auto;
+            li {
+                display: block;
+                text-align: left;
+                a {
+                    font-size: 16px;
+                    padding: 15px;
+                    display: block;
+                    border-bottom: 1px solid rgba(30, 166, 224, 0.3);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:640px) {
+    .login-wrapper .fb-spacing {
+        height: 48px;
+    }
+    .login-wrapper .login-title {
+        margin-bottom: 30px;
+    }
+    .mt100 {
+        margin-top: 30px;
+    }
+    #login {
+        width: 100%;
+        padding: 0 15px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content p {
+        font-size: 14px;
+        width: 250px;
+    }
+    .promote-room-wrapper .promoteroom-container ul {
+        margin-bottom: 50px;
+    }
+    .current-balance {
+        font-size: 14px;
+    }
+    input {
+        height: 44px;
+    }
+    .promote-room-wrapper .promoteroom-container .inline p {
+        font-size: 14.3px;
+    }
+    .promote-room-wrapper .promoteroom-container .inline {
+        padding: 0px;
+        width: 33.3%;
+    }
+    .coins-wrapper .coins-plan-wrapper h3 {
+        font-size: 26px;
+    }
+    .coins-plan-inner {
+        .inline-parent {
+            text-align: center;
+            .inline {
+                width: 31%;
+                margin: 1%;
+                margin-bottom: 45px;
+            }
+        }
+    }
+    .main-btn.bluegrad.btnlg {
+        height: 45px;
+        line-height: 41px;
+    }
+    footer {
+        .copywrapper p {
+            font-size: 12px;
+        }
+        .footer-link li a {
+            font-size: 12px;
+        }
+        .footer-link {
+            margin-bottom: 20px;
+        }
+        .inline {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .social li a {
+        padding: 0 10px;
+    }
+    .tab-wrapper .nav-tabs li a {
+        width: 130px;
+        font-size: 12px;
+    }
+    .vector-inner img {
+        width: 375px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content h1 {
+        font-size: 28px;
+    }
+    .banner-wrapper .banner-content-wrapper .banner-content .banner-inner {
+        padding: 15px;
+    }
+    .banner-wrapper .banner-content-wrapper {
+        width: 100%;
+    }
+    .vector-wrapper {
+        width: 100%;
+        opacity: 0.2;
+    }
+    .vector-inner img {
+        top: 0;
+    }
+    .banner-wrapper {
+        position: relative;
+        height: 206px;
+        .herobg img {
+            height: 100%;
+            position: absolute;
+        }
+    }
+}
+
+@media (max-width:639px) {
+    .profile-wrapper select {  
+    padding: 10px 15px;
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell label.upload-avtor {
+    font-size: 14px;
+    line-height: 36px;
+}
+    [name="gender"] + label:first-of-type,
+    [name="gender"] + label:last-of-type{ 
+    line-height: 32px;
+}
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell label {
+    font-size: 14px;
+    padding: 5px 20px;
+}
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:last-child span {
+    font-size: 11px;
+    padding: 10px 20px;
+}
+    .main-form-wrapper {
+        .tbl {
+            &:first-child {
+                .cell {
+                    &:first-child {
+                        text-align: center;
+                        .avtor-wrapper {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:first-child,
+    .profile-wrapper .main-form-wrapper .form-row-tbl .cell:last-child {
+        width: 100%;
+    }
+    .main-form-wrapper {
+        .cell {
+            display: block;
+        }
+    }
+    .loadmore-wrapper .inline p {
+        font-size: 13px;
+    }
+    .newest-store .inline {
+        width: 48%;
+    }
+}
+
+@media (max-width:480px) {
+    .promote-room-wrapper .mb50 {
+        margin-bottom: 40px;
+    }
+    .sub-title:after {
+        bottom: -13px;
+    }
+    .sub-title {
+        font-size: 20px;
+    }
+    .tab-wrapper .nav-tabs li a {
+        width: 107px;
+        font-size: 12px;
+        padding: 8px 0;
+    }
+    .logo-wrapper {
+        width: 90px;
+        margin-top: 18px;
+    }
+    .button-wrapper {
+        width: 210px;
+    }
+    .main-btn {
+        width: 74px;
+        font-size: 8px;
+        border-width: 1px;
+        height: 25px;
+        line-height: 22px;
+    }
+}
+
+@media (max-width:390px) {
+    .profile-wrapper .main-form-wrapper {
+    padding: 25px 15px;
+}
+    .login-wrapper .chk-tbl {
+        padding: 0 8px;
+    }
+    .login-wrapper .chk-cell:first-child {
+        width: 24px;
+    }
+    #login {
+        width: 100%;
+        padding: 0;
+    }
+    .login-wrapper .regular-way-txt {
+        margin-bottom: 22px;
+    }
+    .login-wrapper .fb-spacing {
+        margin: 31px 0 20px 0;
+    }
+    .main-btn.bluelogin-btn,
+    .main-btn.facebookbtn {
+        font-size: 14px;
+        height: 46px;
+        line-height: 45px;
+    }
+    .login-wrapper h2 {
+        font-size: 20.5px;
+    }
+    .current-balance {
+        font-size: 12px;
+    }
+    .promote-room-wrapper .promteroom-btn {
+        font-size: 10px !important;
+    }
+    .promote-room-wrapper .promoteroom-container .inline .icon-wrap {
+        width: 54px;
+        height: 54px;
+    }
+    .promote-room-wrapper .promoteroom-container .inline p {
+        font-size: 20.3px;
+        padding: 0 14%;
+    }
+    .promote-room-wrapper .promoteroom-container .inline {
+        padding: 0px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .footer-link li a {
+        padding: 0 12px;
+    }
+    .coins-wrapper .current-balance {
+        font-size: 13px;
+    }
+    .coins-plan-inner .inline-parent .inline {
+        width: 48%;
+        margin: 1%;
+        margin-bottom: 45px;
+    }
+}
+
+@media (max-width:359px) {
+    .main-btn.bluegrad.btnlg {
+        padding: 0 40px;
+    }
+    .tab-wrapper .nav-tabs li a {
+        width: 93px;
+        font-size: 11px;
+        padding: 8px 0;
+    }
+    .social li a {
+        padding: 0 7px;
+    }
+    footer .footer-link li a {
+        font-size: 11px;
+        padding: 0 9px;
+    }
+    .main-btn {
+        width: 65px;
+        font-size: 8px;
+    }
+    .button-wrapper {
+        width: 186px;
+    }
+}
+
+@media (max-width:320px) {}

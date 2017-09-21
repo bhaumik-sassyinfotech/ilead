@@ -1,0 +1,26 @@
+.col-lg-3__large{
+    width: 28.22%;
+    float: left;
+}
+.col-lg-9__large{
+    width: 71.77%;
+    float: left;
+}
+
+@include  desktopSmall {
+    .col-lg-3__large{
+    width: 28%;
+}
+    .col-lg-9__large{
+    width: 72%;
+}
+  }
+
+@include  tab1023 {
+.col-lg-9__large {
+    width: 100%;
+}
+  }
+
+
+

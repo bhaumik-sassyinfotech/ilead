@@ -1,0 +1,110 @@
+/*==========================================Start Footer====================================================*/
+@import 'var';
+.footer {
+    @extend %full;
+    padding: 40px 0 60px 0;
+    background-color: $b;
+    
+    .footer-btn-parent{
+        display: block;
+        text-align: center;
+        font-size: 0;
+        &__b-m{
+            margin-bottom: 65px;
+        }
+        .footer-btn-inner{
+            display: inline-block;
+            margin: 0 60px;
+        }
+    }
+   .foo-terms ul .app-wrap{
+        a{
+         
+            padding: 0 18px;
+            font-size: 15px;
+            color: #fff;
+            border: 0;
+        }
+    }
+    .footer-main-tbl {
+        display: block;
+        font-size: 0;
+        text-align: center;
+        .footer-main-cell {
+           display: inline-block;
+            &:first-child {
+                width: 292px;              
+                padding-right: 54px;
+                padding-left: 32px;
+            }
+            nav {
+                .nav-footer {
+                    list-style-type: none;
+                    height: 47px;
+                    @extend %tbl;
+                    font-size: 0;
+                    text-align: left;
+                    padding: 0;
+                    padding-bottom: 32px;
+                    margin-bottom: 32px;
+                    border-bottom: 1px solid #fff;
+                    li {
+                        text-align: center;
+                        vertical-align: top;
+                        width: auto;
+                        display: inline-block;
+                        &:last-child{
+                            a{
+                                padding-right: 0;
+                            }
+                        }
+                        a {
+                            color: $white;
+                            text-align: center;
+                            padding-right: 56px;
+                            font-size: 16px;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .foo-terms{
+         padding: 0;
+        border-bottom: 1px solid #fff;
+        text-align: left;
+        padding-bottom: 32px;
+        ul{
+            padding: 0;
+            list-style-type: none;           
+            font-size: 0;
+            @extend %tbl;
+                li{
+                    display: inline-block;
+                    vertical-align: bottom;
+
+                    &:first-child{
+                        a{
+                            padding-left: 0;
+                            
+                        }
+                    }
+                    &:last-child{
+                        a{
+                            border-right: 0;
+                            padding-right: 0;
+                        }
+                    }
+                    a{
+                        color: $white;
+                        padding: 0 20px;
+                        font-size: 13.8px;
+                        border-right: 1px solid #fff;
+                    }
+                    }
+        }
+    }
+}
+/*==========================================End Footer====================================================*/

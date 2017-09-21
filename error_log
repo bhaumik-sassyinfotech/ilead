@@ -1,0 +1,24 @@
+[31-Aug-2017 05:40:24 UTC] PHP Fatal error:  Cannot redeclare class App\Http\Controllers\Auth\UpdatePasswordController in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/Auth/UpdatePasswordController.php on line 68
+[31-Aug-2017 08:42:05 UTC] PHP Parse error:  syntax error, unexpected 'accordion' (T_STRING) in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 10
+[31-Aug-2017 08:42:30 UTC] PHP Parse error:  syntax error, unexpected 'accordion' (T_STRING) in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 10
+[31-Aug-2017 08:42:43 UTC] PHP Parse error:  syntax error, unexpected 'accordion' (T_STRING) in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 10
+[31-Aug-2017 08:42:46 UTC] PHP Parse error:  syntax error, unexpected 'accordion' (T_STRING) in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 10
+[31-Aug-2017 08:42:52 UTC] PHP Parse error:  syntax error, unexpected 'accordion' (T_STRING) in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 10
+[05-Sep-2017 03:30:49 UTC] PHP Fatal error:  Cannot redeclare class App\Http\Controllers\DashboardController in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/DashboardController.php on line 141
+[04-Sep-2017 23:54:04 America/Chicago] PHP Parse error:  syntax error, unexpected 'to' (T_STRING) in /home4/demosh50/public_html/mummaco/bootstrap/app.php on line 2
+[08-Sep-2017 06:35:18 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Auth' not found in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/FaqmoduleController.php on line 21
+[08-Sep-2017 11:38:07 UTC] PHP Parse error:  syntax error, unexpected end of file in /home4/demosh50/public_html/mummaco/app/Helpers.php on line 84
+[08-Sep-2017 13:06:36 UTC] PHP Parse error:  syntax error, unexpected ';' in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 8
+[08-Sep-2017 13:06:58 UTC] PHP Parse error:  syntax error, unexpected ';' in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 8
+[08-Sep-2017 13:44:34 UTC] PHP Fatal error:  Undefined class constant 'isAdmin' in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 1
+[11-Sep-2017 14:18:46 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Auth\Auth' not found in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/Auth/LoginController.php on line 34
+[11-Sep-2017 14:19:52 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Auth\Auth' not found in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/Auth/LoginController.php on line 34
+[11-Sep-2017 09:28:41 America/Chicago] PHP Warning:  The use statement with non-compound name 'Auth' has no effect in /home4/demosh50/public_html/mummaco/app/Helpers.php on line 3
+[11-Sep-2017 09:36:44 America/Chicago] PHP Warning:  The use statement with non-compound name 'Auth' has no effect in /home4/demosh50/public_html/mummaco/app/Helpers.php on line 6
+[11-Sep-2017 09:36:44 America/Chicago] PHP Warning:  The use statement with non-compound name 'Auth' has no effect in /home4/demosh50/public_html/mummaco/app/Helpers.php on line 6
+[11-Sep-2017 17:44:13 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF), expecting function (T_FUNCTION) in /home4/demosh50/public_html/mummaco/app/Http/Middleware/RedirectIfAuthenticatedAdmin.php on line 20
+[11-Sep-2017 17:45:57 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF), expecting function (T_FUNCTION) in /home4/demosh50/public_html/mummaco/app/Http/Middleware/RedirectIfAuthenticatedAdmin.php on line 20
+[11-Sep-2017 17:47:25 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF), expecting function (T_FUNCTION) in /home4/demosh50/public_html/mummaco/app/Http/Middleware/RedirectIfAuthenticatedAdmin.php on line 24
+[13-Sep-2017 10:32:14 UTC] PHP Warning:  Unterminated comment starting line 93 in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/MetaController.php on line 93
+[13-Sep-2017 10:32:15 UTC] PHP Parse error:  syntax error, unexpected 'source' (T_STRING), expecting function (T_FUNCTION) in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/MetaController.php on line 94
+[13-Sep-2017 11:24:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 58

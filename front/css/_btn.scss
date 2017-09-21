@@ -1,0 +1,105 @@
+.default-btn {
+    background-color: $btncolor;
+    height: 75px;
+    line-height: 75px;
+    font-family: $font-suomi;
+    font-size: 46px;
+    border-radius: 35px;
+    cursor: pointer;
+    padding: 0;
+    //    border-bottom: 5px solid $btn-sh-color;
+    box-shadow: 0px 4px 0px $btn-sh-color, 0px 3px 15px rgba(0, 0, 0, 0), inset 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 0px 3px rgba(255, 255, 255, 0);
+    -webkit-transform: rotateX(10deg);
+    transition: all .1s ease-in-out;
+    -webkit-transform: rotateX(10deg);
+    &:hover {
+        box-shadow: 0px 2px 0px $btn-sh-color, 0px 1px 1px rgba(0, 0, 0, 0), inset 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 0px 3px rgba(255, 255, 255, 0);
+        -webkit-transform: translate(0, 2px) rotateX(10deg);
+        -moz-transform: translate(0, 2px);
+        transform: translate(0, 2px);
+        a{
+            color: $black !important;
+        }
+    }
+    a {
+        color: $black;
+    }
+    .inline{
+    display: inline-block;
+    vertical-align: middle;
+        margin: 0 8px;
+}
+    
+    
+    
+    &.baby-pink-btn{
+        background-color: $baby-pink;
+        box-shadow: 0px 4px 0px $dark-pink, 0px 3px 15px transparent, inset 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 0px 3px rgba(255, 255, 255, 0);
+        
+        &:hover {
+        box-shadow: 0px 2px 0px $dark-pink, 0px 1px 1px rgba(0, 0, 0, 0), inset 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 0px 3px rgba(255, 255, 255, 0);
+        -webkit-transform: translate(0, 2px) rotateX(10deg);
+        -moz-transform: translate(0, 2px);
+        transform: translate(0, 2px);
+        a{
+            color: $black !important;
+        }
+    }
+    }
+    &.baby-yellow-btn{
+         background-color: $baby-yellow;
+         box-shadow: 0px 4px 0px $dark-yellow, 0px 3px 15px transparent, inset 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 0px 3px rgba(255, 255, 255, 0);
+        
+          &:hover {
+        box-shadow: 0px 2px 0px $dark-yellow, 0px 1px 1px rgba(0, 0, 0, 0), inset 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 0px 3px rgba(255, 255, 255, 0);
+        -webkit-transform: translate(0, 2px) rotateX(10deg);
+        -moz-transform: translate(0, 2px);
+        transform: translate(0, 2px);
+        a{
+            color: $black !important;
+        }
+    }
+    }
+    
+    &__small{
+        padding:0 20px;
+    }
+
+}
+
+.portal_btn{
+    border: 1px solid #fee5e0;
+    border-radius: 23px;
+    color: $black;
+    transition: all 0.2s linear;
+    text-transform: uppercase;
+        &__small{       
+        display: inline-block;
+        padding: 0px 25px;
+    }
+    &__mixcolor{
+        background-color: #fee5e0;
+        box-shadow: 0px 4px 0px #ffbdc3, 0px 3px 15px transparent, inset 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 0px 3px rgba(255, 255, 255, 0);
+        
+        &:hover{
+            color: $black !important;
+           box-shadow: 0px 2px 0px #ffbdc3, 0px 1px 1px rgba(0, 0, 0, 0), inset 0px 1px 0px rgba(255, 255, 255, 0), inset 0px 0px 3px rgba(255, 255, 255, 0);
+        -webkit-transform: translate(0, 2px) rotateX(10deg);
+        -moz-transform: translate(0, 2px);
+        transform: translate(0, 2px);
+        }
+        
+    }
+    &__fixsmall{
+        width: 124px;
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        height: 45px;
+        line-height: 45px;
+        color: #000;
+    }
+    &__gutter{
+        margin: 0 10px;
+    }
+}

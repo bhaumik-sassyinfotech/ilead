@@ -1,0 +1,20 @@
+/*
+-----------------------------------------------------
+FileName:    fonts.css
+-----------------------------------------------------
+*/
+
+
+@font-face {
+	font-family: 'GOGOIA';
+	src: url('../fonts/GOGOIA-Regular.eot');
+	src: url('../fonts/GOGOIA-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/GOGOIA-Regular.woff2') format('woff2'),
+		url('../fonts/GOGOIA-Regular.woff') format('woff'),
+		url('../fonts/GOGOIA-Regular.ttf') format('truetype'),
+		url('../fonts/GOGOIA-Regular.svg#GOGOIA-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+  

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/mummaco/app/Helpers.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/app/Exceptions/Handler.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/public/system.xml</file>
+            <file>file:/C:/xampp/htdocs/mummaco/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/resources/views/admin/emailtemplate/create.blade.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/app/Http/Controllers/Admin/EmailtemplateController.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/resources/views/admin/settings/create.blade.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/resources/views/admin/emailtemplate/edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/app/Http/Controllers/Admin/SettingsController.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/app/Http/Controllers/Admin/NotificationController.php</file>
+            <file>file:/C:/xampp/htdocs/mummaco/app/Settings.php</file>
+        </group>
+    </open-files>
+</project-private>

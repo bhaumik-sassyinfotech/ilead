@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @include('admin.partials.head')
+</head>
+<body class="page-header-fixed">
+    <div style="margin-top: 5%;"></div>
+    <div class="container-fluid">
+        @yield('content')
+    </div>
+    <div class="scroll-to-top"
+         style="display: none;">
+        <i class="fa fa-arrow-up"></i>
+    </div>
+    @include('admin.partials.javascripts')
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+
+$star-rating-outline-color: #cccccc;
+$star-rating-fill-color: #ffdcc0;
+$star-rating-aside-color: #999999;
+
+.star-rating {
+   font-size: 35px;
+  
+  .star-rating-stars {   
+    unicode-bidi: bidi-override;
+    color: $star-rating-outline-color;
+  
+    .star-rating-star {
+      float: left;
+      width: 0.88em;
+      
+      &:before {
+        content: "\2605";
+        position: absolute;
+        color: $star-rating-fill-color;
+         
+      }
+    }
+  }
+
+  .star-rating-current-value:before,
+  .star-rating-current-value ~ .star-rating-star:before {
+    content: normal;
+  }
+
+//  &.editable:hover .star-rating-current-value:before,
+//  &.editable:hover .star-rating-current-value ~ .star-rating-star:before {
+//    content: "\2605";
+//    position: absolute;
+//    color: $star-rating-fill-color;
+//  }
+  
+//  &.editable .star-rating-star:hover,
+//  &.editable .star-rating-star:hover ~ .star-rating-star:before {
+//    content: normal;
+//    cursor: pointer;
+//  }
+
+  .star-rating-aside {
+    float: left;
+    margin-left: 5px;
+    color: $star-rating-aside-color;
+    font-size: 11px;
+    line-height: 24px;
+  }
+  
+  &.small {
+    font-size: 16px;
+    line-height: 1;
+    
+    .star-rating-aside {
+      line-height: 16px;
+    }
+  }
+  
+  &.large {
+    font-size: 20px;
+    
+    .star-rating-aside {
+      line-height: 26px;
+    }
+  }
+}
