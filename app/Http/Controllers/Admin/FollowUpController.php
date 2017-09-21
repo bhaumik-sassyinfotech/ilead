@@ -131,8 +131,6 @@
             {
                 return redirect()->route('follow_up.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
             }
-            
-            
         }
         
         /**

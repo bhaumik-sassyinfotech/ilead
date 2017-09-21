@@ -113,6 +113,7 @@
 
 //            $leadData = InternationalLead::with('latestComment')->where('lead_id',$id)->first();
             $leadData = InternationalLead::with('latestComment')->find($id);
+
 //            dd($leadData);
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list'));
         }
@@ -125,8 +126,8 @@
          */
         public function update($id , Request $request)
         {
-
-//            dd("hi");
+            
+//            dd($request);
 
 //            $this->form_validate($request);
             
@@ -146,17 +147,27 @@
             $lead->skype = $request->skype;
             $lead->phone_number = $request->phone_number;
             if ($lead->save())
-                dd("save");
-            else
-                dd("failed");
-            
-            
+            {
+                $comment = new internationalLeadComment();
+                $comment->lead_comment = $request->lead_comment;
+                if ($comment->save())
+                {
+                    return redirect()->route('international.index')->with('success' , 'International lead ' . Config::get('constant.UPDATE_MESSAGE'));
+                } else
+                {
+                    return redirect()->route('international.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
+                }
+            } else
+            {
+                return redirect()->route('international.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
+            }
             
             return view('admin.international_leads.update');
         }
         
         /**
          * Remove the specified resource from storage.
+         *
          * @return \Illuminate\Http\Response
          */
         public function destroy($id)
@@ -175,10 +186,9 @@
                     return redirect()->route('international.index')->with('err_msg' , 'Follow up ' . Config::get('constant.TRY_MESSAGE'));
                 }
             }
-    
+            
             return redirect()->route('international.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
         }
-        
         
         
         public function form_validate(Request $request)
