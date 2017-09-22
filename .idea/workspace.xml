@@ -8,15 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e7547e89-f6a6-4ba5-a3c2-4f3dbf4d3ee0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/FollowUpController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FollowUpController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/InternationalLead.php" afterPath="$PROJECT_DIR$/app/InternationalLead.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/InternationalNote.php" afterPath="$PROJECT_DIR$/app/InternationalNote.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_09_22_045353_create_international_notes_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_09_22_045353_create_international_notes_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/follow_up/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/follow_up/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/international_leads/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/international_leads/edit.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -101,8 +93,8 @@
       <file leaf-file-name="js.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="84" column="54" lean-forward="true" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="54" />
+            <state relative-caret-position="154">
+              <caret line="93" column="24" lean-forward="false" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -113,6 +105,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="445">
               <caret line="171" column="48" lean-forward="false" selection-start-line="171" selection-start-column="38" selection-end-line="171" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/follow_up/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -220,12 +222,12 @@
         <option value="$PROJECT_DIR$/app/internationalNote.php" />
         <option value="$PROJECT_DIR$/app/InternationalNote.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_09_22_045353_create_international_notes_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/follow_up/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/FollowUpController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/InternationalLead.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/international_leads/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/follow_up/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" />
       </list>
     </option>
@@ -590,12 +592,12 @@
       <workItem from="1505882245080" duration="22641000" />
       <workItem from="1505908181862" duration="6708000" />
       <workItem from="1505968675838" duration="18945000" />
-      <workItem from="1506054988328" duration="18133000" />
+      <workItem from="1506054988328" duration="19304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118136000" />
+    <option name="totallyTimeSpent" value="119307000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -615,7 +617,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45050216" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3055954" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21709532" sideWeight="0.49462366" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1031,14 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/follow_up/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
@@ -1098,10 +1092,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/follow_up/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="84" column="54" lean-forward="true" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="54" />
+        <state relative-caret-position="154">
+          <caret line="93" column="24" lean-forward="false" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="45" />
           <folding />
         </state>
       </provider>

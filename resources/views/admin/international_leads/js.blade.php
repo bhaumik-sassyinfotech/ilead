@@ -71,7 +71,7 @@
             dyn.on('click', '.saveBtn', function ()
             {
                 var that = $(this);
-                var lead_id = $("#lead_id").val();
+                var lid = $("#lead_id").val();
                 var count = that.data('id');
                 var textareaSelector = '#lead_note_' + count;
                 var noteidSelector = '#note_id_' + count;
@@ -82,7 +82,7 @@
                 if ( textarea_val != '' )
                 {
                     var requestType = '' , URLString = '';
-                    var dataString = { _token : token  };
+                    var dataString = { _token : token , lead_id : lid , lead_note : textarea_val };
                     if( note_val != '' )
                     { //update note
                         requestType = 'PUT';
