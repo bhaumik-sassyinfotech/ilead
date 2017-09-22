@@ -23,6 +23,7 @@ return array(
     'CreateIncomeSourcesTable' => $baseDir . '/database/migrations/2016_11_01_094436_create_income_sources_table.php',
     'CreateInternationalLeadCommentsTable' => $baseDir . '/database/migrations/2017_09_19_080656_create_international_lead_comments_table.php',
     'CreateInternationalLeadsTable' => $baseDir . '/database/migrations/2017_09_15_130103_create_international_leads_table.php',
+    'CreateInternationalNotesTable' => $baseDir . '/database/migrations/2017_09_22_045353_create_international_notes_table.php',
     'CreateNotesTable' => $baseDir . '/database/migrations/2016_11_02_020222_create_notes_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePermissionTable' => $baseDir . '/database/migrations/2017_08_02_072843_create_permission_table.php',

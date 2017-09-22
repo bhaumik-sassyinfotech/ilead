@@ -13,8 +13,7 @@
     @endif
     <div>
         <div class="col-md-6 nopadding"><h3 class="page-title">Follow Up Module</h3></div>
-        <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a>
-                > Follow Up</p></div>
+        <div class="col-md-6 pull-right nopadding"> <p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a> > Follow Up </p> </div>
     </div>
 
     <div class="new_button">

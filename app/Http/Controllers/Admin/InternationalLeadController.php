@@ -208,4 +208,9 @@
             }
             
         }
+        
+        public function ajaxNotesUpdate(Request $request)
+        {
+        
+        }
     }

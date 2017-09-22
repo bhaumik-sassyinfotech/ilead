@@ -345,6 +345,7 @@ class ComposerStaticInit4fd248683374ca86ebf60a1f45f7b89d
         'CreateIncomeSourcesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_01_094436_create_income_sources_table.php',
         'CreateInternationalLeadCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_19_080656_create_international_lead_comments_table.php',
         'CreateInternationalLeadsTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_15_130103_create_international_leads_table.php',
+        'CreateInternationalNotesTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_22_045353_create_international_notes_table.php',
         'CreateNotesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_02_020222_create_notes_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePermissionTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_02_072843_create_permission_table.php',
