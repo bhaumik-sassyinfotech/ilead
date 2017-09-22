@@ -112,7 +112,7 @@
             //
             $validator = Validator::make($request->all() ,
                 [
-                    'title' => "required|unique:follow_ups" ,
+                    'title' => 'required|unique:follow_ups,title,'.$id ,
                 ]
             );
             

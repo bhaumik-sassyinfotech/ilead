@@ -9,5 +9,7 @@ class InternationalNote extends Model
 {
     //
     use SoftDeletes;
+    protected $primaryKey = 'note_id';
+    protected $dates = ['deleted_at'];
     
 }

@@ -12,6 +12,7 @@
     use App\Http\Controllers\Controller;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Facades\Redirect;
+    use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\Validator;
     
     class InternationalLeadController extends Controller
@@ -24,6 +25,7 @@
          */
         public function index()
         {
+            dd(Session::all());
             $internationalLeads = InternationalLead::with('latestComment')->desc()->paginate(1);
             
             return view("admin.international_leads.index" , compact('internationalLeads'));
@@ -148,13 +150,15 @@
             $lead->phone_number = $request->phone_number;
             if ($lead->save())
             {
-                $comment = new internationalLeadComment();
+//                $comment = new internationalLeadComment();
+                $comment = internationalLeadComment::where('lid',$lead->lead_id)->first();
                 $comment->lead_comment = $request->lead_comment;
                 if ($comment->save())
                 {
                     return redirect()->route('international.index')->with('success' , 'International lead ' . Config::get('constant.UPDATE_MESSAGE'));
                 } else
                 {
+                    
                     return redirect()->route('international.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
                 }
             } else
@@ -209,8 +213,17 @@
             
         }
         
-        public function ajaxNotesUpdate(Request $request)
+        public function ajaxInsert(Request $request)
         {
-        
+            dd("ajax insert operation.");
         }
+        public function ajaxUpdate(Request $request)
+        {
+            dd("ajax update operation");
+        }
+        public function ajaxDelete(Request $request)
+        {
+            dd("ajax Delete operation.");
+        }
+    
     }

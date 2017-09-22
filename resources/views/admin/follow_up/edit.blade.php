@@ -6,7 +6,7 @@
         <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a>
                 > <a href="{{ route('follow_up.index') }}">Follow Ups</a> > Create Follow Up</p></div>
     </div>
-    {!! Form::model($follow, ['method' => 'PUT', 'route' => ['follow_up.update', $follow->id]]) !!}
+    {{ Form::model($follow, ['method' => 'PUT', 'route' => ['follow_up.update', $follow->id]]) }}
     <div class="new_button">
         <div class="pull-right extra_button">
             <input type="submit" name="create_follow_up" class="btn btn-success" value="save">

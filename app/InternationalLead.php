@@ -18,7 +18,7 @@ class InternationalLead extends Model
     {
         return $query->orderBy( 'updated_at' , 'DESC');
     }
- 
+    
     
 //    public function comments()
 //    {

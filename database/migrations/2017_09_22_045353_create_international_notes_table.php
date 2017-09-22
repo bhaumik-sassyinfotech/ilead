@@ -15,6 +15,8 @@ class CreateInternationalNotesTable extends Migration
     {
         Schema::create('international_notes', function (Blueprint $table) {
             $table->increments('note_id');
+            $table->integer('lid')->comment('lead id for which notes are added')->unsigned();
+            $table->foreign('lid')->references('lead_id')->on('international_leads');
             $table->text('note_desc');
             $table->integer('user_added_by');
             $table->timestamps();
