@@ -109,7 +109,7 @@
                 data: dataString,
                 url:  URLString,
                 success: function (response)
-                {
+                { // change hidden value of 'note_id' if insert operation is performed
                     alert("success");
                 }
             });

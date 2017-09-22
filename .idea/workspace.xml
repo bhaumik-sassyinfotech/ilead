@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7547e89-f6a6-4ba5-a3c2-4f3dbf4d3ee0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,8 +92,8 @@
       <file leaf-file-name="js.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="93" column="24" lean-forward="false" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="45" />
+            <state relative-caret-position="299">
+              <caret line="111" column="86" lean-forward="false" selection-start-line="111" selection-start-column="86" selection-end-line="111" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -592,12 +591,12 @@
       <workItem from="1505882245080" duration="22641000" />
       <workItem from="1505908181862" duration="6708000" />
       <workItem from="1505968675838" duration="18945000" />
-      <workItem from="1506054988328" duration="19304000" />
+      <workItem from="1506054988328" duration="19366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119307000" />
+    <option name="totallyTimeSpent" value="119369000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1102,8 +1101,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="93" column="24" lean-forward="false" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="45" />
+        <state relative-caret-position="299">
+          <caret line="111" column="86" lean-forward="false" selection-start-line="111" selection-start-column="86" selection-end-line="111" selection-end-column="86" />
           <folding />
         </state>
       </provider>
