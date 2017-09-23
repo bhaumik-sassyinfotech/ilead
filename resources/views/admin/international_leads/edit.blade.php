@@ -98,19 +98,18 @@
             </div>
             <div class="row form-group">
                 <div class="col-md-8">
-                            <textarea placeholder="Enter Comment" name="lead_comment" id="lead_comment" cols="30" rows="10" class="form-control">
-                                {{ $leadData->latestComment->lead_comment }}
-                            </textarea>
+                    <textarea placeholder="Enter Comment" name="lead_comment" id="lead_comment" cols="30" rows="10"
+                              class="form-control">{{ (isset($leadData->latestComment->lead_comment)) ? nl2br($leadData->latestComment->lead_comment) : '' }}</textarea>
                 </div>
             </div>
             <div class="row form-group" id="dynamic-div">
                 <input type="button" class="btn btn-success addNote" value="Add More">
                 <div class="col-md-12 notesContainer">
 
-                    <input type="hidden" name="note_id_1" value="" >
+                    <input type="hidden" id="note_id_1" name="note_id_1" value="" >
 
                     <div class="col-md-6">
-                            <textarea placeholder="Enter notes" name="lead_notes_1" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea placeholder="Enter notes" name="lead_note_1" id="lead_note_1" cols="30" rows="10" class="form-control"></textarea>
                     </div>
                     <div class="col-md-3">
                         <button type="button" data-id = "1" name="save" class="btn btn-success saveBtn">Save</button>
@@ -130,7 +129,7 @@
 
 @section('javascript')
     <script>
-        var divCount = '{{ (isset($count)) ? $count : 0 }}';
+        var divCount = '{{ (isset( $count ))?$count:1 }}';
     </script>
     @include('admin.international_leads.js')
 @stop

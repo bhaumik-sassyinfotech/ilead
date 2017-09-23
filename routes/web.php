@@ -168,9 +168,9 @@
             Route::post('/metaSearch' , 'Admin\MetaController@metaSearch');
             Route::get('metaSearch' , 'Admin\MetaController@metaSearch');
             //International Lead
-            Route::post('international/ajaxInsert' , 'Admin\InternationalLeadController@ajaxInsert');
-            Route::put('international/ajaxUpdate' , 'Admin\InternationalLeadController@ajaxUpdate');
-            Route::delete('international/ajaxDelete' , 'Admin\InternationalLeadController@ajaxDelete');
+            Route::post('international/ajaxInsert' , 'Admin\InternationalLeadController@ajaxInsert')->name('international.ajaxInsert');
+            Route::put('international/ajaxUpdate' , 'Admin\InternationalLeadController@ajaxUpdate')->name('international.ajaxUpdate');
+            Route::delete('international/ajaxDelete' , 'Admin\InternationalLeadController@ajaxDelete')->name('international.ajaxDelete');
             Route::resource('international' , 'Admin\InternationalLeadController');
         });
     });

@@ -6,10 +6,13 @@
     use App\InternationalLead;
     use App\internationalLeadComment;
     use App\FollowUp;
+    use App\InternationalLeadNote;
     use Carbon\Carbon;
     use Config;
+    use function foo\func;
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
+    use Illuminate\Http\Response;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Facades\Redirect;
     use Illuminate\Support\Facades\Session;
@@ -25,7 +28,7 @@
          */
         public function index()
         {
-            dd(Session::all());
+//            dd(Session::all());
             $internationalLeads = InternationalLead::with('latestComment')->desc()->paginate(1);
             
             return view("admin.international_leads.index" , compact('internationalLeads'));
@@ -74,7 +77,7 @@
             {
                 $comment = new internationalLeadComment();
                 $comment->lid = $lead->id;
-                $comment->lead_comment = $request->lead_comment;
+                $comment->lead_comment = trim($request->lead_comment);
                 if ($comment->save())
                 {
                     return redirect()->route('international.index')->with('success' , 'International Lead ' . Config::get('constant.ADDED_MESSAGE'));
@@ -109,6 +112,11 @@
             
             $currencies = Currency::all();
             $follow_list = FollowUp::all();
+//            $notes = InternationalLead::with('allNotes' , function ($q)
+//            {
+//                return $q->where('lid',$id);
+//            })->get();
+//            dd($notes);
 //            $leadData = InternationalLead::where('lead_id' , $id)->first();
 //            $leadComment = InternationalLeadComment::where('lid' , $leadData->lead_id)->orderBy('updated_at' , 'DESC')->get();
 //            $leadData = InternationalLead::with('comments')->where('lead_id',$id)->first();
@@ -116,7 +124,7 @@
 //            $leadData = InternationalLead::with('latestComment')->where('lead_id',$id)->first();
             $leadData = InternationalLead::with('latestComment')->find($id);
 
-//            dd($leadData);
+//dd($leadData);
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list'));
         }
         
@@ -152,7 +160,7 @@
             {
 //                $comment = new internationalLeadComment();
                 $comment = internationalLeadComment::where('lid',$lead->lead_id)->first();
-                $comment->lead_comment = $request->lead_comment;
+                $comment->lead_comment = trim($request->lead_comment);
                 if ($comment->save())
                 {
                     return redirect()->route('international.index')->with('success' , 'International lead ' . Config::get('constant.UPDATE_MESSAGE'));
@@ -215,11 +223,27 @@
         
         public function ajaxInsert(Request $request)
         {
-            dd("ajax insert operation.");
+            $note = new InternationalLeadNote();
+            $note->lid = $request->lead_id;
+            $note->note_desc = $request->lead_note;
+            if($note->save())
+            {
+                return response()->json(['note_id' => $note->note_id , 'msg' => 'Note have been saved successfully.' ]);
+            } else {
+                return response()->json(['note_id' => $note->note_id , 'msg' => 'Please try again.' ]);
+            }
         }
         public function ajaxUpdate(Request $request)
         {
-            dd("ajax update operation");
+            $note = InternationalLeadNote::find($request->note_id);
+            $note->lid = $request->lead_id;
+            $note->note_desc = $request->lead_note;
+            if($note->save())
+            {
+                return response()->json(['msg' => 'Notes have been saved successfully.'] , 200);
+            } else {
+                return response()->json(['msg' => 'Some error occurred.']);
+            }
         }
         public function ajaxDelete(Request $request)
         {

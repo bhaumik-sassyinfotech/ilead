@@ -5,87 +5,97 @@
         commentSection(divCount);
         saveNote()
     });
-        function commentSection( cnt )
-        {
-            var count = cnt;
-            dyn = $("#dynamic-div");
-            var parentClass = 'notesContainer';
-            var removeBtnClass = 'removeBtn';
-            var hiddenClass = 'hidden';
-            var addMoreBtnClass = 'addNote';
-            var lead_id = '{{ $leadData->lead_id }}';
-            btnToggle();
+    function commentSection( cnt )
+    {
+        var count = cnt;
+        dyn = $("#dynamic-div");
+        var parentClass = 'notesContainer';
+        var removeBtnClass = 'removeBtn';
+        var hiddenClass = 'hidden';
+        var addMoreBtnClass = 'addNote';
+        var lead_id = '{{ $leadData->lead_id }}';
+        btnToggle();
 
-            dyn.on('click', '.' + removeBtnClass, function ()
-            {
-                if ( $("." + parentClass).length > 1 )
-                { //hide remove button
+        dyn.on('click', '.' + removeBtnClass, function ()
+        {
+            if ( $("." + parentClass).length > 1 )
+            { //hide remove button
 //                console.log($(".commentContainer").length);
-                    $(this).parent('div').parent('div').remove();
-                    btnToggle(parentClass);
-                } else
-                { // show remove button
-                    $("." + removeBtnClass).removeClass(hiddenClass);
-                    btnToggle(parentClass);
-                }
-            });
-            function btnToggle( parentClassName )
-            {
-                var len = $('.' + parentClassName).length;
+                $(this).parent('div').parent('div').remove();
+                btnToggle(parentClass);
+            } else
+            { // show remove button
+                $("." + removeBtnClass).removeClass(hiddenClass);
+                btnToggle(parentClass);
+            }
+        });
+        function btnToggle( parentClassName )
+        {
+            var len = $('.' + parentClassName).length;
 
 
 //            console.log("len = "+len);
-                removeBtn = $("." + removeBtnClass);
+            removeBtn = $("." + removeBtnClass);
 
-                if ( len >= 2 )
-                {
-                    removeBtn.removeClass(hiddenClass);
-
-                } else
-                {
-                    removeBtn.addClass(hiddenClass);
-                }
-            }
-
-            dyn.on('click', '.' + addMoreBtnClass, function ()
+            if ( len >= 2 )
             {
-                addField();
+                removeBtn.removeClass(hiddenClass);
 
-
-                btnToggle(parentClass);
-            });
-
-            function addField()
+            } else
             {
-                dyn = $("#dynamic-div");
-                count++;
-//            var content = '<div class="col-md-12 commentContainer"><div class="col-md-8"><textarea placeholder="Enter Comment" name="lead_comment[]" id="lead_comment_' + count + '" cols="30" rows="10" class="form-control"></textarea></div><div class="col-md-4"><input class="btn btn-danger removeBtn" type="button" value="Remove"></div></div>';
-                var content = '<div class="col-md-12 ' + parentClass + '"><input type="hidden" id="note_id_' + count + '" name="note_id_' + count + '" value="" ><div class="col-md-6"><textarea placeholder="Enter notes" name="lead_note_' + count + '" id="lead_note_' + count + '" cols="30" rows="10" class="form-control"></textarea></div><div class="col-md-3"><button type="button" name="save" data-id = "' + count + '" class="btn btn-success saveBtn">Save</button></div><div class="col-md-3"><button class="btn btn-danger removeBtn" data-id = "' + count + '" type="button" value="remove">Remove</button></div></div>';
-                dyn.append(content);
+                removeBtn.addClass(hiddenClass);
             }
         }
 
-        function saveNote()
+        dyn.on('click', '.' + addMoreBtnClass, function ()
+        {
+            addField();
+
+
+            btnToggle(parentClass);
+        });
+
+        function addField()
         {
             dyn = $("#dynamic-div");
-            dyn.on('click', '.saveBtn', function ()
-            {
-                var that = $(this);
-                var lid = $("#lead_id").val();
-                var count = that.data('id');
-                var textareaSelector = '#lead_note_' + count;
-                var noteidSelector = '#note_id_' + count;
-                var note_val = $(noteidSelector).val();
-                var textarea_val = $(textareaSelector).val();
-                var token = $('input[name="_token"]').val();
+            count++;
+//            var content = '<div class="col-md-12 commentContainer"><div class="col-md-8"><textarea placeholder="Enter Comment" name="lead_comment[]" id="lead_comment_' + count + '" cols="30" rows="10" class="form-control"></textarea></div><div class="col-md-4"><input class="btn btn-danger removeBtn" type="button" value="Remove"></div></div>';
+            var content = '<div class="col-md-12 ' + parentClass + '"><input type="hidden" id="note_id_' + count + '" name="note_id_' + count + '" value="" ><div class="col-md-6"><textarea placeholder="Enter notes" name="lead_note_' + count + '" id="lead_note_' + count + '" cols="30" rows="10" class="form-control"></textarea></div><div class="col-md-3"><button type="button" name="save" data-id = "' + count + '" class="btn btn-success saveBtn">Save</button></div><div class="col-md-3"><button class="btn btn-danger removeBtn" data-id = "' + count + '" type="button" value="remove">Remove</button></div></div>';
+            dyn.append(content);
+        }
+    }
 
-                if ( textarea_val != '' )
+    function saveNote()
+    {
+        dyn = $("#dynamic-div");
+        dyn.on('click', '.saveBtn', function ()
+        {
+            var that = $(this);
+            var lid = $("#lead_id").val();
+            var count = that.data('id');
+            var textareaSelector = '#lead_note_' + count;
+            var noteidSelector = '#note_id_' + count;
+            var note_val = $(noteidSelector).val();
+            var textarea_val = $.trim($(textareaSelector).val());
+            var token = $('input[name="_token"]').val();
+
+            if ( textarea_val.length > 0 && textarea_val !== undefined )
+            {
+                if ( note_val === undefined )
+                {// it is undefined
+                    alert("Undefined");
+                } else
                 {
-                    var requestType = '' , URLString = '';
-                    var dataString = { _token : token , lead_id : lid , lead_note : textarea_val };
-                    if( note_val != '' )
+                    var requestType = '', URLString = '';
+                    var dataString = {_token: token, lead_id: lid, lead_note: textarea_val};
+                    if ( note_val != '' )
                     { //update note
                         requestType = 'PUT';
+//                            dataString['note_id'] = note_val;
+                        dataString.note_id = note_val;
+//                            console.log(dataString);
+//                            console.log(JSON.stringify(dataString) );
+//                            console.log(dataString);
                         URLString = '{{ route('international.ajaxUpdate') }}';
                     }
                     else
@@ -93,55 +103,66 @@
                         URLString = '{{ route('international.ajaxInsert') }}';
                         requestType = 'POST';
                     }
-
-                    ajax(requestType , URLString , dataString);
-                } else
-                {
-                    alert("Please enter some text.")
+                    ajax(requestType, URLString, dataString , noteidSelector);
                 }
-            })
-        }
+            } else
+            {
+                alert("Please enter some text.")
+            }
+        })
+    }
 
-        function ajax( requestType , URLString , dataString )
-        {
-            $.ajax({
-                type: requestType,
-                data: dataString,
-                url:  URLString,
-                success: function (response)
-                { // change hidden value of 'note_id' if insert operation is performed
-                    alert("success");
-                }
-            });
-        }
+    function ajax( requestType, URLString, dataString , noteidSelector)
+    {
+        $.ajax({
+            type: requestType,
+            data: dataString,
+            url: URLString,
+            success: function ( response )
+            { // change hidden value of 'note_id' if insert operation is performed
 
-        $("#international_lead_form").validate({
-            rules: {
-                project_name: {
-                    required: true,
-                    maxlength: 300
-                },
-                currency: {
-                    required: true,
-                },
-                amount: {
-                    required: true,
-                    number: true,
-                    min: 0.01
-                },
-                url: {
-                    required: true,
-                    url: true
-                },
-                email: {
-                    email: true,
+                if ( requestType == 'PUT' )
+                {//update note
+
+                } else if ( requestType == 'POST' )
+                { // insert note
+                    $(noteidSelector).val(response.note_id);
                 }
             },
-            submitHandler: function ( form )
+            error: function ( error )
             {
-
-                $("#submit").attr('disabled', true);
-                form.submit();
+                alert("error");
+                console.error(error);
             }
         });
+    }
+
+    $("#international_lead_form").validate({
+        rules: {
+            project_name: {
+                required: true,
+                maxlength: 300
+            },
+            currency: {
+                required: true,
+            },
+            amount: {
+                required: true,
+                number: true,
+                min: 0.01
+            },
+            url: {
+                required: true,
+                url: true
+            },
+            email: {
+                email: true,
+            }
+        },
+        submitHandler: function ( form )
+        {
+            $("#submit").attr('disabled', true);
+            form.submit();
+        }
+    });
 </script>

@@ -30,4 +30,14 @@ class InternationalLead extends Model
         return $this->hasOne('App\InternationalLeadComment', 'lid','lead_id')->orderBy( 'updated_at' , 'DESC');
     }
     
+//    public function leadNotes($leadID)
+//    {
+//        return $this->hasMany('App\InternationalLeadNote' , 'lid' , 'lead_id')->where('lid',$leadID);
+//    }
+    
+    public function allNotes()
+    {
+        return $this->hasMany('App\InternationalLeadNote' , 'lid' , 'lead_id');
+    }
+    
 }
