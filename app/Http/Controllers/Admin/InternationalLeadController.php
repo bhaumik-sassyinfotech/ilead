@@ -76,7 +76,7 @@
             if ($lead->save())
             {
                 $comment = new internationalLeadComment();
-                $comment->lid = $lead->id;
+                $comment->lid = $lead->lead_id;
                 $comment->lead_comment = trim($request->lead_comment);
                 if ($comment->save())
                 {
@@ -154,6 +154,11 @@
             {
 //                $comment = new internationalLeadComment();
                 $comment = internationalLeadComment::where('lid' , $lead->lead_id)->first();
+                if(empty($comment) && count($comment) < 1)
+                {
+                    $comment = new internationalLeadComment();
+                    $comment->lid = $lead->lead_id;
+                }
                 $comment->lead_comment = trim($request->lead_comment);
                 if ($comment->save())
                 {
@@ -217,6 +222,7 @@
         
         public function ajaxInsert(Request $request)
         {
+            
             $note = new InternationalLeadNote();
             $note->lid = $request->lead_id;
             $note->note_desc = $request->lead_note;
@@ -234,13 +240,13 @@
             $today = Carbon::now();
             $note = InternationalLeadNote::find($request->note_id);
 //            if()
-            if( !empty($note) && $today->diffInDays($note->created_at) == 0 )
+            if( !empty($note) && $today->diffInDays($note->created_at) == 0 && $note->lid == $request->lead_id )
             {
-                $note->lid = $request->lead_id;
+                // $note->lid = $request->lead_id;
                 $note->note_desc = $request->lead_note;
                 if ($note->save())
                 {
-                    return response()->json(['msg' => 'Notes have been saved successfully.'] , 200);
+                    return response()->json(['msg' => 'Notes have been updated successfully.'] , 200);
                 } else
                 {
                     return response()->json(['msg' => 'Some error occurred.']);
@@ -256,7 +262,7 @@
             $note = InternationalLeadNote::find($request->note_id);
             
             
-            if ( $today->diffInDays($note->created_at) == 0 && !empty($note) )
+            if ( $today->diffInDays($note->created_at) == 0 && !empty($note) && $note->lid == $request->lead_id )
             {
                 $note->delete($request->note_id);
                 if ($note->trashed())
