@@ -28,8 +28,8 @@
          */
         public function index()
         {
-//            dd(Session::all());
-            $internationalLeads = InternationalLead::with('latestComment')->desc()->paginate(1);
+            
+            $internationalLeads = InternationalLead::with('latestComment')->latest('updated_at')->paginate(1);
             
             return view("admin.international_leads.index" , compact('internationalLeads'));
         }
@@ -112,19 +112,12 @@
             
             $currencies = Currency::all();
             $follow_list = FollowUp::all();
-//            $notes = InternationalLead::with('allNotes' , function ($q)
-//            {
-//                return $q->where('lid',$id);
-//            })->get();
-//            dd($notes);
-//            $leadData = InternationalLead::where('lead_id' , $id)->first();
-//            $leadComment = InternationalLeadComment::where('lid' , $leadData->lead_id)->orderBy('updated_at' , 'DESC')->get();
-//            $leadData = InternationalLead::with('comments')->where('lead_id',$id)->first();
 
-//            $leadData = InternationalLead::with('latestComment')->where('lead_id',$id)->first();
-            $leadData = InternationalLead::with('latestComment')->find($id);
+            $leadData = InternationalLead::with(['latestComment' , 'notes'])->where('lead_id',$id)->first();
+            
+            
 
-//dd($leadData);
+//            dd($leadData);
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list'));
         }
         
@@ -136,7 +129,8 @@
          */
         public function update($id , Request $request)
         {
-            
+
+        
 //            dd($request);
 
 //            $this->form_validate($request);
@@ -159,7 +153,7 @@
             if ($lead->save())
             {
 //                $comment = new internationalLeadComment();
-                $comment = internationalLeadComment::where('lid',$lead->lead_id)->first();
+                $comment = internationalLeadComment::where('lid' , $lead->lead_id)->first();
                 $comment->lead_comment = trim($request->lead_comment);
                 if ($comment->save())
                 {
@@ -185,7 +179,7 @@
         public function destroy($id)
         {
             //
-            dd($id);
+//            dd($id);
             $lead = InternationalLead::find($id);
             if (!empty($lead))
             {
@@ -226,28 +220,57 @@
             $note = new InternationalLeadNote();
             $note->lid = $request->lead_id;
             $note->note_desc = $request->lead_note;
-            if($note->save())
+            if ($note->save())
             {
-                return response()->json(['note_id' => $note->note_id , 'msg' => 'Note have been saved successfully.' ]);
-            } else {
-                return response()->json(['note_id' => $note->note_id , 'msg' => 'Please try again.' ]);
+                return response()->json(['note_id' => $note->note_id , 'msg' => 'Note have been created successfully.']);
+            } else
+            {
+                return response()->json(['note_id' => $note->note_id , 'msg' => 'Please try again.']);
             }
         }
+        
         public function ajaxUpdate(Request $request)
         {
+            $today = Carbon::now();
             $note = InternationalLeadNote::find($request->note_id);
-            $note->lid = $request->lead_id;
-            $note->note_desc = $request->lead_note;
-            if($note->save())
+//            if()
+            if( !empty($note) && $today->diffInDays($note->created_at) == 0 )
             {
-                return response()->json(['msg' => 'Notes have been saved successfully.'] , 200);
+                $note->lid = $request->lead_id;
+                $note->note_desc = $request->lead_note;
+                if ($note->save())
+                {
+                    return response()->json(['msg' => 'Notes have been saved successfully.'] , 200);
+                } else
+                {
+                    return response()->json(['msg' => 'Some error occurred.']);
+                }
             } else {
-                return response()->json(['msg' => 'Some error occurred.']);
+                return response()->json(['msg' => 'Update failed.']);
             }
         }
+        
         public function ajaxDelete(Request $request)
         {
-            dd("ajax Delete operation.");
+            $today = Carbon::now();
+            $note = InternationalLeadNote::find($request->note_id);
+            
+            
+            if ( $today->diffInDays($note->created_at) == 0 && !empty($note) )
+            {
+                $note->delete($request->note_id);
+                if ($note->trashed())
+                {
+                    return response()->json(['msg' => 'Notes have been deleted successfully.'] , 200);
+                } else
+                {
+                    return response()->json(['msg' => 'Some error occurred.']);
+                }
+            } else
+            {
+                return response()->json(['msg' => 'Delete unsuccessful.']);
+            }
+            
         }
-    
+        
     }

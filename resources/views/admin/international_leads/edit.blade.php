@@ -15,7 +15,7 @@
         <div class="panel-heading">
             Update International Leads
         </div>
-        <input type="hidden" id="lead_id" name="lead_id" value="{{ $leadData->lead_id }}" >
+        <input type="hidden" id="lead_id" name="lead_id" value="{{ $leadData->lead_id }}">
         <div class="panel-body">
             <div class="row form-group">
                 <div class="col-xs-6">
@@ -104,20 +104,60 @@
             </div>
             <div class="row form-group" id="dynamic-div">
                 <input type="button" class="btn btn-success addNote" value="Add More">
-                <div class="col-md-12 notesContainer">
 
-                    <input type="hidden" id="note_id_1" name="note_id_1" value="" >
+                <?php $count = 0; ?>
+                @if(count($leadData->notes) < 1)
+                    <div class="col-md-12 notesContainer">
+                        <input type="hidden" id="note_id_{{ $count }}" name="note_id_{{ $count }}" value="">
 
-                    <div class="col-md-6">
-                            <textarea placeholder="Enter notes" name="lead_note_1" id="lead_note_1" cols="30" rows="10" class="form-control"></textarea>
+                        <div class="col-md-6">
+                            <textarea placeholder="Enter notes" name="lead_note_{{ $count }}"
+                                      id="lead_note_{{ $count }}" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" data-id="{{ $count }}" name="save" class="btn btn-success saveBtn">
+                                Save
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <input class="btn btn-danger removeBtn" data-id="{{ $count }}" type="button" value="Remove">
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <button type="button" data-id = "1" name="save" class="btn btn-success saveBtn">Save</button>
-                    </div>
-                    <div class="col-md-3">
-                        <input class="btn btn-danger removeBtn" data-id = "1" type="button" value="Remove">
-                    </div>
-                </div>
+                @else
+                    <?php
+                        $today = \Carbon\Carbon::now();
+                    ?>
+                    @foreach($leadData->notes as $note)
+                        <?php $allow=FALSE; ?>
+                        <div class="col-md-12 notesContainer">
+                            <input type="hidden" id="note_id_{{$count}}" name="note_id_{{$count}}"
+                                   value="{{ $note->note_id }}">
+
+                            <div class="col-md-6">
+                                <textarea placeholder="Enter notes" name="lead_note_{{$count}}"
+                                          id="lead_note_{{$count}}" cols="30" rows="10"
+                                          class="form-control">{{ $note->note_desc }}</textarea>
+                            </div>
+                            <?php
+                                $diff = $today->diffInDays($note->created_at);
+                                if($diff == 0)
+                                    $allow = TRUE; ?>
+                            @if($allow)
+                                <div class="col-md-3">
+                                    <button type="button" data-id="{{$count}}" name="save" class="btn btn-success saveBtn">
+                                        Save
+                                    </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <input class="btn btn-danger removeBtn" data-id="{{$count}}" type="button"
+                                           value="Remove">
+                                </div>
+                            @endif
+                        </div>
+                        <?php $count++; ?>
+                    @endforeach
+                @endif
+
             </div>
         </div>
 
