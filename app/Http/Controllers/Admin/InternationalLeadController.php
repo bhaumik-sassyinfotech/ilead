@@ -267,7 +267,7 @@
                 $note->delete($request->note_id);
                 if ($note->trashed())
                 {
-                    return response()->json(['msg' => 'Notes have been deleted successfully.'] , 200);
+                    return response()->json(['msg' => 'Note have been deleted successfully.'] , 200);
                 } else
                 {
                     return response()->json(['msg' => 'Some error occurred.']);

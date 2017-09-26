@@ -102,6 +102,9 @@
                               class="form-control">{{ (isset($leadData->latestComment->lead_comment)) ? nl2br($leadData->latestComment->lead_comment) : '' }}</textarea>
                 </div>
             </div>
+            <div class="col-md-12">
+                <h1>Notes</h1>
+            </div>
             <div class="row form-group" id="dynamic-div">
                 <input type="button" class="btn btn-success addNote" value="Add More">
 
@@ -112,7 +115,7 @@
 
                         <div class="col-md-6">
                             <textarea placeholder="Enter notes" name="lead_note_{{ $count }}"
-                                      id="lead_note_{{ $count }}" cols="30" rows="10" class="form-control"></textarea>
+                                      id="lead_note_{{ $count }}" rows="3" class="form-control txtArea"></textarea>
                         </div>
                         <div class="col-md-3">
                             <button type="button" data-id="{{ $count }}" name="save" class="btn btn-success saveBtn">
@@ -135,8 +138,8 @@
 
                             <div class="col-md-6">
                                 <textarea placeholder="Enter notes" name="lead_note_{{$count}}"
-                                          id="lead_note_{{$count}}" cols="30" rows="10"
-                                          class="form-control">{{ $note->note_desc }}</textarea>
+                                          id="lead_note_{{$count}}" rows="3"
+                                          class="form-control txtArea">{{ $note->note_desc }}</textarea>
                             </div>
                             <?php
                                 $diff = $today->diffInDays($note->created_at);
@@ -168,9 +171,7 @@
 @stop
 
 @section('javascript')
-    <script>
-        var divCount = '{{ (isset( $count ))?$count:1 }}';
-    </script>
+    
     @include('admin.international_leads.js')
 @stop
 

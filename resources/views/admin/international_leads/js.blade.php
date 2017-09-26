@@ -1,8 +1,8 @@
 <script type="text/javascript">
 
+    var divCount = '{{ (isset( $count ))?$count:1 }}';
 
-    $(document).ready(function ()
-    {
+    $(document).ready(function () {
 
 //        alert("abc");
         commentSection(divCount);
@@ -14,61 +14,52 @@
     function commentSection( cnt )
     {
         var count = cnt;
+        var duration = 500;
         dyn = $("#dynamic-div");
         var parentClass = 'notesContainer';
         var removeBtnClass = 'removeBtn';
         var hiddenClass = 'hidden';
         var addMoreBtnClass = 'addNote';
-        // var lead_id = '{{ isset($leadData->lead_id)?$leadData->lead_id:0 }}';
         btnToggle(parentClass);
 
-        dyn.on('click', '.' + removeBtnClass, function ()
-        {
-            if ( $("." + parentClass).length > 1 )
-            { //hide remove button
-//                console.log($(".commentContainer").length);
-                var that = $(this);
-                var lid = $("#lead_id").val();
-                var count = that.data('id');
-                var noteidSelector = '#note_id_' + count;
-                var note_val = $(noteidSelector).val();
-                var token = $('input[name="_token"]').val();
+        dyn.on('click', '.' + removeBtnClass, function ( e ) {
+            var that = $(this);
+            var lid = $("#lead_id").val();
+            var count = that.data('id');
+            var noteidSelector = '#note_id_' + count;
+            var note_val = $(noteidSelector).val();
+            var token = $('input[name="_token"]').val();
 
-                if ( note_val != '' )
-                {
-                    var requestType = 'DELETE';
-                    var URLString = '{{ route('international.ajaxDelete') }}';
-                    var dataString = {_token: token, note_id: note_val};
-                    ajax(requestType, URLString, dataString);
-                }
-
-                $(this).parent('div').parent('div').remove();
-                btnToggle(parentClass);
-            } else
-            { // show remove button
-                $("." + removeBtnClass).removeClass(hiddenClass);
-                btnToggle(parentClass);
+            var len = $('.' + parentClass).length;
+            if ( note_val != '' )
+            {
+                var requestType = 'DELETE';
+                var URLString = '{{ route('international.ajaxDelete') }}';
+                var dataString = {_token: token, note_id: note_val, lead_id: lid};
+                ajax(requestType, URLString, dataString);
             }
+            var parent = $(that).parent('div').parent('div');
+            $(parent).slideUp(duration, function () {
+                parent.remove();
+                btnToggle(parentClass);
+            });
+
+
         });
+
         function btnToggle( parentClassName )
         {
             var len = $('.' + parentClassName).length;
-
-//            console.log("len = "+len);
             removeBtn = $("." + removeBtnClass);
 
-            if ( len >= 2 )
+            if ( len == 0 )
             {
-                removeBtn.removeClass(hiddenClass);
-
-            } else
-            {
-                removeBtn.addClass(hiddenClass);
+                addField();
             }
+//            console.log("len = "+$('.' + parentClassName).length);
         }
 
-        dyn.on('click', '.' + addMoreBtnClass, function ()
-        {
+        dyn.on('click', '.' + addMoreBtnClass, function () {
             addField();
             btnToggle(parentClass);
         });
@@ -78,20 +69,19 @@
             dyn = $("#dynamic-div");
             count++;
 //            var content = '<div class="col-md-12 commentContainer"><div class="col-md-8"><textarea placeholder="Enter Comment" name="lead_comment[]" id="lead_comment_' + count + '" cols="30" rows="10" class="form-control"></textarea></div><div class="col-md-4"><input class="btn btn-danger removeBtn" type="button" value="Remove"></div></div>';
-            var content = '<div class="col-md-12 ' + parentClass + '"><input type="hidden" id="note_id_' + count + '" name="note_id_' + count + '" value="" ><div class="col-md-6"><textarea placeholder="Enter notes" name="lead_note_' + count + '" id="lead_note_' + count + '" cols="30" rows="10" class="form-control"></textarea></div><div class="col-md-3"><button type="button" name="save" data-id = "' + count + '" class="btn btn-success saveBtn">Save</button></div><div class="col-md-3"><button class="btn btn-danger removeBtn" data-id = "' + count + '" type="button" value="remove">Remove</button></div></div>';
+            var content = '<div class="col-md-12 ' + parentClass + '"><input type="hidden" id="note_id_' + count + '" name="note_id_' + count + '" value="" ><div class="col-md-6"><textarea placeholder="Enter notes" name="lead_note_' + count + '" id="lead_note_' + count + '" rows="3" class="form-control txtArea"></textarea></div><div class="col-md-3"><button type="button" name="save" data-id = "' + count + '" class="btn btn-success saveBtn">Save</button></div><div class="col-md-3"><button class="btn btn-danger removeBtn" data-id = "' + count + '" type="button" value="remove">Remove</button></div></div>';
 //                dyn.append(content);
-            $(".addNote").after(function ()
-            {
+            $(".addNote").after(function () {
                 return content;
             });
+            $("#note_id_" + count).parent('div').hide().slideDown(duration);
         }
     }
 
     function saveNote()
     {
         dyn = $("#dynamic-div");
-        dyn.on('click', '.saveBtn', function ()
-        {
+        dyn.on('click', '.saveBtn', function () {
             var that = $(this);
             var lid = $("#lead_id").val();
             var count = that.data('id');
@@ -109,11 +99,7 @@
                 if ( note_val != '' )
                 { //update note
                     requestType = 'PUT';
-//                            dataString['note_id'] = note_val;
                     dataString.note_id = note_val;
-//                            console.log(dataString);
-//                            console.log(JSON.stringify(dataString) );
-//                            console.log(dataString);
                     URLString = '{{ route('international.ajaxUpdate') }}';
                 }
                 else
@@ -136,8 +122,7 @@
             data: dataString,
             url: URLString,
             async: false,
-            success: function ( response )
-            { // change hidden value of 'note_id' if insert operation is performed
+            success: function ( response ) { // change hidden value of 'note_id' if insert operation is performed
 
                 if ( requestType == 'PUT' )
                 {//update note
@@ -154,8 +139,7 @@
                     alert("something else");
                 }
             },
-            error: function ( error )
-            {
+            error: function ( error ) {
                 alert("error");
                 console.error(error);
             }
@@ -163,8 +147,10 @@
     }
 
 
-    $("#international_lead_form").validate({
-        rules: {
+    $("#international_lead_form").validate(
+    {
+        rules:
+        {
             project_name: {
                 required: true,
                 maxlength: 300
@@ -185,8 +171,7 @@
                 email: true,
             }
         },
-        submitHandler: function ( form )
-        {
+        submitHandler: function ( form ) {
             $("#submit").attr('disabled', true);
             form.submit();
         }
