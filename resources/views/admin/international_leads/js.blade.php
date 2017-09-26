@@ -122,7 +122,6 @@
                     requestType = 'POST';
                 }
                 ajax(requestType, URLString, dataString, noteidSelector);
-
             } else
             {
                 alert("Please enter some text.")

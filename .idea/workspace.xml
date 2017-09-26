@@ -6,7 +6,9 @@
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7547e89-f6a6-4ba5-a3c2-4f3dbf4d3ee0" name="Default" comment="">
+    <list default="true" id="e7547e89-f6a6-4ba5-a3c2-4f3dbf4d3ee0" name="Default" comment="edit/ update notes.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ilead.iml" afterPath="$PROJECT_DIR$/.idea/ilead.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" />
@@ -18,7 +20,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" phpInterpreterId="76327d57-1dcb-4744-bc63-15dbbf82c7a2">
+  <component name="ComposerSettings" synchronizationState="DONT_SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="DatabaseView">
@@ -30,7 +32,6 @@
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="ilead" />
   </component>
@@ -45,7 +46,7 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2507">
+            <state relative-caret-position="0">
               <caret line="109" column="20" lean-forward="false" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
               <folding>
                 <marker date="1506333833672" expanded="true" signature="5643:5767" ph="..." />
@@ -57,8 +58,8 @@
       <file leaf-file-name="InternationalLeadController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="248" column="78" lean-forward="false" selection-start-line="248" selection-start-column="78" selection-end-line="248" selection-end-column="78" />
+            <state relative-caret-position="409">
+              <caret line="215" column="13" lean-forward="false" selection-start-line="215" selection-start-column="13" selection-end-line="215" selection-end-column="13" />
               <folding>
                 <element signature="e#62#79#0#PHP" expanded="true" />
                 <element signature="e#630#758#0#PHP" expanded="false" />
@@ -71,8 +72,8 @@
       <file leaf-file-name="js.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="127" column="23" lean-forward="false" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
+            <state relative-caret-position="-124">
+              <caret line="123" column="73" lean-forward="false" selection-start-line="123" selection-start-column="73" selection-end-line="123" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -81,7 +82,7 @@
       <file leaf-file-name="InternationalLead.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/InternationalLead.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
+            <state relative-caret-position="0">
               <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
@@ -196,8 +197,8 @@
         <option value="$PROJECT_DIR$/app/InternationalLeadNote.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/international_leads/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/InternationalLead.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" />
       </list>
     </option>
   </component>
@@ -288,7 +289,7 @@
       <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -296,7 +297,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -309,179 +310,10 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="international_leads" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="follow_up" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilead" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php/php.exe" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistoryKey" value="internatio&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/InternationalLead.php&#10;internationalLead&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/InternationalLead.php&#10;internationalLeadC&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/internationalLeadComment.php&#10;note&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/InternationalLeadNote.php&#10;comment&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/internationalLeadComment.php&#10;lead_n&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_22_045353_create_international_lead_notes_table.php&#10;_internat&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_22_045353_create_international_notes_table.php&#10;app\intern&#9;null&#9;null&#10;leads&#9;null&#9;null&#10;comments&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_19_080656_create_international_lead_comments_table.php&#10;international&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_22_045353_create_international_notes_table.php&#10;edit.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/follow_up/edit.blade.php&#10;edit&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/edit.blade.php&#10;app\foll&#9;null&#9;null&#10;controller&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/InternationalLeadController.php&#10;composer&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/composer.json&#10;notes&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_22_045353_create_international_notes_table.php&#10;lead&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/InternationalLead.php&#10;internationalN&#9;null&#9;null&#10;notesC&#9;null&#9;null&#10;.git&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/storage/logs/.gitignore&#10;gitig&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/storage/app/.gitignore&#10;gitign&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/.gitignore&#10;web.php&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/routes/web.php&#10;partial\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/partials&#10;bootstrap\cache\compiled.php&#9;null&#9;null&#10;bootstrap\cache\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/bootstrap/cache&#10;compose&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/composer.json&#10;sidebar&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/partials/sidebar.blade.php&#10;\config\da&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/config/datatables.php&#10;app.php&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/config/app.php&#10;admin\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin&#10;Illuminate\Database\Eloquent\Scope&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Scope.php&#10;internationalLeads&#9;null&#9;null&#10;international_lead&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_15_130103_create_international_leads_table.php&#10;update&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/update.blade.php&#10;internationa&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_15_130103_create_international_leads_table.php&#10;internation&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/InternationalLead.php&#10;curren&#9;null&#9;null&#10;curr&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/CurrenciesController.php&#10;interna&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/InternationalLead.php&#10;hel&#9;null&#9;null&#10;international_lead\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads&#10;JS.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/js.blade.php&#10;create&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/create.blade.php&#10;layout\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/layouts&#10;views\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views&#10;create.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/follow_up/create.blade.php&#10;app.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/layouts/app.blade.php&#10;create.blade&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/create.blade.php" />
@@ -505,6 +337,14 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
     <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
       <PhpTestRunnerSettings />
       <method />
@@ -541,15 +381,6 @@
     </configuration>
     <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
       <PhpTestRunnerSettings />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -598,7 +429,8 @@
       <workItem from="1506054988328" duration="19395000" />
       <workItem from="1506136445551" duration="18376000" />
       <workItem from="1506312914389" duration="19549000" />
-      <workItem from="1506345262282" duration="501000" />
+      <workItem from="1506345262282" duration="1047000" />
+      <workItem from="1506400886720" duration="931000" />
     </task>
     <task id="LOCAL-00001" summary="edit/ update notes.">
       <created>1506334588011</created>
@@ -611,7 +443,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157824000" />
+    <option name="totallyTimeSpent" value="159301000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -623,21 +455,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="0" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2193646" sideWeight="0.49462366" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5030257" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5030257" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.69082123" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28290468" sideWeight="0.50537634" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6873199" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28290468" sideWeight="0.50537634" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -675,7 +506,7 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -1037,7 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1050,7 +880,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2507">
+        <state relative-caret-position="0">
           <caret line="109" column="20" lean-forward="false" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
           <folding>
             <marker date="1506333833672" expanded="true" signature="5643:5767" ph="..." />
@@ -1060,7 +890,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/InternationalLead.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
+        <state relative-caret-position="0">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
@@ -1070,22 +900,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="145" column="42" lean-forward="false" selection-start-line="145" selection-start-column="42" selection-end-line="145" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="127" column="23" lean-forward="false" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
+        <state relative-caret-position="-124">
+          <caret line="123" column="73" lean-forward="false" selection-start-line="123" selection-start-column="73" selection-end-line="123" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="248" column="78" lean-forward="false" selection-start-line="248" selection-start-column="78" selection-end-line="248" selection-end-column="78" />
+        <state relative-caret-position="409">
+          <caret line="215" column="13" lean-forward="false" selection-start-line="215" selection-start-column="13" selection-end-line="215" selection-end-column="13" />
           <folding>
             <element signature="e#62#79#0#PHP" expanded="true" />
             <element signature="e#630#758#0#PHP" expanded="false" />

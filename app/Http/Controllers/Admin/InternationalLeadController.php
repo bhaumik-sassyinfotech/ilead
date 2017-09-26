@@ -112,10 +112,9 @@
             
             $currencies = Currency::all();
             $follow_list = FollowUp::all();
+            
+            $leadData = InternationalLead::with(['latestComment' , 'notes'])->where('lead_id' , $id)->first();
 
-            $leadData = InternationalLead::with(['latestComment' , 'notes'])->where('lead_id',$id)->first();
-            
-            
 
 //            dd($leadData);
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list'));
@@ -130,7 +129,7 @@
         public function update($id , Request $request)
         {
 
-        
+
 //            dd($request);
 
 //            $this->form_validate($request);
@@ -154,7 +153,7 @@
             {
 //                $comment = new internationalLeadComment();
                 $comment = internationalLeadComment::where('lid' , $lead->lead_id)->first();
-                if(empty($comment) && count($comment) < 1)
+                if (empty($comment) && count($comment) < 1)
                 {
                     $comment = new internationalLeadComment();
                     $comment->lid = $lead->lead_id;
@@ -240,7 +239,7 @@
             $today = Carbon::now();
             $note = InternationalLeadNote::find($request->note_id);
 //            if()
-            if( !empty($note) && $today->diffInDays($note->created_at) == 0 && $note->lid == $request->lead_id )
+            if (!empty($note) && $today->diffInDays($note->created_at) == 0 && $note->lid == $request->lead_id)
             {
                 // $note->lid = $request->lead_id;
                 $note->note_desc = $request->lead_note;
@@ -251,7 +250,8 @@
                 {
                     return response()->json(['msg' => 'Some error occurred.']);
                 }
-            } else {
+            } else
+            {
                 return response()->json(['msg' => 'Update failed.']);
             }
         }
@@ -262,7 +262,7 @@
             $note = InternationalLeadNote::find($request->note_id);
             
             
-            if ( $today->diffInDays($note->created_at) == 0 && !empty($note) && $note->lid == $request->lead_id )
+            if ($today->diffInDays($note->created_at) == 0 && !empty($note) && $note->lid == $request->lead_id)
             {
                 $note->delete($request->note_id);
                 if ($note->trashed())
