@@ -103,6 +103,13 @@
                 </div>
             </div>
             <div class="row form-group">
+                <div class="col-md-8">
+                <ul id="myTags" class="tagit ui-widget ui-widget-content ui-corner-all">
+                    <li>ABC</li>
+                </ul>
+                </div>
+            </div>
+            <div class="row form-group">
                 <div class="col-md-12">
                     {{ Form::textarea('lead_comment',old('lead_comment') ,['size' => '115x10', 'class' => 'form-control' , 'placeholder' => 'Enter comments']) }}
 

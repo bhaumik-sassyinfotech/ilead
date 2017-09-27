@@ -31,10 +31,10 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> --> 
-<script src="front/js/jquery.min.js"></script> 
-<script src="front/js/bootstrap.js"></script> 
+<script src="front/js/jquery.min.js"></script>
+<script src="front/js/bootstrap.js"></script>
 <script src="front/js/vendor/owl/owl.carousel.min.js"></script> 
-<script src="front/js/vendor/tabs/zozo.tabs.min.js"></script> 
+<script src="front/js/vendor/tabs/zozo.tabs.min.js"></script>
 <!--<script src="js/vendor/tabs/jquery.easing.min.js"></script> -->
 <script src="front/js/custom.js"></script>
 <script type="text/javascript">

@@ -7,6 +7,7 @@
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
+
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,6 +15,11 @@
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"
       rel="stylesheet"
       type="text/css"/>
+{{--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="{{ url('public/quickadmin/js/tag-it.js') }}" type="text/javascript" charset="utf-8"></script>
+
 <link rel="stylesheet"
       href="{{ url('public/quickadmin/css') }}/font-awesome.min.css"/>
 <link rel="stylesheet"
@@ -39,5 +45,17 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/style.css">
 
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#myTags").tagit({
+            "allowSpaces": true,
+            "removeConfirmation": true,
+        });
+    });
+</script>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+<link href="{{ url('public/quickadmin/css/jquery.tagit.css') }}" rel="stylesheet" type="text/css">
+
 {{--<link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>--}}
 {{--<script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>--}}
