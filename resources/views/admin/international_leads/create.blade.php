@@ -68,6 +68,7 @@
                 <div class="col-xs-3">
                     {{ Form::label('currency', 'Currency: *', ['class' => 'control-label']) }}
                     {{--{{ dd($currencies) }}--}}
+                    <input type="hidden" id="hidTag" value="">
                     <select class="form-control" name="currency" id="currency">
                         <option value="">Select Currency</option>
                         @foreach($currencies as $currency )
@@ -104,7 +105,7 @@
             </div>
             <div class="row form-group">
                 <div class="col-md-8">
-                <ul id="myTags" class="tagit ui-widget ui-widget-content ui-corner-all">
+                <ul id="myTags" name="" class="tagit ui-widget ui-widget-content ui-corner-all">
                     <li>ABC</li>
                 </ul>
                 </div>

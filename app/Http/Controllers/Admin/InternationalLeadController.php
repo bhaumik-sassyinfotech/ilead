@@ -57,7 +57,7 @@
         public function store(Request $request)
         {
             //
-//            dd($request);
+            dd($request);
             $this->form_validate($request);
             
             $lead = new InternationalLead();

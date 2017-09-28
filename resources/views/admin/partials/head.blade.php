@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <title>
-  MummaCo - Admin panel
+    MummaCo - Admin panel
 </title>
-<link rel="icon" type="image/png" href="{{ asset('public/uploads/favicon.png') }}" />
+<link rel="icon" type="image/png" href="{{ asset('public/uploads/favicon.png') }}"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -17,7 +17,17 @@
       type="text/css"/>
 {{--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    (function ( $ )
+    {
+        if ( !$.curCSS )
+        {
+            $.curCSS = $.css;
+        }
+    })(jQuery);
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript"
+        charset="utf-8"></script>
 <script src="{{ url('public/quickadmin/js/tag-it.js') }}" type="text/javascript" charset="utf-8"></script>
 
 <link rel="stylesheet"
@@ -46,15 +56,43 @@
 
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function()
+    $(document).ready(function ()
     {
         $("#myTags").tagit({
-            "allowSpaces": true,
-            "removeConfirmation": true,
+            "allowSpaces": true ,
+            "removeConfirmation": true ,
+            "afterTagAdded": function ( event , ui )
+            {
+                var str = '';
+//                tagsAjax();
+                console.log($("#myTags").tagit("assignedTags"));
+            } ,
+            "afterTagRemoved": function ( event , ui )
+            {
+                var str = $("#myTags").tagit("assignedTags");
+                tagsAjax(str);
+                
+            }
         });
+        function tagsAjax(str)
+        {
+//            var lead_id = $("#lead_id").val();
+            
+//            if (typeof lead_id === 'undefined')
+//            { // insert post
+            console.log(str);
+                $("#hidTag").val(str);
+//            }
+//            else
+//            {
+//                $("#hidTag").val(str);
+//            }
+        }
+       
     });
 </script>
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+<link rel="stylesheet" type="text/css"
+      href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
 <link href="{{ url('public/quickadmin/css/jquery.tagit.css') }}" rel="stylesheet" type="text/css">
 
 {{--<link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>--}}
