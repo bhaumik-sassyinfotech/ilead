@@ -59,36 +59,11 @@
     $(document).ready(function ()
     {
         $("#myTags").tagit({
+            fieldName: "tags[]" ,
             "allowSpaces": true ,
-            "removeConfirmation": true ,
-            "afterTagAdded": function ( event , ui )
-            {
-                var str = '';
-//                tagsAjax();
-                console.log($("#myTags").tagit("assignedTags"));
-            } ,
-            "afterTagRemoved": function ( event , ui )
-            {
-                var str = $("#myTags").tagit("assignedTags");
-                tagsAjax(str);
-                
-            }
+            "removeConfirmation": true
         });
-        function tagsAjax(str)
-        {
-//            var lead_id = $("#lead_id").val();
-            
-//            if (typeof lead_id === 'undefined')
-//            { // insert post
-            console.log(str);
-                $("#hidTag").val(str);
-//            }
-//            else
-//            {
-//                $("#hidTag").val(str);
-//            }
-        }
-       
+
     });
 </script>
 <link rel="stylesheet" type="text/css"

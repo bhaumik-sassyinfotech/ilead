@@ -31,6 +31,10 @@ class CreateInternationalLeadsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+//        Schema::table('international_leads',function (Blueprint $table)
+//        {
+//           $table->string('tags');
+//        });
     }
 
     /**

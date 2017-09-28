@@ -171,7 +171,10 @@
                 email: true,
             }
         },
-        submitHandler: function ( form ) {
+        submitHandler: function ( form )
+        {
+//            console.log(form.serializeArray());
+//            return false;
             $("#submit").attr('disabled', true);
             form.submit();
         }
