@@ -4,12 +4,11 @@
     
     use App\Currency;
     use App\InternationalLead;
-    use App\internationalLeadComment;
     use App\FollowUp;
     use App\InternationalLeadNote;
     use Carbon\Carbon;
     use Config;
-    use function foo\func;
+    
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
     use Illuminate\Http\Response;
@@ -28,10 +27,17 @@
          */
         public function index()
         {
+            $count = InternationalLead::count();
+            if( $count > 0 )
+            {
+                $internationalLeads = InternationalLead::with('notes')->latest('created_at')->paginate(10);
+                return view("admin.international_leads.index" , compact('internationalLeads'));
+            }
+            return redirect()->route('international.create');
             
-            $internationalLeads = InternationalLead::with('latestComment')->latest('updated_at')->paginate(1);
-            
-            return view("admin.international_leads.index" , compact('internationalLeads'));
+//            $internationalLeads = InternationalLead::all()->paginate(1);
+//            dd($internationalLeads);
+        
         }
         
         /**
@@ -68,6 +74,8 @@
             $lead->currency = $request->currency;
             $lead->currency = $request->currency;
             $lead->amount = $request->amount;
+            $lead->tags = implode("," , $request->tags);
+            $lead->comment = trim($request->lead_comment);
             $lead->url = $request->url;
             $lead->location = $request->location;
             $lead->email = $request->email;
@@ -75,17 +83,7 @@
             $lead->phone_number = $request->phone_number;
             if ($lead->save())
             {
-                $comment = new internationalLeadComment();
-                $comment->lid = $lead->lead_id;
-                $comment->lead_comment = trim($request->lead_comment);
-                if ($comment->save())
-                {
-                    return redirect()->route('international.index')->with('success' , 'International Lead ' . Config::get('constant.ADDED_MESSAGE'));
-                } else
-                {//save failed
-//                    return redirect()->route('international.index')->with('err_msg' , 'International Lead ' . Config::get('constant.TRY_MESSAGE'));
-                    return redirect()->route('international.index')->with('err_msg' , 'International Lead ' . Config::get('constant.TRY_MESSAGE'));
-                }
+                return redirect()->route('international.index')->with('success' , 'International Lead ' . Config::get('constant.ADDED_MESSAGE'));
             } else
             { // save failed
                 return redirect()->route('international.index')->with('err_msg' , 'International Lead ' . Config::get('constant.TRY_MESSAGE'));
@@ -113,8 +111,7 @@
             $currencies = Currency::all();
             $follow_list = FollowUp::all();
             
-            $leadData = InternationalLead::with(['latestComment' , 'notes'])->where('lead_id' , $id)->first();
-
+            $leadData = InternationalLead::with('notes')->where('lead_id' , $id)->first();
 
 //            dd($leadData);
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list'));
@@ -142,7 +139,8 @@
             $lead->refer_id = $request->refer_id;
             $lead->type = $request->type;
             $lead->currency = $request->currency;
-            $lead->currency = $request->currency;
+            $lead->tags = implode("," , $request->tags);
+            $lead->comment = trim($request->lead_comment);
             $lead->amount = $request->amount;
             $lead->url = $request->url;
             $lead->location = $request->location;
@@ -151,22 +149,7 @@
             $lead->phone_number = $request->phone_number;
             if ($lead->save())
             {
-//                $comment = new internationalLeadComment();
-                $comment = internationalLeadComment::where('lid' , $lead->lead_id)->first();
-                if (empty($comment) && count($comment) < 1)
-                {
-                    $comment = new internationalLeadComment();
-                    $comment->lid = $lead->lead_id;
-                }
-                $comment->lead_comment = trim($request->lead_comment);
-                if ($comment->save())
-                {
-                    return redirect()->route('international.index')->with('success' , 'International lead ' . Config::get('constant.UPDATE_MESSAGE'));
-                } else
-                {
-                    
-                    return redirect()->route('international.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
-                }
+                return redirect()->route('international.index')->with('success' , 'International lead ' . Config::get('constant.UPDATE_MESSAGE'));
             } else
             {
                 return redirect()->route('international.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
@@ -277,6 +260,11 @@
                 return response()->json(['msg' => 'Delete unsuccessful.']);
             }
             
+        }
+        
+        public function ajax(Request $request)
+        {
+            dd("ajax");
         }
         
     }

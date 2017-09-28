@@ -171,6 +171,7 @@
             Route::post('international/ajaxInsert' , 'Admin\InternationalLeadController@ajaxInsert')->name('international.ajaxInsert');
             Route::put('international/ajaxUpdate' , 'Admin\InternationalLeadController@ajaxUpdate')->name('international.ajaxUpdate');
             Route::delete('international/ajaxDelete' , 'Admin\InternationalLeadController@ajaxDelete')->name('international.ajaxDelete');
+            Route::post('international/ajax' , 'Admin\InternationalLeadController@ajax')->name('international.ajax');
             Route::resource('international' , 'Admin\InternationalLeadController');
         });
     });

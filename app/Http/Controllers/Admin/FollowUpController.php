@@ -20,7 +20,7 @@
         {
             //
 //            $follow_up_list = FollowUp::whereNull('deleted_at')->paginate(10);
-            $follow_up_list = FollowUp::paginate(1);
+            $follow_up_list = FollowUp::latest('updated_at')->paginate(1);
 
 //        dd($follow_up_list);
             return view('admin.follow_up.index' , compact('follow_up_list'));

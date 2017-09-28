@@ -53,6 +53,9 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/jquery.bdt.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/style.css">
+<link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/basic.css">
+<link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/dropzone.css">
+<script src="{{ url('public/newone') }}/dropzone.js"></script>
 
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">

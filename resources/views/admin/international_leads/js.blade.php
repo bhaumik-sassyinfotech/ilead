@@ -1,4 +1,43 @@
+
 <script type="text/javascript">
+
+
+    //    $("div#dz").dropzone(
+    //        {
+    //            url: "/file/post",
+    //            add: function(f)
+    //            {
+    //                alert("hi");
+    //            }
+    //        });
+    var previewNode     = document.querySelector("#template");
+    previewNode.id      = "";
+    var previewTemplate = previewNode.parentNode.innerHTML;
+    previewNode.parentNode.removeChild(previewNode);
+
+    var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+        url: '{{ route('international.ajax') }}' , // Set the url
+        data: {_token: $('input[name="_token"]').val()},
+        thumbnailWidth: 80 ,
+        thumbnailHeight: 80 ,
+        parallelUploads: 20 ,
+        previewTemplate: previewTemplate ,
+        autoQueue: true , // Make sure the files aren't queued until manually added
+        previewsContainer: "#previews" , // Define the container to display the previews
+        clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+    });
+    
+    Dropzone.options.myDropzone = {
+        paramName: "files[]",
+        params: "true",
+        init: function() {
+            this.on("add", function(file) { alert("Added file."); });
+        },
+        add: function()
+        {
+            alert("hiii");
+        }
+    };
 
     var divCount = '{{ (isset( $count ))?$count:1 }}';
 

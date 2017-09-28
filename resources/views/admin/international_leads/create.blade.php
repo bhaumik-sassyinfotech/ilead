@@ -103,10 +103,16 @@
                 </div>
             </div>
             <div class="row form-group">
-                <div class="col-md-8">
-                <ul id="myTags" name="skills" class="tagit ui-widget ui-widget-content ui-corner-all">
-                </ul>
+                <div class="col-md-12">
+                    <h2>Tags</h2>
                 </div>
+                <div class="col-md-8">
+                    <ul id="myTags" class="tagit ui-widget ui-widget-content ui-corner-all">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h2>Comment</h2>
             </div>
             <div class="row form-group">
                 <div class="col-md-12">
