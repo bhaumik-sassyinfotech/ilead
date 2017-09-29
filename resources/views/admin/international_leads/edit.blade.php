@@ -9,7 +9,7 @@
     </div>
     {{--<h3 class="page-title">International Leads</h3>--}}
     <br>
-    {{ Form::open(['method' => 'PUT', 'route' => ['international.update', $leadData->lead_id] , 'name' => 'international_lead_form' , 'id' => 'international_lead_form' , 'files' => true , ]) }}
+    {{ Form::open(['method' => 'PUT', 'route' => ['international.update', $leadData->lead_id] , 'name' => 'international_lead_form' , 'id' => 'international_lead_form' , 'files' => true , 'enctype' => 'multipart/form-data']) }}
     
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -119,75 +119,9 @@
                 </div>
             </div>
             
+            
             <div class="col-md-12">
                 <h1>Notes</h1>
-            </div>
-            <div class="row">
-                <div class="col-lg-7">
-                    <!-- The fileinput-button span is used to style the file input field as button -->
-                    <span class="btn btn-success fileinput-button dz-clickable">
-                         <input type="file" name="files[]">
-                        <span>Add files...</span>
-                    </span>
-                    <button type="submit" class="btn btn-primary start">
-                        <span>Start upload</span>
-                    </button>
-                    <button type="reset" class="btn btn-warning cancel">
-                        <span>Cancel upload</span>
-                    </button>
-                   
-                </div>
-                <br><br><br><br>
-                <div class="col-md-12">
-                    <br><br><br><br>
-                    <div class="table table-striped" class="files" id="previews">
-        
-                        <div id="template" class="file-row">
-                            <!-- This is used as the file preview template -->
-                            <div>
-                                <span class="preview"><img data-dz-thumbnail /></span>
-                            </div>
-                            <div>
-                                <p class="name" data-dz-name></p>
-                                <strong class="error text-danger" data-dz-errormessage></strong>
-                            </div>
-                            <div>
-                                <p class="size" data-dz-size></p>
-                                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                    <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
-                                </div>
-                            </div>
-                            <div>
-                                <button class="btn btn-primary start">
-                                    <i class="glyphicon glyphicon-upload"></i>
-                                    <span>Start</span>
-                                </button>
-                                <button data-dz-remove class="btn btn-warning cancel">
-                                    <i class="glyphicon glyphicon-ban-circle"></i>
-                                    <span>Cancel</span>
-                                </button>
-                                <button data-dz-remove class="btn btn-danger delete">
-                                    <i class="glyphicon glyphicon-trash"></i>
-                                    <span>Delete</span>
-                                </button>
-                            </div>
-                        </div>
-    
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div id="dz" class="dz-preview dz-file-preview">
-                        <div class="dz-details">
-                            <div class="dz-filename"><span data-dz-name></span></div>
-                            <div class="dz-size" data-dz-size></div>
-                            <img data-dz-thumbnail />
-                        </div>
-                        <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-                        <div class="dz-success-mark"><span>✔</span></div>
-                        <div class="dz-error-mark"><span>✘</span></div>
-                        <div class="dz-error-message"><span data-dz-errormessage></span></div>
-                    </div>
-                </div>
             </div>
             <div class="row form-group" id="dynamic-div">
                 <input type="button" class="btn btn-success addNote" value="Add More">

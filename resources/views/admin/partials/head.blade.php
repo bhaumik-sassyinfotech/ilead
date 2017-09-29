@@ -54,8 +54,9 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/jquery.bdt.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/style.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/basic.css">
-<link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/dropzone.css">
+
 <script src="{{ url('public/newone') }}/dropzone.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/dropzone.css">
 
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
