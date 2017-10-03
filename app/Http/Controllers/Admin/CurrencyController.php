@@ -17,7 +17,7 @@ class CurrencyController extends AdminController {
             'lable' => 'required',
             'code' => 'required',
             'simbol' => 'required',
-            'default_currency' => 'required',
+//            'default_currency' => 'required',
         ]);
     }
 
@@ -54,12 +54,11 @@ class CurrencyController extends AdminController {
         $currency->lable = $request->lable;
         $currency->code = $request->code;
         $currency->simbol = $request->simbol;
-        $currency->default_currency = $request->default_currency;
-//        $currency->default_currency = $request->default_currency;
-        if( $request->default_currency == 1 )
-        {
-            DB::table('currency')->update(array('default_currency' => 0));
-        }
+        $currency->default_currency = 1;
+//        if( $request->default_currency == 1 )
+//        {
+//            DB::table('currency')->update(array('default_currency' => 0));
+//        }
         
         if ($currency->save())
             return redirect()->route('currency.index')->with('success', 'Currency '.Config::get('constant.ADDED_MESSAGE'));
@@ -102,14 +101,14 @@ class CurrencyController extends AdminController {
         $currency->lable = $request->lable;
         $currency->code = $request->code;
         $currency->simbol = $request->simbol;
-        $currency->default_currency = $request->default_currency;
-        if($currency->default_currency != $request->default_currency)
-        {
-            if( $request->default_currency == 1 )
-            {
-                DB::table('currency')->update(array('default_currency' => 0));
-            }
-        }
+        $currency->default_currency = 1;
+//        if($currency->default_currency != $request->default_currency)
+//        {
+//            if( $request->default_currency == 1 )
+//            {
+//                DB::table('currency')->update(array('default_currency' => 0));
+//            }
+//        }
 
         if ($currency->save()) {
             return redirect()->route('currency.index')->with('success', 'Currency '.Config::get('constant.UPDATE_MESSAGE'));
@@ -123,7 +122,6 @@ class CurrencyController extends AdminController {
         $query = '';
         if(isset($request->q))
             $query = $request->q;
-    
         $currencyList = Currency::where("lable","like","%{$query}%")->orWhere("code","like","%{$query}%")->orWhere("simbol","like","%{$query}%")->latest('created_at')->paginate(50);
 //        dd($currencyList);
         return view('admin.currency.index', compact('currencyList', 'query'));

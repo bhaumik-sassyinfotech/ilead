@@ -29,16 +29,17 @@
         public function index(Request $request)
         {
             $count = InternationalLead::count();
-            if( $count > 0 )
+            if ($count > 0)
             {
-                $internationalLeads = InternationalLead::with(['note','currencies'])->latest('created_at')->paginate(50);
+                $internationalLeads = InternationalLead::with(['note' , 'currencies'])->latest('created_at')->paginate(50);
 //                dd($internationalLeads);
 //                foreach ($internationalLeads as $lead)
 //                {
 //                    echo "<pre>"; print_r($lead);
 //                }
-                return view("admin.international_leads.index" , compact('internationalLeads' ));
+                return view("admin.international_leads.index" , compact('internationalLeads'));
             }
+            
             return redirect()->route('international.create');
 
 //            $internationalLeads = InternationalLead::all()->paginate(1);
@@ -56,6 +57,7 @@
             $currencies = Currency::all();
             $follow_list = FollowUp::all();
             $sourceList = Source::all();
+            
             return view("admin.international_leads.create" , compact('currencies' , 'follow_list' , 'sourceList'));
         }
         
@@ -68,19 +70,33 @@
         public function store(Request $request)
         {
 //            dd($request->lead_comment);
-            $this->form_validate($request);
+            $validator = Validator::make($request->all() ,
+                [
+                    'project_name' => 'required' ,
+                    'currency'     => 'required' ,
+                    'source'       => 'required' ,
+                    'refer_id'     => 'unique:international_leads',
+                    'amount'       => 'required|numeric|regex:/^\d*(\.\d{2})?$/',
+                    'email'        => 'email' ,
+                    'url'          => 'url' ,
+                ]
+            );
+            if ($validator->fails())
+            {
+                return Redirect::back()->withErrors($validator)->withInput();
+            }
             
-            
+//            dd($request);
             $lead = new InternationalLead();
             $lead->project_name = $request->project_name;
             $lead->contact_person = $request->contact_person;
             $lead->job_title = $request->job_title;
             $lead->refer_id = $request->refer_id;
-            $lead->type = $request->type;
+            $lead->type = !empty($request->type) ? $request->type : 0;
             $lead->source_id = $request->source;
             $lead->currency = $request->currency;
             $lead->amount = $request->amount;
-            $lead->tags = implode("," , $request->tags);
+            $lead->tags = ( count($request->tags) > 0 ) ? implode("," , $request->tags) : '';
             $lead->comment = trim($request->lead_comment);
             $lead->url = $request->url;
             $lead->location = $request->location;
@@ -138,26 +154,42 @@
 //            dd($request);
 
 //            $this->form_validate($request);
+//            $validator = Validator::make($request->all() ,
+//                [
+//                    'project_name' => 'required' ,
+//                    'currency'     => 'required' ,
+//                    'source'       => 'required' ,
+//                    'refer_id'     => 'unique:international_leads,refer_id'.$id ,
+////                    'amount'       => "required|numeric|regex:/^\d*(\.\d{2})?$/",
+//                    'amount'       => "required|numeric",
+//                    'email'        => 'email' ,
+//                    'url'          => 'url' ,
+//                ]
+//            );
+//            if ($validator->fails())
+//            {
+//                return Redirect::back()->withErrors($validator)->withInput();
+//            }
             
             $lead = InternationalLead::find($id);
             
-            $lead->project_name = $request->project_name;
-            $lead->contact_person = $request->contact_person;
-            $lead->job_title = $request->job_title;
-            $lead->refer_id = $request->refer_id;
-            $lead->type = $request->type;
-            $lead->currency = $request->currency;
-            $lead->tags = implode("," , $request->tags);
-            $lead->source_id = $request->source;
-            $lead->comment = trim($request->lead_comment);
-            $lead->amount = $request->amount;
-            $lead->url = $request->url;
-            $lead->location = $request->location;
-            $lead->email = $request->email;
-            $lead->skype = $request->skype;
-            $lead->phone_number = $request->phone_number;
-            $lead->status = $request->status;
-            $lead->user_added_by = 1;
+//            $lead->project_name = $request->project_name;
+//            $lead->contact_person = $request->contact_person;
+//            $lead->job_title = $request->job_title;
+//            $lead->refer_id = $request->refer_id;
+//            $lead->type = $request->type;
+//            $lead->currency = $request->currency;
+            $lead->tags = ( count($request->tags) > 0 ) ? implode("," , $request->tags) : '';
+//            $lead->source_id = $request->source;
+//            $lead->comment = trim($request->lead_comment);
+//            $lead->amount = $request->amount;
+//            $lead->url = $request->url;
+//            $lead->location = $request->location;
+//            $lead->email = $request->email;
+//            $lead->skype = $request->skype;
+//            $lead->phone_number = $request->phone_number;
+//            $lead->status = $request->status;
+//            $lead->user_added_by = 1;
             if ($lead->save())
             {
                 return redirect()->route('international.index')->with('success' , 'International lead ' . Config::get('constant.UPDATE_MESSAGE'));
@@ -195,24 +227,6 @@
         }
         
         
-        public function form_validate(Request $request)
-        {
-            $validator = Validator::make($request->all() ,
-                [
-                    'project_name' => 'required' ,
-                    'currency'     => 'required' ,
-                    'amount'       => "required|numeric|regex:/^\d*(\.\d{2})?$/" ,
-                    'email'        => 'email' ,
-                    'url'          => 'url' ,
-                ]
-            );
-            if ($validator->fails())
-            {
-                return Redirect::back()->withErrors($validator)->withInput();
-            }
-            
-        }
-        
         public function ajaxInsert(Request $request)
         {
             $note = new InternationalLeadNote();
@@ -233,7 +247,7 @@
             $today = Carbon::now();
             $note = InternationalLeadNote::find($request->note_id);
 //            if()
-            if ( ( !empty($note) && $today->diffInDays($note->created_at) == 0 ) && ( $note->lid == $request->lead_id ))
+            if ((!empty($note) && $today->diffInDays($note->created_at) == 0) && ($note->lid == $request->lead_id))
             {
                 // $note->lid = $request->lead_id;
                 $note->note_desc = $request->lead_note;
@@ -282,12 +296,13 @@
         {
             $query = '';
             
-            if(isset($request->q))
+            if (isset($request->q))
                 $query = $request->q;
 //            echo $query;
             
-            $internationalLeads = InternationalLead::with(['note','currencies'])->where("project_name","like","%{$query}%")->orWhere("contact_person","like","%{$query}%")->orWhere("comment","like","%{$query}%")->orWhere("tags","like","%{$query}%")->orWhere("job_title","like","%{$query}%")->orWhere("refer_id","like","%{$query}%")->orWhere("type","like","%{$query}%")->paginate(50);
-            return view("admin.international_leads.index" , compact('internationalLeads','query'));
+            $internationalLeads = InternationalLead::with(['note' , 'currencies'])->where("project_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
+            
+            return view("admin.international_leads.index" , compact('internationalLeads' , 'query'));
         }
         
     }

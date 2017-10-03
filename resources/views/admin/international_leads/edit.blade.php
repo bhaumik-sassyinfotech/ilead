@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 {{-- {{ dd($leadData) }}--}}
+<?php $stat = 'disabled'; ?>
 @section('content')
     <?php $count = 0; ?>
     <div>
@@ -23,7 +24,7 @@
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
                         {{ Form::label('project_name', 'Project Name: *', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('project_name', $leadData['project_name'], ['class' => 'form-control crm-control', 'placeholder' => 'Enter project name']) }}
+                        {{ Form::text('project_name', $leadData['project_name'], ['class' => 'form-control crm-control', 'placeholder' => 'Enter project name' , $stat]) }}
                         {{--<label class="crm-label">Project name</label>--}}
                         {{--<input type="text" class="form-control crm-control"> --}}
                     </div>
@@ -31,7 +32,7 @@
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
                         {{ Form::label('contact_person', 'Contact Person: ', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('contact_person', $leadData['contact_person'], ['class' => 'form-control crm-control', 'placeholder' => 'Enter contact person']) }}
+                        {{ Form::text('contact_person', $leadData['contact_person'], ['class' => 'form-control crm-control', 'placeholder' => 'Enter contact person' , $stat]) }}
                         {{--<label class="crm-label">Contact Person</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
                     </div>
@@ -41,7 +42,7 @@
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
                         {{ Form::label('job_title', 'Job Title: ', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('job_title', $leadData['job_title'], ['class' => 'form-control crm-control', 'placeholder' => 'Enter job title']) }}
+                        {{ Form::text('job_title', $leadData['job_title'], ['class' => 'form-control crm-control', 'placeholder' => 'Enter job title' , $stat]) }}
                         {{--<label class="crm-label">Job Title</label>--}}
                         {{--<input type="text" class="form-control crm-control"> --}}
                     </div>
@@ -49,7 +50,7 @@
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
                         {{ Form::label('refer_id', 'Reference ID:', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('refer_id', $leadData['refer_id'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter reference ID']) }}
+                        {{ Form::text('refer_id', $leadData['refer_id'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter reference ID' , $stat]) }}
                         {{--<label class="crm-label">Reference Id</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
                     </div>
@@ -60,7 +61,7 @@
                     <div class="form-group crm-group">
                         {{ Form::label('type', 'Type: ', ['class' => 'control-label crm-label']) }}
                         {{--<label class="crm-label">Type</label>--}}
-                        <select class="form-control crm-control" name="type" id="type">
+                        <select class="form-control crm-control" name="type" id="type" {{ $stat }}>
                             <option value="">Select Type</option>
                             @foreach($follow_list as $follow )
                                 <?php $msg = ''; ?>
@@ -77,7 +78,7 @@
                         {{--<label class="crm-label">URL:</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
                         {{ Form::label('url', 'URL: * ( http://www.example.com )', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('url', $leadData['url'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter URL']) }}
+                        {{ Form::text('url', $leadData['url'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter URL', $stat ]) }}
                     </div>
                 </div>
             </div>
@@ -85,7 +86,7 @@
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
                         {{ Form::label('source', 'Source: *', ['class' => 'control-label crm-label']) }}
-                        <select class="form-control crm-control" name="source" id="source">
+                        <select class="form-control crm-control" name="source" id="source" {{ $stat }}>
                             <option value="">Select Source</option>
                             @foreach($sourceList as $src )
                                 <?php $msg=''; ?>
@@ -101,7 +102,7 @@
                     <div class="form-group crm-group">
                         {{--<label class="crm-label">Currency</label>--}}
                         {{ Form::label('currency', 'Currency: *', ['class' => 'control-label crm-label']) }}
-                        <select class="form-control crm-control" name="currency" id="currency">
+                        <select class="form-control crm-control" name="currency" id="currency" {{ $stat }}>
                             <option value="">Select Currency</option>
                             @foreach($currencies as $currency )
                                 <?php $msg = ''; ?>
@@ -120,7 +121,7 @@
                         {{--<label class="crm-label">Amoutnt</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
                         {{ Form::label('amount', 'Amount: *', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('amount', $leadData['amount'] , ['class' => 'form-control float crm-control', 'placeholder' => 'Enter amount']) }}
+                        {{ Form::text('amount', $leadData['amount'] , ['class' => 'form-control float crm-control', 'placeholder' => 'Enter amount' , $stat]) }}
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -128,7 +129,7 @@
                         {{--<label class="crm-label">Location</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
                         {{ Form::label('location', 'Location: ', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('location', $leadData['location'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter location']) }}
+                        {{ Form::text('location', $leadData['location'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter location' , $stat]) }}
                     </div>
                 </div>
             </div>
@@ -139,7 +140,7 @@
                         {{--<label class="crm-label">Phone Number</label>--}}
                         {{--<input type="tel" class="form-control crm-control">--}}
                         {{ Form::label('phone_number', 'Phone Number:', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('phone_number', $leadData['phone_number'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter phone number']) }}
+                        {{ Form::text('phone_number', $leadData['phone_number'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter phone number' , $stat]) }}
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -147,7 +148,7 @@
                         {{--<label class="crm-label">Email</label>--}}
                         {{--<input type="email" class="form-control crm-control">--}}
                         {{ Form::label('email', 'Email: ', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('email', $leadData['email'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter email']) }}
+                        {{ Form::text('email', $leadData['email'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter email' , $stat]) }}
                     </div>
                 </div>
             </div>
@@ -158,13 +159,13 @@
                         {{--<label class="crm-label">Skype</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
                         {{ Form::label('skype', 'Skype:', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('skype', $leadData['skype'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter skype ID']) }}
+                        {{ Form::text('skype', $leadData['skype'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter skype ID' , $stat]) }}
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
                         {{ Form::label('status', 'Status:', ['class' => 'control-label crm-label']) }}
-                        <select class="form-control crm-control" name="status" id="status">
+                        <select class="form-control crm-control" name="status" id="status" {{ $stat }}>
                             <option {{ $leadData->status == 'closed' ? 'selected' : ' ' }} value="closed">Closed</option>
                             <option {{ $leadData->status == 'open' ? 'selected' : ' ' }} value="open">Open</option>
                             <option {{ $leadData->status == 'interested' ? 'selected' : ' ' }} value="interested">Interested</option>
@@ -197,8 +198,8 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <h4 class="bold-crm-label">Comment</h4>
-                        <textarea placeholder="Enter Comment" name="lead_comment" id="lead_comment" cols="30" rows="10"
-                                  class="form-control txtArea">{{ (isset($leadData->comment)) ? nl2br($leadData->comment) : '' }}</textarea>
+                            <textarea {{ $stat }} placeholder="Enter Comment" name="lead_comment" id="lead_comment" cols="30" rows="10"
+                                      class="form-control txtArea">{{ (isset($leadData->comment)) ? nl2br($leadData->comment) : '' }}</textarea>
                     </div>
                 </div>
                 <div class="col-sm-6"></div>
@@ -285,8 +286,15 @@
 @stop
 
 @section('javascript')
-    
     @include('admin.international_leads.js')
+    <script>
+        $(window).on('load' , function () {
+            // Handler for .ready() called.
+            $('html, body').animate({
+                scrollTo: $('#dynamic-div').offset().top
+            }, 500);
+        });
+    </script>
 @stop
 
 

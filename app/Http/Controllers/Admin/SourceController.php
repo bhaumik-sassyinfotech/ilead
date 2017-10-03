@@ -58,9 +58,10 @@
             {
                 return Redirect::back()->withErrors($validator)->withInput();
             }
+//            dd($request);
             $src = new Source();
-            $src->title = $request->source;
-            $src->label = str_slug($request->source , '_');
+            $src->title = $request->title;
+            $src->label = str_slug($request->title , '_');
             
             if ($src->save())
             {

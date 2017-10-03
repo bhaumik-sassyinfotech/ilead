@@ -46,7 +46,7 @@
                     
                 </div>
             </div>
-             <div class="row">
+             <div class="row" style="display: none;">
                 <div class="col-xs-12 col-md-12 col-sm-12 form-group">
                     <label class="control-label" style="padding-right: 15px;">Default Currency: </label>
                     <label class="radio-inline"><input checked value="0" type="radio" name="default_currency">No</label>
