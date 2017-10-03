@@ -26,11 +26,13 @@
                 $table->integer('source_id')->nullable();
                 $table->text('tags');
                 $table->text('comment');
+                $table->string('status', 255);
                 $table->string('url', 255);
                 $table->string('location')->nullable();
                 $table->string('email',255)->nullable();
                 $table->string('skype',255)->nullable();
                 $table->string('phone_number',20)->nullable();
+                $table->string('user_added_by',10)->nullable();
                 $table->timestamps();
                 $table->softDeletes();
             });

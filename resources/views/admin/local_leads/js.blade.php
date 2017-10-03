@@ -41,27 +41,15 @@
                 var requestType = 'DELETE';
                 var URLString   = '{{ route('international.ajaxDelete') }}';
                 var dataString  = {_token: token , note_id: note_val , lead_id: lid};
-                if(confirm("Are you sure you want to delete this note?"))
-                {
-                    ajax(requestType , URLString , dataString);
-
-                    var parent = $(notesDiv);
-                    $(parent).slideUp(duration , function ()
-                    {
-                        parent.remove();
-                        btnToggle(parentClass);
-                    });
-                } else {
-                    $("#lead_note_"+count).focus();
-                }
-            } else {
-                var parent = $(notesDiv);
-                $(parent).slideUp(duration , function ()
-                {
-                    parent.remove();
-                    btnToggle(parentClass);
-                });
+                ajax(requestType , URLString , dataString);
             }
+//            var parent = $(that).parent('div').parent('div');
+            var parent = $(notesDiv);
+            $(parent).slideUp(duration , function ()
+            {
+                parent.remove();
+                btnToggle(parentClass);
+            });
 
 
         });
@@ -127,6 +115,7 @@
             strData = '';
             strData = textarea_val ;
 //            console.log("textarea-val: "+strData);
+            
         }).on('blur' , '.notes-area' , function ()
         {
             var that             = $(this);
@@ -156,43 +145,6 @@
                 ajax(requestType , URLString , dataString , noteidSelector);
             }
             
-        }).on('click','.saveBtn',function ()
-        {
-//            alert("hi");
-            var that             = $(this);
-            var lid              = $("#lead_id").val();
-            var count            = that.data('id');
-            var textareaSelector = '#lead_note_' + count;
-            var noteidSelector   = '#note_id_' + count;
-            var note_val         = $(noteidSelector).val();
-            var textarea_val     = $.trim($(textareaSelector).val());
-            var token            = $('input[name="_token"]').val();
-
-            if ( textarea_val.length > 0 && textarea_val !== undefined )
-            {
-                var requestType = '' , URLString = '';
-                var dataString  = {_token: token , lead_id: lid , lead_note: textarea_val};
-                if ( note_val != '' )
-                { //update note
-                    requestType        = 'PUT';
-                    dataString.note_id = note_val;
-                    URLString          = '{{ route('international.ajaxUpdate') }}';
-                }
-                else
-                { //insert note
-                    URLString   = '{{ route('international.ajaxInsert') }}';
-                    requestType = 'POST';
-                }
-                if( strData !== textarea_val )
-                {
-                    ajax(requestType , URLString , dataString , noteidSelector);
-                } else {
-                    alert("change some content to update.")
-                }
-            }
-//            else {
-//                alert("Please enter some text");
-//            }
         })
     }
 

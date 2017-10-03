@@ -18,7 +18,7 @@
     use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\Validator;
     
-    class InternationalLeadController extends Controller
+    class LocalLeadController extends Controller
     {
         /**
          * Display a listing of the resource.
@@ -85,8 +85,6 @@
             $lead->url = $request->url;
             $lead->location = $request->location;
             $lead->email = $request->email;
-            $lead->status = $request->status;
-            $lead->user_added_by = 1;
             $lead->skype = $request->skype;
             $lead->phone_number = $request->phone_number;
             if ($lead->save())
@@ -156,8 +154,6 @@
             $lead->email = $request->email;
             $lead->skype = $request->skype;
             $lead->phone_number = $request->phone_number;
-            $lead->status = $request->status;
-            $lead->user_added_by = 1;
             if ($lead->save())
             {
                 return redirect()->route('international.index')->with('success' , 'International lead ' . Config::get('constant.UPDATE_MESSAGE'));

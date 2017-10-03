@@ -161,20 +161,6 @@
                         {{ Form::text('skype', $leadData['skype'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter skype ID']) }}
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="form-group crm-group">
-                        {{ Form::label('status', 'Status:', ['class' => 'control-label crm-label']) }}
-                        <select class="form-control crm-control" name="status" id="status">
-                            <option {{ $leadData->status == 'closed' ? 'selected' : ' ' }} value="closed">Closed</option>
-                            <option {{ $leadData->status == 'open' ? 'selected' : ' ' }} value="open">Open</option>
-                            <option {{ $leadData->status == 'interested' ? 'selected' : ' ' }} value="interested">Interested</option>
-                            <option {{ $leadData->status == 'in_progress' ? 'selected' : ' ' }} value="in_progress">In progress</option>
-                            <option {{ $leadData->status == 'converted' ? 'selected' : ' ' }} value="converted">Converted</option>
-                        </select>
-                        {{--<label class="crm-label">Skype</label>--}}
-                        {{--<input type="text" class="form-control crm-control">--}}
-                    </div>
-                </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">

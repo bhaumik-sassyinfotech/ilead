@@ -147,20 +147,6 @@
 						{{--<input type="text" class="form-control crm-control">--}}
 					</div>					
 				</div>
-                <div class="col-sm-6">
-                    <div class="form-group crm-group">
-                        {{ Form::label('status', 'Status:', ['class' => 'control-label crm-label']) }}
-                        <select class="form-control crm-control" name="status" id="status">
-                            <option value="closed">Closed</option>
-                            <option value="open">Open</option>
-                            <option value="interested">Interested</option>
-                            <option value="in_progress">In progress</option>
-                            <option value="converted">Converted</option>
-                        </select>
-                        {{--<label class="crm-label">Skype</label>--}}
-                        {{--<input type="text" class="form-control crm-control">--}}
-                    </div>
-                </div>
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
