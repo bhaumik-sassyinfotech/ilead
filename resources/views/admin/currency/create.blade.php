@@ -27,50 +27,30 @@
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 form-group">
-                    <label class="control-label">Currency lable</label>
+                    <label class="control-label">Currency label</label>
                     <input type="text" name="lable" class="form-control">
-                    <p class="help-block"></p>
-<!--                    @if($errors->has('lable'))
-                    <p class="help-block">
-                        {{ $errors->first('lable') }}
-                    </p>
-                    @endif-->
+                    
                 </div>
             </div>
              <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 form-group">
                     <label class="control-label">Currency code</label>
                     <input type="text" name="code" class="form-control">
-                    <p class="help-block"></p>
-<!--                    @if($errors->has('code'))
-                    <p class="help-block">
-                        {{ $errors->first('code') }}
-                    </p>
-                    @endif-->
+
                 </div>
             </div>
              <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 form-group">
-                    <label class="control-label">Currency simbole</label>
+                    <label class="control-label">Currency symbol</label>
                     <input type="text" name="simbol" class="form-control">
-                    <p class="help-block"></p>
-<!--                    @if($errors->has('simbol'))
-                    <p class="help-block">
-                        {{ $errors->first('simbol') }}
-                    </p>
-                    @endif-->
+                    
                 </div>
             </div>
              <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 form-group">
-                    <label class="control-label">Default Currency </label>
-                    <input type="number" name="default_currency" class="form-control">
-                    <p class="help-block"></p>
-<!--                    @if($errors->has('default_currency'))
-                    <p class="help-block">
-                        {{ $errors->first('default_currency') }}
-                    </p>
-                    @endif-->
+                    <label class="control-label" style="padding-right: 15px;">Default Currency: </label>
+                    <label class="radio-inline"><input checked value="0" type="radio" name="default_currency">No</label>
+                    <label class="radio-inline"><input value="1" type="radio" name="default_currency">Yes</label>
                 </div>
             </div>            
         </div>

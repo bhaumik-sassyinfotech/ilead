@@ -6,6 +6,7 @@
     use App\InternationalLead;
     use App\FollowUp;
     use App\InternationalLeadNote;
+    use App\Source;
     use Carbon\Carbon;
     use Config;
     
@@ -25,19 +26,24 @@
          *
          * @return \Illuminate\Http\Response
          */
-        public function index()
+        public function index(Request $request)
         {
             $count = InternationalLead::count();
             if( $count > 0 )
             {
-                $internationalLeads = InternationalLead::with('notes')->latest('created_at')->paginate(10);
-                return view("admin.international_leads.index" , compact('internationalLeads'));
+                $internationalLeads = InternationalLead::with(['note','currencies'])->latest('created_at')->paginate(50);
+                $sourceList = Source::all();
+//                dd($internationalLeads);
+//                foreach ($internationalLeads as $lead)
+//                {
+//                    echo "<pre>"; print_r($lead);
+//                }
+                return view("admin.international_leads.index" , compact('internationalLeads' , 'sourceList'));
             }
             return redirect()->route('international.create');
-            
+
 //            $internationalLeads = InternationalLead::all()->paginate(1);
 //            dd($internationalLeads);
-        
         }
         
         /**
@@ -62,8 +68,9 @@
          */
         public function store(Request $request)
         {
-//            dd($request);
+//            dd($request->lead_comment);
             $this->form_validate($request);
+            
             
             $lead = new InternationalLead();
             $lead->project_name = $request->project_name;
@@ -71,7 +78,7 @@
             $lead->job_title = $request->job_title;
             $lead->refer_id = $request->refer_id;
             $lead->type = $request->type;
-            $lead->currency = $request->currency;
+//            $lead->currency = $request->currency;
             $lead->currency = $request->currency;
             $lead->amount = $request->amount;
             $lead->tags = implode("," , $request->tags);
@@ -117,6 +124,7 @@
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list'));
         }
         
+        
         /**
          * Update the specified resource in storage.
          *
@@ -125,7 +133,6 @@
          */
         public function update($id , Request $request)
         {
-
 
 //            dd($request);
 
@@ -265,6 +272,18 @@
         public function ajax(Request $request)
         {
             dd("ajax");
+        }
+        
+        public function searchLead(Request $request)
+        {
+            $query = '';
+            
+            if(isset($request->q))
+                $query = $request->q;
+//            echo $query;
+            
+            $internationalLeads = InternationalLead::with(['note','currencies'])->where("project_name","like","%{$query}%")->orWhere("contact_person","like","%{$query}%")->orWhere("comment","like","%{$query}%")->orWhere("tags","like","%{$query}%")->orWhere("job_title","like","%{$query}%")->orWhere("refer_id","like","%{$query}%")->orWhere("type","like","%{$query}%")->paginate(50);
+            return view("admin.international_leads.index" , compact('internationalLeads','query'));
         }
         
     }

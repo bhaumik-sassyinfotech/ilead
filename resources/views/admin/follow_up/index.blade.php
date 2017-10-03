@@ -29,6 +29,27 @@
         <div class="panel-heading">
             Follow Up List
         </div>
+        <div class="col-lg-4" style="margin: 10px 10px 10px 0px">
+            <form action="{{ route('follow_up.search') }}" method="POST" role="search">
+                {{ csrf_field() }}
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" value="{{ isset($query)? $query : '' }}">
+                    <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+                    <div class="input-group" style="margin-left: 10px">
+                    <span class="input-group-btn">
+                        <a  href="{{ route('follow_up.index') }}"
+                            class="input-group-btn btn btn-default">
+                            <span class="fa fa-refresh"></span>
+                        </a>
+                    </span>
+                    </div>
+                </div>
+            </form>
+        </div>
 
         <div class="panel-body">
 
@@ -53,7 +74,7 @@
                                 {{ Form::open(array(
                                 'style' => 'display: inline-block;',
                                 'method' => 'DELETE',
-                                'onsubmit' => "return confirm('".trans("Are you sure want to delete this faq module?")."');",
+                                'onsubmit' => "return confirm('".trans("Are you sure want to delete this follow up module?")."');",
                                 'route' => ['follow_up.destroy', $follow->id])) }}
                                 {{ Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) }}
                                 {{ Form::close() }}

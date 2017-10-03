@@ -175,7 +175,6 @@
                             <span class="title">Source</span>
                         </a>
                     </li>
-
                 </ul>
 
             </li>

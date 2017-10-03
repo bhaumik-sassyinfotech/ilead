@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Config;
 use App\Currency;
 use App\Http\Controllers\Admin\AdminController;
+use Illuminate\Support\Facades\DB;
 
 class CurrencyController extends AdminController {
 
@@ -27,8 +28,8 @@ class CurrencyController extends AdminController {
      */
     public function index(Request $request) {
         $currencyList = Currency::whereNull('deleted_at')->paginate(5);
-        $placeholder_string = $this->getSearchPlaceholder();
-        return view('admin.currency.index', compact('currencyList', 'placeholder_string'));
+//        $placeholder_string = $this->getSearchPlaceholder();
+        return view('admin.currency.index', compact('currencyList'));
     }
 
     /**
@@ -54,7 +55,12 @@ class CurrencyController extends AdminController {
         $currency->code = $request->code;
         $currency->simbol = $request->simbol;
         $currency->default_currency = $request->default_currency;
-
+//        $currency->default_currency = $request->default_currency;
+        if( $request->default_currency == 1 )
+        {
+            DB::table('currency')->update(array('default_currency' => 0));
+        }
+        
         if ($currency->save())
             return redirect()->route('currency.index')->with('success', 'Currency '.Config::get('constant.ADDED_MESSAGE'));
     }
@@ -97,6 +103,13 @@ class CurrencyController extends AdminController {
         $currency->code = $request->code;
         $currency->simbol = $request->simbol;
         $currency->default_currency = $request->default_currency;
+        if($currency->default_currency != $request->default_currency)
+        {
+            if( $request->default_currency == 1 )
+            {
+                DB::table('currency')->update(array('default_currency' => 0));
+            }
+        }
 
         if ($currency->save()) {
             return redirect()->route('currency.index')->with('success', 'Currency '.Config::get('constant.UPDATE_MESSAGE'));
@@ -106,16 +119,14 @@ class CurrencyController extends AdminController {
     }
 
     public function currencySearch(Request $request) {
-        if (empty($request->input('q')))
-            return redirect()->route('currency.index');
-        $q = $request->input('q');
-
-        $placeholder_string = $this->getSearchPlaceholder();
-        $currencyList = DB::table('currency')->whereNull('deleted_at')->selectRaw('*')->whereRaw($this->createSearchQuery($q))->paginate(5);
-
-        $pagination = $currencyList->appends(array('q' => $q));
-
-        return view('admin.currency.index', compact('currencyList', 'q', 'placeholder_string'));
+//        dd($request);
+        $query = '';
+        if(isset($request->q))
+            $query = $request->q;
+    
+        $currencyList = Currency::where("lable","like","%{$query}%")->orWhere("code","like","%{$query}%")->orWhere("simbol","like","%{$query}%")->latest('created_at')->paginate(50);
+//        dd($currencyList);
+        return view('admin.currency.index', compact('currencyList', 'query'));
     }
 
     /**

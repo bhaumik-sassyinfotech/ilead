@@ -118,13 +118,16 @@
             Route::get('countrySearch' , 'Admin\CountryController@countrySearch');
             
             //currency
+            Route::post('currencySearch', 'Admin\CurrencyController@currencySearch');
             Route::resource('currency' , 'Admin\CurrencyController');
             //follow up
+            Route::post('followSearch','Admin\FollowUpController@followSearch')->name('follow_up.search');
             Route::resource('follow_up' , 'Admin\FollowUpController');
             //international Source
+            Route::post('sourceSearch', 'Admin\SourceController@sourceSearch')->name('source.search');
             Route::resource('source','Admin\SourceController');
             //Route::get('currency','Admin\CurrencyController@index')->name('currency.index');
-            //Route::post('/currencySearch', 'Admin\CurrencyController@currencySearch');
+            
             //Route::get('currencySearch', 'Admin\CurrencyController@currencySearch');
             
             //settings

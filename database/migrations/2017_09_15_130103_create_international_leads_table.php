@@ -23,7 +23,7 @@
                 $table->integer('type')->nullable();
                 $table->integer('currency');
                 $table->float('amount', 8, 2);
-                $table->integer('source_id',FALSE);
+                $table->integer('source_id')->nullable();
                 $table->text('tags');
                 $table->text('comment');
                 $table->string('url', 255);

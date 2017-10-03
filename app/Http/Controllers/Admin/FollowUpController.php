@@ -3,6 +3,7 @@
     namespace App\Http\Controllers\Admin;
     
     use Illuminate\Http\Request;
+    
     use App\Http\Controllers\Controller;
     use App\FollowUp;
     use Config;
@@ -20,7 +21,7 @@
         {
             //
 //            $follow_up_list = FollowUp::whereNull('deleted_at')->paginate(10);
-            $follow_up_list = FollowUp::latest('updated_at')->paginate(1);
+            $follow_up_list = FollowUp::latest('created_at')->latest('created_at')->paginate(50);
 
 //        dd($follow_up_list);
             return view('admin.follow_up.index' , compact('follow_up_list'));
@@ -59,8 +60,8 @@
             }
             
             $follow = new FollowUp;
-            $follow->title = $request->title;
-            $follow->label = str_slug($request->title , '_');
+            $follow->title = trim($request->title);
+            $follow->label = str_slug(trim($request->title) , '_');
             
             
             if ($follow->save())
@@ -115,16 +116,14 @@
                     'title' => 'required|unique:follow_ups,title,'.$id ,
                 ]
             );
-            
             if ($validator->fails())
             {
-//                dd($validator);
                 return Redirect::back()->withErrors($validator)->withInput();
             }
             
             $follow = FollowUp::find($id);
-            $follow->title = $request->title;
-            $follow->label = str_slug($request->title , "_");
+            $follow->title = trim($request->title);
+            $follow->label = str_slug(trim($request->title) , "_");
             if ($follow->save())
             {
                 return redirect()->route('follow_up.index')->with('success' , 'Follow up ' . Config::get('constant.UPDATE_MESSAGE'));
@@ -152,10 +151,23 @@
                     return redirect()->route('follow_up.index')->with('success' , 'Follow up ' . Config::get('constant.DELETE_MESSAGE'));
                 } else
                 {
-                    return redirect()->route('follow_up.index')->with('err_msg' , 'Follow up ' . Config::get('constant.TRY_MESSAGE'));
+                    return redirect()->route('follow_up.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
                 }
             }
             
             return redirect()->route('follow_up.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
+        }
+        
+        public function followSearch(Request $request)
+        {
+           
+            $query = '';
+    
+            if(isset($request->q))
+                $query = $request->q;
+    
+            $follow_up_list = FollowUp::where("title","like","%{$query}%")->latest('created_at')->paginate(50);
+//            dd($follow_up_list);
+            return view('admin.follow_up.index' , compact('follow_up_list' , 'query'));
         }
     }

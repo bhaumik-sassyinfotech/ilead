@@ -1,3 +1,4 @@
+{{--{{ dd($internationalLeads) }}--}}
 @extends('admin.layouts.app')
 
 @section('content')

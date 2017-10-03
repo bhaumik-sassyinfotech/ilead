@@ -12,26 +12,26 @@
 </div>
 @endif
 <div>
-    <div class="col-md-6 nopadding"><h3 class="page-title">Currency</h3></div>
-    <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a> > Currency Pages</p></div>
+    <div class="col-md-6 nopadding"><h3 class="page-title">Source</h3></div>
+    <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a> > Source</p></div>
 </div>
 
 <div class="new_button">
     <div class="pull-right">
-        <a href="{{ route('currency.create') }}" class="btn btn-success extra_button">Add new</a>
+        <a href="{{ route('source.create') }}" class="btn btn-success extra_button">Add new</a>
     </div>
     <div style="clear: both;"></div>
 </div>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        Currency List
+        Source List
     </div>
     <div class="col-lg-4" style="margin: 10px 10px 10px 0px">
-        <form action="{{ url('/admin/currencySearch') }}" method="POST" role="search">
+        <form action="{{ route('source.search') }}" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group">
-                <input type="text" class="form-control" name="q" value="{{ isset($query) ? $query : '' }}">
+                <input type="text" class="form-control" name="q" value="{{ isset($query)? $query : '' }}">
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">
                         <span class="fa fa-search"></span>
@@ -39,7 +39,7 @@
                 </span>
                 <div class="input-group" style="margin-left: 10px">
                     <span class="input-group-btn">
-                        <a  href="{{ route('currency.index') }}" 
+                        <a  href="{{ route('source.index') }}"
                             class="input-group-btn btn btn-default">
                             <span class="fa fa-refresh"></span>
                         </a>
@@ -55,31 +55,24 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Label</th>
-                    <th>Code</th>
-                    <th>Symbol</th>
-                    {{--<th>Currency </th>--}}
+                    <th>Source title</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            @if (isset($currencyList) && count($currencyList) > 0)
+            @if (isset($sourcesData) && count($sourcesData) > 0)
             <?php $i = 0; ?>
-            @foreach ($currencyList as $currency)
+            @foreach ($sourcesData as $src)
             <tr>
                 <td style="width: 10%">{{ ++$i }}</td>
-                <td style="width: 20%">{{ $currency->lable }}</td>
-                <td style="width: 10%">{{ $currency->code }}</td>
-                <td style="width: 20%">{{ $currency->simbol }}</td>
-                {{--<td style="width: 20%">{{ $currency->default_currency }}</td>--}}
-
+                <td style="width: 20%">{{ $src->title }}</td>
                 <td style="width: 20%">
-                    <a href="{{ route('currency.edit',[$currency->id]) }}" 
+                    <a href="{{ route('source.edit',[$src->id]) }}"
                        class="btn btn-xs btn-info"> Edit </a>
                        {!! Form::open(array(
                         'style' => 'display: inline-block;',
                         'method' => 'DELETE',
                         'onsubmit' => "return confirm('".trans("Are you sure want to delete this currency?")."');",
-                        'route' => ['currency.destroy', $currency->id])) !!}
+                        'route' => ['source.destroy', $src->id])) !!}
                         {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
                         {!! Form::close() !!}
                 </td>
@@ -91,7 +84,7 @@
             </tr>
             @endif
         </table>
-        {!! $currencyList->render() !!}
+        {!! $sourcesData->render() !!}
     </div>
 </div>
 @endsection
