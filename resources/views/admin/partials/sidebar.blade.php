@@ -74,87 +74,89 @@
                 </a>
             </li>
             @endif
-            @if(Helpers::getAdminPermission('template.manage')=='true' ||
-            Helpers::getAdminPermission('template.view')=='true' || Auth::guard('admin')->user()->role_id == 1)
-            <li class="menu-item">
-                <span><i class="fa fa-cog"></i>CMS Managment</span>
-                <ul class="sub-menu-item">
+            {{--@if(Helpers::getAdminPermission('template.manage')=='true' ||--}}
+            {{--Helpers::getAdminPermission('template.view')=='true' || Auth::guard('admin')->user()->role_id == 1)--}}
+            {{--<li class="menu-item">--}}
+                {{--<span><i class="fa fa-cog"></i>CMS Managment</span>--}}
+                {{--<ul class="sub-menu-item">--}}
 
-                    <li class="{{ Request::is('cms*')? 'active' : '' }}">
-                        <a href="{{ route('cms.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span class="title">CMS</span>
-                        </a>
-                    </li>
-                    <li class="{{ Request::is('block*')? 'active' : '' }}">
-                        <a href="{{ route('block.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span class="title">Block</span>
-                        </a>
-                    </li>
-                    <li class="{{ Request::is('notification*')? 'active' : '' }}">
-                        <a href="{{ route('notification.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span class="title">Notification</span>
-                        </a>
-                    </li>
-                    <li class="{{ Request::is('messages*')? 'active' : '' }}">
-                        <a href="{{ route('messages.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span class="title">Messages</span>
-                        </a>
-                    </li>
+                    {{--<li class="{{ Request::is('cms*')? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('cms.index') }}">--}}
+                            {{--<i class="fa fa-users"></i>--}}
+                            {{--<span class="title">CMS</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li class="{{ Request::is('block*')? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('block.index') }}">--}}
+                            {{--<i class="fa fa-users"></i>--}}
+                            {{--<span class="title">Block</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li class="{{ Request::is('messages*')? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('messages.index') }}">--}}
+                            {{--<i class="fa fa-users"></i>--}}
+                            {{--<span class="title">Messages</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    
+                    {{--<li class="{{ Request::is('notification*')? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('notification.index') }}">--}}
+                            {{--<i class="fa fa-users"></i>--}}
+                            {{--<span class="title">Notification</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    
 
                     <!--                    @if(Helpers::getAdminPermission('template.manage')=='true' || Helpers::getAdminPermission('template.view')=='true'|| Helpers::getAdminPermission('template.delete')=='true')-->
-                    <li class="{{ $request->segment(1) == 'emailtemplate' ? 'active' : '' }}">
-                        <a href="{{ route('emailtemplate.index') }}">
-                            <i class="fa fa-credit-card"></i>
-                            <span class="title">Email Template</span>
-                        </a>
-                    </li>
+                    {{--<li class="{{ $request->segment(1) == 'emailtemplate' ? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('emailtemplate.index') }}">--}}
+                            {{--<i class="fa fa-credit-card"></i>--}}
+                            {{--<span class="title">Email Template</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
                     <!--@endif-->
 
 
-                </ul>
+                {{--</ul>--}}
 
-            </li>
-            @endif
-            @if(Helpers::getAdminPermission('faq.manage')=='true' || Helpers::getAdminPermission('faq.view')=='true'||
-            Helpers::getAdminPermission('faq.delete')=='true')
-            <li class="menu-item">
-                <span><i class="fa fa-cog"></i>Faq</span>
-                <ul class="sub-menu-item">
-                    <li class="{{ $request->segment(1) == 'faqcategorys' ? 'active' : '' }}">
-                        <a href="{{ route('faqcategorys.index') }}">
-                            <i class="fa fa-bar-chart"></i>
-                            <span class="title">Categorys</span>
-                        </a>
-                    </li>
-                    <li class="{{ $request->segment(1) == 'faqmodule' ? 'active' : '' }}">
-                        <a href="{{ route('faqmodule.index') }}">
-                            <i class="fa fa-bar-chart"></i>
-                            <span class="title">Module</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            @endif
+            {{--</li>--}}
+            {{--@endif--}}
+            {{--@if(Helpers::getAdminPermission('faq.manage')=='true' || Helpers::getAdminPermission('faq.view')=='true'||--}}
+            {{--Helpers::getAdminPermission('faq.delete')=='true')--}}
+            {{--<li class="menu-item">--}}
+                {{--<span><i class="fa fa-cog"></i>Faq</span>--}}
+                {{--<ul class="sub-menu-item">--}}
+                    {{--<li class="{{ $request->segment(1) == 'faqcategorys' ? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('faqcategorys.index') }}">--}}
+                            {{--<i class="fa fa-bar-chart"></i>--}}
+                            {{--<span class="title">Categorys</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li class="{{ $request->segment(1) == 'faqmodule' ? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('faqmodule.index') }}">--}}
+                            {{--<i class="fa fa-bar-chart"></i>--}}
+                            {{--<span class="title">Module</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--@endif--}}
             @if(Helpers::isAdmin() == 1)
             <li class="menu-item">
                 <span><i class="fa fa-cog"></i>Entities</span>
                 <ul class="sub-menu-item">
-                    <li class="{{ Request::is('storeLanguage*')? 'active' : '' }}">
-                        <a href="{{ route('storeLanguage.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span class="title">Language</span>
-                        </a>
-                    </li>
-                    <li class="{{ Request::is('country*')? 'active' : '' }}">
-                        <a href="{{ route('country.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span class="title">Country</span>
-                        </a>
-                    </li>
+                    {{--<li class="{{ Request::is('storeLanguage*')? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('storeLanguage.index') }}">--}}
+                            {{--<i class="fa fa-users"></i>--}}
+                            {{--<span class="title">Language</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li class="{{ Request::is('country*')? 'active' : '' }}">--}}
+                        {{--<a href="{{ route('country.index') }}">--}}
+                            {{--<i class="fa fa-users"></i>--}}
+                            {{--<span class="title">Country</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
                     <li class="{{ Request::is('currency*')? 'active' : '' }}">
                         <a href="{{ route('currency.index') }}">
                             <i class="fa fa-users"></i>
@@ -167,25 +169,10 @@
                             <span class="title">Follow Up</span>
                         </a>
                     </li>
-
-                </ul>
-
-            </li>
-            @endif
-            @if(Helpers::isAdmin() == 1)
-            <li class="menu-item">
-                <span><i class="fa fa-cog"></i>Setting</span>
-                <ul class="sub-menu-item">
-                    <li>
-                        <a href="{{ url('admin/readSettingData') }}">
+                    <li class="{{ Request::is('source*')? 'active' : '' }}">
+                        <a href="{{ route('source.index') }}">
                             <i class="fa fa-users"></i>
-                            <span class="title">System Configuration</span>
-                        </a>
-                    </li>
-                    <li class="{{ $request->segment(1) == 'meta' ? 'active active-sub' : '' }}">
-                        <a href="{{ route('meta.index') }}">
-                            <i class="fa fa-users"></i>
-                            <span class="title">Website meta</span>
+                            <span class="title">Source</span>
                         </a>
                     </li>
 
@@ -193,6 +180,27 @@
 
             </li>
             @endif
+                {{----}}
+            {{--@if(Helpers::isAdmin() == 1)--}}
+            {{--<li class="menu-item">--}}
+                {{--<span><i class="fa fa-cog"></i>Setting</span>--}}
+                {{--<ul class="sub-menu-item">--}}
+                    {{--<li>--}}
+                        {{--<a href="{{ url('admin/readSettingData') }}">--}}
+                            {{--<i class="fa fa-users"></i>--}}
+                            {{--<span class="title">System Configuration</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li class="{{ $request->segment(1) == 'meta' ? 'active active-sub' : '' }}">--}}
+                        {{--<a href="{{ route('meta.index') }}">--}}
+                            {{--<i class="fa fa-users"></i>--}}
+                            {{--<span class="title">Website meta</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--@endif--}}
 
             <li>
                 <a href="#logout" onclick="$('#logout').submit();">

@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-   
+
     var divCount = '{{ (isset( $count ))?$count:1 }}';
 
     $(document).ready(function ()
@@ -15,8 +15,9 @@
 
     function commentSection( cnt )
     {
-        var count           = cnt;
+        let count           = cnt;
         var duration        = 500;
+        
         dyn                 = $("#dynamic-div");
         var parentClass     = 'notesContainer';
         var removeBtnClass  = 'removeBtn';
@@ -28,8 +29,9 @@
         {
             var that           = $(this);
             var lid            = $("#lead_id").val();
-            var count          = that.data('id');
+            let count          = that.data('id');
             var noteidSelector = '#note_id_' + count;
+            var notesDiv       = '#notes_' + count;
             var note_val       = $(noteidSelector).val();
             var token          = $('input[name="_token"]').val();
 
@@ -41,7 +43,8 @@
                 var dataString  = {_token: token , note_id: note_val , lead_id: lid};
                 ajax(requestType , URLString , dataString);
             }
-            var parent = $(that).parent('div').parent('div');
+//            var parent = $(that).parent('div').parent('div');
+            var parent = $(notesDiv);
             $(parent).slideUp(duration , function ()
             {
                 parent.remove();
@@ -54,7 +57,7 @@
         function btnToggle( parentClassName )
         {
             var len   = $('.' + parentClassName).length;
-            removeBtn = $("." + removeBtnClass);
+            removeBtn = $('.' + removeBtnClass);
 
             if ( len == 0 )
             {
@@ -74,14 +77,22 @@
             dyn = $("#dynamic-div");
             count++;
 //            var content = '<div class="col-md-12 commentContainer"><div class="col-md-8"><textarea placeholder="Enter Comment" name="lead_comment[]" id="lead_comment_' + count + '" cols="30" rows="10" class="form-control"></textarea></div><div class="col-md-4"><input class="btn btn-danger removeBtn" type="button" value="Remove"></div></div>';
-            var content = '<div class="col-md-12 ' + parentClass + '"><input type="hidden" id="note_id_' + count + '" name="note_id_' + count + '" value="" ><div class="col-md-6"><textarea placeholder="Enter notes" name="lead_note_' + count + '" id="lead_note_' + count + '" rows="3" class="form-control txtArea"></textarea></div><div class="col-md-3"><button type="button" name="save" data-id = "' + count + '" class="btn btn-success saveBtn">Save</button></div><div class="col-md-3"><button class="btn btn-danger removeBtn" data-id = "' + count + '" type="button" value="remove">Remove</button></div></div>';
+            var content = '<div id="notes_' + count + '" class="col-md-12 ' + parentClass + '"><input type="hidden" id="note_id_' + count + '" name="note_id_' + count + '" value="" ><div class="note-bg"><textarea placeholder="Enter notes" name="lead_note_' + count + '" id="lead_note_' + count + '" rows="3" class="form-control notes-area txtArea"></textarea><div  class="btn-col"><button type="button" name="save" data-id = "' + count + '" class="btn btn-success saveBtn">Save</button><button class="btn btn-danger removeBtn" data-id = "' + count + '" type="button" value="remove">Remove</button></div></div></div>';
 //                dyn.append(content);
-            $(".addNote").after(function ()
+//            $(".addNote").after(function ()
+//            {
+//                return content;
+//            });
+            var addNoteBtn = $(".addNote").parent('div');
+            
+            addNoteBtn.before(function ()
             {
                 return content;
             });
             $("#note_id_" + count).parent('div').hide().slideDown(duration);
         }
+		
+		
     }
 
     function saveNote()
@@ -91,7 +102,7 @@
         {
             var that             = $(this);
             var lid              = $("#lead_id").val();
-            var count            = that.data('id');
+            let count            = that.data('id');
             var textareaSelector = '#lead_note_' + count;
             var noteidSelector   = '#note_id_' + count;
             var note_val         = $(noteidSelector).val();
@@ -188,4 +199,6 @@
                 form.submit();
             }
         });
+		
+		
 </script>

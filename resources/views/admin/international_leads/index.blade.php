@@ -29,12 +29,11 @@
             International Leads List
         </div>
         <div class="col-lg-4" style="margin: 10px 10px 10px 0px">
-            <form action="{{ url('/admin/currencySearch') }}" method="POST" role="search">
+            <form action="{{ route('international.searchLead') }}" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
-                    <input type="text" class="form-control" name="q"
-                           placeholder="{{ isset($placeholder_string)? $placeholder_string : '' }}"
-                           value="{{ isset($q)? $q : '' }}">
+                    <input type="text" class="form-control" name="q" value="{{ isset($query)? $query : '' }}">
+                    
                     <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">
                         <span class="fa fa-search"></span>
@@ -42,7 +41,7 @@
                 </span>
                     <div class="input-group" style="margin-left: 10px">
                     <span class="input-group-btn">
-                        <a href="{{ route('currency.index') }}"
+                        <a href="{{ route('international.index') }}"
                            class="input-group-btn btn btn-default">
                             <span class="fa fa-refresh"></span>
                         </a>
@@ -61,21 +60,24 @@
                     <th>Project Name</th>
                     <th>Amount</th>
                     <th>Comment</th>
+                    <th>Notes</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 @if (isset($internationalLeads) && count($internationalLeads) > 0)
                     <?php $i = 0; ?>
+                
                     @foreach ($internationalLeads as $lead)
                         <tr>
                             <td style="width: 10%">{{ ++$i }}</td>
                             <td style="width: 20%">{{ $lead->project_name }}</td>
-                            <td style="width: 10%">{{ $lead->amount }}</td>
+                            <td style="width: 10%">{{ $lead->currencies->simbol ."".number_format($lead->amount , 2) }}</td>
                             <td style="width: 20%">
-                                {{ (isset($lead->latestComment->lead_comment)) ? $lead->latestComment->lead_comment : 'NA' }}
-
+                                {{ (strlen($lead->comment) > 0 ) ? $lead->comment : '-' }}
                             </td>
-
+                            <td>
+                                {{ isset($lead->note->note_desc) ? $lead->note->note_desc : '-' }}
+                            </td>
                             <td style="width: 20%">
                                 <a href="{{ route('international.edit',[$lead->lead_id]) }}"
                                    class="btn btn-xs btn-info"> Edit </a>

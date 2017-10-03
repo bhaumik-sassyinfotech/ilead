@@ -4,9 +4,16 @@
         return redirect('/index');
     });
     */
-    
-    Route::get('/' , 'HomeController@index');
-    Route::get('/index' , 'HomeController@index');
+//    Route::get('dashboard', function () {
+//        return redirect('home/dashboard');
+//    });
+//    Route::get('/' , 'HomeController@index');
+    Route::get('/',function() {
+        return redirect('admin/login');
+    });
+    Route::get('/index' , function() {
+        return redirect('admin/login');
+    });
     
     Route::group(['middleware' => 'guest'] , function ()
     {
@@ -112,7 +119,10 @@
             
             //currency
             Route::resource('currency' , 'Admin\CurrencyController');
+            //follow up
             Route::resource('follow_up' , 'Admin\FollowUpController');
+            //international Source
+            Route::resource('source','Admin\SourceController');
             //Route::get('currency','Admin\CurrencyController@index')->name('currency.index');
             //Route::post('/currencySearch', 'Admin\CurrencyController@currencySearch');
             //Route::get('currencySearch', 'Admin\CurrencyController@currencySearch');
@@ -167,11 +177,15 @@
             Route::resource('meta' , 'Admin\MetaController');
             Route::post('/metaSearch' , 'Admin\MetaController@metaSearch');
             Route::get('metaSearch' , 'Admin\MetaController@metaSearch');
+            
             //International Lead
             Route::post('international/ajaxInsert' , 'Admin\InternationalLeadController@ajaxInsert')->name('international.ajaxInsert');
             Route::put('international/ajaxUpdate' , 'Admin\InternationalLeadController@ajaxUpdate')->name('international.ajaxUpdate');
             Route::delete('international/ajaxDelete' , 'Admin\InternationalLeadController@ajaxDelete')->name('international.ajaxDelete');
             Route::post('international/ajax' , 'Admin\InternationalLeadController@ajax')->name('international.ajax');
+            Route::post('international/searchLead', 'Admin\InternationalLeadController@searchLead')->name('international.searchLead');
             Route::resource('international' , 'Admin\InternationalLeadController');
+            
+            
         });
     });

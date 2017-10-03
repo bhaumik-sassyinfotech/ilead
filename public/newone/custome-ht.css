@@ -1,0 +1,69 @@
+.commom-form .form-title {
+	font-size: 16px;
+	margin: 0px 0 20px 0;
+	font-weight: bold;
+
+}
+
+.commom-form .crm-group {
+	position: relative;
+	border-bottom: 1px solid #ddd;
+}
+.commom-form .crm-group:focus,
+.commom-form .crm-group:hover {
+	
+}
+
+.commom-form .crm-label {
+	width: 39%;
+    margin: 0;
+    display: inline-block;
+}
+
+.commom-form .crm-control {
+	width: 60%;
+	display: inline-block;
+	border: none;
+	font-weight: bold;
+	padding: 0;
+	border-bottom: 1px solid transparent;
+}
+.commom-form .crm-control:hover,
+.commom-form .crm-control:focus {
+	border-bottom: 1px solid #45b6af;
+}
+
+
+.commom-form .text-area {
+	width: 100%;
+	resize: none;
+	min-height: 100px;
+}
+
+.commom-form .notesContainer .note-bg{
+	background: #ccc;
+	padding: 15px;
+	width: 50%;
+}
+.commom-form .notesContainer .notes-area{
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.commom-form .notesContainer .btn{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.commom-form .bold-crm-label {
+	font-weight: bold;
+	font-size: 16px;
+	margin: 0 0 10px 0;
+}
+
+.commom-form .notesContainer .btn-col {
+	padding: 10px 0;
+	display: none;
+	text-align: right;
+}

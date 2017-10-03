@@ -16,116 +16,158 @@
             Add International Leads
         </div>
 
-        <div class="panel-body">
-            <div class="row form-group">
-                <div class="col-xs-6">
-                    {{ Form::label('project_name', 'Project Name: *', ['class' => 'control-label']) }}
-                    {{ Form::text('project_name', old('project_name'), ['class' => 'form-control', 'placeholder' => 'Enter project name', 'maxlength' => 300]) }}
-                    <p class="help-block"></p>
-                    @if($errors->has('title'))
-                        <p class="help-block">
-                            {{ $errors->first('title') }}
-                        </p>
-                    @endif
-                </div>
-                <div class="col-xs-6">
-                    {{ Form::label('contact_person', 'Contact Person: ', ['class' => 'control-label']) }}
-                    {{ Form::text('contact_person', old('contact_person'), ['class' => 'form-control', 'placeholder' => 'Enter contact person']) }}
-                    <p class="help-block"></p>
-                    @if($errors->has('contact_person'))
-                        <p class="help-block">
-                            {{ $errors->first('contact_person') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-xs-4">
-                    {{ Form::label('job_title', 'Job Title: ', ['class' => 'control-label']) }}
-                    {{ Form::text('job_title', old('job_title'), ['class' => 'form-control', 'placeholder' => 'Enter job title']) }}
-                    <p class="help-block"></p>
-                    @if($errors->has('job_title'))
-                        <p class="help-block">
-                            {{ $errors->first('job_title') }}
-                        </p>
-                    @endif
-                </div>
-                <div class="col-xs-4">
-                    {{ Form::label('refer_id', 'Reference ID:', ['class' => 'control-label']) }}
-                    {{ Form::text('refer_id', old('refer_id') , ['class' => 'form-control', 'placeholder' => 'Enter reference ID']) }}
-                </div>
-                <div class="col-xs-4">
-                    {{ Form::label('type', 'Type: ', ['class' => 'control-label']) }}
-                    <select class="form-control" name="type" id="type">
-                        <option value="">Select Type</option>
-                        @foreach($follow_list as $follow )
-                            <option value="{{ $follow->label }}">{{ $follow->title }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-xs-3">
-                    {{ Form::label('currency', 'Currency: *', ['class' => 'control-label']) }}
-                    {{--{{ dd($currencies) }}--}}
-                    <select class="form-control" name="currency" id="currency">
-                        <option value="">Select Currency</option>
-                        @foreach($currencies as $currency )
-                            <option value="{{ $currency->id }}">{{ $currency->lable }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-xs-3">
-                    {{ Form::label('amount', 'Amount: *', ['class' => 'control-label']) }}
-                    {{ Form::text('amount', old('amount') , ['class' => 'form-control float', 'placeholder' => 'Enter amount']) }}
-                </div>
-                <div class="col-xs-6">
-                    {{ Form::label('url', 'URL: * ( http://www.example.com )', ['class' => 'control-label']) }}
-                    {{ Form::text('url', old('url') , ['class' => 'form-control', 'placeholder' => 'Enter URL']) }}
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-xs-3">
-                    {{ Form::label('location', 'Location: ', ['class' => 'control-label']) }}
-                    {{ Form::text('location', old('location') , ['class' => 'form-control', 'placeholder' => 'Enter location']) }}
-                </div>
-                <div class="col-xs-3">
-                    {{ Form::label('email', 'Email: ', ['class' => 'control-label']) }}
-                    {{ Form::text('email', old('email') , ['class' => 'form-control', 'placeholder' => 'Enter email']) }}
-                </div>
-                <div class="col-xs-3">
-                    {{ Form::label('skype', 'Skype:', ['class' => 'control-label']) }}
-                    {{ Form::text('skype', old('skype') , ['class' => 'form-control', 'placeholder' => 'Enter skype ID']) }}
-                </div>
-                <div class="col-xs-3">
-                    {{ Form::label('phone_number', 'Phone Number:', ['class' => 'control-label']) }}
-                    {{ Form::text('phone_number', old('phone_number') , ['class' => 'form-control', 'placeholder' => 'Enter phone number']) }}
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-md-12">
-                    <h2>Tags</h2>
-                </div>
-                <div class="col-md-8">
-                    <ul id="myTags" class="tagit ui-widget ui-widget-content ui-corner-all">
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <h2>Comment</h2>
-            </div>
-            <div class="row form-group">
-                <div class="col-md-12">
-                    {{ Form::textarea('lead_comment',old('lead_comment') ,['size' => '115x10', 'class' => 'form-control' , 'placeholder' => 'Enter comments']) }}
-
-                </div>
-            </div>
-        </div>
-
-        {{ Form::submit('Save', ['class' => 'col-md-2 btn btn-success' , 'id' => 'submit']) }}
-        <a class="col-md-2 btn btn-danger" href="{{ route('international.index') }}"> Back </a>
-    {{ Form::close() }}
+        <div class="panel-body commom-form"> 
+			<h2 class="form-title">Lead Information</h2>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+						{{--<label class="crm-label">Project name</label>--}}
+						{{ Form::label('project_name', 'Project Name: *', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('project_name', old('project_name'), ['class' => 'form-control crm-control', 'placeholder' => 'Enter project name', 'maxlength' => 300]) }}
+						
+					</div>					
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+                        {{--<label class="crm-label">Contact Person</label>--}}
+                        {{--<input type="text" class="form-control crm-control">--}}
+                        {{ Form::label('contact_person', 'Contact Person: ', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('contact_person', old('contact_person'), ['class' => 'form-control crm-control', 'placeholder' => 'Enter contact person']) }}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+						{{--<label class="crm-label">Job Title</label>--}}
+						{{--<input type="text" class="form-control crm-control">--}}
+                        {{ Form::label('job_title', 'Job Title: ', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('job_title', old('job_title'), ['class' => 'form-control crm-control', 'placeholder' => 'Enter job title']) }}
+					</div>					
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+						{{--<label class="crm-label">Reference Id</label>--}}
+						{{--<input type="text" class="form-control crm-control">--}}
+                        {{ Form::label('refer_id', 'Reference ID:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('refer_id', old('refer_id') , ['class' => 'form-control crm-control', 'placeholder' => 'Enter reference ID']) }}
+					</div>					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+                        {{ Form::label('type', 'Type: ', ['class' => 'control-label crm-label']) }}
+                        {{--<label class="crm-label">Type</label>--}}
+                        <select class="form-control crm-control" name="type" id="type">
+                            <option value="">Select Type</option>
+                            @foreach($follow_list as $follow )
+                                <option value="{{ $follow->label }}">{{ $follow->title }}</option>
+                            @endforeach
+                        </select>
+					</div>					
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+                        {{ Form::label('url', 'URL: * ( http://www.example.com )', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('url', old('url') , ['class' => 'form-control crm-control', 'placeholder' => 'Enter URL']) }}
+                        {{--<label class="crm-label">URL:</label>--}}
+						{{--<input type="text" class="form-control crm-control">--}}
+					</div>					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+						{{--<label class="crm-label">Currency</label>--}}
+                        {{ Form::label('currency', 'Currency: *', ['class' => 'control-label crm-label']) }}
+						<select class="form-control crm-control" name="currency" id="currency">
+                            <option value="">Select Currency</option>
+                            @foreach($currencies as $currency )
+                                <option value="{{ $currency->id }}">{{ $currency->lable }}</option>
+                            @endforeach
+						</select>
+					</div>					
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+						{{--<label class="crm-label">Amoutnt</label>--}}
+                        {{ Form::label('amount', 'Amount: *', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('amount', old('amount') , ['class' => 'form-control float crm-control', 'placeholder' => 'Enter amount']) }}
+                        {{--<input type="text" class="form-control crm-control">--}}
+					</div>					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+                        {{ Form::label('location', 'Location: ', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('location', old('location') , ['class' => 'form-control crm-control', 'placeholder' => 'Enter location']) }}
+                        {{--<label class="crm-label">Location</label>--}}
+						{{--<input type="text" class="form-control crm-control">--}}
+					</div>					
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+                        {{ Form::label('phone_number', 'Phone Number:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('phone_number', old('phone_number') , ['class' => 'crm-control form-control', 'placeholder' => 'Enter phone number']) }}
+						{{--<label class="crm-label">Phone Number</label>--}}
+						{{--<input type="tel" class="form-control crm-control">--}}
+					</div>					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+                        {{ Form::label('email', 'Email: ', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('email', old('email') , ['class' => 'form-control crm-control', 'placeholder' => 'Enter email']) }}
+						{{--<label class="crm-label">Email</label>--}}
+						{{--<input type="email" class="form-control crm-control">--}}
+					</div>					
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group crm-group">
+                        {{ Form::label('skype', 'Skype:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('skype', old('skype') , ['class' => 'form-control crm-control', 'placeholder' => 'Enter skype ID']) }}
+						{{--<label class="crm-label">Skype</label>--}}
+						{{--<input type="text" class="form-control crm-control">--}}
+					</div>					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<h4 class="bold-crm-label">Tags</h4>
+						 <ul id="myTags" class="tagit ui-widget ui-widget-content ui-corner-all">
+						</ul>
+					</div>
+										
+				</div>
+				<div class="col-sm-6"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<h4 class="bold-crm-label">Comment</h4>
+                        {{ Form::textarea('lead_comment',old('lead_comment') ,['size' => '115x10', 'class' => 'form-control text-area' , 'placeholder' => 'Enter comments']) }}
+						{{--<textarea class="form-control text-area"></textarea>--}}
+					</div>					
+				</div>
+				<div class="col-sm-6"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+                        {{--<button class="btn btn-success">Save</button>--}}
+                        {{--<button class="btn btn-danger">Back</button>--}}
+                        {{ Form::submit('Save', ['class' => 'btn btn-success' , 'id' => 'submit']) }}
+                        <a class="btn btn-danger" href="{{ route('international.index') }}"> Back </a>
+					</div>
+				</div>
+			</div>
+		</div>    
     </div>
+	{{ Form::close() }}
 @stop
 
 @section('javascript')

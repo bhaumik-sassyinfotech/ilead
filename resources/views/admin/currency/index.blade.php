@@ -56,9 +56,9 @@
             <thead>
                 <tr>
                     <th>#ID</th>
-                    <th>Currency Lable</th>
+                    <th>Currency Label</th>
                     <th>Currency Code</th>
-                    <th>Currency simbole</th>
+                    <th>Currency Symbol</th>
                     <th>Default Currency </th>
                     <th>Actions</th>
                 </tr>
