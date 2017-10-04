@@ -4,8 +4,8 @@
     
     use App\Currency;
     use App\FollowUp;
-    use App\LocalLead;
-    use App\LocalLeadNote;
+    use App\ColdLead;
+    use App\ColdLeadNote;
     use App\Source;
     use Carbon\Carbon;
     use Config;
@@ -18,7 +18,7 @@
     use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\Validator;
     
-    class LocalLeadController extends Controller
+    class ColdLeadController extends Controller
     {
         /**
          * Display a listing of the resource.
@@ -28,11 +28,11 @@
          */
         public function index(Request $request)
         {
-//            dd(LocalLead::Find(4));
-            $count = LocalLead::count();
+//            dd(ColdLead::Find(4));
+            $count = ColdLead::count();
             if ($count > 0)
             {
-                $localLeads = LocalLead::with(['note'])->latest('created_at')->paginate(50);
+                $localLeads = ColdLead::with(['note'])->latest('created_at')->paginate(50);
 //                dd($internationalLeads);
                 
                 return view("admin.local_leads.index" , compact('localLeads'));
@@ -130,7 +130,7 @@
             $currencies = Currency::all();
             $follow_list = FollowUp::all();
             $sourceList = Source::all();
-            $leadData = LocalLead::with('notes')->where('lead_id' , $id)->first();
+            $leadData = ColdLead::with('notes')->where('lead_id' , $id)->first();
             
 //            dd($leadData);
             return view('admin.local_leads.edit' , compact('leadData' , 'currencies' , 'follow_list' , 'sourceList'));
@@ -162,7 +162,7 @@
                 return Redirect::back()->withErrors($validator)->withInput();
             }
             
-            $lead = LocalLead::find($id);
+            $lead = ColdLead::find($id);
     
 //            $lead->company_name = $request->company_name;
 //            $lead->contact_person = $request->contact_person;
@@ -201,7 +201,7 @@
         {
             //
 //            dd($id);
-            $lead = LocalLead::find($id);
+            $lead = ColdLead::find($id);
             if (!empty($lead))
             {
                 $lead->delete($id);
@@ -309,7 +309,7 @@
                 $query = $request->q;
 //            echo $query;
             
-            $internationalLeads = LocalLead::with(['note' , 'currencies'])->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
+            $internationalLeads = ColdLead::with(note)->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
             
             return view("admin.local_leads.index" , compact('internationalLeads' , 'query'));
         }

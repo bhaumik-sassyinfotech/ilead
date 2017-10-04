@@ -39,7 +39,7 @@
             if ( note_val != '' )
             {
                 var requestType = 'DELETE';
-                var URLString   = '{{ route('international.ajaxDelete') }}';
+                var URLString   = '{{ route('local.ajaxDelete') }}';
                 var dataString  = {_token: token , note_id: note_val , lead_id: lid};
                 ajax(requestType , URLString , dataString);
             }
@@ -135,13 +135,14 @@
                 { //update note
                     requestType        = 'PUT';
                     dataString.note_id = note_val;
-                    URLString          = '{{ route('international.ajaxUpdate') }}';
+                    URLString          = '{{ route('local.ajaxUpdate') }}';
                 }
                 else
                 { //insert note
-                    URLString   = '{{ route('international.ajaxInsert') }}';
+                    URLString   = '{{ route('local.ajaxInsert') }}';
                     requestType = 'POST';
                 }
+                
                 ajax(requestType , URLString , dataString , noteidSelector);
             }
             

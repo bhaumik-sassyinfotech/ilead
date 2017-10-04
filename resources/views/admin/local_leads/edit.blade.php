@@ -82,7 +82,7 @@
                         {{ Form::label('source', 'Source: *', ['class' => 'control-label crm-label']) }}
                         <select class="form-control crm-control" name="source" id="source">
                             <option value="">Select Source</option>
-                            <option value="0">None</option>
+                            {{--<option value="0">None</option>--}}
                             @foreach($sourceList as $src )
                                 <option value="{{ $src->id }}">{{ $src->title }}</option>
                             @endforeach
@@ -169,6 +169,12 @@
                     <div class="form-group">
                         <h4 class="bold-crm-label">Tags</h4>
                         <ul id="myTags" class="tagit ui-widget ui-widget-content ui-corner-all">
+                            <?php $tags = explode("," , $leadData->tags); ?>
+                            @if(count($tags) > 0)
+                                @foreach($tags as $tag)
+                                    <li>{{ $tag }}</li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -178,7 +184,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <h4 class="bold-crm-label">Address</h4>
-                        {{ Form::textarea('lead_address',$leadData['lead_address'] ,['size' => '115x10', 'class' => 'form-control text-area' , 'placeholder' => 'Enter address']) }}
+                        {{ Form::textarea('lead_address',$leadData['address'] ,['size' => '115x10', 'class' => 'form-control text-area' , 'placeholder' => 'Enter address']) }}
                         {{--<textarea class="form-control text-area"></textarea>--}}
                     </div>
                 </div>
@@ -188,11 +194,74 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <h4 class="bold-crm-label">Comment</h4>
-                        {{ Form::textarea('lead_comment',$leadData['lead_comment'] ,['size' => '115x10', 'class' => 'form-control text-area' , 'placeholder' => 'Enter comments']) }}
+                        {{ Form::textarea('lead_comment',$leadData['comment'] ,['size' => '115x10', 'class' => 'form-control text-area' , 'placeholder' => 'Enter comments']) }}
                         {{--<textarea class="form-control text-area"></textarea>--}}
                     </div>
                 </div>
                 <div class="col-sm-6"></div>
+            </div>
+            <div class="row form-group" id="dynamic-div">
+                <div class="col-sm-12"><h4 class="bold-crm-label">Notes</h4></div>
+        
+                <?php $count = 0; ?>
+        
+                @if(count($leadData->notes) < 1)
+                    <div id="notes_{{ $count }}" class="col-sm-12 notesContainer">
+                        <div class="note-bg">
+                            <input type="hidden" id="note_id_{{ $count }}" name="note_id_{{ $count }}" value="">
+                            <textarea data-id="{{ $count }}" placeholder="Enter notes" name="lead_note_{{ $count }}"
+                                      id="lead_note_{{ $count }}"
+                                      rows="3" class="form-control notes-area txtArea"></textarea>
+                            <div class="btn-col">
+                                <button type="button" name="save" data-id="{{ $count }}"
+                                        class="btn btn-success saveBtn">Save
+                                </button>
+                                <button class="btn btn-danger removeBtn" data-id="{{ $count }}" type="button">Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <?php
+            
+                    $today = \Carbon\Carbon::now();
+                    ?>
+                    @foreach($leadData->notes as $note)
+                        <?php $allow = FALSE;
+                        $diff = $today->diffInDays($note->created_at);
+                        $status = 'disabled';
+                        if ($diff == 0)
+                        {
+                            $status = '';
+                            $allow = TRUE;
+                        }
+                        ?>
+                        <div id="notes_{{ $count }}" class="col-md-12 notesContainer">
+                            <div class="note-bg">
+                                <input type="hidden" id="note_id_{{$count}}" name="note_id_{{$count}}"
+                                       value="{{ $note->note_id }}">
+                                <textarea {{ $status }} data-id="{{ $count }}" placeholder="Enter notes" name="lead_note_{{$count}}"
+                                          id="lead_note_{{$count}}" rows="3"
+                                          class="form-control notes-area txtArea">{{ nl2br($note->note_desc) }}</textarea>
+                        
+                                @if($allow)
+                                    <div class="btn-col">
+                                        <button type="button" data-id="{{$count}}" name="save"
+                                                class="btn btn-success saveBtn"> Save
+                                        </button>
+                                        <input class="btn btn-danger removeBtn" data-id="{{$count}}" type="button"
+                                               value="Remove">
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <?php $count++; ?>
+                    @endforeach
+                @endif
+                <div class="col-md-12">
+                    <input type="button" class="btn btn-success addNote valid" value="Add Note"
+                           aria-invalid="false"><br>
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
@@ -212,7 +281,7 @@
 
 @section('javascript')
     
-    @include('admin.international_leads.js')
+    @include('admin.local_leads.js')
 @stop
 
 

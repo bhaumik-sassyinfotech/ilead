@@ -196,5 +196,12 @@
             Route::post('local/ajax' , 'Admin\LocalLeadController@ajax')->name('local.ajax');
             Route::post('local/searchLead', 'Admin\LocalLeadController@searchLead')->name('local.searchLead');
             Route::resource('local' , 'Admin\LocalLeadController');
+    
+            Route::post('cold/ajaxInsert' , 'Admin\ColdLeadController@ajaxInsert')->name('cold.ajaxInsert');
+            Route::put('cold/ajaxUpdate' , 'Admin\ColdLeadController@ajaxUpdate')->name('cold.ajaxUpdate');
+            Route::delete('cold/ajaxDelete' , 'Admin\ColdLeadController@ajaxDelete')->name('cold.ajaxDelete');
+            Route::post('cold/ajax' , 'Admin\ColdLeadController@ajax')->name('cold.ajax');
+            Route::post('cold/searchLead', 'Admin\ColdLeadController@searchLead')->name('cold.searchLead');
+            Route::resource('cold' , 'Admin\ColdLeadController');
         });
     });

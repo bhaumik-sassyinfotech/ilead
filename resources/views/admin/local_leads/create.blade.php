@@ -81,7 +81,7 @@
                         {{ Form::label('source', 'Source: *', ['class' => 'control-label crm-label']) }}
                         <select class="form-control crm-control" name="source" id="source">
                             <option value="">Select Source</option>
-                            <option value="0">None</option>
+                            {{--<option value="0">None</option>--}}
                             @foreach($sourceList as $src )
                                 <option value="{{ $src->id }}">{{ $src->title }}</option>
                             @endforeach
