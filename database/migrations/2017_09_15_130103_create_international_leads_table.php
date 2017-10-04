@@ -20,10 +20,10 @@
                 $table->string('contact_person', 255)->nullable();
                 $table->string('job_title', 255)->nullable();
                 $table->string('refer_id', 255)->nullable();
-                $table->integer('type')->nullable();
+                $table->integer('type')->default(0);
                 $table->integer('currency');
                 $table->float('amount', 8, 2);
-                $table->integer('source_id')->nullable();
+                $table->integer('source_id')->default(0);
                 $table->text('tags');
                 $table->text('comment');
                 $table->string('status', 255);

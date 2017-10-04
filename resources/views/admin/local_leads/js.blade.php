@@ -182,24 +182,18 @@
     }
 
 
-    $("#international_lead_form").validate(
+    $("#local_lead_form").validate(
         {
             rules:
                 {
-                    project_name: {
-                        required: true ,
-                        maxlength: 300
-                    } ,
-                    currency: {
+                    source: {
                         required: true
                     } ,
                     amount: {
-                        required: true ,
                         number: true ,
                         min: 0.01
                     } ,
                     url: {
-                        required: true ,
                         url: true
                     } ,
                     email: {

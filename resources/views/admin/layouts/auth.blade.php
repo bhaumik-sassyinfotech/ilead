@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     @include('admin.partials.head')
+    
+    <style>
+        .login-bg {
+            background: #1a2e61;
+        }
+    </style>
 </head>
-<body class="page-header-fixed">
-    <div style="margin-top: 5%;"></div>
+<body class="page-header-fixed login-bg">
+    <div style="margin-top: 5%; float:left; width: 100%;"></div>
     <div class="container-fluid">
         @yield('content')
     </div>

@@ -9,28 +9,22 @@
 
 //use app\InternationalLeadComment;
     
-    class InternationalLead extends Model
+    class LocalLead extends Model
     {
         //
         use SoftDeletes;
         protected $primaryKey = 'lead_id';
         protected $dates = ['deleted_at'];
-
-
-//    public function latestComment()
-//    {
-//        return $this->hasOne('App\InternationalLeadComment', 'lid','lead_id');
-//    }
         
         public function note()
         {
-            return $this->hasOne('App\InternationalLeadNote', 'lid','lead_id')->latest('created_at');
+            return $this->hasOne('App\LocalLeadNote', 'lid','lead_id')->latest('created_at');
         }
         
-        public function currencies()
-        {
-            return $this->hasOne('App\Currency','id','currency');
-        }
+//        public function currencies()
+//        {
+//            return $this->hasOne('App\Currency','id','currency');
+//        }
         
         
         public function notes()

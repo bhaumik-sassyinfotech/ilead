@@ -216,10 +216,10 @@
                 $lead->delete($id);
                 if ($lead->trashed())
                 {
-                    return redirect()->route('international.index')->with('success' , 'Follow up ' . Config::get('constant.DELETE_MESSAGE'));
+                    return redirect()->route('international.index')->with('success' , 'International Lead' . Config::get('constant.DELETE_MESSAGE'));
                 } else
                 {
-                    return redirect()->route('international.index')->with('err_msg' , 'Follow up ' . Config::get('constant.TRY_MESSAGE'));
+                    return redirect()->route('international.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
                 }
             }
             

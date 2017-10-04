@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class InternationalLeadNote extends Model
+class LocalLeadNote extends Model
 {
     //
     use SoftDeletes;
@@ -14,7 +14,7 @@ class InternationalLeadNote extends Model
     
     public function notes()
     {
-        return $this->belongsTo('App\InternationalLead','lid','lead_id');
+        return $this->belongsTo('App\LocalLead','lid','lead_id');
     }
 
 }

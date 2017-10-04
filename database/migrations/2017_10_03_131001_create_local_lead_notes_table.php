@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInternationalLeadNotesTable extends Migration
+class CreateLocalLeadNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInternationalLeadNotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('international_lead_notes', function (Blueprint $table) {
+        Schema::create('local_lead_notes', function (Blueprint $table) {
             $table->increments('note_id');
             $table->integer('lid')->comment('lead id for which notes are added');
 //            $table->foreign('lid')->references('lead_id')->on('international_leads');

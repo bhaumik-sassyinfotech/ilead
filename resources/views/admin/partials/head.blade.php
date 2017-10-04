@@ -1,8 +1,9 @@
 <meta charset="utf-8">
 <title>
-    MummaCo - Admin panel
+    Sassyinfotech - Admin panel
 </title>
-<link rel="icon" type="image/png" href="{{ asset('public/uploads/favicon.png') }}"/>
+{{--<link rel="icon" type="image/png" href="{{ asset('public/uploads/favicon.png') }}"/>--}}
+<link rel="icon" type="image/png" href="http://www.sassyinfotech.com/images/favicon.ico"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>

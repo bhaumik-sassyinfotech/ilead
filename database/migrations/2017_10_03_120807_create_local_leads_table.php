@@ -19,24 +19,27 @@ class CreateLocalLeadsTable extends Migration
             $table->string('company_name');
             $table->string('contact_person', 255)->nullable();
             $table->string('job_title', 255)->nullable();
-            $table->integer('source_id');
-            $table->string('phone_number_1',20)->nullable();
-            $table->string('phone_number_2',20)->nullable();
+            $table->integer('source_id')->default(0);
+            $table->string('phone_number_1',50)->nullable();
+            $table->string('phone_number_2',50)->nullable();
             $table->string('email',255)->nullable();
             $table->text('address');
             $table->string('industry', 255)->nullable();
             $table->string('url', 255);
             $table->text('comment');
-            $table->string('refer_id', 255)->nullable();
-            $table->integer('type')->nullable();
-            $table->integer('currency');
-            $table->float('amount', 8, 2);
+            $table->integer('type')->default(0);
+            $table->string('refer_id', 255)->default(0);
+            $table->string('status', 255);
             $table->text('tags');
-            
-            $table->string('location')->nullable();
-            
-            $table->string('skype',255)->nullable();
-            $table->string('phone_number',20)->nullable();
+            $table->integer('currency')->default(0);
+            $table->float('amount', 8, 2)->default(0);
+            $table->string('user_added_by',10)->nullable();
+//
+//
+//            $table->string('location')->nullable();
+//
+//            $table->string('skype',255)->nullable();
+//            $table->string('phone_number',20)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

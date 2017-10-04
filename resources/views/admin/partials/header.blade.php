@@ -1,13 +1,15 @@
 <div class="page-header-inner">
     <div class="page-header-inner">
-        <div class="navbar-header">
-            <a href="{{ url('/') }}" class="navbar-brand" style="padding: 5px 0;">
-                <img style="max-width: 100%; width: 60px; padding: 10px" class="img_logo" src="{{ asset('public/uploads/admin-logo.png') }}" />
-            </a>
-        </div>
+        {{--<div class="navbar-header">--}}
+            {{--<a href="{{ url('/') }}" class="navbar-brand" style="padding: 5px 0;">--}}
+                {{--<img style="max-width: 100%; width: 60px; padding: 10px" class="img_logo" src="http://www.sassyinfotech.com/images/logo2.png" />--}}
+                {{--<img style="max-width: 100%; width: 60px; padding: 10px" class="img_logo" src="{{ asset('public/quickadmin/images/admin-logo.png') }}" />--}}
+            {{--</a>--}}
+        {{--</div>--}}
 		<div class="navbar-header">
-            <a style="padding: 15px 0px; font-size: 26px;" href="{{ url('/') }}" class="navbar-brand">
-                MummaCo
+            <a  href="{{ url('/') }}" class="navbar-brand logo-brand">
+                {{--<img style="max-width: 100%; width: 60px; padding: 10px" class="img_logo" src="{{ asset('public/quickadmin/images/admin-logo.png') }}" />--}}
+                <img class="img_logo" src="{{ asset('public/quickadmin/images/admin-logo.png') }}" />
             </a>
         </div>
         <a href="javascript:;"

@@ -4,7 +4,7 @@
     <div class="row">
 		<div class="col-md-4 col-md-offset-4">
 			<div style="width: 50%; margin:0 auto;">
-				<img class="img_logo" src="{{ asset('public/uploads/logo-login.png') }}" />
+				<img class="img_logo" src="{{ asset('public/quickadmin/images/admin-logo.png') }}" />
 			</div>
 		</div>
 	</div>
@@ -60,7 +60,7 @@
                                     <input type="checkbox"
                                            name="remember"> Remember me
                                 </label>
-                                <label  class="pull-right">
+                                <label  class="pull-right" style="display: none;">
                                     <a href="#"> Forget Password</a>
                                 </label>
                             </div>

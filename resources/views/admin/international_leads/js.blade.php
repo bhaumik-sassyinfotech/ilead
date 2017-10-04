@@ -193,7 +193,7 @@
 //            else {
 //                alert("Please enter some text");
 //            }
-        })
+        });
     }
 
     function ajax( requestType , URLString , dataString , noteidSelector )
@@ -238,6 +238,9 @@
                         required: true ,
                         maxlength: 300
                     } ,
+                    source:{
+                        required: true,
+                    },
                     currency: {
                         required: true
                     } ,

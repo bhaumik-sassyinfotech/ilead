@@ -188,7 +188,13 @@
             Route::post('international/ajax' , 'Admin\InternationalLeadController@ajax')->name('international.ajax');
             Route::post('international/searchLead', 'Admin\InternationalLeadController@searchLead')->name('international.searchLead');
             Route::resource('international' , 'Admin\InternationalLeadController');
-            
-            
+    
+    
+            Route::post('local/ajaxInsert' , 'Admin\LocalLeadController@ajaxInsert')->name('local.ajaxInsert');
+            Route::put('local/ajaxUpdate' , 'Admin\LocalLeadController@ajaxUpdate')->name('local.ajaxUpdate');
+            Route::delete('local/ajaxDelete' , 'Admin\LocalLeadController@ajaxDelete')->name('local.ajaxDelete');
+            Route::post('local/ajax' , 'Admin\LocalLeadController@ajax')->name('local.ajax');
+            Route::post('local/searchLead', 'Admin\LocalLeadController@searchLead')->name('local.searchLead');
+            Route::resource('local' , 'Admin\LocalLeadController');
         });
     });
