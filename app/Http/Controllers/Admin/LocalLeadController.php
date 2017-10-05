@@ -32,7 +32,7 @@
             $count = LocalLead::count();
             if ($count > 0)
             {
-                $localLeads = LocalLead::with(['note'])->latest('created_at')->paginate(50);
+                $localLeads = LocalLead::with(['note','currencies'])->latest('created_at')->paginate(50);
 //                dd($internationalLeads);
                 
                 return view("admin.local_leads.index" , compact('localLeads'));
@@ -88,7 +88,9 @@
             $lead->type = !empty($request->type) ? $request->type : 0;
             $lead->source_id = $request->source;
             $lead->currency = !empty($request->currency) ? $request->currency : 0;
-            $lead->amount = $request->amount;
+//            $lead->amount = !empty($request->amount) ? $request->amount : 0;
+            $lead->amount = !empty($request->amount) ? $request->amount : 0;
+            $lead->user_added_by = 0;
             $lead->tags = (count($request->tags) > 0) ? implode("," , $request->tags) : '';
             $lead->comment = trim($request->lead_comment);
             $lead->address = trim($request->lead_address);
@@ -309,7 +311,7 @@
                 $query = $request->q;
 //            echo $query;
             
-            $internationalLeads = LocalLead::with(['note' , 'currencies'])->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
+            $internationalLeads = LocalLead::with('note')->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
             
             return view("admin.local_leads.index" , compact('internationalLeads' , 'query'));
         }

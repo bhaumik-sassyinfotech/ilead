@@ -31,6 +31,6 @@ class CreateInternationalLeadNotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('international_notes');
+        Schema::dropIfExists('international_lead_notes');
     }
 }

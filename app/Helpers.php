@@ -202,6 +202,7 @@ class Helpers
 
         return $template;
     }
+    
 
 }
 

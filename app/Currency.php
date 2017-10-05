@@ -11,5 +11,5 @@ class Currency extends Model {
 
     protected $table = 'currency';
     protected $fillable = ['lable', 'code', 'simbol', 'default_currency'];
-
+    protected $dates = ['deleted_at'];
 }

@@ -135,7 +135,13 @@ class CurrencyController extends AdminController {
      */
     public function destroy($id) {
         $currency = Currency::findOrFail($id);
-        $currency->forceDelete();
-        return redirect()->route('currency.index')->with('success', 'Currency '.Config::get('constant.DELETE_MESSAGE'));
+        if($currency->delete($id))
+        {
+            return redirect()->route('currency.index')->with('success' , 'Currency ' . Config::get('constant.DELETE_MESSAGE'));
+        } else
+        {
+            return redirect()->route('currency.index')->with('success' , Config::get('constant.TRY_MESSAGE'));
+        }
+//        $currency->forceDelete();
     }
 }

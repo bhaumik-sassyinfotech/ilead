@@ -21,10 +21,10 @@
             return $this->hasOne('App\LocalLeadNote', 'lid','lead_id')->latest('created_at');
         }
         
-//        public function currencies()
-//        {
-//            return $this->hasOne('App\Currency','id','currency');
-//        }
+        public function currencies()
+        {
+            return $this->hasOne('App\Currency','id','currency');
+        }
         
         
         public function notes()

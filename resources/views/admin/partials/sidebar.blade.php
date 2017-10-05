@@ -35,6 +35,44 @@
             @endif
             @if(Helpers::isAdmin() == 1)
             <li class="menu-item ">
+    
+                <span><i class="fa fa-group"></i>Local Lead</span>
+                <ul class="sub-menu-item">
+                    <li class="{{ $request->segment(1) == 'local' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('local.index') }}">
+                            <i class="fa fa-key"></i>
+                            <span class="title"> View Lead </span>
+                        </a>
+                        <a href="{{ route('local.create') }}">
+                            <i class="fa fa-key"></i>
+                            <span class="title"> Add Lead </span>
+                        </a>
+                    </li>
+    
+                </ul>
+            </li>
+            @endif
+            @if(Helpers::isAdmin() == 1)
+            <li class="menu-item ">
+    
+                <span><i class="fa fa-group"></i>Cold Lead</span>
+                <ul class="sub-menu-item">
+                    <li class="{{ $request->segment(1) == 'cold' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('cold.index') }}">
+                            <i class="fa fa-key"></i>
+                            <span class="title"> View Lead </span>
+                        </a>
+                        <a href="{{ route('cold.create') }}">
+                            <i class="fa fa-key"></i>
+                            <span class="title"> Add Lead </span>
+                        </a>
+                    </li>
+    
+                </ul>
+            </li>
+            @endif
+            @if(Helpers::isAdmin() == 1)
+            <li class="menu-item ">
 
                 <span><i class="fa fa-user"></i>Admin User</span>
                 <ul class="sub-menu-item">

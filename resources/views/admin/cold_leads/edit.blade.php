@@ -1,7 +1,7 @@
 <?php
-$default = 'inr';
+$default = 'AUD';
 $stat = 'disabled';
-/*set default currency to Indian rupees.*/
+/*set default currency to australian dollar.*/
 ?>
 @extends('admin.layouts.app')
 {{-- {{ dd($leadData) }}--}}
@@ -10,16 +10,16 @@ $stat = 'disabled';
     <div>
         {{--<div class="col-md-6 nopadding"><h3 class="page-title">Create International Lead Module</h3></div>--}}
         <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a>
-                > <a href="{{ route('international.index') }}">International Lead</a> > Create International Lead</p>
+                > <a href="{{ route('cold.index') }}">Cold Lead</a> > Create Cold Lead</p>
         </div>
     </div>
     {{--<h3 class="page-title">International Leads</h3>--}}
     <br>
-    {{ Form::open(['method' => 'PUT', 'route' => ['local.update', $leadData->lead_id] , 'name' => 'local_lead_form' , 'id' => 'local_lead_form']) }}
+    {{ Form::open(['method' => 'PUT', 'route' => ['cold.update', $leadData->lead_id] , 'name' => 'cold_lead_form' , 'id' => 'cold_lead_form']) }}
     
     <div class="panel panel-default">
         <div class="panel-heading">
-            Update Local Leads
+            Update Cold Leads
         </div>
         <input type="hidden" id="lead_id" name="lead_id" value="{{ $leadData->lead_id }}">
         <div class="panel-body commom-form">
@@ -29,7 +29,7 @@ $stat = 'disabled';
                     <div class="form-group crm-group">
                         {{--<label class="crm-label">Project name</label>--}}
                         {{ Form::label('company_name', 'Company Name: ', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('company_name', $leadData['company_name'], ['class' => 'form-control crm-control', $stat , 'placeholder' => 'Enter company name', 'maxlength' => 300]) }}
+                        {{ Form::text('company_name', $leadData['company_name'], ['class' => 'form-control crm-control', $stat , 'placeholder' => 'Enter company name', 'maxlength' => 300 ]) }}
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -37,7 +37,7 @@ $stat = 'disabled';
                         {{--<label class="crm-label">Contact Person</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
                         {{ Form::label('contact_person', 'Contact Person: ', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('contact_person', $leadData['contact_person'], ['class' => 'form-control crm-control', $stat , 'placeholder' => 'Enter contact person']) }}
+                        {{ Form::text('contact_person', $leadData['contact_person'], ['class' => 'form-control crm-control', $stat , 'placeholder' => 'Enter contact person' ]) }}
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@ $stat = 'disabled';
                         {{--<label class="crm-label">Job Title</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
                         {{ Form::label('job_title', 'Job Title: ', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('job_title', $leadData['job_title'], ['class' => 'form-control crm-control', $stat , 'placeholder' => 'Enter job title']) }}
+                        {{ Form::text('job_title', $leadData['job_title'], ['class' => 'form-control crm-control', $stat , 'placeholder' => 'Enter job title' ]) }}
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -67,7 +67,12 @@ $stat = 'disabled';
                         <select {{ $stat }}  class="form-control crm-control" name="type" id="type">
                             <option value="">Select Type</option>
                             @foreach($follow_list as $follow )
-                                <option value="{{ $follow->id }}">{{ $follow->title }}</option>
+                                <?php
+                                $msg = '';
+                                if( $follow->id == $leadData->type)
+                                    $msg='selected';
+                                ?>
+                                <option {{ $msg }} value="{{ $follow->id }}">{{ $follow->title }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -99,7 +104,7 @@ $stat = 'disabled';
                         {{--<label class="crm-label">Currency</label>--}}
                         {{ Form::label('currency', 'Currency: ', ['class' => 'control-label crm-label']) }}
                         <select {{ $stat }}  class="form-control crm-control" name="currency" id="currency">
-                            {{--<option value="">Select Currency</option>--}}
+                            <option value="">Select Currency</option>
                             @foreach($currencies as $currency )
                                 <?php $msg = ''; ?>
                                 @if( $currency->id == $leadData->currency )
@@ -171,8 +176,60 @@ $stat = 'disabled';
                     </div>
                 </div>
             </div>
-        
-        
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('staff_size', 'Staff Size: ', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('staff_size', $leadData['staff_size'] , ['class' => 'crm-control form-control', $stat , 'placeholder' => 'Enter staff size']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('distance', 'Distance :', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('distance', $leadData['distance'] , ['class' => 'crm-control form-control', $stat , 'placeholder' => 'Enter distance']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('postcode', 'Postcode:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('postcode', $leadData['postcode'] , ['class' => 'crm-control form-control', $stat , 'placeholder' => 'Enter postcode']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('state', 'State:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('state', $leadData['state'] , ['class' => 'crm-control form-control', $stat , 'placeholder' => 'Enter state']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ Form::label('type_1', 'Type:', ['class' => 'control-label crm-label']) }}
+                    <select {{ $stat }}  name="type_1" id="type_1" class="form-control crm-control">
+                        <option {{ $leadData->type_1 == 1 ? 'selected' : ' ' }} value="1">Phone</option>
+                        <option {{ $leadData->type_1 == 2 ? 'selected' : ' ' }} value="2">External</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('linked_in', 'Linked In:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('linked_in', $leadData['linked_in'] , ['class' => 'crm-control form-control', $stat , 'placeholder' => 'Enter Linked In']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+            </div>
+    
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -192,23 +249,30 @@ $stat = 'disabled';
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <h4 class="bold-crm-label">Address</h4>
-                        {{ Form::textarea('lead_address',$leadData['address'] ,['size' => '115x10', 'class' => 'form-control text-area' , $stat , 'placeholder' => 'Enter address']) }}
+                        <h4 class="bold-crm-label">Address 1</h4>
+                        {{ Form::textarea('address_1',$leadData['address_1'] ,['size' => '115x10', 'class' => 'form-control text-area' , $stat , 'placeholder' => 'Enter address']) }}
                         {{--<textarea class="form-control text-area"></textarea>--}}
                     </div>
                 </div>
-                <div class="col-sm-6"></div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <h4 class="bold-crm-label">Address 2</h4>
+                        {{ Form::textarea('address_2',$leadData['address_2'] ,['size' => '115x10', 'class' => 'form-control text-area' , $stat , 'placeholder' => 'Enter address']) }}
+                        {{--<textarea class="form-control text-area"></textarea>--}}
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <h4 class="bold-crm-label">Comment</h4>
-                        {{ Form::textarea('lead_comment',$leadData['comment'] ,['size' => '115x10', 'class' => 'form-control text-area' , $stat , 'placeholder' => 'Enter comments']) }}
+                        {{ Form::textarea('lead_comment',$leadData['lead_comment'] ,['size' => '115x10', 'class' => 'form-control text-area' , $stat , 'placeholder' => 'Enter comments']) }}
                         {{--<textarea class="form-control text-area"></textarea>--}}
                     </div>
                 </div>
                 <div class="col-sm-6"></div>
             </div>
+    
             <div class="row form-group" id="dynamic-div">
                 <div class="col-sm-12"><h4 class="bold-crm-label">Notes</h4></div>
         
@@ -231,7 +295,6 @@ $stat = 'disabled';
                         </div>
                     </div>
                 @else
-                    
                     <?php
             
                     $today = \Carbon\Carbon::now();
@@ -279,7 +342,7 @@ $stat = 'disabled';
                         {{--<button class="btn btn-success">Save</button>--}}
                         {{--<button class="btn btn-danger">Back</button>--}}
                         {{ Form::submit('Save', ['class' => 'btn btn-success' , 'id' => 'submit']) }}
-                        <a class="btn btn-danger" href="{{ route('local.index') }}"> Back </a>
+                        <a class="btn btn-danger" href="{{ route('cold.index') }}"> Back </a>
                     </div>
                 </div>
             </div>
@@ -290,8 +353,7 @@ $stat = 'disabled';
 @stop
 
 @section('javascript')
-    
-    @include('admin.local_leads.js')
+    @include('admin.cold_leads.js')
 @stop
 
 

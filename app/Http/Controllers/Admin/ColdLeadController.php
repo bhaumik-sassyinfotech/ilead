@@ -32,13 +32,13 @@
             $count = ColdLead::count();
             if ($count > 0)
             {
-                $localLeads = ColdLead::with(['note'])->latest('created_at')->paginate(50);
-//                dd($internationalLeads);
+                $coldLeads = ColdLead::with(['note' , 'currencies'])->latest('created_at')->paginate(50);
+//                dd($coldLeads);
                 
-                return view("admin.local_leads.index" , compact('localLeads'));
+                return view("admin.cold_leads.index" , compact('coldLeads'));
             }
             
-            return redirect()->route('local.create');
+            return redirect()->route('cold.create');
         }
         
         /**
@@ -53,7 +53,7 @@
             $follow_list = FollowUp::all();
             $sourceList = Source::all();
             
-            return view("admin.local_leads.create" , compact('currencies' , 'follow_list' , 'sourceList'));
+            return view("admin.cold_leads.create" , compact('currencies' , 'follow_list' , 'sourceList'));
         }
         
         /**
@@ -80,32 +80,43 @@
 //            }
             
             
-            $lead = new LocalLead();
+            $lead = new ColdLead();
             $lead->company_name = $request->company_name;
             $lead->contact_person = $request->contact_person;
             $lead->job_title = $request->job_title;
             $lead->refer_id = $request->refer_id;
             $lead->type = !empty($request->type) ? $request->type : 0;
+            $lead->url = $request->url;
             $lead->source_id = $request->source;
             $lead->currency = !empty($request->currency) ? $request->currency : 0;
-            $lead->amount = $request->amount;
-            $lead->tags = (count($request->tags) > 0) ? implode("," , $request->tags) : '';
-            $lead->comment = trim($request->lead_comment);
-            $lead->address = trim($request->lead_address);
-            $lead->url = $request->url;
+//            $lead->amount = !empty($request->amount) ? $request->amount : 0;
+            !empty($request->amount) ? $lead->amount = $request->amount : 0;
             $lead->status = $request->status;
-            $lead->email = $request->email;
-            $lead->industry = $request->industry;
+            $lead->email = !empty($request->email) ? $request->email : '';
+            $lead->industry = !empty($request->industry) ? $request->industry : '';
             $lead->phone_number_1 = $request->phone_number_1;
             $lead->phone_number_2 = $request->phone_number_2;
+            $lead->type_1 = !empty($request->type_1) ? $request->type_1 : 0;
+            $lead->staff_size = $request->staff_size;
+            $lead->distance = $request->distance;
+            $lead->postcode = !empty($request->postcode) ? $request->postcode : '';
+            $lead->state = !empty($request->state) ? $request->state : '';
+            $lead->linked_in = !empty($request->linked_in) ? $request->linked_in : '';
+            $lead->address_1 = trim($request->address_1);
+            $lead->address_2 = trim($request->address_2);
+            $lead->comment = trim($request->lead_comment);
+            $lead->tags = (count($request->tags) > 0) ? implode("," , $request->tags) : '';
+//            $lead->user_added_by = !empty($request->user_added_by) ? $request->user_added_by : 0;
+            $lead->user_added_by =  0;
+            
             if ($lead->save())
             {
 //                dd("saved");
-                return redirect()->route('local.index')->with('success' , 'Local Lead ' . Config::get('constant.ADDED_MESSAGE'));
+                return redirect()->route('cold.index')->with('success' , 'Cold Lead ' . Config::get('constant.ADDED_MESSAGE'));
             } else
             { // save failed
 //                dd("fail");
-                return redirect()->route('local.index')->with('err_msg' , 'Local Lead ' . Config::get('constant.TRY_MESSAGE'));
+                return redirect()->route('cold.index')->with('err_msg' , 'Cold Lead ' . Config::get('constant.TRY_MESSAGE'));
             }
         }
         
@@ -131,9 +142,9 @@
             $follow_list = FollowUp::all();
             $sourceList = Source::all();
             $leadData = ColdLead::with('notes')->where('lead_id' , $id)->first();
-            
+
 //            dd($leadData);
-            return view('admin.local_leads.edit' , compact('leadData' , 'currencies' , 'follow_list' , 'sourceList'));
+            return view('admin.cold_leads.edit' , compact('leadData' , 'currencies' , 'follow_list' , 'sourceList'));
         }
         
         
@@ -149,21 +160,21 @@
 //            dd($request);
 
 //            $this->form_validate($request);
-            $validator = Validator::make($request->all() ,
-                [
-                    'company_name' => 'required' ,
-//                    'currency'     => 'required' ,
-                    'email'        => 'email' ,
-                    'url'          => 'url' ,
-                ]
-            );
-            if ($validator->fails())
-            {
-                return Redirect::back()->withErrors($validator)->withInput();
-            }
+//            $validator = Validator::make($request->all() ,
+//                [
+//                    'company_name' => 'required' ,
+//                    //                    'currency'     => 'required' ,
+//                    'email'        => 'email' ,
+//                    'url'          => 'url' ,
+//                ]
+//            );
+//            if ($validator->fails())
+//            {
+//                return Redirect::back()->withErrors($validator)->withInput();
+//            }
             
             $lead = ColdLead::find($id);
-    
+
 //            $lead->company_name = $request->company_name;
 //            $lead->contact_person = $request->contact_person;
 //            $lead->job_title = $request->job_title;
@@ -183,13 +194,13 @@
 //            $lead->phone_number_2 = $request->phone_number_2;
             if ($lead->save())
             {
-                return redirect()->route('local.index')->with('success' , 'Local lead ' . Config::get('constant.UPDATE_MESSAGE'));
+                return redirect()->route('cold.index')->with('success' , 'Cold lead ' . Config::get('constant.UPDATE_MESSAGE'));
             } else
             {
-                return redirect()->route('local.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
+                return redirect()->route('cold.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
             }
             
-            return view('admin.local_leads.update');
+            return view('admin.cold_leads.update');
         }
         
         /**
@@ -207,14 +218,14 @@
                 $lead->delete($id);
                 if ($lead->trashed())
                 {
-                    return redirect()->route('local.index')->with('success' , 'Local Lead ' . Config::get('constant.DELETE_MESSAGE'));
+                    return redirect()->route('cold.index')->with('success' , 'Cold Lead ' . Config::get('constant.DELETE_MESSAGE'));
                 } else
                 {
-                    return redirect()->route('local.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
+                    return redirect()->route('cold.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
                 }
             }
             
-            return redirect()->route('local.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
+            return redirect()->route('cold.index')->with('err_msg' , Config::get('constant.TRY_MESSAGE'));
         }
 
 
@@ -238,7 +249,7 @@
         
         public function ajaxInsert(Request $request)
         {
-            $note = new LocalLeadNote();
+            $note = new ColdLeadNote();
             $note->lid = $request->lead_id;
             $note->note_desc = $request->lead_note;
             if ($note->save())
@@ -254,9 +265,9 @@
         public function ajaxUpdate(Request $request)
         {
             $today = Carbon::now();
-            $note = LocalLeadNote::find($request->note_id);
+            $note = ColdLeadNote::find($request->note_id);
 //            if()
-            if ((!empty($note) && $today->diffInDays($note->created_at) == 0) && ($note->lid == $request->lead_id))
+            if (!empty($note) && ($today->diffInDays($note->created_at) == 0) && ($note->lid == $request->lead_id))
             {
                 // $note->lid = $request->lead_id;
                 $note->note_desc = $request->lead_note;
@@ -276,7 +287,7 @@
         public function ajaxDelete(Request $request)
         {
             $today = Carbon::now();
-            $note = LocalLeadNote::find($request->note_id);
+            $note = ColdLeadNote::find($request->note_id);
             
             
             if ($today->diffInDays($note->created_at) == 0 && !empty($note) && $note->lid == $request->lead_id)
@@ -309,9 +320,9 @@
                 $query = $request->q;
 //            echo $query;
             
-            $internationalLeads = ColdLead::with(note)->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
+            $internationalLeads = ColdLead::with(['note' , 'currencies'])->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
             
-            return view("admin.local_leads.index" , compact('internationalLeads' , 'query'));
+            return view("admin.cold_leads.index" , compact('internationalLeads' , 'query'));
         }
         
     }

@@ -34,22 +34,41 @@
             var notesDiv       = '#notes_' + count;
             var note_val       = $(noteidSelector).val();
             var token          = $('input[name="_token"]').val();
-
+            var parent = $(notesDiv);
             var len = $('.' + parentClass).length;
             if ( note_val != '' )
             {
                 var requestType = 'DELETE';
                 var URLString   = '{{ route('local.ajaxDelete') }}';
                 var dataString  = {_token: token , note_id: note_val , lead_id: lid};
-                ajax(requestType , URLString , dataString);
+                if(confirm("Are you sure you want to delete this note?"))
+                {
+                    ajax(requestType , URLString , dataString);
+
+                    $(parent).slideUp(duration , function ()
+                    {
+                        parent.remove();
+                        btnToggle(parentClass);
+                    });
+                } else {
+                    $("#lead_note_"+count).focus();
+                }
+//                ajax(requestType , URLString , dataString);
+            } else {
+              
+                $(parent).slideUp(duration , function ()
+                {
+                    parent.remove();
+                    btnToggle(parentClass);
+                });
             }
 //            var parent = $(that).parent('div').parent('div');
-            var parent = $(notesDiv);
-            $(parent).slideUp(duration , function ()
-            {
-                parent.remove();
-                btnToggle(parentClass);
-            });
+//            var parent = $(notesDiv);
+//            $(parent).slideUp(duration , function ()
+//            {
+//                parent.remove();
+//                btnToggle(parentClass);
+//            });
 
 
         });
@@ -102,8 +121,9 @@
 //        $(document).on('blur' , '.notes-area' , function ()
 
         var strData = '';
-        $(document).on('focus' , '.notes-area' , function ()
+        $(document).on('click','.saveBtn',function ()
         {
+//            alert("hi");
             var that             = $(this);
             var lid              = $("#lead_id").val();
             var count            = that.data('id');
@@ -112,22 +132,8 @@
             var note_val         = $(noteidSelector).val();
             var textarea_val     = $.trim($(textareaSelector).val());
             var token            = $('input[name="_token"]').val();
-            strData = '';
-            strData = textarea_val ;
-//            console.log("textarea-val: "+strData);
-            
-        }).on('blur' , '.notes-area' , function ()
-        {
-            var that             = $(this);
-            var lid              = $("#lead_id").val();
-            var count            = that.data('id');
-            var textareaSelector = '#lead_note_' + count;
-            var noteidSelector   = '#note_id_' + count;
-            var note_val         = $(noteidSelector).val();
-            var textarea_val     = $.trim($(textareaSelector).val());
-            var token            = $('input[name="_token"]').val();
-            
-            if ( textarea_val.length > 0 && textarea_val !== undefined && strData !== textarea_val )
+
+            if ( textarea_val.length > 0 && textarea_val !== undefined )
             {
                 var requestType = '' , URLString = '';
                 var dataString  = {_token: token , lead_id: lid , lead_note: textarea_val};
@@ -142,11 +148,13 @@
                     URLString   = '{{ route('local.ajaxInsert') }}';
                     requestType = 'POST';
                 }
-                
+         
                 ajax(requestType , URLString , dataString , noteidSelector);
             }
-            
-        })
+//            else {
+//                alert("Please enter some text");
+//            }
+        });
     }
 
     function ajax( requestType , URLString , dataString , noteidSelector )

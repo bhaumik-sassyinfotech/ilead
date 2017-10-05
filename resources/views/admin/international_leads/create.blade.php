@@ -95,7 +95,7 @@
                         <select class="form-control crm-control" name="currency" id="currency">
                             <option value="">Select Currency</option>
                             @foreach($currencies as $currency )
-                                <option value="{{ $currency->id }}">{{ $currency->lable }}</option>
+                                <option value="{{ $currency->id }}">{{ $currency->code }}</option>
                             @endforeach
                         </select>
                     </div>

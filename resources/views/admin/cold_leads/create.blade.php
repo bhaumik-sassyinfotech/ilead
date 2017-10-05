@@ -1,6 +1,6 @@
 <?php
-    $defaultCurrency= 'INR';
-    /*set default currency to Indian rupees.*/
+/*set default currency to australian dollar.*/
+    $defaultCurrency = 'aud';
 ?>
 @extends('admin.layouts.app')
 
@@ -8,20 +8,20 @@
     <div>
         {{--<div class="col-md-6 nopadding"><h3 class="page-title">Create International Lead Module</h3></div>--}}
         <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a>
-                > <a href="{{ route('local.index') }}">Local Lead</a> > Create Local Lead</p>
+                > <a href="{{ route('cold.index') }}">Cold Lead</a> > Create Cold Lead</p>
         </div>
     </div>
     {{--<h3 class="page-title">International Leads</h3>--}}
     <br>
-    {{ Form::open(['method' => 'POST', 'route' => ['local.store'] , 'id' => 'local_lead_form' ,'name' => 'local_lead_form']) }}
+    {{ Form::open(['method' => 'POST', 'route' => ['cold.store'] , 'id' => 'cold_lead_form' ,'name' => 'cold_lead_form']) }}
     
     <div class="panel panel-default">
         <div class="panel-heading">
-            Add Local Leads
+            Add Cold Leads
         </div>
         
         <div class="panel-body commom-form">
-            <h2 class="form-title">Lead Information</h2>
+            <h2 class="form-title">Cold Information</h2>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
@@ -169,7 +169,59 @@
                     </div>
                 </div>
             </div>
-            
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('staff_size', 'Staff Size: ', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('staff_size', old('staff_size') , ['class' => 'crm-control form-control', 'placeholder' => 'Enter staff size']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('distance', 'Distance :', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('distance', old('distance') , ['class' => 'crm-control form-control', 'placeholder' => 'Enter distance']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('postcode', 'Postcode:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('postcode', old('postcode') , ['class' => 'crm-control form-control', 'placeholder' => 'Enter postcode']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('state', 'State:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('state', old('state') , ['class' => 'crm-control form-control', 'placeholder' => 'Enter state']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ Form::label('type_1', 'Type:', ['class' => 'control-label crm-label']) }}
+                    <select name="type_1" id="type_1" class="form-control crm-control">
+                        <option value="1">Phone</option>
+                        <option value="2">External</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{ Form::label('linked_in', 'Linked In:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('linked_in', old('linked_in') , ['class' => 'crm-control form-control', 'placeholder' => 'Enter Linked In']) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                    </div>
+                </div>
+            </div>
             
             <div class="row">
                 <div class="col-sm-6">
@@ -184,12 +236,18 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <h4 class="bold-crm-label">Address</h4>
-                        {{ Form::textarea('lead_address',old('lead_address') ,['size' => '115x10', 'class' => 'form-control text-area' , 'placeholder' => 'Enter address']) }}
+                        <h4 class="control-label bold-crm-label">Address 1</h4>
+                        {{ Form::textarea('lead_address_1',old('lead_address_1') ,['size' => '115x10', 'class' => 'form-control text-area' , 'placeholder' => 'Enter address']) }}
                         {{--<textarea class="form-control text-area"></textarea>--}}
                     </div>
                 </div>
-                <div class="col-sm-6"></div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <h4 class="control-label bold-crm-label">Address 2</h4>
+                        {{ Form::textarea('lead_address_2',old('lead_address_2') ,['size' => '115x10', 'class' => 'form-control text-area' , 'placeholder' => 'Enter address']) }}
+                        {{--<textarea class="form-control text-area"></textarea>--}}
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
@@ -201,13 +259,14 @@
                 </div>
                 <div class="col-sm-6"></div>
             </div>
+            
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
                         {{--<button class="btn btn-success">Save</button>--}}
                         {{--<button class="btn btn-danger">Back</button>--}}
                         {{ Form::submit('Save', ['class' => 'btn btn-success' , 'id' => 'submit']) }}
-                        <a class="btn btn-danger" href="{{ route('local.index') }}"> Back </a>
+                        <a class="btn btn-danger" href="{{ route('cold.index') }}"> Back </a>
                     </div>
                 </div>
             </div>
@@ -217,5 +276,5 @@
 @stop
 
 @section('javascript')
-    @include('admin.local_leads.js')
+    @include('admin.cold_leads.js')
 @stop

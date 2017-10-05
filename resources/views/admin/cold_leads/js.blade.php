@@ -1,6 +1,5 @@
 <script type="text/javascript">
 
-
     var divCount = '{{ (isset( $count ))?$count:1 }}';
 
     $(document).ready(function ()
@@ -34,27 +33,30 @@
             var notesDiv       = '#notes_' + count;
             var note_val       = $(noteidSelector).val();
             var token          = $('input[name="_token"]').val();
-            var parent = $(notesDiv);
+            var parent         = $(notesDiv);
+
             var len = $('.' + parentClass).length;
             if ( note_val != '' )
             {
                 var requestType = 'DELETE';
-                var URLString   = '{{ route('international.ajaxDelete') }}';
+                var URLString   = '{{ route('cold.ajaxDelete') }}';
                 var dataString  = {_token: token , note_id: note_val , lead_id: lid};
-                if(confirm("Are you sure you want to delete this note?"))
+                if ( confirm("Are you sure you want to delete this note?") )
                 {
                     ajax(requestType , URLString , dataString);
 
-                 
                     $(parent).slideUp(duration , function ()
                     {
                         parent.remove();
                         btnToggle(parentClass);
                     });
-                } else {
-                    $("#lead_note_"+count).focus();
+                } else
+                {
+                    $("#lead_note_" + count).focus();
                 }
-            } else {
+            } else
+            {
+
                 $(parent).slideUp(duration , function ()
                 {
                     parent.remove();
@@ -108,11 +110,12 @@
 
     function saveNote()
     {
-        dyn = $("#dynamic-div");
+//        dyn = $("#dynamic-div");
 //        dyn.on('click' , '.saveBtn' , function ()
 //        $(document).on('blur' , '.notes-area' , function ()
 
-        dyn.on('click','.saveBtn',function ()
+        var strData = '';
+        $(document).on('click' , '.saveBtn' , function ()
         {
 //            alert("hi");
             var that             = $(this);
@@ -132,14 +135,14 @@
                 { //update note
                     requestType        = 'PUT';
                     dataString.note_id = note_val;
-                    URLString          = '{{ route('international.ajaxUpdate') }}';
+                    URLString          = '{{ route('cold.ajaxUpdate') }}';
                 }
                 else
                 { //insert note
-                    URLString   = '{{ route('international.ajaxInsert') }}';
+                    URLString   = '{{ route('cold.ajaxInsert') }}';
                     requestType = 'POST';
                 }
-                    ajax(requestType , URLString , dataString , noteidSelector);
+                ajax(requestType , URLString , dataString , noteidSelector);
             }
 //            else {
 //                alert("Please enter some text");
@@ -181,27 +184,18 @@
     }
 
 
-    $("#international_lead_form").validate(
+    $("#cold_lead_form").validate(
         {
             rules:
                 {
-                    project_name: {
-                        required: true ,
-                        maxlength: 300
-                    } ,
-                    source:{
-                        required: true,
-                    },
-                    currency: {
+                    source: {
                         required: true
                     } ,
                     amount: {
-                        required: true ,
                         number: true ,
                         min: 0.01
                     } ,
                     url: {
-                        required: true ,
                         url: true
                     } ,
                     email: {

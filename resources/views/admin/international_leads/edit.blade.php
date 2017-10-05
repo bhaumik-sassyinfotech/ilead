@@ -109,7 +109,7 @@
                                 @if( $currency->id == $leadData->currency )
                                     <?php $msg = 'selected'; ?>
                                 @endif
-                                <option {{ $msg }} value="{{ $currency->id }}">{{ $currency->lable }}</option>
+                                <option {{ $msg }} value="{{ $currency->id }}">{{ $currency->code }}</option>
                             @endforeach
                         </select>
                     </div>
