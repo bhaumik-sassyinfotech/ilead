@@ -30,7 +30,7 @@
             Cold Leads List
         </div>
         <div class="col-lg-4" style="margin: 10px 10px 10px 0px">
-            <form action="{{ route('local.searchLead') }}" method="POST" role="search">
+            <form action="{{ route('cold.searchLead') }}" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="form-control" name="q" value="{{ isset($query)? $query : '' }}">

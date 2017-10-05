@@ -72,7 +72,7 @@
                         <tr>
                             <td style="width: 10%">{{ ++$i }}</td>
                             <td style="width: 20%">{{ $lead->company_name }}</td>
-                            <td style="width: 10%">{{ number_format($lead->amount , 2) }}</td>
+                            <td style="width: 10%">{{$lead->currencies->simbol ."".number_format($lead->amount , 2) }}</td>
                             <td style="width: 20%">
                                 {{ (strlen($lead->comment) > 0 ) ? $lead->comment : '-' }}
                             </td>

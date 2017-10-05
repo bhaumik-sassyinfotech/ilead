@@ -76,7 +76,7 @@
                     'currency'     => 'required' ,
                     'source'       => 'required' ,
                     'refer_id'     => 'unique:international_leads',
-                    'amount'       => 'required|numeric|regex:/^\d*(\.\d{2})?$/',
+                    'amount'       => 'numeric',
                     'email'        => 'email' ,
                     'url'          => 'url' ,
                 ]
@@ -94,8 +94,8 @@
             $lead->refer_id = $request->refer_id;
             $lead->type = !empty($request->type) ? $request->type : 0;
             $lead->source_id = $request->source;
-            $lead->currency = $request->currency;
-            $lead->amount = $request->amount;
+            $lead->currency = !empty($request->currency)?$request->currency:0;
+            $lead->amount = !empty($request->amount)?$request->amount:0;
             $lead->tags = ( count($request->tags) > 0 ) ? implode("," , $request->tags) : '';
             $lead->comment = trim($request->lead_comment);
             $lead->url = $request->url;
@@ -104,7 +104,7 @@
             $lead->status = $request->status;
             $lead->user_added_by = 1;
             $lead->skype = $request->skype;
-            $lead->phone_number = $request->phone_number;
+            $lead->phone_number = !empty($request->phone_number)?$request->phone_number:'';
             if ($lead->save())
             {
                 return redirect()->route('international.index')->with('success' , 'International Lead ' . Config::get('constant.ADDED_MESSAGE'));

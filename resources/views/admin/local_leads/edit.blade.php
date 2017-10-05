@@ -10,7 +10,7 @@ $stat = 'disabled';
     <div>
         {{--<div class="col-md-6 nopadding"><h3 class="page-title">Create International Lead Module</h3></div>--}}
         <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a>
-                > <a href="{{ route('international.index') }}">International Lead</a> > Create International Lead</p>
+                > <a href="{{ route('local.index') }}">Local Lead</a> > Create Local Lead</p>
         </div>
     </div>
     {{--<h3 class="page-title">International Leads</h3>--}}

@@ -320,9 +320,9 @@
                 $query = $request->q;
 //            echo $query;
             
-            $internationalLeads = ColdLead::with(['note' , 'currencies'])->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
+            $coldLeads  = ColdLead::with(['note' , 'currencies'])->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("url" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
             
-            return view("admin.cold_leads.index" , compact('internationalLeads' , 'query'));
+            return view("admin.cold_leads.index" , compact('coldLeads' , 'query'));
         }
         
     }

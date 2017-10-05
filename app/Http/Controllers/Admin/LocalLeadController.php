@@ -153,7 +153,7 @@
 //            $this->form_validate($request);
             $validator = Validator::make($request->all() ,
                 [
-                    'company_name' => 'required' ,
+//                    'company_name' => 'required' ,
 //                    'currency'     => 'required' ,
                     'email'        => 'email' ,
                     'url'          => 'url' ,
@@ -311,9 +311,9 @@
                 $query = $request->q;
 //            echo $query;
             
-            $internationalLeads = LocalLead::with('note')->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
+            $localLeads = LocalLead::with('note')->where("company_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(50);
             
-            return view("admin.local_leads.index" , compact('internationalLeads' , 'query'));
+            return view("admin.local_leads.index" , compact('localLeads' , 'query'));
         }
         
     }
