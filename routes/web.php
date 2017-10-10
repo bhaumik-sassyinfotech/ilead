@@ -135,7 +135,6 @@
             Route::get('/readSettingData' , 'Admin\SettingsController@readSettingXML')->name('readSettingData');
             
             // For Roles
-            Route::resource('roles' , 'Admin\RolesController');
             Route::post('/searchRoles' , 'Admin\RolesController@searchRoles');
             Route::get('searchRoles' , 'Admin\RolesController@searchRoles');
             Route::post('/deletesss' , 'Admin\RolesController@deletesss');
@@ -143,6 +142,7 @@
                 'uses' => 'Admin\RolesController@massDestroy' ,
                 'as'   => 'roles.mass_destroy'
             ]);
+            Route::resource('roles' , 'Admin\RolesController');
             
             Route::resource('emailtemplate' , 'Admin\EmailtemplateController');
             Route::post('/searchEmailtemplate' , 'Admin\EmailtemplateController@searchEmailtemplate');
