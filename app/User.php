@@ -19,7 +19,7 @@ class User extends Authenticatable
 {
     use SoftDeletes;
     
-    protected $fillable = ['fullname', 'lastname', 'email', 'password', 'remember_token', 'status','role_id'];
+    protected $fillable = ['fullname', 'lastname', 'email', 'password', 'remember_token', 'status','role_id','module'];
     
     public static function boot()
     {
@@ -52,5 +52,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'role_id')->withTrashed();
     }
+    
+    
     
 }

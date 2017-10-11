@@ -79,7 +79,7 @@
                             {
                                 echo "selected";
                             }
-                            ?>>Deactive
+                            ?>>Inactive
                         </option>
                     </select>
                 </div>
@@ -93,62 +93,63 @@
     {!! Form::close() !!}
     
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script>
-        $(document).ready(function ()
-        {
+    {{--<script>--}}
+        {{--$(document).ready(function ()--}}
+        {{--{--}}
 
-            $('.faqDelete').change(function ()
-            {
-                if ( this.checked )
-                {
-                    $(".faqView").prop('checked' , false);
-                    $(".faqManage").prop('checked' , false);
-                }
-            });
-            $('.faqManage').change(function ()
-            {
-                if ( this.checked )
-                {
-                    $(".faqView").prop('checked' , false);
-                    $(".faqDelete").prop('checked' , false);
-                }
-            });
-            $('.faqView').change(function ()
-            {
-                if ( this.checked )
-                {
-                    $(".faqManage").prop('checked' , false);
-                    $(".faqDelete").prop('checked' , false);
-                }
-            });
+            {{--$('.faqDelete').change(function ()--}}
+            {{--{--}}
+                {{--if ( this.checked )--}}
+                {{--{--}}
+                    {{--$(".faqView").prop('checked' , false);--}}
+                    {{--$(".faqManage").prop('checked' , false);--}}
+                {{--}--}}
+            {{--});--}}
+            {{--$('.faqManage').change(function ()--}}
+            {{--{--}}
+                {{--if ( this.checked )--}}
+                {{--{--}}
+                    {{--$(".faqView").prop('checked' , false);--}}
+                    {{--$(".faqDelete").prop('checked' , false);--}}
+                {{--}--}}
+            {{--});--}}
+            {{--$('.faqView').change(function ()--}}
+            {{--{--}}
+                {{--if ( this.checked )--}}
+                {{--{--}}
+                    {{--$(".faqManage").prop('checked' , false);--}}
+                    {{--$(".faqDelete").prop('checked' , false);--}}
+                {{--}--}}
+            {{--});--}}
 
-            $('.transDelete').change(function ()
-            {
-                if ( this.checked )
-                {
-                    $(".transView").prop('checked' , false);
-                    $(".transManage").prop('checked' , false);
-                }
-            });
-            $('.transView').change(function ()
-            {
-                if ( this.checked )
-                {
-                    $(".transManage").prop('checked' , false);
-                    $(".transDelete").prop('checked' , false);
-                }
-            });
+            {{--$('.transDelete').change(function ()--}}
+            {{--{--}}
+                {{--if ( this.checked )--}}
+                {{--{--}}
+                    {{--$(".transView").prop('checked' , false);--}}
+                    {{--$(".transManage").prop('checked' , false);--}}
+                {{--}--}}
+            {{--});--}}
+            {{--$('.transView').change(function ()--}}
+            {{--{--}}
+                {{--if ( this.checked )--}}
+                {{--{--}}
+                    {{--$(".transManage").prop('checked' , false);--}}
+                    {{--$(".transDelete").prop('checked' , false);--}}
+                {{--}--}}
+            {{--});--}}
 
-            $('.transManage').change(function ()
-            {
-                if ( this.checked )
-                {
-                    $(".transView").prop('checked' , false);
-                    $(".transDelete").prop('checked' , false);
-                }
-            });
+            {{--$('.transManage').change(function ()--}}
+            {{--{--}}
+                {{--if ( this.checked )--}}
+                {{--{--}}
+                    {{--$(".transView").prop('checked' , false);--}}
+                    {{--$(".transDelete").prop('checked' , false);--}}
+                {{--}--}}
+            {{--});--}}
 
 
-        });
-    </script>
+        {{--});--}}
+    {{--</script>--}}
+    
 @stop

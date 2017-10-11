@@ -95,13 +95,27 @@
                    
                 </div>
             </div>
+            <?php
+            $module = json_decode($user->module);
+            $checked = 'checked';
+            ?>
             <div class="row">
-                
+                <div class="col-md-6">
+                    <label class="checkbox-inline" style="margin-left: 10px">
+                        <input {{ $module->international == 'TRUE' ? $checked : ' ' }} type="checkbox" value="international" name="international">International Lead
+                    </label>
+                    <label class="checkbox-inline" style="margin-left: 10px">
+                        <input {{ $module->local == 'TRUE' ? $checked : ' ' }} type="checkbox" value="local" name="local">Local Lead
+                    </label>
+                    <label class="checkbox-inline">
+                        <input {{ $module->cold == 'TRUE' ? $checked : ' ' }} type="checkbox" value="cold" name="cold">Cold Calling
+                    </label>
+                </div>
             </div>
-			<div class="row">
+			<div class="row" style="display: none">
 				<div class="col-xs-6 form-group">
 					<label for="status">Status : </label>
-					<select class="form-control" id="status" name="status" >
+					<select  class="form-control" id="status" name="status" >
 						<option value="1" <?php if($user->status == 1) { echo "selected"; }?> >Active</option>
 						<option value="0" <?php if($user->status == 0) { echo "selected"; }?>>Deactive</option> 
 					</select>

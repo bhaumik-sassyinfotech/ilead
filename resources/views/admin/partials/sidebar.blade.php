@@ -14,7 +14,7 @@
                 </a>
             </li>
 
-            @if(Helpers::isAdmin() == 1)
+            @if(Helpers::isAdmin() == 1 && Helpers::getCurrentUserDetails( 'international' , 'TRUE' ))
             <li class="menu-item ">
 
                 <span><i class="fa fa-group"></i>International Lead</span>
@@ -33,7 +33,7 @@
                 </ul>
             </li>
             @endif
-            @if(Helpers::isAdmin() == 1)
+            @if(Helpers::isAdmin() == 1 && Helpers::getCurrentUserDetails( 'local' , 'TRUE' ))
             <li class="menu-item ">
     
                 <span><i class="fa fa-group"></i>Local Lead</span>
@@ -52,7 +52,7 @@
                 </ul>
             </li>
             @endif
-            @if(Helpers::isAdmin() == 1)
+            @if(Helpers::isAdmin() == 1 && Helpers::getCurrentUserDetails( 'cold' , 'TRUE' ))
             <li class="menu-item ">
     
                 <span><i class="fa fa-group"></i>Cold Lead</span>

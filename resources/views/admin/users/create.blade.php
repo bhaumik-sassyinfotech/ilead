@@ -102,12 +102,25 @@
                     <img id="profile_pic_img" height="100" width="100"/>
                 </div>
             </div>
-			<div class="row">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="checkbox-inline" style="margin-left: 10px">
+                        <input type="checkbox" value="international" name="international">International Lead
+                    </label>
+                    <label class="checkbox-inline" style="margin-left: 10px">
+                        <input type="checkbox" value="local" name="local">Local Lead
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="cold" name="cold">Cold Calling
+                    </label>
+                </div>
+            </div>
+			<div class="row" style="display: none;">
 				<div class="col-xs-7 form-group">
 					<label for="status">Status : </label>
 					<select class="form-control" id="status" name="status">
-						<option value="1">Active</option>
-						<option value="0">Deactive</option> 
+						<option selected value="1">Active</option>
+						<option value="0">Inactive</option>
 					</select>
 				</div>
 			</div>
