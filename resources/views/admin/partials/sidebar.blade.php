@@ -14,64 +14,77 @@
                 </a>
             </li>
 
-            @if(Helpers::isAdmin() == 1 && Helpers::getCurrentUserDetails( 'international' , 'TRUE' ))
+            @if(Helpers::getCurrentUserDetails( 'international' , 'TRUE' ))
             <li class="menu-item ">
 
                 <span><i class="fa fa-group"></i>International Lead</span>
                 <ul class="sub-menu-item">
                     <li class="{{ $request->segment(1) == 'international' ? 'active active-sub' : '' }}">
+                       @if(Helpers::getCurrentUserDetails('permissions.view','false','true') == 'TRUE')
                         <a href="{{ route('international.index') }}">
                             <i class="fa fa-key"></i>
                             <span class="title"> View Lead </span>
                         </a>
+                        @endif
+                        @if(Helpers::getCurrentUserDetails('permissions.add','false','true') == 'TRUE')
                         <a href="{{ route('international.create') }}">
                             <i class="fa fa-key"></i>
                             <span class="title"> Add Lead </span>
                         </a>
+                        @endif
                     </li>
 
                 </ul>
             </li>
             @endif
-            @if(Helpers::isAdmin() == 1 && Helpers::getCurrentUserDetails( 'local' , 'TRUE' ))
+            @if(Helpers::getCurrentUserDetails( 'local' , 'TRUE' ))
             <li class="menu-item ">
     
                 <span><i class="fa fa-group"></i>Local Lead</span>
                 <ul class="sub-menu-item">
                     <li class="{{ $request->segment(1) == 'local' ? 'active active-sub' : '' }}">
+                        @if(Helpers::getCurrentUserDetails('permissions.view','false','true') == 'TRUE')
                         <a href="{{ route('local.index') }}">
                             <i class="fa fa-key"></i>
                             <span class="title"> View Lead </span>
                         </a>
+                        @endif
+                        @if(Helpers::getCurrentUserDetails('permissions.add','false','true') == 'TRUE')
                         <a href="{{ route('local.create') }}">
                             <i class="fa fa-key"></i>
                             <span class="title"> Add Lead </span>
                         </a>
+                        @endif
                     </li>
     
                 </ul>
             </li>
             @endif
-            @if(Helpers::isAdmin() == 1 && Helpers::getCurrentUserDetails( 'cold' , 'TRUE' ))
+            @if(Helpers::getCurrentUserDetails( 'cold' , 'TRUE' ))
             <li class="menu-item ">
     
                 <span><i class="fa fa-group"></i>Cold Lead</span>
                 <ul class="sub-menu-item">
                     <li class="{{ $request->segment(1) == 'cold' ? 'active active-sub' : '' }}">
+                        @if(Helpers::getCurrentUserDetails('permissions.view','false','true') == 'TRUE')
                         <a href="{{ route('cold.index') }}">
                             <i class="fa fa-key"></i>
                             <span class="title"> View Lead </span>
                         </a>
+                        @endif
+                        @if(Helpers::getCurrentUserDetails('permissions.add','false','true') == 'TRUE')
                         <a href="{{ route('cold.create') }}">
                             <i class="fa fa-key"></i>
                             <span class="title"> Add Lead </span>
                         </a>
+                        @endif
                     </li>
     
                 </ul>
             </li>
             @endif
-            @if(Helpers::isAdmin() == 1)
+            {{--@if(Helpers::isAdmin() == 1)--}}
+            @if(true)
             <li class="menu-item ">
 
                 <span><i class="fa fa-user"></i>Admin User</span>
@@ -179,7 +192,8 @@
                 {{--</ul>--}}
             {{--</li>--}}
             {{--@endif--}}
-            @if(Helpers::isAdmin() == 1)
+            {{--@if(Helpers::isAdmin() == 1)--}}
+            @if(true)
             <li class="menu-item">
                 <span><i class="fa fa-cog"></i>Entities</span>
                 <ul class="sub-menu-item">

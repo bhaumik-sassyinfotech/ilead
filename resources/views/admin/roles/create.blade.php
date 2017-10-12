@@ -59,11 +59,11 @@
             </div>
             
             
-            <div class="col-lg-8">
+            <div class="col-lg-8" style="display: none;">
                 <div class="form-group">
                     <label for="status">Status : </label>
                     <select class="form-control" id="status" name="status">
-                        <option value="1">Active</option>
+                        <option selected value="1">Active</option>
                         <option value="0">Inactive</option>
                     </select>
                 </div>

@@ -17,13 +17,21 @@
         <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a>
                 > International Leads</p></div>
     </div>
-
+    <?php
+        $perm = json_decode(Helpers::getCurrentUserDetails('permissions','false','true'));
+    ?>
+    
     <div class="new_button">
         <div class="pull-right">
-            <a href="{{ route('international.create') }}" class="btn btn-success extra_button">Add new</a>
+            @if($perm->add == 'TRUE')
+                <a href="{{ route('international.create') }}" class="btn btn-success extra_button">Add new</a>
+            @else
+                <a href="#" style="visibility: hidden;" class="btn">&nbsp;</a>
+            @endif
         </div>
         <div style="clear: both;"></div>
     </div>
+    
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -66,8 +74,8 @@
                 </tr>
                 </thead>
                 @if (isset($internationalLeads) && count($internationalLeads) > 0)
-                    <?php $i = 0; ?>
-                
+                    <?php  $i = 0; ?>
+                    
                     @foreach ($internationalLeads as $lead)
                         <tr>
                             <td style="width: 10%">{{ ++$i }}</td>
@@ -80,15 +88,19 @@
                                 {{ isset($lead->note->note_desc) ? $lead->note->note_desc : '-' }}
                             </td>
                             <td style="width: 20%">
-                                <a href="{{ route('international.edit',[$lead->lead_id]) }}"
-                                   class="btn btn-xs btn-info"> Edit </a>
-                                {{ Form::open(array(
-                                  'style' => 'display: inline-block;',
-                                  'method' => 'DELETE',
-                                  'onsubmit' => "return confirm('".trans("Are you sure want to delete this lead?")."');",
-                                  'route' => ['international.destroy', $lead->lead_id])) }}
-                                {{ Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) }}
-                                {{ Form::close() }}
+                                @if($perm->update == 'TRUE')
+                                    <a href="{{ route('international.edit',[$lead->lead_id]) }}"
+                                    class="btn btn-xs btn-info"> Edit </a>
+                                @endif
+                                @if($perm->delete == 'TRUE')
+                                    {{ Form::open(array(
+                                      'style' => 'display: inline-block;',
+                                      'method' => 'DELETE',
+                                      'onsubmit' => "return confirm('".trans("Are you sure want to delete this lead?")."');",
+                                      'route' => ['international.destroy', $lead->lead_id])) }}
+                                    {{ Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) }}
+                                    {{ Form::close() }}
+                                @endif
                             </td>
                         </tr>
                     @endforeach

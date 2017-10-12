@@ -207,18 +207,32 @@
             
             //$email = Auth::user()->email;
             //$name = Auth::user()->name;
-            
+    
             $data = Auth::guard('admin')->user();
-            $user = User::with('role')->where('role_id' , Auth::guard('admin')->user()->id )->first();
+            $roleID = $data->role_id;
+            
+            $user = User::with(['role' => function($query) use ($roleID){}])->where('users.id',$data->id)->first();
 //            dd($user);
             if( !empty($field) )
             {
                 if(strtolower($role) == 'true' && strtolower($module) == 'false')
                 {
-                    return $user->role->$field === 'TRUE' ? TRUE : FALSE;
+                    $exp = explode("." , $field);
+                    
+//                    return $user->role->$field === 'TRUE' ? TRUE : FALSE;
+                    if($exp[0] == 'permissions' && key_exists(1,$exp))
+                    {
+                        $temp = $exp[1];
+                        $perm = json_decode($user->role->permissions);
+                        return $perm->$temp;
+                    }else
+                    {
+                        return $user->role->$field;
+                    }
                 } else if(strtolower($module) == 'true' && strtolower($role) == 'false')
                 {
                     $mod = json_decode($user->module);
+//                    dd($mod);
                     return $mod->$field === 'TRUE' ? TRUE : FALSE;
                 }
                 return $user->$field;

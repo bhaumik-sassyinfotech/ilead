@@ -44,10 +44,10 @@
          */
         public function index()
         {
-            $a = \Helpers::getCurrentUserDetails( 'local' , 'TRUE' );
-//            dd($a);
-//            dd();
-//            dd(\Helpers::getCurrentUserDetails());
+            // $a = \Helpers::getCurrentUserDetails( 'local' , 'TRUE' );
+            // dd($a);
+            // dd();
+            // dd(\Helpers::getCurrentUserDetails());
             $users = User::whereNull('deleted_at')->paginate(5);
             $placeholder_string = $this->getSearchPlaceholder();
             

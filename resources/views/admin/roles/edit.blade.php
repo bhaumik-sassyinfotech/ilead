@@ -63,7 +63,7 @@
             </div>
             
             
-            <div class="col-lg-8">
+            <div class="col-lg-8" style="display: none;">
                 <div class="form-group">
                     <label for="status">Status : </label>
                     <select class="form-control" id="status" name="status">
