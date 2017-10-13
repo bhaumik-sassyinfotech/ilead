@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Config;
+use Helpers;
 use App\Currency;
 use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,13 @@ class CurrencyController extends AdminController {
             'simbol' => 'required',
 //            'default_currency' => 'required',
         ]);
+        $this->middleware(function ($request , $next) {
+            if (Helpers::isAdmin() != 1)
+            {
+                return redirect()->to('admin/dashboard');
+            }
+            return $next($request);
+        });
     }
 
     /**

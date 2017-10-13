@@ -4,6 +4,7 @@
     
     use App\Source;
     use Illuminate\Http\Request;
+    use Helpers;
     use App\Http\Controllers\Controller;
     use Illuminate\Support\Facades\Config;
     use Illuminate\Support\Facades\Redirect;
@@ -11,6 +12,17 @@
     
     class SourceController extends Controller
     {
+        public function __construct()
+        {
+            $this->middleware(function ($request , $next) {
+                if (Helpers::isAdmin() != 1)
+                {
+                    return redirect()->to('admin/dashboard');
+                }
+                return $next($request);
+            });
+        }
+    
         /**
          * Display a listing of the resource.
          *

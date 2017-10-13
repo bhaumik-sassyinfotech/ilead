@@ -83,8 +83,8 @@
                 </ul>
             </li>
             @endif
-            {{--@if(Helpers::isAdmin() == 1)--}}
-            @if(true)
+            @if(Helpers::isAdmin() == 1)
+            {{--@if(true)--}}
             <li class="menu-item ">
 
                 <span><i class="fa fa-user"></i>Admin User</span>
@@ -172,43 +172,11 @@
 
             {{--</li>--}}
             {{--@endif--}}
-            {{--@if(Helpers::getAdminPermission('faq.manage')=='true' || Helpers::getAdminPermission('faq.view')=='true'||--}}
-            {{--Helpers::getAdminPermission('faq.delete')=='true')--}}
-            {{--<li class="menu-item">--}}
-                {{--<span><i class="fa fa-cog"></i>Faq</span>--}}
-                {{--<ul class="sub-menu-item">--}}
-                    {{--<li class="{{ $request->segment(1) == 'faqcategorys' ? 'active' : '' }}">--}}
-                        {{--<a href="{{ route('faqcategorys.index') }}">--}}
-                            {{--<i class="fa fa-bar-chart"></i>--}}
-                            {{--<span class="title">Categorys</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="{{ $request->segment(1) == 'faqmodule' ? 'active' : '' }}">--}}
-                        {{--<a href="{{ route('faqmodule.index') }}">--}}
-                            {{--<i class="fa fa-bar-chart"></i>--}}
-                            {{--<span class="title">Module</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-            {{--</li>--}}
-            {{--@endif--}}
-            {{--@if(Helpers::isAdmin() == 1)--}}
-            @if(true)
+            
+            @if(Helpers::isAdmin() == 1)
             <li class="menu-item">
                 <span><i class="fa fa-cog"></i>Entities</span>
                 <ul class="sub-menu-item">
-                    {{--<li class="{{ Request::is('storeLanguage*')? 'active' : '' }}">--}}
-                        {{--<a href="{{ route('storeLanguage.index') }}">--}}
-                            {{--<i class="fa fa-users"></i>--}}
-                            {{--<span class="title">Language</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="{{ Request::is('country*')? 'active' : '' }}">--}}
-                        {{--<a href="{{ route('country.index') }}">--}}
-                            {{--<i class="fa fa-users"></i>--}}
-                            {{--<span class="title">Country</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
                     <li class="{{ Request::is('currency*')? 'active' : '' }}">
                         <a href="{{ route('currency.index') }}">
                             <i class="fa fa-users"></i>
@@ -231,7 +199,6 @@
 
             </li>
             @endif
-                {{----}}
             {{--@if(Helpers::isAdmin() == 1)--}}
             {{--<li class="menu-item">--}}
                 {{--<span><i class="fa fa-cog"></i>Setting</span>--}}
@@ -248,7 +215,6 @@
                             {{--<span class="title">Website meta</span>--}}
                         {{--</a>--}}
                     {{--</li>--}}
-
                 {{--</ul>--}}
             {{--</li>--}}
             {{--@endif--}}

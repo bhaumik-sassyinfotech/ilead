@@ -8,14 +8,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e7547e89-f6a6-4ba5-a3c2-4f3dbf4d3ee0" name="Default" comment="edit/ update notes.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Helpers.php" afterPath="$PROJECT_DIR$/app/Helpers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ColdLeadController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ColdLeadController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CurrencyController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CurrencyController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/FollowUpController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FollowUpController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LocalLeadController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LocalLeadController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RolesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RolesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SourceController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SourceController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/constant.php" afterPath="$PROJECT_DIR$/config/constant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/international_leads/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/international_leads/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/roles/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/roles/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +52,8 @@
       <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="39" column="66" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="66" />
+            <state relative-caret-position="1012">
+              <caret line="216" column="33" lean-forward="false" selection-start-line="216" selection-start-column="33" selection-end-line="216" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -60,8 +62,8 @@
       <file leaf-file-name="Helpers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Helpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="211" column="37" lean-forward="true" selection-start-line="211" selection-start-column="37" selection-end-line="211" selection-end-column="37" />
+            <state relative-caret-position="-203">
+              <caret line="204" column="74" lean-forward="false" selection-start-line="204" selection-start-column="74" selection-end-line="204" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -70,11 +72,9 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="20" column="90" lean-forward="true" selection-start-line="20" selection-start-column="90" selection-end-line="20" selection-end-column="90" />
+            <state relative-caret-position="460">
+              <caret line="20" column="90" lean-forward="false" selection-start-line="20" selection-start-column="90" selection-end-line="20" selection-end-column="90" />
               <folding>
-                <element signature="e#1044#1071#0#HTML" expanded="true" />
-                <element signature="e#1084#1090#1#HTML" expanded="true" />
                 <marker date="1507785610183" expanded="true" signature="4061:4434" ph="..." />
                 <marker date="1507785610183" expanded="true" signature="4073:4432" ph="..." />
                 <marker date="1507785610183" expanded="true" signature="4079:4431" ph="..." />
@@ -86,11 +86,11 @@
       <file leaf-file-name="InternationalLeadController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="267" column="45" lean-forward="false" selection-start-line="267" selection-start-column="45" selection-end-line="267" selection-end-column="45" />
+            <state relative-caret-position="323">
+              <caret line="70" column="39" lean-forward="false" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
               <folding>
                 <element signature="e#62#79#0#PHP" expanded="true" />
-                <marker date="1507796420415" expanded="true" signature="1687:1877" ph="..." />
+                <marker date="1507883889370" expanded="true" signature="2089:2325" ph="..." />
               </folding>
             </state>
           </provider>
@@ -100,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/config/constant.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
-              <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="19" />
+              <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -110,36 +110,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>with</find>
-      <find>role</find>
-      <find>hel</find>
-      <find>n edit</find>
-      <find>$relations</find>
-      <find>permiss</find>
-      <find>n inde</find>
-      <find>getCurrentUserDetails</find>
-      <find>$field =</find>
-      <find>TRUE</find>
-      <find>'TRUE' )</find>
-      <find>$i</find>
-      <find>add</find>
-      <find>Helpers::isAdmin() == 1 &amp;&amp;</find>
-      <find>enti</find>
-      <find>Helpers::isAdmin() == 1</find>
-      <find>isA</find>
-      <find>perm</find>
-      <find>json_de</find>
-      <find>international</find>
-      <find>FALSE</find>
-      <find>== 'FALSE'</find>
-      <find>n index</find>
-      <find>50</find>
-      <find>0</find>
-      <find>n store</find>
-      <find>user</find>
-      <find>n update</find>
       <find>n</find>
       <find>ajax</find>
+      <find>entit</find>
+      <find>admin</find>
+      <find>permissions</find>
+      <find>permissions.</find>
+      <find>internationalL</find>
+      <find>internationa</find>
+      <find>if(</find>
+      <find>Internationa</find>
+      <find>permissions.view</find>
+      <find>international</find>
+      <find>getCurrentUserDetails</find>
+      <find>view</find>
+      <find>admin</find>
+      <find>entiti</find>
+      <find>isAdmin</find>
+      <find>n crea</find>
+      <find>n up0</find>
+      <find>n store</find>
+      <find>n index</find>
+      <find>isAd</find>
+      <find>n</find>
+      <find>ajaxInser</find>
+      <find>user_added_by</find>
+      <find>ajaxup</find>
+      <find>module</find>
+      <find>Helpers</find>
+      <find>ajaxupdate</find>
+      <find>n inde</find>
     </findStrings>
     <replaceStrings>
       <replace>console.log</replace>
@@ -188,11 +188,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2017_10_03_131001_create_local_lead_notes_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_09_22_045353_create_international_lead_notes_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_09_15_130103_create_international_leads_table.php" />
         <option value="$PROJECT_DIR$/app/Currency.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CurrencyController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/international_leads/create.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_10_03_131057_create_cold_leads_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_10_03_131101_create_cold_lead_notes_table.php" />
@@ -207,9 +204,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/local_leads/js.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/local_leads/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/local_leads/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ColdLeadController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cold_leads/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LocalLeadController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/international_leads/js.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/message_students.php" />
@@ -227,16 +222,21 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/AuthenticateAdmin.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticatedAdmin.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RolesController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/users/create.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/international_leads/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php" />
-        <option value="$PROJECT_DIR$/app/Helpers.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/roles/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Helpers.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ColdLeadController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LocalLeadController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RolesController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/FollowUpController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CurrencyController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/SourceController.php" />
         <option value="$PROJECT_DIR$/config/constant.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php" />
       </list>
@@ -333,9 +333,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
-    <option name="height" value="745" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1378" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -582,7 +583,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php/php.exe" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="edit&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/roles/edit.blade.php&#10;create&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/roles/create.blade.php&#10;internationalLeadC&#9;null&#9;null&#10;usersC&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/UsersController.php&#10;create.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/roles/create.blade.php&#10;views\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views&#10;hel&#9;null&#9;null&#10;sidebar&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/partials/sidebar.blade.php&#10;Admin\Auth\LoginController&#9;null&#9;null&#10;userController&#9;null&#9;null&#10;userCo&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/UserActionsController.php&#10;app\user&#9;null&#9;null&#10;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/vendor/laravel/framework/src/Illuminate/Auth/Middleware/AuthenticateWithBasicAuth.php&#10;App\Http\Middleware\AuthenticateAdmin&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Middleware/AuthenticateAdmin.php&#10;middleware\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Middleware&#10;admin\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin&#10;migration\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations&#10;Auth\Guard&#9;null&#9;null&#10;partials\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/partials&#10;header&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/header.blade.php&#10;Illuminate\Foundation\Auth\AuthenticatesUsers&#9;null&#9;null&#10;App\Observers\UserActionsOb&#9;null&#9;null&#10;constant.php&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/config/constant.php&#10;RolesC&#9;null&#9;null&#10;app.php&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/config/app.php&#10;env&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/.env&#10;app\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app&#10;js.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/js.blade.php&#10;index&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/local_leads/index.blade.php&#10;local&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/LocalLeadController.php&#10;internationa&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/InternationalLeadController.php&#10;database\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database&#10;col_lead&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_131057_create_cold_leads_table.php&#10;admin\currency\index&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/currency/index.blade.php&#10;currenc&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/CurrencyController.php&#10;interna&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_15_130103_create_international_leads_table.php&#10;cold_&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_131057_create_cold_leads_table.php&#10;_ta&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_120807_create_local_leads_table.php&#10;app\Lo&#9;null&#9;null&#10;localleadC&#9;null&#9;null&#10;localleadc&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/LocalLeadController.php&#10;notes&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_22_045353_create_international_lead_notes_table.php&#10;local_lead&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_120807_create_local_leads_table.php&#10;local_l&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_131001_create_local_lead_notes_table.php&#10;create.blade&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/create.blade.php&#10;quickadmin&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/public/quickadmin/css/quickadmin-layout.css&#10;-ht.css&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/public/newone/custome-ht.css&#10;leads_table&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_15_130103_create_international_leads_table.php&#10;curr&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/CurrencyController.php&#10;index.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/currency/index.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="source&#9;null&#9;null&#10;follow&#9;null&#9;null&#10;curr&#9;null&#9;null&#10;local&#9;null&#9;null&#10;coldLead&#9;null&#9;null&#10;edit&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/roles/edit.blade.php&#10;create&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/roles/create.blade.php&#10;internationalLeadC&#9;null&#9;null&#10;usersC&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/UsersController.php&#10;create.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/roles/create.blade.php&#10;views\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views&#10;hel&#9;null&#9;null&#10;sidebar&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/partials/sidebar.blade.php&#10;Admin\Auth\LoginController&#9;null&#9;null&#10;userController&#9;null&#9;null&#10;userCo&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/UserActionsController.php&#10;app\user&#9;null&#9;null&#10;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/vendor/laravel/framework/src/Illuminate/Auth/Middleware/AuthenticateWithBasicAuth.php&#10;App\Http\Middleware\AuthenticateAdmin&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Middleware/AuthenticateAdmin.php&#10;middleware\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Middleware&#10;admin\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin&#10;migration\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations&#10;Auth\Guard&#9;null&#9;null&#10;partials\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/partials&#10;header&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/header.blade.php&#10;Illuminate\Foundation\Auth\AuthenticatesUsers&#9;null&#9;null&#10;App\Observers\UserActionsOb&#9;null&#9;null&#10;constant.php&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/config/constant.php&#10;RolesC&#9;null&#9;null&#10;app.php&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/config/app.php&#10;env&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/.env&#10;app\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app&#10;js.&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/js.blade.php&#10;index&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/local_leads/index.blade.php&#10;internationa&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/InternationalLeadController.php&#10;database\&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database&#10;col_lead&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_131057_create_cold_leads_table.php&#10;admin\currency\index&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/currency/index.blade.php&#10;currenc&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/CurrencyController.php&#10;interna&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_15_130103_create_international_leads_table.php&#10;cold_&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_131057_create_cold_leads_table.php&#10;_ta&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_120807_create_local_leads_table.php&#10;app\Lo&#9;null&#9;null&#10;localleadC&#9;null&#9;null&#10;localleadc&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/app/Http/Controllers/Admin/LocalLeadController.php&#10;notes&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_09_22_045353_create_international_lead_notes_table.php&#10;local_lead&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_120807_create_local_leads_table.php&#10;local_l&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/database/migrations/2017_10_03_131001_create_local_lead_notes_table.php&#10;create.blade&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/resources/views/admin/international_leads/create.blade.php&#10;quickadmin&#9;FILE&#9;file://C:/XAMPP/htdocs/ilead/public/quickadmin/css/quickadmin-layout.css" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RecentsManager">
@@ -718,7 +719,8 @@
       <workItem from="1507618081397" duration="5349000" />
       <workItem from="1507695371649" duration="16215000" />
       <workItem from="1507714368851" duration="215000" />
-      <workItem from="1507782579425" duration="13093000" />
+      <workItem from="1507782579425" duration="13746000" />
+      <workItem from="1507869228558" duration="10651000" />
     </task>
     <task id="LOCAL-00001" summary="edit/ update notes.">
       <created>1506334588011</created>
@@ -731,7 +733,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="361106000" />
+    <option name="totallyTimeSpent" value="372410000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -746,20 +748,20 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32038835" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279483" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53634894" sideWeight="0.4969743" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27155825" sideWeight="0.49462366" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32038835" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53634894" sideWeight="0.4969743" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28290468" sideWeight="0.50537634" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28290468" sideWeight="0.50537634" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -841,11 +843,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/newsletter_subscription.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/constants.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/Student_model 2.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/Student_model.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/Newsletter_model 2.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/Newsletter_model.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sidebar.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/sidebar 2.php" />
@@ -1034,13 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RolesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -1066,17 +1056,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="95" column="22" lean-forward="true" selection-start-line="95" selection-start-column="22" selection-end-line="95" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="93" column="11" lean-forward="false" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
-          <folding>
-            <element signature="e#62#71#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1084,15 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="115" column="22" lean-forward="false" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="39" column="66" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,9 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="61" column="55" lean-forward="false" selection-start-line="61" selection-start-column="55" selection-end-line="61" selection-end-column="55" />
-          <folding>
-            <element signature="e#2662#2684#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1110,19 +1077,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="65" column="55" lean-forward="false" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="41" column="15" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="41" selection-end-column="15" />
           <folding>
-            <element signature="e#3133#3155#0#HTML" expanded="false" />
+            <element signature="e#62#71#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-203">
+          <caret line="204" column="74" lean-forward="false" selection-start-line="204" selection-start-column="74" selection-end-line="204" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ColdLeadController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LocalLeadController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="216" column="33" lean-forward="false" selection-start-line="216" selection-start-column="33" selection-end-line="216" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/international_leads/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="20" column="90" lean-forward="true" selection-start-line="20" selection-start-column="90" selection-end-line="20" selection-end-column="90" />
+        <state relative-caret-position="460">
+          <caret line="20" column="90" lean-forward="false" selection-start-line="20" selection-start-column="90" selection-end-line="20" selection-end-column="90" />
           <folding>
-            <element signature="e#1044#1071#0#HTML" expanded="true" />
-            <element signature="e#1084#1090#1#HTML" expanded="true" />
             <marker date="1507785610183" expanded="true" signature="4061:4434" ph="..." />
             <marker date="1507785610183" expanded="true" signature="4073:4432" ph="..." />
             <marker date="1507785610183" expanded="true" signature="4079:4431" ph="..." />
@@ -1130,29 +1134,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Helpers.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/SourceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="211" column="37" lean-forward="true" selection-start-line="211" selection-start-column="37" selection-end-line="211" selection-end-column="37" />
+        <state relative-caret-position="138">
+          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/FollowUpController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CurrencyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RolesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="30" column="15" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="30" selection-end-column="15" />
+          <folding>
+            <element signature="e#62#75#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/constant.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="19" />
+          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/InternationalLeadController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="267" column="45" lean-forward="false" selection-start-line="267" selection-start-column="45" selection-end-line="267" selection-end-column="45" />
+        <state relative-caret-position="323">
+          <caret line="70" column="39" lean-forward="false" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
           <folding>
             <element signature="e#62#79#0#PHP" expanded="true" />
-            <marker date="1507796420415" expanded="true" signature="1687:1877" ph="..." />
+            <marker date="1507883889370" expanded="true" signature="2089:2325" ph="..." />
           </folding>
         </state>
       </provider>

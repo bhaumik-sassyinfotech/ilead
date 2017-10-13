@@ -9,6 +9,7 @@
     use App\Source;
     use Carbon\Carbon;
     use Config;
+    use Helpers;
     
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
@@ -20,6 +21,16 @@
     
     class ColdLeadController extends Controller
     {
+        public function __construct()
+        {
+            $this->middleware(function ($request , $next) {
+                if (!Helpers::getCurrentUserDetails('cold','true'))
+                {
+                    return redirect()->to('admin/dashboard');
+                }
+                return $next($request);
+            });
+        }
         /**
          * Display a listing of the resource.
          *

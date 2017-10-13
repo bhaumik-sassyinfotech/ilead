@@ -8,6 +8,7 @@
     use App\Http\Requests\StoreRolesRequest;
     use App\Http\Requests\UpdateRolesRequest;
     use DB;
+    use Helpers;
     use Config;
     use App\Http\Controllers\Admin\AdminController;
     use phpDocumentor\Reflection\Types\Null_;
@@ -21,6 +22,14 @@
             $this->setFormValidator($request , [
                 'title' => 'required' ,
             ]);
+            $this->middleware(function ($request , $next) {
+                if (Helpers::isAdmin() != 1)
+                {
+                    return redirect()->to('admin/dashboard');
+                }
+                return $next($request);
+            });
+            
             
         }
         

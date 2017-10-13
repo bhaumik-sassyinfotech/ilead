@@ -7,6 +7,7 @@
     use App\Http\Controllers\Controller;
     use App\FollowUp;
     use Config;
+    use Helpers;
     use Illuminate\Support\Facades\Redirect;
     use Illuminate\Support\Facades\Validator;
     
@@ -17,6 +18,17 @@
          *
          * @return \Illuminate\Http\Response
          */
+        public function __construct()
+        {
+            $this->middleware(function ($request , $next) {
+                if (Helpers::isAdmin() != 1)
+                {
+                    return redirect()->to('admin/dashboard');
+                }
+                return $next($request);
+            });
+        }
+    
         public function index()
         {
             //

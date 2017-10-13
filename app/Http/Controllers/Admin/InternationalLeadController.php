@@ -10,7 +10,7 @@
     use App\User;
     use Carbon\Carbon;
     use Config;
-
+    
     use Exception;
     use Helpers;
     use Illuminate\Http\Request;
@@ -24,6 +24,19 @@
     
     class InternationalLeadController extends Controller
     {
+        
+        public function __construct()
+        {
+            $this->middleware(function ($request , $next)
+            {
+                if (!Helpers::getCurrentUserDetails('international','true'))
+                {
+                    return redirect()->to('admin/dashboard');
+                }
+                return $next($request);
+            });
+        }
+    
         /**
          * Display a listing of the resource.
          *
@@ -32,28 +45,29 @@
          */
         public function index(Request $request)
         {
-//            if(Helpers::getCurrentUserDetails('permissions.view','false','true') == 'FALSE')
-//            {
-//                return redirect()->to('admin/dashboard');
-//            }
+            if (Helpers::getCurrentUserDetails('permissions.view' , 'false' , 'true') == 'FALSE')
+            {
+                return redirect()->to('admin/dashboard');
+            }
             
             $count = InternationalLead::count();
             if ($count > 0)
             {
                 $query = InternationalLead::with(['note' , 'currencies']);
                 $user = Helpers::getCurrentUserDetails();
-       
+                
                 $role_id = $user->role->id;
-
-                if($role_id == Config::get('constant.EMPLOYEE_ID') )
+                
+                if ($role_id == Config::get('constant.EMPLOYEE_ID'))
                 {
-                    $query = $query ->where('user_added_by',$user->id);
+                    $query = $query->where('user_added_by' , $user->id);
                 }
 //                else if($role_id == Config::get('constant.MANAGER_ID') OR $role_id == Config::get('constant.ADMIN_ID') )
 //                {
 //
 //                }
                 $internationalLeads = $query->latest('created_at')->paginate(Config::get('constant.PAGINATION_MIN'));
+//                return $internationalLeads;
                 return view("admin.international_leads.index" , compact('internationalLeads'));
             }
             
@@ -71,7 +85,7 @@
         public function create()
         {
             //
-            if(Helpers::getCurrentUserDetails('permissions.add','false','true') == 'FALSE')
+            if (Helpers::getCurrentUserDetails('permissions.add' , 'false' , 'true') == 'FALSE')
             {
                 return redirect()->to('admin/dashboard');
             }
@@ -91,7 +105,7 @@
         public function store(Request $request)
         {
 //            dd($request->lead_comment);
-            if(Helpers::getCurrentUserDetails('permissions.add','false','true') == 'FALSE')
+            if (Helpers::getCurrentUserDetails('permissions.add' , 'false' , 'true') == 'FALSE')
             {
                 return redirect()->to('admin/dashboard');
             }
@@ -100,8 +114,8 @@
                     'project_name' => 'required' ,
                     'currency'     => 'required' ,
                     'source'       => 'required' ,
-                    'refer_id'     => 'unique:international_leads',
-                    'amount'       => 'numeric',
+                    'refer_id'     => 'unique:international_leads' ,
+                    'amount'       => 'numeric' ,
                     'email'        => 'email' ,
                     'url'          => 'url' ,
                 ]
@@ -119,9 +133,9 @@
             $lead->refer_id = $request->refer_id;
             $lead->type = !empty($request->type) ? $request->type : 0;
             $lead->source_id = $request->source;
-            $lead->currency = !empty($request->currency)?$request->currency:0;
-            $lead->amount = !empty($request->amount)?$request->amount:0;
-            $lead->tags = ( count($request->tags) > 0 ) ? implode("," , $request->tags) : '';
+            $lead->currency = !empty($request->currency) ? $request->currency : 0;
+            $lead->amount = !empty($request->amount) ? $request->amount : 0;
+            $lead->tags = (count($request->tags) > 0) ? implode("," , $request->tags) : '';
             $lead->comment = trim($request->lead_comment);
             $lead->url = $request->url;
             $lead->location = $request->location;
@@ -129,7 +143,7 @@
             $lead->status = $request->status;
             $lead->user_added_by = $user->id;
             $lead->skype = $request->skype;
-            $lead->phone_number = !empty($request->phone_number)?$request->phone_number:'';
+            $lead->phone_number = !empty($request->phone_number) ? $request->phone_number : '';
             if ($lead->save())
             {
                 return redirect()->route('international.index')->with('success' , 'International Lead ' . Config::get('constant.ADDED_MESSAGE'));
@@ -175,7 +189,7 @@
          */
         public function update($id , Request $request)
         {
-            if(Helpers::getCurrentUserDetails('permissions.update','false','true') == 'FALSE')
+            if (Helpers::getCurrentUserDetails('permissions.update' , 'false' , 'true') == 'FALSE')
             {
                 return redirect()->to('admin/dashboard');
             }
@@ -200,14 +214,14 @@
 //            }
             
             $lead = InternationalLead::find($id);
-            
+
 //            $lead->project_name = $request->project_name;
 //            $lead->contact_person = $request->contact_person;
 //            $lead->job_title = $request->job_title;
 //            $lead->refer_id = $request->refer_id;
 //            $lead->type = $request->type;
 //            $lead->currency = $request->currency;
-            $lead->tags = ( count($request->tags) > 0 ) ? implode("," , $request->tags) : '';
+            $lead->tags = (count($request->tags) > 0) ? implode("," , $request->tags) : '';
 //            $lead->source_id = $request->source;
 //            $lead->comment = trim($request->lead_comment);
 //            $lead->amount = $request->amount;
@@ -238,7 +252,7 @@
         {
             //
 //            dd($id);
-            if(Helpers::getCurrentUserDetails('permissions.delete','false','true') == 'FALSE')
+            if (Helpers::getCurrentUserDetails('permissions.delete' , 'false' , 'true') == 'FALSE')
             {
                 return redirect()->to('admin/dashboard');
             }
@@ -266,6 +280,7 @@
             $note->lid = $request->lead_id;
             $note->note_desc = $request->lead_note;
             $note->user_added_by = $user->id;
+            $note->user_updated_by = $user->id;
             if ($note->save())
             {
                 return response()->json(['note_id' => $note->note_id , 'msg' => 'Note have been created successfully.']);
@@ -279,12 +294,15 @@
         public function ajaxUpdate(Request $request)
         {
             $today = Carbon::now();
+            $user = Helpers::getCurrentUserDetails();
             $note = InternationalLeadNote::find($request->note_id);
 //            if()
-            if ((!empty($note) && $today->diffInDays($note->created_at) == 0) && ($note->lid == $request->lead_id))
+            $created = $note->created_at;
+            if (!empty($note) && ( $created->diffInSeconds($today) < 86400 ) && ($note->lid == $request->lead_id))
             {
                 // $note->lid = $request->lead_id;
                 $note->note_desc = $request->lead_note;
+                $note->user_updated_by = $user->id;
                 if ($note->save())
                 {
                     return response()->json(['msg' => 'Notes have been updated successfully.'] , 200);

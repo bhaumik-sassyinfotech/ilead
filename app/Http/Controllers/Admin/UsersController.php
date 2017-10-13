@@ -10,6 +10,7 @@
     use App\Http\Controllers\Traits\FileUploadTrait;
     use Image;
     use Config;
+    use Helpers;
     use DB;
     use App\Http\Controllers\Admin\AdminController;
     
@@ -33,8 +34,13 @@
                 // if(\Auth::user()->role_id != 1){
                 //     return abort(404);
                 // }
+                if (Helpers::isAdmin() != 1)
+                {
+                    return redirect()->to('admin/dashboard');
+                }
                 return $next($request);
             });
+            
         }
         
         /**
@@ -44,10 +50,9 @@
          */
         public function index()
         {
-            // $a = \Helpers::getCurrentUserDetails( 'local' , 'TRUE' );
-            // dd($a);
-            // dd();
-            // dd(\Helpers::getCurrentUserDetails());
+//            dd(Helpers::isAdmin());
+            
+            
             $users = User::whereNull('deleted_at')->paginate(5);
             $placeholder_string = $this->getSearchPlaceholder();
             
@@ -84,6 +89,10 @@
          */
         public function create()
         {
+            if (Helpers::isAdmin() != 1)
+            {
+                return redirect()->to('admin/dashboard');
+            }
             $relations = [
                 'roles' => \App\Role::get()->pluck('title' , 'id')->prepend('Please select' , '') ,
             ];
@@ -99,6 +108,10 @@
          */
         public function store(Request $request)
         {
+            if (Helpers::isAdmin() != 1)
+            {
+                return redirect()->to('admin/dashboard');
+            }
             if (!is_null($return = $this->checkValidation()))
                 return $return;
 //        dd($request->all());
@@ -148,6 +161,10 @@
          */
         public function edit($id)
         {
+            if (Helpers::isAdmin() != 1)
+            {
+                return redirect()->to('admin/dashboard');
+            }
             $relations = [
                 'roles' => \App\Role::get()->pluck('title' , 'id')->prepend('Please select' , '') ,
             ];
@@ -167,6 +184,7 @@
         
         public function myprofile($id)
         {
+            
             $relations = [
                 'roles' => \App\Role::get()->pluck('title' , 'id')->prepend('Please select' , '') ,
             ];
@@ -181,7 +199,7 @@
             $user = User::findOrFail($id);
             $user->update($request->all());
             
-            return redirect()->route('home.index')->with('success' , 'User ' . Config::get('constant.constant.UPDATE_MESSAGE'));
+            return redirect()->route('home.index')->with('success' , 'User ' . Config::get('constant.UPDATE_MESSAGE'));
         }
         
         /**
@@ -193,6 +211,10 @@
          */
         public function update(Request $request , $id)
         {
+            if (Helpers::isAdmin() != 1)
+            {
+                return redirect()->to('admin/dashboard');
+            }
             $this->setFormValidator($request , [
                 'fullname'    => 'required' ,
                 'lastname'    => 'required' ,

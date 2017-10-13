@@ -8,7 +8,7 @@
         'DESIMAL_PRICE'  => 'regex:/^\d*(\.\d{1,2})?$/' ,
         'NAMEWITHDESH'   => 'regex:/^[A-Za-z._-]+$/' ,
         'ADMIN_ID'       => '1' ,
-        'MANAGER_ID'     => '14' ,
-        'EMPLOYEE_ID'    => '15' ,
+        'MANAGER_ID'     => '14',
+        'EMPLOYEE_ID'    => '15',
         'PAGINATION_MIN' => '50',
     ];
