@@ -16,5 +16,10 @@ class InternationalLeadNote extends Model
     {
         return $this->belongsTo('App\InternationalLead','lid','lead_id');
     }
+    
+    public function noteUser()
+    {
+        return $this->hasOne('App\User', 'id' , 'user_updated_by');
+    }
 
 }

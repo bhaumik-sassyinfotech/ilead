@@ -192,7 +192,12 @@
                     </div>
                 
                 </div>
-                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    @if( Helpers::isAdmin() != Config::get('constant.EMPLOYEE_ID') )
+                        <h4 class="bold-crm-label">User added by:</h4>
+                        {{ Form::text('user_added_by', $leadData->userDetails->fullname." ".$leadData->userDetails->lastname , ['class' => 'form-control crm-control', $stat]) }}
+                    @endif
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">

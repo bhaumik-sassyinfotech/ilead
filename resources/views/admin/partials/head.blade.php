@@ -43,15 +43,10 @@
       href="{{ url('public/quickadmin/css') }}/quickadmin-theme-default.css"/>
 <link rel="stylesheet"
       href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet"
-      href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
-<link rel="stylesheet"
-      href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css"/>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.standalone.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css">
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
+
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/jquery.bdt.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/style.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/basic.css">
@@ -74,10 +69,8 @@
 <link rel="stylesheet" type="text/css"
       href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
 <link href="{{ url('public/quickadmin/css/jquery.tagit.css') }}" rel="stylesheet" type="text/css">
-
-{{--<link href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>--}}
-{{--<script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>--}}
-
+<link rel="stylesheet" href="{{ url('public/quickadmin/css/bootstrap-datepicker.min.css') }}">
+{{--<link rel="stylesheet" href="{{ url('public/quickadmin/css/bootstrap-datepicker3.min.css') }}">--}}
 
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/custome-ht.css">
 <script src="{{ url('public/newone') }}/custome-ht.js"></script>

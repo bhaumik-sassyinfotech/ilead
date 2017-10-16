@@ -1,3 +1,4 @@
+{{--{{ dd($managers) }}--}}
 @extends('admin.layouts.app')
 
 @section('content')
@@ -11,7 +12,7 @@
 	
 	<div class="new_button">
 		<div class="pull-right extra_button">
-			{!! Form::submit('Save', ['class' => 'btn btn-danger']) !!}
+			{!! Form::submit('Save', ['class' => 'btn btn-danger submit']) !!}
 		</div>
 		<div class="pull-right extra_button">
 			<a href="{{ route('users.index') }}" class="btn btn-success extra_button" >Back</a>
@@ -74,15 +75,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-7 form-group">
+                <div class="col-xs-6 form-group">
                     {!! Form::label('role_id', 'Role*', ['class' => 'control-label']) !!}
-                    {!! Form::select('role_id', $roles, old('role_id'), ['class' => 'form-control']) !!}
+                    {!! Form::select('role_id', $roles, old('role_id'), [ 'id' => 'role' , 'class' => 'form-control']) !!}
                     <p class="help-block"></p>
 <!--                    @if($errors->has('role_id'))
                         <p class="help-block">
                             {{ $errors->first('role_id') }}
                         </p>
                     @endif-->
+                </div>
+                <div class="col-xs-6 form-group managerDiv" style="display: none;">
+                    {!! Form::label('role_id', 'Manager*', ['class' => 'control-label']) !!}
+                    <select name="manager" id="manager" class="form-control">
+                        <option selected value="0">Select Manager</option>
+                        @if(count($managers) > 0)
+                            @foreach( $managers as $manager)
+                                <option value="{{ $manager->id }}">{{ $manager->fullname." ".$manager->firstname }}</option>
+                            @endforeach
+                        @endif
+                    </select>
                 </div>
             </div>
 			<div class="row">
@@ -147,6 +159,24 @@
         $('.date').datepicker({
             autoclose: true,
             dateFormat: "{{ config('app.date_format_js') }}"
+        });
+        $(".submit").click(function()
+        {
+            var checkedLen = $("input[type=checkbox]:checked").length;
+            if( checkedLen == 0)
+            {
+                alert("Please assign atleast one department to this user");
+                return false;
+            }
+        });
+        var managerID = '{{ Config::get('constant.EMPLOYEE_ID') }}';
+        $("#role").on('change' , function(){
+           if(this.value == managerID)
+           {
+                $('.managerDiv').slideDown();
+           } else {
+               $('.managerDiv').slideUp();
+           }
         });
         
     </script>

@@ -7,6 +7,7 @@
 <script src="{{ url('public/newone') }}/jquery.bdt.js"></script>
 <script src="{{ url('public/newone/jquery.validate.min.js') }}"></script>
 <script src="{{ url('public/newone/additional-methods.min.js') }}"></script>
+<script src="{{ url('public/quickadmin/js/bootstrap-datepicker.min.js') }}"></script>
 
 
 <script type="text/javascript">

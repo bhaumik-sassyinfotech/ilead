@@ -32,6 +32,10 @@
             return $this->hasOne('App\Currency','id','currency');
         }
         
+        public function userDetails()
+        {
+            return $this->hasOne('App\User','id','user_added_by');
+        }
         
         public function notes()
         {

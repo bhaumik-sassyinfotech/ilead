@@ -18,6 +18,7 @@
     use Illuminate\Http\Response;
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\DB;
+    use Illuminate\Support\Facades\Event;
     use Illuminate\Support\Facades\Redirect;
     use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\Validator;
@@ -53,7 +54,7 @@
             $count = InternationalLead::count();
             if ($count > 0)
             {
-                $query = InternationalLead::with(['note' , 'currencies']);
+                $query = InternationalLead::with(['note' , 'currencies','userDetails' , 'note.noteUser']);
                 $user = Helpers::getCurrentUserDetails();
                 
                 $role_id = $user->role->id;
@@ -67,7 +68,7 @@
 //
 //                }
                 $internationalLeads = $query->latest('created_at')->paginate(Config::get('constant.PAGINATION_MIN'));
-//                return $internationalLeads;
+//                dd($internationalLeads);
                 return view("admin.international_leads.index" , compact('internationalLeads'));
             }
             
@@ -174,7 +175,7 @@
             $currencies = Currency::all();
             $follow_list = FollowUp::all();
             $sourceList = Source::all();
-            $leadData = InternationalLead::with('notes')->where('lead_id' , $id)->first();
+            $leadData = InternationalLead::with(['notes' , 'userDetails' , 'notes.noteUser'])->where('lead_id' , $id)->first();
 
 //            dd($leadData);
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list' , 'sourceList'));
@@ -346,15 +347,34 @@
         
         public function searchLead(Request $request)
         {
+            if(empty($request->start) && empty($request->end) && empty($request->q))
+            {
+                return redirect()->back();
+            }
+            $dateStr = '';
+            
+            
+            
             $query = '';
             
             if (isset($request->q))
                 $query = $request->q;
 //            echo $query;
             
-            $internationalLeads = InternationalLead::with(['note' , 'currencies'])->where("project_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%")->paginate(Config::get('constant.PAGINATION_MIN'));
+            $q =  InternationalLead::with(['note' , 'currencies' ,'userDetails' , 'note.noteUser'])->where("project_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%");
+            if(!empty($request->start) && !empty($request->end))
+            {
+                $start = new Carbon($request->start);
+                $end = new Carbon($request->end);
+                $start = $start->toDateTimeString();
+                $end = $end->toDateTimeString();
+                $q = $q->orWhere("created_at" , '>=' ,$start)->Where('created_at' , '<=',$end);
+            }
+            $internationalLeads = $q->paginate(Config::get('constant.PAGINATION_MIN'));
+//            $internationalLeads = $q->toSql();
+//            dd($internationalLeads);
             
-            return view("admin.international_leads.index" , compact('internationalLeads' , 'query'));
+            return view("admin.international_leads.index" , compact('internationalLeads' , 'query' , 'start' , 'end'));
         }
         
     }

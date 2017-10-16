@@ -51,8 +51,6 @@
         public function index()
         {
 //            dd(Helpers::isAdmin());
-            
-            
             $users = User::whereNull('deleted_at')->paginate(5);
             $placeholder_string = $this->getSearchPlaceholder();
             
@@ -95,8 +93,9 @@
             }
             $relations = [
                 'roles' => \App\Role::get()->pluck('title' , 'id')->prepend('Please select' , '') ,
+                'managers' => User::where('role_id',Config::get('constant.MANAGER_ID'))->get()
             ];
-            
+//            dd($relations);
             return view('admin.users.create' , $relations);
         }
         
@@ -137,6 +136,11 @@
                 unset($request['local']);
             if($request->cold)
                 unset($request['cold']);
+            if($request->role_id == Config::get('constant.EMPLOYEE_ID'))
+            {
+                if($request->manager == 0)
+                    return \Redirect::back()->withInput();
+            }
             $request = $this->saveFiles($request);
 //            dd($request->module);
 //            unset($request['cold']);
