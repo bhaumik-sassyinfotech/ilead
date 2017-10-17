@@ -193,10 +193,26 @@
                         required: true,
                     },
                     currency: {
-                        required: true
+                        required: {
+                            depends: function()
+                            {
+                                if($("#amount").val() == '')
+                                    return false;
+                                else
+                                    return true;
+                            }
+                        }
                     } ,
                     amount: {
-                        required: true ,
+                        required: {
+                            depends: function()
+                            {
+                                if($("#currency").val() == '')
+                                    return false;
+                                else
+                                    return true;
+                            }
+                        } ,
                         number: true ,
                         min: 0.01
                     } ,

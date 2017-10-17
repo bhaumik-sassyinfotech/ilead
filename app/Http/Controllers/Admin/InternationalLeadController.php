@@ -28,16 +28,16 @@
         
         public function __construct()
         {
-            $this->middleware(function ($request , $next)
-            {
-                if (!Helpers::getCurrentUserDetails('international','true'))
+            $this->middleware(function ($request , $next) {
+                if (!Helpers::getCurrentUserDetails('international' , 'true'))
                 {
                     return redirect()->to('admin/dashboard');
                 }
+                
                 return $next($request);
             });
         }
-    
+        
         /**
          * Display a listing of the resource.
          *
@@ -54,21 +54,23 @@
             $count = InternationalLead::count();
             if ($count > 0)
             {
-                $query = InternationalLead::with(['note' , 'currencies','userDetails' , 'note.noteUser']);
                 $user = Helpers::getCurrentUserDetails();
-                
+//                dd($user);
                 $role_id = $user->role->id;
+//                dd($user->id);
+                $query = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser']);
                 
                 if ($role_id == Config::get('constant.EMPLOYEE_ID'))
                 {
                     $query = $query->where('user_added_by' , $user->id);
+                } else if( $role_id == Config::get('constant.MANAGER_ID') )
+                {
+                    $uid = User::where('manager_id' , $user->id)->pluck('id')->prepend($user->id);
+                    $query = $query->whereIn('user_added_by',$uid);
                 }
-//                else if($role_id == Config::get('constant.MANAGER_ID') OR $role_id == Config::get('constant.ADMIN_ID') )
-//                {
-//
-//                }
+                
                 $internationalLeads = $query->latest('created_at')->paginate(Config::get('constant.PAGINATION_MIN'));
-//                dd($internationalLeads);
+                
                 return view("admin.international_leads.index" , compact('internationalLeads'));
             }
             
@@ -83,7 +85,8 @@
          *
          * @return \Illuminate\Http\Response
          */
-        public function create()
+        public
+        function create()
         {
             //
             if (Helpers::getCurrentUserDetails('permissions.add' , 'false' , 'true') == 'FALSE')
@@ -103,7 +106,8 @@
          * @param  \Illuminate\Http\Request $request
          * @return \Illuminate\Http\Response
          */
-        public function store(Request $request)
+        public
+        function store(Request $request)
         {
 //            dd($request->lead_comment);
             if (Helpers::getCurrentUserDetails('permissions.add' , 'false' , 'true') == 'FALSE')
@@ -147,7 +151,7 @@
             $lead->phone_number = !empty($request->phone_number) ? $request->phone_number : '';
             if ($lead->save())
             {
-                return redirect()->route('international.index')->with('success' , 'International Lead ' . Config::get('constant.ADDED_MESSAGE'));
+                return redirect()->route('international.edit',$lead->lead_id)->with('success' , 'Lead ' . Config::get('constant.ADDED_MESSAGE'));
             } else
             { // save failed
                 return redirect()->route('international.index')->with('err_msg' , 'International Lead ' . Config::get('constant.TRY_MESSAGE'));
@@ -160,7 +164,8 @@
          * @param  \App\InternationalLead $internationalLead
          * @return \Illuminate\Http\Response
          */
-        public function show(InternationalLead $internationalLead)
+        public
+        function show(InternationalLead $internationalLead)
         {
             //
         }
@@ -168,7 +173,8 @@
         /**
          * Show the form for editing the specified resource.
          */
-        public function edit($id)
+        public
+        function edit($id)
         {
             //
             
@@ -188,7 +194,8 @@
          * @param  \Illuminate\Http\Request $request
          * @return \Illuminate\Http\Response
          */
-        public function update($id , Request $request)
+        public
+        function update($id , Request $request)
         {
             if (Helpers::getCurrentUserDetails('permissions.update' , 'false' , 'true') == 'FALSE')
             {
@@ -249,7 +256,8 @@
          *
          * @return \Illuminate\Http\Response
          */
-        public function destroy($id)
+        public
+        function destroy($id)
         {
             //
 //            dd($id);
@@ -274,7 +282,8 @@
         }
         
         
-        public function ajaxInsert(Request $request)
+        public
+        function ajaxInsert(Request $request)
         {
             $user = Helpers::getCurrentUserDetails();
             $note = new InternationalLeadNote();
@@ -292,14 +301,15 @@
             
         }
         
-        public function ajaxUpdate(Request $request)
+        public
+        function ajaxUpdate(Request $request)
         {
             $today = Carbon::now();
             $user = Helpers::getCurrentUserDetails();
             $note = InternationalLeadNote::find($request->note_id);
 //            if()
             $created = $note->created_at;
-            if (!empty($note) && ( $created->diffInSeconds($today) < 86400 ) && ($note->lid == $request->lead_id))
+            if (!empty($note) && ($created->diffInSeconds($today) < 86400) && ($note->lid == $request->lead_id))
             {
                 // $note->lid = $request->lead_id;
                 $note->note_desc = $request->lead_note;
@@ -317,7 +327,8 @@
             }
         }
         
-        public function ajaxDelete(Request $request)
+        public
+        function ajaxDelete(Request $request)
         {
             $today = Carbon::now();
             $note = InternationalLeadNote::find($request->note_id);
@@ -340,19 +351,20 @@
             
         }
         
-        public function ajax(Request $request)
+        public
+        function ajax(Request $request)
         {
             dd("ajax");
         }
         
-        public function searchLead(Request $request)
+        public
+        function searchLead(Request $request)
         {
-            if(empty($request->start) && empty($request->end) && empty($request->q))
+            if (empty($request->start) && empty($request->end) && empty($request->q))
             {
                 return redirect()->back();
             }
             $dateStr = '';
-            
             
             
             $query = '';
@@ -361,14 +373,14 @@
                 $query = $request->q;
 //            echo $query;
             
-            $q =  InternationalLead::with(['note' , 'currencies' ,'userDetails' , 'note.noteUser'])->where("project_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%");
-            if(!empty($request->start) && !empty($request->end))
+            $q = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser'])->where("project_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%");
+            if (!empty($request->start) && !empty($request->end))
             {
                 $start = new Carbon($request->start);
                 $end = new Carbon($request->end);
                 $start = $start->toDateTimeString();
                 $end = $end->toDateTimeString();
-                $q = $q->orWhere("created_at" , '>=' ,$start)->Where('created_at' , '<=',$end);
+                $q = $q->orWhere("created_at" , '>=' , $start)->Where('created_at' , '<=' , $end);
             }
             $internationalLeads = $q->paginate(Config::get('constant.PAGINATION_MIN'));
 //            $internationalLeads = $q->toSql();

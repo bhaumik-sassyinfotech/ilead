@@ -72,6 +72,29 @@
                     @endif-->
                 </div>
             </div>
+            <?php
+            $module = json_decode($user->module);
+            $checked = 'checked';
+            ?>
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <label class="checkbox-inline" style="margin-left: 10px">
+                        <input {{ $module->international == 'TRUE' ? $checked : ' ' }} type="checkbox" value="international" name="international">International Lead
+                    </label>
+                    <label class="checkbox-inline" style="margin-left: 10px">
+                        <input {{ $module->local == 'TRUE' ? $checked : ' ' }} type="checkbox" value="local" name="local">Local Lead
+                    </label>
+                    <label class="checkbox-inline">
+                        <input {{ $module->cold == 'TRUE' ? $checked : ' ' }} type="checkbox" value="cold" name="cold">Cold Calling
+                    </label>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    {!! Form::label('daily_target', 'Daily target*', ['class' => 'control-label']) !!}
+                    {!! Form::text('daily_target', old('daily_target'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                </div>
+            </div>
             <div class="row">
                 <div class="col-xs-7 form-group">
                     {!! Form::label('profile_pic', 'Profile Image', ['class' => 'control-label']) !!}
@@ -95,23 +118,7 @@
                    
                 </div>
             </div>
-            <?php
-            $module = json_decode($user->module);
-            $checked = 'checked';
-            ?>
-            <div class="row">
-                <div class="col-md-6">
-                    <label class="checkbox-inline" style="margin-left: 10px">
-                        <input {{ $module->international == 'TRUE' ? $checked : ' ' }} type="checkbox" value="international" name="international">International Lead
-                    </label>
-                    <label class="checkbox-inline" style="margin-left: 10px">
-                        <input {{ $module->local == 'TRUE' ? $checked : ' ' }} type="checkbox" value="local" name="local">Local Lead
-                    </label>
-                    <label class="checkbox-inline">
-                        <input {{ $module->cold == 'TRUE' ? $checked : ' ' }} type="checkbox" value="cold" name="cold">Cold Calling
-                    </label>
-                </div>
-            </div>
+           
 			<div class="row" style="display: none">
 				<div class="col-xs-6 form-group">
 					<label for="status">Status : </label>
@@ -145,7 +152,18 @@
             autoclose: true,
             dateFormat: "{{ config('app.date_format_js') }}"
         });
-        
+        $("#users").validate(
+            {
+                rules:
+                    {
+                        "daily_target":
+                        {
+                            "required": true,
+                            "number":true,
+                            "float": false
+                        }
+                    }
+            });
     </script>
     
 @endsection

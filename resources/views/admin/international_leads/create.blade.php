@@ -18,6 +18,7 @@
 
         <div class="panel-body commom-form"> 
 			<h2 class="form-title">Lead Information</h2>
+			<br>
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group crm-group">
@@ -91,7 +92,7 @@
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
                         {{--<label class="crm-label">Currency</label>--}}
-                        {{ Form::label('currency', 'Currency: *', ['class' => 'control-label crm-label']) }}
+                        {{ Form::label('currency', 'Currency: ', ['class' => 'control-label crm-label']) }}
                         <select class="form-control crm-control" name="currency" id="currency">
                             <option value="">Select Currency</option>
                             @foreach($currencies as $currency )
@@ -105,7 +106,7 @@
 				<div class="col-sm-6">
 					<div class="form-group crm-group">
 						{{--<label class="crm-label">Amoutnt</label>--}}
-                        {{ Form::label('amount', 'Amount: *', ['class' => 'control-label crm-label']) }}
+                        {{ Form::label('amount', 'Amount:', ['class' => 'control-label crm-label']) }}
                         {{ Form::text('amount', old('amount') , ['class' => 'form-control float crm-control', 'placeholder' => 'Enter amount']) }}
                         {{--<input type="text" class="form-control crm-control">--}}
 					</div>					
@@ -162,6 +163,7 @@
                     </div>
                 </div>
 			</div>
+            <br>
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
@@ -172,6 +174,7 @@
 				</div>
 				<div class="col-sm-6"></div>
 			</div>
+            <br>
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">

@@ -43,16 +43,16 @@
                 {{ csrf_field() }}
                 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <input value="{{ isset($start) ?date("d-m-Y" , strtotime($start)):'' }}" name="start"
-                               type="text" class="form-control start">
+                               placeholder="Select start date" type="text" class="form-control start">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <input value="{{ isset($end) ? date("d-m-Y" , strtotime($end)):'' }}" name="end" type="text"
-                               class="form-control end">
+                               placeholder="Select end date" class="form-control end">
                     </div>
                     <div class="col-md-4 input-group">
-                        <input type="text" class="form-control" name="q" value="{{ isset($query)? $query : '' }}">
+                        <input type="text" class="form-control" name="q" placeholder="Enter search term here" value="{{ isset($query)? $query : '' }}">
                         
                         <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">
@@ -148,7 +148,6 @@
 //            var date = d.getDate() + 1;
             $('.start').datepicker({
                 endDate: d
-//                todayHighlight: true
             });
             $('.end').datepicker({
                 endDate: d,
@@ -157,10 +156,9 @@
             {
                 $('.end').val('');
             });
-//            $('#bootstrap-table').bdt({
-//                showSearchForm: 0,
-//                showEntriesPerPageField: 0
-//            });
+            
+            
+
         });
     </script>
 @endsection

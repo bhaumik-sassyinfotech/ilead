@@ -2,24 +2,47 @@
 {{-- {{ dd($leadData) }}--}}
 <?php $stat = 'disabled'; ?>
 @section('content')
+    
+    <?php
+    $perm = json_decode(Helpers::getCurrentUserDetails('permissions' , 'false' , 'true'));
+    ?>
     <?php $count = 0; ?>
-    <div>
+    <div class="">
         {{--<div class="col-md-6 nopadding"><h3 class="page-title">Create International Lead Module</h3></div>--}}
         <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a>
                 > <a href="{{ route('international.index') }}">International Lead</a> > Create International Lead</p>
         </div>
+        
     </div>
+   
+
+    
     {{--<h3 class="page-title">International Leads</h3>--}}
     <br>
     {{ Form::open(['method' => 'PUT', 'route' => ['international.update', $leadData->lead_id] , 'name' => 'international_lead_form' , 'id' => 'international_lead_form' , 'files' => TRUE , 'enctype' => 'multipart/form-data']) }}
     
     <div class="panel panel-default">
-        <div class="panel-heading">
-            Update International Leads
+        <div class="panel-heading" style="height: 50px;">
+            <div class="col-md-4">
+                Update International Leads
+            </div>
+            
+            <div class=" col-md-4 pull-right" style="margin: -5px 0px">
+                <div class="pull-right">
+                    @if($perm->add == 'TRUE')
+                        <a href="{{ route('international.create') }}" class="btn btn-success extra_button">Add new</a>
+                    @else
+                        <a href="#" style="visibility: hidden;" class="btn">&nbsp;</a>
+                    @endif
+                </div>
+                <div style="clear: both;"></div>
+            </div>
         </div>
+        
         <input type="hidden" id="lead_id" name="lead_id" value="{{ $leadData->lead_id }}">
         <div class="panel-body commom-form">
             <h2 class="form-title">Lead Information</h2>
+            <br>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
@@ -101,7 +124,7 @@
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
                         {{--<label class="crm-label">Currency</label>--}}
-                        {{ Form::label('currency', 'Currency: *', ['class' => 'control-label crm-label']) }}
+                        {{ Form::label('currency', 'Currency: ', ['class' => 'control-label crm-label']) }}
                         <select class="form-control crm-control" name="currency" id="currency" {{ $stat }}>
                             <option value="">Select Currency</option>
                             @foreach($currencies as $currency )
@@ -120,7 +143,7 @@
                     <div class="form-group crm-group">
                         {{--<label class="crm-label">Amoutnt</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
-                        {{ Form::label('amount', 'Amount: *', ['class' => 'control-label crm-label']) }}
+                        {{ Form::label('amount', 'Amount: ', ['class' => 'control-label crm-label']) }}
                         {{ Form::text('amount', $leadData['amount'] , ['class' => 'form-control float crm-control', 'placeholder' => 'Enter amount' , $stat]) }}
                     </div>
                 </div>
@@ -177,6 +200,7 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -199,6 +223,7 @@
                     @endif
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -209,11 +234,10 @@
                 </div>
                 <div class="col-sm-6"></div>
             </div>
+            <br>
             <div class="row form-group" id="dynamic-div">
                 <div class="col-sm-12"><h4 class="bold-crm-label">Notes</h4></div>
-                
                 <?php $count = 0; ?>
-                
                 @if(count($leadData->notes) < 1)
                     <div id="notes_{{ $count }}" class="col-sm-12 notesContainer">
                         <div class="note-bg">

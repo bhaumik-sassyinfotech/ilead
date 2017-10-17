@@ -203,5 +203,8 @@
             Route::post('cold/ajax' , 'Admin\ColdLeadController@ajax')->name('cold.ajax');
             Route::post('cold/searchLead', 'Admin\ColdLeadController@searchLead')->name('cold.searchLead');
             Route::resource('cold' , 'Admin\ColdLeadController');
+            
+            Route::get('report/{id?}','Admin\ReportController@index')->name('report.index');
+            Route::resource('report' , 'Admin\ReportController');
         });
     });

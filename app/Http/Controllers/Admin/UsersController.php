@@ -140,6 +140,8 @@
             {
                 if($request->manager == 0)
                     return \Redirect::back()->withInput();
+            }else {
+                $request->manager = 0;
             }
             $request = $this->saveFiles($request);
 //            dd($request->module);
