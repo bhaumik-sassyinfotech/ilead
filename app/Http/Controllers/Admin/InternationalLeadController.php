@@ -63,10 +63,10 @@
                 if ($role_id == Config::get('constant.EMPLOYEE_ID'))
                 {
                     $query = $query->where('user_added_by' , $user->id);
-                } else if( $role_id == Config::get('constant.MANAGER_ID') )
+                } else if ($role_id == Config::get('constant.MANAGER_ID'))
                 {
                     $uid = User::where('manager_id' , $user->id)->pluck('id')->prepend($user->id);
-                    $query = $query->whereIn('user_added_by',$uid);
+                    $query = $query->whereIn('user_added_by' , $uid);
                 }
                 
                 $internationalLeads = $query->latest('created_at')->paginate(Config::get('constant.PAGINATION_MIN'));
@@ -117,10 +117,10 @@
             $validator = Validator::make($request->all() ,
                 [
                     'project_name' => 'required' ,
-                    'currency'     => 'required' ,
+//                    'currency'     => 'required' ,
                     'source'       => 'required' ,
                     'refer_id'     => 'unique:international_leads' ,
-                    'amount'       => 'numeric' ,
+//                    'amount'       => 'numeric' ,
                     'email'        => 'email' ,
                     'url'          => 'url' ,
                 ]
@@ -144,14 +144,16 @@
             $lead->comment = trim($request->lead_comment);
             $lead->url = $request->url;
             $lead->location = $request->location;
-            $lead->email = $request->email;
+            $lead->email = !empty($request->email)?$request->email:'';
+            $lead->email_secondary= !empty($request->email_secondary)?$request->email_secondary:'';
             $lead->status = $request->status;
             $lead->user_added_by = $user->id;
             $lead->skype = $request->skype;
             $lead->phone_number = !empty($request->phone_number) ? $request->phone_number : '';
+            $lead->phone_number_secondary = !empty($request->phone_number_secondary) ? $request->phone_number_secondary : '';
             if ($lead->save())
             {
-                return redirect()->route('international.edit',$lead->lead_id)->with('success' , 'Lead ' . Config::get('constant.ADDED_MESSAGE'));
+                return redirect()->route('international.edit' , $lead->lead_id)->with('success' , 'Lead ' . Config::get('constant.ADDED_MESSAGE'));
             } else
             { // save failed
                 return redirect()->route('international.index')->with('err_msg' , 'International Lead ' . Config::get('constant.TRY_MESSAGE'));
@@ -360,6 +362,7 @@
         public
         function searchLead(Request $request)
         {
+            
             if (empty($request->start) && empty($request->end) && empty($request->q))
             {
                 return redirect()->back();
@@ -369,23 +372,31 @@
             
             $query = '';
             
-            if (isset($request->q))
+            if (!empty($request->q))
                 $query = $request->q;
 //            echo $query;
             
-            $q = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser'])->where("project_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%");
+            $q = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser']);
             if (!empty($request->start) && !empty($request->end))
             {
                 $start = new Carbon($request->start);
                 $end = new Carbon($request->end);
                 $start = $start->toDateTimeString();
-                $end = $end->toDateTimeString();
-                $q = $q->orWhere("created_at" , '>=' , $start)->Where('created_at' , '<=' , $end);
+                
+                $end = $end->addDay()->toDateTimeString();
+//                dd($start."--".$end);
+//                $q = $q->Where("created_at" , '>=' , $start)->Where('created_at' , '<=' , $end);
+                $q = $q->whereBetween('created_at',[$start , $end ]);
+                
             }
+            if (!empty($request->q))
+                $q = $q->where("project_name" , "like" , "%{$query}%")->orWhere("contact_person" , "like" , "%{$query}%")->orWhere("comment" , "like" , "%{$query}%")->orWhere("tags" , "like" , "%{$query}%")->orWhere("job_title" , "like" , "%{$query}%")->orWhere("refer_id" , "like" , "%{$query}%")->orWhere("type" , "like" , "%{$query}%");
+
             $internationalLeads = $q->paginate(Config::get('constant.PAGINATION_MIN'));
 //            $internationalLeads = $q->toSql();
 //            dd($internationalLeads);
-            
+            $end = new Carbon($request->end);
+            $end = $end->toDateTimeString();
             return view("admin.international_leads.index" , compact('internationalLeads' , 'query' , 'start' , 'end'));
         }
         

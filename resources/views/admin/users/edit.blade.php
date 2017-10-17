@@ -153,17 +153,17 @@
             dateFormat: "{{ config('app.date_format_js') }}"
         });
         $("#users").validate(
+        {
+            rules:
             {
-                rules:
-                    {
-                        "daily_target":
-                        {
-                            "required": true,
-                            "number":true,
-                            "float": false
-                        }
-                    }
-            });
+                "daily_target":
+                {
+                    "required": true,
+                    "number":true,
+                    "float": false
+                }
+            }
+        });
     </script>
     
 @endsection

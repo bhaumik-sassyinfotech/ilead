@@ -168,10 +168,10 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group crm-group">
-                        {{--<label class="crm-label">Email</label>--}}
-                        {{--<input type="email" class="form-control crm-control">--}}
-                        {{ Form::label('email', 'Email: ', ['class' => 'control-label crm-label']) }}
-                        {{ Form::text('email', $leadData['email'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter email' , $stat]) }}
+                        {{--<label class="crm-label">Phone Number</label>--}}
+                        {{--<input type="tel" class="form-control crm-control">--}}
+                        {{ Form::label('phone_number', 'Phone Number:', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('phone_number_secondary', $leadData['phone_number_secondary'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter phone number' , $stat]) }}
                     </div>
                 </div>
             </div>
@@ -197,6 +197,24 @@
                         </select>
                         {{--<label class="crm-label">Skype</label>--}}
                         {{--<input type="text" class="form-control crm-control">--}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{--<label class="crm-label">Email</label>--}}
+                        {{--<input type="email" class="form-control crm-control">--}}
+                        {{ Form::label('email', 'Email: ', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('email', $leadData['email'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter email' , $stat]) }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group crm-group">
+                        {{--<label class="crm-label">Email</label>--}}
+                        {{--<input type="email" class="form-control crm-control">--}}
+                        {{ Form::label('email', 'Secondary Email: ', ['class' => 'control-label crm-label']) }}
+                        {{ Form::text('email_secondary', $leadData['email_secondary'] , ['class' => 'form-control crm-control', 'placeholder' => 'Enter email' , $stat]) }}
                     </div>
                 </div>
             </div>

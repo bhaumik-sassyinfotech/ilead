@@ -107,6 +107,8 @@
          */
         public function store(Request $request)
         {
+            
+            
             if (Helpers::isAdmin() != 1)
             {
                 return redirect()->to('admin/dashboard');
@@ -115,6 +117,7 @@
                 return $return;
 //        dd($request->all());
             //  return $request->role_id; die;
+            
             $file = $request->file('profile_pic');
             if ($file != "")
             {
@@ -124,6 +127,7 @@
                 $image->resize(120 , 120);
                 $image->save(base_path() . '/public/uploads/profile_pic/' . $fileName);
             }
+            $request->daily_target = (int) $request->daily_target;
             $moduleArr = [
                 'international' => $request->international ? 'TRUE' : 'FALSE' ,
                 'cold'          => $request->cold ? 'TRUE' : 'FALSE' ,
@@ -144,7 +148,8 @@
                 $request->manager = 0;
             }
             $request = $this->saveFiles($request);
-//            dd($request->module);
+            
+            
 //            unset($request['cold']);
             
             $users = User::create($request->all());

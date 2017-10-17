@@ -2,6 +2,7 @@
     
     namespace App\Http\Controllers\Admin;
     
+    use App\InternationalLead;
     use Helpers;
     use Illuminate\Http\Request;
     use App\User;
@@ -23,6 +24,7 @@
             
             $user = Helpers::getCurrentUserDetails();
             $isManager = FALSE;
+            $employees = [];
             $module='';
             $leads=array();
             if ($id == 1)
@@ -33,14 +35,38 @@
                     
                     $isManager = TRUE;
                     $managers = User::where('role_id' , Config::get('constant.MANAGER_ID'))->get();
-                    foreach ($managers as $manager)
+//                    dd($managers);
+                    foreach ($managers as $key => $manager)
                     {
                         $json = json_decode($manager->module);
                         if($json->$module == 'TRUE')
                         {
-                            $leads[] = $manager;
+                            $leads[$key]['manager'] = $manager;
+                            $employees = User::where('manager_id',$manager->id)->pluck('id');
+                            
+                            if(count($employees) > 0)
+                            {
+                                
+                                $leads[ $key ]['emp'] = $employees;
+                                $leadData = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser'])->whereIn('user_added_by' , $employees)->get();
+                                if (count($leadData) > 0)
+                                {
+                                    $leads[ $key ]['leads'] = $leadData;
+                                } else
+                                {
+                                    unset($leads[ $key ]);
+                                }
+                            } else
+                                unset($leads[$key]);
                         }
                     }
+                    //execute foreach to find employee
+                    $leads = array_values($leads);
+                    dd($leads);
+//                    foreach ($leads as $lead)
+//                    {
+//
+//                    }
                 }
 //                else if($user->role->id == Config::get('constant.EMPLOYEE_ID')) {
 //
