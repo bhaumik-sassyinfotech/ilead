@@ -88,7 +88,7 @@
                 <span><i class="fa fa-user"></i>Reports</span>
                 <ul class="sub-menu-item">
                     <li class="{{ $request->segment(1) == 'report' ? 'active active-sub' : '' }}">
-                        <a href="{{ route('report.index') }}">
+                        <a href="{{ route('report.show', [1] ) }}">
                             <i class="fa fa-key"></i>
                             <span class="title"> View Interational Lead Reports </span>
                         </a>

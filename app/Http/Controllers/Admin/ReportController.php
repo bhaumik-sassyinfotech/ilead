@@ -8,6 +8,10 @@
     use App\User;
     use App\Http\Controllers\Controller;
     use Config;
+//    use DB;
+    use Illuminate\Support\Facades\DB;
+
+//    use Illuminate\Support\Facades\DB;
     
     class ReportController extends Controller
     {
@@ -16,71 +20,8 @@
          *
          * @return \Illuminate\Http\Response
          */
-        public function index($id = '')
+        public function index()
         {
-            // $id = 1 => International Lead
-            // $id = 2 => Local Lead
-            // $id = 3 => Cold Lead
-            
-            $user = Helpers::getCurrentUserDetails();
-            $isManager = FALSE;
-            $employees = [];
-            $module='';
-            $leads=array();
-            if ($id == 1)
-            {//international Lead
-                $module='international';
-                if ($user->role->id == Config::get('constant.MANAGER_ID'))
-                {
-                    
-                    $isManager = TRUE;
-                    $managers = User::where('role_id' , Config::get('constant.MANAGER_ID'))->get();
-//                    dd($managers);
-                    foreach ($managers as $key => $manager)
-                    {
-                        $json = json_decode($manager->module);
-                        if($json->$module == 'TRUE')
-                        {
-                            $leads[$key]['manager'] = $manager;
-                            $employees = User::where('manager_id',$manager->id)->pluck('id');
-                            
-                            if(count($employees) > 0)
-                            {
-                                
-                                $leads[ $key ]['emp'] = $employees;
-                                $leadData = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser'])->whereIn('user_added_by' , $employees)->get();
-                                if (count($leadData) > 0)
-                                {
-                                    $leads[ $key ]['leads'] = $leadData;
-                                } else
-                                {
-                                    unset($leads[ $key ]);
-                                }
-                            } else
-                                unset($leads[$key]);
-                        }
-                    }
-                    //execute foreach to find employee
-                    $leads = array_values($leads);
-                    dd($leads);
-//                    foreach ($leads as $lead)
-//                    {
-//
-//                    }
-                }
-//                else if($user->role->id == Config::get('constant.EMPLOYEE_ID')) {
-//
-//                }
-            } else if ($id == 2)
-            {//local lead
-                dd("local");
-            } else if ($id == 3)
-            {//cold lead
-                dd("cold");
-            } else
-            {
-                dd("none of the above");
-            }
             
         }
         
@@ -89,7 +30,8 @@
          *
          * @return \Illuminate\Http\Response
          */
-        public function create()
+        public
+        function create()
         {
             //
         }
@@ -100,7 +42,8 @@
          * @param  \Illuminate\Http\Request $request
          * @return \Illuminate\Http\Response
          */
-        public function store(Request $request)
+        public
+        function store(Request $request)
         {
             //
         }
@@ -113,7 +56,25 @@
          */
         public function show($id)
         {
-            //
+            
+            $loggedInUser = Helpers::getCurrentUserDetails();
+            $loggedInRole = $loggedInUser->role->id;
+            $json = json_decode($loggedInUser->module);
+            $leads = array();
+            if ($id == 1)
+            {
+//                if ($loggedInRole == Config::get('constant.ADMIN_ID'))
+//                { //select managers
+//                    
+//                    dd($leads);
+//                } else if($loggedInRole == Config::get('constant.MANAGER_ID'))
+//                {
+//                
+//                } else if($loggedInRole == Config::get('constant.EMPLOYEE_ID'))
+//                {
+//                
+//                }
+            }
         }
         
         /**
@@ -134,7 +95,8 @@
          * @param  int                      $id
          * @return \Illuminate\Http\Response
          */
-        public function update(Request $request , $id)
+        public
+        function update(Request $request , $id)
         {
             //
         }
@@ -145,12 +107,14 @@
          * @param  int $id
          * @return \Illuminate\Http\Response
          */
-        public function destroy($id)
+        public
+        function destroy($id)
         {
             //
         }
         
-        public function internationalIndex()
+        public
+        function internationalIndex()
         {
             dd("internationalIndex");
         }

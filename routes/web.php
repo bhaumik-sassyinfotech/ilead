@@ -174,7 +174,7 @@
             Route::post('documents_mass_destroy' , ['uses' => 'Admin\DocumentsController@massDestroy' , 'as' => 'documents.mass_destroy']);
             Route::resource('transactions' , 'TransactionsController');
             Route::post('transactions_mass_destroy' , ['uses' => 'Admin\TransactionsController@massDestroy' , 'as' => 'transactions.mass_destroy']);
-            Route::resource('reports' , 'Admin\ReportsController');
+//            Route::resource('reports' , 'Admin\ReportsController');
             
             //For Website Meta
             Route::resource('meta' , 'Admin\MetaController');
@@ -204,7 +204,6 @@
             Route::post('cold/searchLead', 'Admin\ColdLeadController@searchLead')->name('cold.searchLead');
             Route::resource('cold' , 'Admin\ColdLeadController');
             
-            Route::get('report/{id?}','Admin\ReportController@index')->name('report.index');
             Route::resource('report' , 'Admin\ReportController');
         });
     });
