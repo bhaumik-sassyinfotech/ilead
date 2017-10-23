@@ -5,6 +5,7 @@
     use App\InternationalLead;
     use App\Currency;
     use Carbon\Carbon;
+    use DebugBar\DebugBar;
     use Helpers;
     use Illuminate\Http\Request;
     use App\User;
@@ -24,7 +25,7 @@
          */
         public function index()
         {
-            
+        
         }
         
         /**
@@ -63,7 +64,7 @@
         
         public function listing($id , Request $request)
         {
-//            dd($request);
+//            dd($request->request);
             $onlyMyLead = FALSE;
             $loggedInUser = Helpers::getCurrentUserDetails();
             $loggedInRole = $loggedInUser->role->id;
@@ -71,7 +72,7 @@
             $leads = array();
             $query = '';
             $searchQuery = '';
-            $employee = $manager = [];
+            $employees = $managers = [];
             $user = Helpers::getCurrentUserDetails();
 //            dd($user);
             $userID = [];
@@ -95,6 +96,7 @@
                             $userID = User::where('manager_id' , $user->id)->pluck('id')->prepend($user->id)->toArray();
                         }
                     }
+                    $employees = User::where('manager_id',$user->id)->get();
 //                    dd($userID);
                 } else if ($loggedInRole == Config::get('constant.EMPLOYEE_ID'))
                 {
@@ -131,7 +133,7 @@
 //                dd($leads);
             }
             
-            return view('admin.reports.index' , compact('leads' , 'onlyMyLead' ,'managers' , 'employee','startDate','endDate','searchQuery'));
+            return view('admin.reports.index' , compact('leads' , 'onlyMyLead' ,'managers' , 'employees','startDate','endDate','searchQuery'));
         }
         
         /**

@@ -48,17 +48,20 @@
                                placeholder="Start date" type="text" class="form-control start">
                     </div>
                     <div class="col-md-2">
-                        <input value="{{ !empty($endDate) ? date("d-m-Y" , strtotime($endDate)):'' }}" name="end" type="text"
+                        <input value="{{ !empty($endDate) ? date("d-m-Y" , strtotime($endDate)):'' }}" name="end"
+                               type="text"
                                placeholder="End date" class="form-control end">
                     </div>
                     <div class="col-md-2">
                         <label for="only_my_leads">
-                            <input {{ $onlyMyLead ? 'checked' : '' }} type="checkbox" name="only_my_leads" id="only_my_leads" value="1">
+                            <input {{ $onlyMyLead ? 'checked' : '' }} type="checkbox" name="only_my_leads"
+                                   id="only_my_leads" value="1">
                             Show only my leads
                         </label>
                     </div>
                     <div class="col-md-4 input-group">
-                        <input type="text" placeholder="Enter search text " class="form-control" name="searchQuery" value="{{ !empty($searchQuery)? $searchQuery : '' }}">
+                        <input type="text" placeholder="Enter search text " class="form-control" name="searchQuery"
+                               value="{{ !empty($searchQuery)? $searchQuery : '' }}">
                         
                         <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">
@@ -76,7 +79,31 @@
                     </div>
                 </div>
                 <br>
-            
+                <div class="row">
+                    @if(count($managers) > 0)
+                        <div class="col-md-3">
+                            <label for="mananger">Manager:</label>
+                            <select class="form-control" name="mananger" id="mananger">
+                                
+                                @foreach($managers as $manager)
+                                    <option value="{{ $manager->id }}"> {{ $manager->fullname }} </option>
+                                @endforeach
+                            
+                            </select>
+                        </div>
+                    @endif
+                    @if(count($employees) > 0)
+                        <div class="col-md-3">
+                            <label for="employee">Employee:</label>
+                            <select class="form-control" name="employee" id="employee">
+                                <option value="">Select</option>
+                                @foreach($employees as $employee)
+                                    <option value="{{ $employee->id }}"> {{ $employee->fullname." ".$employee->lastname }} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
+                </div>
             </form>
         </div>
         
@@ -112,12 +139,12 @@
                             <td style="width: 13%">{{ $lead->userDetails->fullname." ".$lead->userDetails->lastname }}</td>
                             <td style="width: 12%">{{ $lead->project_name }}</td>
                             <td style="width: 10%">
-{{--                                {{ $lead->currencies->simbol ."".number_format($lead->amount , 2) }}--}}
-                            @if(isset($lead->currencies))
-                                {{ $lead->currencies->simbol ."".number_format($lead->amount , 2) }}
-                            @else
-                                {{ "-" }}
-                            @endif
+                                {{--                                {{ $lead->currencies->simbol ."".number_format($lead->amount , 2) }}--}}
+                                @if(isset($lead->currencies))
+                                    {{ $lead->currencies->simbol ."".number_format($lead->amount , 2) }}
+                                @else
+                                    {{ "-" }}
+                                @endif
                             </td>
                             <td style="width: 32%">
                                 @if(strlen($lead->comment) > 0)
@@ -133,7 +160,7 @@
                                     {{ '-' }}
                                 @endif
                             </td>
-                            
+                        
                         </tr>
                     @endforeach
                 @else
@@ -152,24 +179,36 @@
         {
             $.fn.datepicker.defaults.orientation = "bottom";
             $.fn.datepicker.defaults.format      = '{{ Config::get('constant.DATEPICKER_FORMAT') }}';
-//            $('.end').datepicker();
             var d                                = new Date();
-//            d.setDate(d.getDate()+1);
-//            var date = d.getDate() + 1;
-            $('.start').datepicker({
+            var start                            = $('.start');
+            var end                              = $('.end');
+            start.datepicker({
                 endDate: d
             });
-            $('.end').datepicker({
-                endDate: d,
+            end.datepicker({
+                endDate: d
             });
-            $('.start').on('change' , function ()
+            start.on('change' , function ()
             {
                 $('.end').val('');
             });
-//            $('#bootstrap-table').bdt({
-//                showSearchForm: 0,
-//                showEntriesPerPageField: 0
-//            });
+            $("#only_my_leads").click(function ()
+            {
+                if ( this.checked )
+                {
+                    $("#employee").prop("selectedIndex" , 0);
+                }
+            });
+            $("#employee").change(function ()
+            {
+
+                $("#only_my_leads").attr('checked' , false);
+//                console.log(this.value);
+//                if(this.val > 0)
+//                    $("#only_my_leads").attr('checked',false);
+//                else
+//                    $("#only_my_leads").attr('checked',true);
+            })
         });
     </script>
 @endsection
