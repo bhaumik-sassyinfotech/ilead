@@ -203,7 +203,7 @@
             Route::post('cold/ajax' , 'Admin\ColdLeadController@ajax')->name('cold.ajax');
             Route::post('cold/searchLead', 'Admin\ColdLeadController@searchLead')->name('cold.searchLead');
             Route::resource('cold' , 'Admin\ColdLeadController');
-            
+            Route::any('/report/listing/{id?}', 'Admin\ReportController@listing')->name('report.listing');
             Route::resource('report' , 'Admin\ReportController');
         });
     });
