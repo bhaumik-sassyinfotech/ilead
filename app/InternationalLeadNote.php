@@ -21,5 +21,6 @@ class InternationalLeadNote extends Model
     {
         return $this->hasOne('App\User', 'id' , 'user_updated_by');
     }
+    
 
 }

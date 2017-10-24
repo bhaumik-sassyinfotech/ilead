@@ -204,6 +204,7 @@
             Route::post('cold/searchLead', 'Admin\ColdLeadController@searchLead')->name('cold.searchLead');
             Route::resource('cold' , 'Admin\ColdLeadController');
             Route::any('/report/listing/{id?}', 'Admin\ReportController@listing')->name('report.listing');
+            Route::post('report/searchEmployees','Admin\ReportController@searchEmployees')->name('report.searchEmployees');
             Route::resource('report' , 'Admin\ReportController');
         });
     });

@@ -18,6 +18,7 @@
       type="text/css"/>
 {{--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js" type="text/javascript"></script>--}}
 <script>
     (function ( $ )
     {
@@ -45,14 +46,15 @@
       href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
 <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
 
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/jquery.bdt.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/style.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/basic.css">
 
-<script src="{{ url('public/newone') }}/dropzone.js"></script>
-<link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/dropzone.css">
+<link rel="stylesheet" type="text/css" href="{{ url('public/quickadmin/css') }}/chosen.css">
+<script src="{{ url('public/quickadmin/js') }}/chosen.jquery.min.js"></script>
 
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
@@ -63,7 +65,16 @@
             "allowSpaces": true ,
             "removeConfirmation": true
         });
-
+        $("#manager").chosen({
+            no_results_text: "Oops! No result found" ,
+            placeholder_text_single: "Select Manager",
+            allow_single_deselect: true
+        });
+        $("#employee").chosen({
+            width: "90%",
+            no_results_text: "Oops! No result found" ,
+            placeholder_text_multiple: "Select Employee(s)"
+        });
     });
 </script>
 <link rel="stylesheet" type="text/css"

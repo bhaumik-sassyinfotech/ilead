@@ -64,6 +64,14 @@
         
         public function listing($id , Request $request)
         {
+            /*
+             *
+             *  @id = 1 => International
+             *  @id = 2 => Local
+             *  @id = 3 => Cold
+             *
+             *  */
+
 //            dd($request->request);
             $onlyMyLead = FALSE;
             $loggedInUser = Helpers::getCurrentUserDetails();
@@ -90,26 +98,40 @@
                     {
                         if (!empty($request->employee))
                         {
-                            $userID = (array) $request->employee;
+                            $userID = $request->employee;
                         } else
                         {
                             $userID = User::where('manager_id' , $user->id)->pluck('id')->prepend($user->id)->toArray();
                         }
                     }
-                    $employees = User::where('manager_id',$user->id)->get();
+                    $employees = User::where('manager_id' , $user->id)->get();
 //                    dd($userID);
                 } else if ($loggedInRole == Config::get('constant.EMPLOYEE_ID'))
                 {
-                   dd("emp");
+                    dd("emp");
                     $userID = (array) $user->id;
                     
-                } elseif($loggedInRole == Config::get('constant.ADMIN_ID'))
+                } elseif ($loggedInRole == Config::get('constant.ADMIN_ID'))
                 {
-                    $managers = User::where('manager_id','=',0)->Where('role_id','!=',1)->get();
-                    dd($managers->toArray());
+                    if ($request->only_my_leads == 1)
+                    {
+                        $onlyMyLead = TRUE;
+                        $userID = (array) $user->id;
+//                        dd($userID);
+                    } else
+                    {
+                        if (!empty($request->employee) || !empty($request->manager))
+                        {
+                            $userID = array_merge((array) $request->employee , (array) $request->manager);
+                        }
+                    }
+                    
+                    $managers = User::where('manager_id' , '=' , 0)->where('role_id' , '!=' , 1)->get();
+                    $employees = User::where('manager_id' , '!=' , 0)->where('role_id' , Config::get('constant.EMPLOYEE_ID'))->get();
+//                    dd($managers->toArray());
                 }
                 //common for all
-                if ( !empty($request->start) && !empty($request->end) )
+                if (!empty($request->start) && !empty($request->end))
                 {
                     $startDate = new Carbon($request->start);
                     $endDate = new Carbon($request->end);
@@ -120,7 +142,7 @@
                     
                     $endDate = new Carbon($request->end);
                 }
-    
+                
                 if (!empty($request->searchQuery))
                 {
                     $searchQuery = $request->searchQuery;
@@ -133,7 +155,7 @@
 //                dd($leads);
             }
             
-            return view('admin.reports.index' , compact('leads' , 'onlyMyLead' ,'managers' , 'employees','startDate','endDate','searchQuery'));
+            return view('admin.reports.index' , compact('leads' , 'onlyMyLead' , 'managers' , 'employees' , 'startDate' , 'endDate' , 'searchQuery'));
         }
         
         /**
@@ -173,9 +195,15 @@
             //
         }
         
-        public
-        function internationalIndex()
-        {
-            dd("internationalIndex");
+        public function searchEmployees(Request $request)
+        { // ajax request
+            if ($request->ajax())
+            {
+                $employees = User::select('id' , 'fullname' , 'lastname')->where('role_id' , Config::get('constant.EMPLOYEE_ID'))->where('manager_id' , $request->manager_id)->get();
+                
+                return response()->json(['employees' => $employees]);
+            }
+            
+            return FALSE;
         }
     }

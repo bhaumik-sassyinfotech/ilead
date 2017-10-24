@@ -40,7 +40,14 @@
         public function notes()
         {
 //        return $this->hasMany('App\InternationalLeadNote' , 'lid' , 'lead_id')->latest('created_at');
-            return $this->hasMany('App\InternationalLeadNote' , 'lid' , 'lead_id');
+            return $this->hasMany('App\InternationalLeadNote' , 'lid' , 'lead_id')->orderBy('created_at','ASC');
         }
+        
+//        public function notesCount()
+//        {
+//            return $this->hasOne('App\InternationalLeadNote', 'lid','lead_id')
+//                        ->selectRaw('lid, count(*) as count')
+//                        ->groupBy('lid');
+//        }
         
     }

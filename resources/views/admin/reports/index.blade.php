@@ -81,10 +81,10 @@
                 <br>
                 <div class="row">
                     @if(count($managers) > 0)
-                        <div class="col-md-3">
-                            <label for="mananger">Manager:</label>
-                            <select class="form-control" name="mananger" id="mananger">
-                                
+                        <div class="col-md-4">
+                            <label for="manager">Manager:</label>
+                            <select class="form-control" name="manager" id="manager">
+                                <option value=""></option>
                                 @foreach($managers as $manager)
                                     <option value="{{ $manager->id }}"> {{ $manager->fullname }} </option>
                                 @endforeach
@@ -93,10 +93,10 @@
                         </div>
                     @endif
                     @if(count($employees) > 0)
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label for="employee">Employee:</label>
-                            <select class="form-control" name="employee" id="employee">
-                                <option value="">Select</option>
+                            <select class="form-control chosen-select" name="employee[]" id="employee" multiple>
+                                <option value=""></option>
                                 @foreach($employees as $employee)
                                     <option value="{{ $employee->id }}"> {{ $employee->fullname." ".$employee->lastname }} </option>
                                 @endforeach
@@ -196,7 +196,15 @@
             {
                 if ( this.checked )
                 {
-                    $("#employee").prop("selectedIndex" , 0);
+//                    alert('check');
+//                    $("#employee").prop("selectedIndex" , 0);
+                    if($("#manager").length)
+                    {
+//                        console.log($("#manager").length);
+                        $("#employee option:selected").removeAttr("selected").trigger("chosen:updated");
+                        $("#manager").prop("selectedIndex" , 0).trigger("chosen:updated");
+                        
+                    }
                 }
             });
             $("#employee").change(function ()
@@ -208,7 +216,37 @@
 //                    $("#only_my_leads").attr('checked',false);
 //                else
 //                    $("#only_my_leads").attr('checked',true);
-            })
+            });
+            $("#manager").on('change' , function ()
+            {
+                if(this.value != '')
+                {
+                    var dataString = { _token: $("input[name=_token]").val() , manager_id: this.value }
+                    $.ajax({
+                        url: '{{ route('report.searchEmployees') }}',
+                        data: dataString,
+                        type: "post",
+                        success: function ( response )
+                        {
+//                            console.log(response.employees);
+                            $("#only_my_leads").prop('checked',false);
+                            var emp = $("#employee");
+                            emp.empty();
+                            $.each(response.employees , function ( key , val )
+                            {
+//                                console.log(val);
+//                                console.log(val.id);
+//                                console.log(val.fullname);
+//                                console.log(val.lastname);
+//                                console.log("===================");
+                                emp.append($("<option></option>").text(val.fullname+' '+val.lastname).val(val.id));
+//                                $("#employee").append("<option value='"+val.id+"'>"+val.fullname+" "+val.lastname+"</option>");
+                            });
+                            emp.trigger("chosen:updated");
+                        }
+                    });
+                }
+            });
         });
     </script>
 @endsection

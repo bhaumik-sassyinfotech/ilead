@@ -52,7 +52,8 @@
                                placeholder="Select end date" class="form-control end">
                     </div>
                     <div class="col-md-4 input-group">
-                        <input type="text" class="form-control" name="q" placeholder="Enter search term here" value="{{ isset($query)? $query : '' }}">
+                        <input type="text" class="form-control" name="q" placeholder="Enter search term here"
+                               value="{{ isset($query)? $query : '' }}">
                         
                         <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">
@@ -94,7 +95,13 @@
                         <tr>
                             <td style="width: 5%">{{ ++$i }}</td>
                             <td style="width: 10%">{{ $lead->project_name }}</td>
-                            <td style="width: 10%">{{ $lead->currencies->simbol ."".number_format($lead->amount , 2) }}</td>
+                            <td style="width: 10%">
+                                @if(isset($lead->currencies->simbol))
+                                    {{  $lead->currencies->simbol."".number_format($lead->amount , 2) }}
+                                @else
+                                    {{ "-" }}
+                                @endif
+                            </td>
                             <td style="width: 32%">
                                 @if(strlen($lead->comment) > 0)
                                     {{ $lead->comment.' - '.$lead->userDetails->fullname." ".$lead->userDetails->lastname }}
@@ -103,12 +110,15 @@
                                 @endif
                             </td>
                             <td style="width: 32%">
-                                @if( isset($lead->note->note_desc) )
-                                    {{ $lead->note->note_desc.' - '.$lead->note->noteUser->fullname.$lead->note->noteUser->lastname}}
+                                
+                                @if( !empty($lead->notes) )
+                                    <?php $latestComment = $lead->notes->last(); ?>
+                                    {{ "(". count($lead->notes) .") ".$latestComment->note_desc.' - '.$latestComment->noteUser->fullname." ".$latestComment->noteUser->lastname }}
                                 @else
                                     {{ '-' }}
                                 @endif
                             </td>
+                            
                             <td style="width: 11%">
                                 @if($perm->update == 'TRUE')
                                     <a href="{{ route('international.edit',[$lead->lead_id]) }}"
@@ -135,8 +145,48 @@
             {{ $internationalLeads->render() }}
         </div>
     </div>
+    <div class="modal fade" id="notes" role="dialog" aria-labelledby="notesLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">List of all notes</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Comment</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Age</th>
+                                <th>City</th>
+                                <th>Country</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Anna</td>
+                                <td>Pitt</td>
+                                <td>35</td>
+                                <td>New York</td>
+                                <td>USA</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('javascript')
+    
     <script type="text/javascript">
         $(document).ready(function ()
         {
@@ -150,14 +200,13 @@
                 endDate: d
             });
             $('.end').datepicker({
-                endDate: d,
+                endDate: d
             });
             $('.start').on('change' , function ()
             {
                 $('.end').val('');
             });
-            
-            
+
 
         });
     </script>
