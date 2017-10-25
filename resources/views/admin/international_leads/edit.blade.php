@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-{{-- {{ dd($leadData) }}--}}
+ {{--{{ dd($leadData) }}--}}
 <?php $stat = 'disabled'; ?>
 @section('content')
     
@@ -294,7 +294,11 @@
                                 <textarea {{ $status }} data-id="{{ $count }}" placeholder="Enter notes" name="lead_note_{{$count}}"
                                           id="lead_note_{{$count}}" rows="3"
                                           class="form-control notes-area txtArea">{{ nl2br($note->note_desc) }}</textarea>
-
+    
+                                <label for="">Added by: {{ $note->noteUser->fullname." ".$note->noteUser->lastname }}</label>
+                                <br>
+                                <label for="">Last Updated : {{ Helpers::custom_date_format($note->updated_at) }}</label>
+                                
                                 @if($allow)
                                     <div class="btn-col">
                                         <button type="button" data-id="{{$count}}" name="save"

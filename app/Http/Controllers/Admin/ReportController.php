@@ -87,7 +87,7 @@
             $startDate = $endDate = '';
             if ($id == 1)
             {
-                $query = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser']);
+                $query = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser' , 'notesCount']);
                 if ($loggedInRole == Config::get('constant.MANAGER_ID'))
                 { // show only records of employee under current loggedIn manager
                     if ($request->only_my_leads == 1)
@@ -113,21 +113,23 @@
                     
                 } elseif ($loggedInRole == Config::get('constant.ADMIN_ID'))
                 {
+                    
+                    $managers = User::where('manager_id' , '=' , 0)->where('role_id' , '!=' , 1)->get();
+                    $employees = User::where('manager_id' , '!=' , 0)->where('role_id' , Config::get('constant.EMPLOYEE_ID'))->get();
                     if ($request->only_my_leads == 1)
                     {
                         $onlyMyLead = TRUE;
                         $userID = (array) $user->id;
 //                        dd($userID);
-                    } else
+                    } else if (!empty($request->employee) || !empty($request->manager))
                     {
-                        if (!empty($request->employee) || !empty($request->manager))
-                        {
-                            $userID = array_merge((array) $request->employee , (array) $request->manager);
-                        }
+                        $userID = array_merge((array) $request->employee , (array) $request->manager);
+                    } else {
+                        $emp = $employees->pluck('id')->toArray();
+                        $man = $managers->pluck('id')->toArray();
+                        $userID = array_unique(array_merge((array) $emp , (array) $man));
                     }
-                    
-                    $managers = User::where('manager_id' , '=' , 0)->where('role_id' , '!=' , 1)->get();
-                    $employees = User::where('manager_id' , '!=' , 0)->where('role_id' , Config::get('constant.EMPLOYEE_ID'))->get();
+                   
 //                    dd($managers->toArray());
                 }
                 //common for all

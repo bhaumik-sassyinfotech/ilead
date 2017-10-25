@@ -12,5 +12,7 @@
         'EMPLOYEE_ID'       => '15' ,
         'PAGINATION_MIN'    => '50' ,
         'DATEPICKER_FORMAT' => 'dd-mm-yyyy' ,
-    
+        'DATE_FORMAT'       => 'd-M-Y' ,
+        'DATETIME_FORMAT'   => 'd-M-Y H:i' ,
+        'FETCH_LATEST_NOTES' => '10',
     ];

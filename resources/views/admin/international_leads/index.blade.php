@@ -109,11 +109,19 @@
                                     {{ "-" }}
                                 @endif
                             </td>
+                            
                             <td style="width: 32%">
                                 
-                                @if( !empty($lead->notes) )
-                                    <?php $latestComment = $lead->notes->last(); ?>
-                                    {{ "(". count($lead->notes) .") ".$latestComment->note_desc.' - '.$latestComment->noteUser->fullname." ".$latestComment->noteUser->lastname }}
+                                @if( isset($lead->note) )
+                                    <?php
+                                    
+                                    $class1 = 'col-xs-8';
+                                    $class2 = 'col-xs-2';
+                                    $class3 = 'col-xs-2';
+                                    $class4 = 'col-xs-2';
+                                    ?>
+                                    
+                                    {{ "(". $lead->notesCount->count .") " . $lead->note->note_desc.' - '.$lead->note->noteUser->fullname." ".$lead->note->noteUser->lastname }}<a href='javascript:' class='btn btn-xs viewAllNotes' data-toggle='modal' data-target='#notes' data-lead-id="{{ $lead->lead_id }}"><i class="fa fa-comment"></i> </a>
                                 @else
                                     {{ '-' }}
                                 @endif
@@ -146,7 +154,7 @@
         </div>
     </div>
     <div class="modal fade" id="notes" role="dialog" aria-labelledby="notesLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -157,23 +165,13 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Comment</th>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Age</th>
-                                <th>City</th>
-                                <th>Country</th>
+                                <th class="col-xs-6">Comment</th>
+                                <th class="col-xs-2">Added By</th>
+                                <th class="col-xs-2">Created At</th>
+                                <th class="col-xs-2">Updated At</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Anna</td>
-                                <td>Pitt</td>
-                                <td>35</td>
-                                <td>New York</td>
-                                <td>USA</td>
-                            </tr>
+                            <tbody class="table-body">
                             </tbody>
                         </table>
                     </div>
@@ -206,8 +204,48 @@
             {
                 $('.end').val('');
             });
+            
+            $('#notes').on('show.bs.modal' , function ( e )
+            {
+                var link = $(e.relatedTarget);
+                
+//                var message = $(e.relatedTarget).attr('data-body');
+                var leadID = link.data('lead-id');
+                if(leadID)
+                {
+                    {{--var notes = "<tr><td class='{{ $class1 }}'>"+ +"</td><td class='{{ $class2 }}'>"+ +"</td><td class='{{ $class3 }}'>"+ +{{ $a OR '10' }}+"</td>";--}}
+                    var dataString = {_token: $("input[name='_token']").val() , lead_id: leadID };
+                    $.ajax({
+                        url: '{{ route('international.loadNotes') }}',
+                        data: dataString,
+                        type: "POST",
+                        success: function (response)
+                        {
+                            var allNotes = '';
+//                            console.log(response.notes);
+                            response.notes.reverse();
+//                            console.log(response.notes);
+                            $.each(response.notes , function ( key , val )
+                            {
+                                var created_at = new Date(val.created_at).toString('d-M-yyyy H:M');
+                                var updated_at = new Date(val.updated_at).toString('d-M-yyyy H:M');
+//                                console.log(updated_at);
+                                
+                                allNotes = allNotes + "<tr><td class='{{ $class1 }}'>"+ val.note_desc +"</td><td class='{{ $class2 }}'>"+ val.note_user.fullname+ ' '+val.note_user.lastname +"</td><td class='{{ $class3 }}'>"+  created_at +"</td><td class='{{ $class4 }}'>"+updated_at+"</td></tr>";
+//                                alert(allNotes);
+                            });
+//                            console.log(allNotes);
+                            $(this).find('.modal-body .table-body').empty().append(allNotes);
+                        }
+                        
+                    });
+                }
 
-
+//                $title = $(e.relatedTarget).attr('data-title');
+//                $(this).find('.modal-title').text($title);
+//                dataSrc = $(e.relatedTarget).attr('data-src');
+//                $(this).find('#confirm').attr('href', dataSrc);
+            });
         });
     </script>
 @endsection

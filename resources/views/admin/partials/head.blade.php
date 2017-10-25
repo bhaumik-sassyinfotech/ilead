@@ -55,6 +55,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{ url('public/quickadmin/css') }}/chosen.css">
 <script src="{{ url('public/quickadmin/js') }}/chosen.jquery.min.js"></script>
+<script src="{{ url('public/quickadmin/js') }}/date.js"></script>
 
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">

@@ -2,6 +2,7 @@
     
     use App\User;
     use App\Meta;
+    use Carbon\Carbon;
 
 //use DB;
     
@@ -239,6 +240,14 @@
             }
             return $user;
         }
+        
+        public static function custom_date_format($date)
+        {
+            $date = new Carbon($date);
+            return $date->format(Config::get('constant.DATETIME_FORMAT'));
+        }
+        
+        
         
         
     }

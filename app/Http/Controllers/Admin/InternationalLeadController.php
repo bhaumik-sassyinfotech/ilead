@@ -62,8 +62,9 @@
                 
                 $role_id = $user->role->id;
                 
-//                $query = InternationalLead::with(['note' , 'note.noteUser' , 'notesCount' , 'notes' , 'notes.noteUsers' , 'currencies' , 'userDetails']);
-                $query = InternationalLead::with(['notes' , 'notes.noteUser' , 'currencies' , 'userDetails']);
+                $query = InternationalLead::with(['note' , 'note.noteUser' , 'notesCount' , 'notes' , 'notes.noteUser' , 'currencies' , 'userDetails']);
+//                $query = InternationalLead::with(['note' , 'note.noteUser' , 'currencies' , 'userDetails']);
+//                $query = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser' , 'notesCount']);
                 
                 if ($role_id == Config::get('constant.EMPLOYEE_ID'))
                 {
@@ -75,15 +76,16 @@
                 }
                 
                 $internationalLeads = $query->latest('created_at')->paginate(Config::get('constant.PAGINATION_MIN'));
-
+                
 //                dd($internationalLeads);
+                
                 return view("admin.international_leads.index" , compact('internationalLeads'));
             }
             
             return redirect()->route('international.create');
 
 //            $internationalLeads = InternationalLead::all()->paginate(1);
-//            dd($internationalLeads);
+        
         }
         
         /**
@@ -405,6 +407,23 @@
             $end = $end->toDateTimeString();
             
             return view("admin.international_leads.index" , compact('internationalLeads' , 'query' , 'start' , 'end'));
+        }
+        
+        public function loadNotes(Request $request)
+        {
+            
+            if ($request->ajax())
+            {
+                $lead_id = $request->lead_id;
+                
+                $notes = InternationalLead::with(['notes' => function ($query) use ($lead_id) {
+                       return $query->where('lid' , $lead_id)->orderBy('created_at','DESC')->take(Config::get('constant.FETCH_LATEST_NOTES'));
+                    } , 'notes.noteUser'])->where('lead_id',$lead_id)->first();
+                
+                return response()->json(['notes' => $notes->notes ]);
+            }
+            
+            return FALSE;
         }
         
     }
