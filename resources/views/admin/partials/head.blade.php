@@ -57,6 +57,7 @@
 <script src="{{ url('public/quickadmin/js') }}/chosen.jquery.min.js"></script>
 <script src="{{ url('public/quickadmin/js') }}/date.js"></script>
 
+
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function ()
@@ -77,12 +78,12 @@
             placeholder_text_multiple: "Select Employee(s)"
         });
     });
+    
 </script>
 <link rel="stylesheet" type="text/css"
       href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
 <link href="{{ url('public/quickadmin/css/jquery.tagit.css') }}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{{ url('public/quickadmin/css/bootstrap-datepicker.min.css') }}">
-{{--<link rel="stylesheet" href="{{ url('public/quickadmin/css/bootstrap-datepicker3.min.css') }}">--}}
-
+<link rel="stylesheet" href="{{ url('public/quickadmin/css/bootstrap-datetimepicker.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('public/newone') }}/custome-ht.css">
 <script src="{{ url('public/newone') }}/custome-ht.js"></script>

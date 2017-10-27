@@ -16,9 +16,7 @@
         {
             resize: none;
         }
-        .notesContainer{
-            margin: 20px 0px;
-        }
+        
     </style>
 </head>
 

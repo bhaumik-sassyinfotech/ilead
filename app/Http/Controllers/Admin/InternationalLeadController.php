@@ -6,6 +6,7 @@
     use App\InternationalLead;
     use App\FollowUp;
     use App\InternationalLeadNote;
+    use App\InternationalReminder;
     use App\Source;
     use App\User;
     use Carbon\Carbon;
@@ -61,10 +62,11 @@
 //                dd($user);
                 
                 $role_id = $user->role->id;
-                
-                $query = InternationalLead::with(['note' , 'note.noteUser' , 'notesCount' , 'notes' , 'notes.noteUser' , 'currencies' , 'userDetails']);
+
+//                $query = InternationalLead::with(['note' , 'note.noteUser' , 'notesCount' , 'notes' , 'notes.noteUser' , 'currencies' , 'userDetails']);
 //                $query = InternationalLead::with(['note' , 'note.noteUser' , 'currencies' , 'userDetails']);
-//                $query = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser' , 'notesCount']);
+                $query = InternationalLead::with(['note' , 'currencies' , 'userDetails' , 'note.noteUser' , 'notesCount']);
+                
                 
                 if ($role_id == Config::get('constant.EMPLOYEE_ID'))
                 {
@@ -76,7 +78,7 @@
                 }
                 
                 $internationalLeads = $query->latest('created_at')->paginate(Config::get('constant.PAGINATION_MIN'));
-                
+
 //                dd($internationalLeads);
                 
                 return view("admin.international_leads.index" , compact('internationalLeads'));
@@ -191,7 +193,7 @@
             $currencies = Currency::all();
             $follow_list = FollowUp::all();
             $sourceList = Source::all();
-            $leadData = InternationalLead::with(['notes' , 'userDetails' , 'notes.noteUser'])->where('lead_id' , $id)->first();
+            $leadData = InternationalLead::with(['notes' , 'userDetails' , 'notes.noteUser' , 'reminders' , 'reminders.reminderUser'])->where('lead_id' , $id)->first();
 
 //            dd($leadData);
             return view('admin.international_leads.edit' , compact('leadData' , 'currencies' , 'follow_list' , 'sourceList'));
@@ -416,14 +418,87 @@
             {
                 $lead_id = $request->lead_id;
                 
-                $notes = InternationalLead::with(['notes' => function ($query) use ($lead_id) {
-                       return $query->where('lid' , $lead_id)->orderBy('created_at','DESC')->take(Config::get('constant.FETCH_LATEST_NOTES'));
-                    } , 'notes.noteUser'])->where('lead_id',$lead_id)->first();
+                $notes = InternationalLead::with([
+                    'notes' => function ($query) use ($lead_id) {
+                        return $query->where('lid' , $lead_id)->orderBy('created_at' , 'DESC')->take(Config::get('constant.FETCH_LATEST_NOTES'));
+                    } , 'notes.noteUser'])->where('lead_id' , $lead_id)->first();
                 
-                return response()->json(['notes' => $notes->notes ]);
+                return response()->json(['notes' => $notes->notes]);
             }
             
             return FALSE;
         }
         
+        public function ajaxReminderInsert(Request $request)
+        {
+            $user = Helpers::getCurrentUserDetails();
+            
+            $reminder = new InternationalReminder();
+            
+            $dateTime = new Carbon($request->reminder_time);
+            $reminder->remind_at = $dateTime->toDateTimeString();
+            $reminder->subject = $request->reminder_note;
+            $reminder->lid = $request->lead_id;
+            $reminder->user_added_by = $user->id;
+            $reminder->user_updated_by = $user->id;
+            if ($reminder->save())
+            {
+                return response()->json(['reminder_id' => $reminder->reminder_id , 'msg' => 'Reminder have been created successfully.']);
+            } else
+            {
+                return response()->json(['msg' => 'Please try again.']);
+            }
+            
+        }
+        
+        public function ajaxReminderUpdate(Request $request)
+        {
+//            dd($request->request);
+            $today = Carbon::now();
+            $user = Helpers::getCurrentUserDetails();
+            $reminder = InternationalReminder::find($request->reminder_id);
+//            dd($reminder);
+            $created = $reminder->created_at;
+            if (!empty($reminder) && ($created->diffInSeconds($today) < 86400) && ($reminder->lid == $request->lead_id))
+            {
+                // $reminder->lid = $request->lead_id;
+                $dateTime = new Carbon($request->reminder_time);
+                $reminder->remind_at = $dateTime->toDateTimeString();
+                $reminder->subject = $request->reminder_note;
+                $reminder->user_updated_by = $user->id;
+                if ($reminder->save())
+                {
+                    return response()->json(['msg' => 'Reminder have been updated successfully.'] , 200);
+                } else
+                {
+                    return response()->json(['msg' => 'Some error occurred.']);
+                }
+            } else
+            {
+                return response()->json(['msg' => 'Update failed.']);
+            }
+        }
+        
+        public function ajaxReminderDelete(Request $request)
+        {
+//            dd($request->request);
+            $today = Carbon::now();
+            $reminder = InternationalReminder::find($request->reminder_id);
+            if ($today->diffInDays($reminder->created_at) == 0 && !empty($reminder) && $reminder->lid == $request->lead_id)
+            {
+                
+                $reminder->delete($request->reminder_id);
+                if ($reminder->trashed())
+                {
+                    return response()->json(['msg' => 'Reminder have been deleted successfully.'] , 200);
+                } else
+                {
+                    return response()->json(['msg' => 'Some error occurred.']);
+                }
+            } else
+            {
+                return response()->json(['msg' => 'Delete unsuccessful.']);
+            }
+            
+        }
     }

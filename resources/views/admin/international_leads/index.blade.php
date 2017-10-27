@@ -1,4 +1,11 @@
 {{--{{ dd($internationalLeads) }}--}}
+<?php
+
+$class1 = 'col-xs-6';
+$class2 = 'col-xs-2';
+$class3 = 'col-xs-2';
+$class4 = 'col-xs-2';
+?>
 @extends('admin.layouts.app')
 
 @section('content')
@@ -113,14 +120,6 @@
                             <td style="width: 32%">
                                 
                                 @if( isset($lead->note) )
-                                    <?php
-                                    
-                                    $class1 = 'col-xs-8';
-                                    $class2 = 'col-xs-2';
-                                    $class3 = 'col-xs-2';
-                                    $class4 = 'col-xs-2';
-                                    ?>
-                                    
                                     {{ "(". $lead->notesCount->count .") " . $lead->note->note_desc.' - '.$lead->note->noteUser->fullname." ".$lead->note->noteUser->lastname }}<a href='javascript:' class='btn btn-xs viewAllNotes' data-toggle='modal' data-target='#notes' data-lead-id="{{ $lead->lead_id }}"><i class="fa fa-comment"></i> </a>
                                 @else
                                     {{ '-' }}
@@ -165,7 +164,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th class="col-xs-6">Comment</th>
+                                <th class="col-xs-6">Note</th>
                                 <th class="col-xs-2">Added By</th>
                                 <th class="col-xs-2">Created At</th>
                                 <th class="col-xs-2">Updated At</th>
@@ -186,6 +185,7 @@
 @section('javascript')
     
     <script type="text/javascript">
+        var js_dateFormat = '{{ config::get('constant.JS_DATETIME_FORMAT') }}';
         $(document).ready(function ()
         {
             $.fn.datepicker.defaults.orientation = "bottom";
@@ -207,8 +207,10 @@
             
             $('#notes').on('show.bs.modal' , function ( e )
             {
+                var that = $(this);
                 var link = $(e.relatedTarget);
-                
+                that.find('.modal-body .table-body').empty().append("<tr><td>Loading...</td></tr>");
+//                return false;
 //                var message = $(e.relatedTarget).attr('data-body');
                 var leadID = link.data('lead-id');
                 if(leadID)
@@ -227,15 +229,15 @@
 //                            console.log(response.notes);
                             $.each(response.notes , function ( key , val )
                             {
-                                var created_at = new Date(val.created_at).toString('d-M-yyyy H:M');
-                                var updated_at = new Date(val.updated_at).toString('d-M-yyyy H:M');
+                                var created_at = new Date(val.created_at).toString(js_dateFormat);
+                                var updated_at = new Date(val.updated_at).toString(js_dateFormat);
 //                                console.log(updated_at);
                                 
                                 allNotes = allNotes + "<tr><td class='{{ $class1 }}'>"+ val.note_desc +"</td><td class='{{ $class2 }}'>"+ val.note_user.fullname+ ' '+val.note_user.lastname +"</td><td class='{{ $class3 }}'>"+  created_at +"</td><td class='{{ $class4 }}'>"+updated_at+"</td></tr>";
 //                                alert(allNotes);
                             });
 //                            console.log(allNotes);
-                            $(this).find('.modal-body .table-body').empty().append(allNotes);
+                            that.find('.modal-body .table-body').empty().append(allNotes);
                         }
                         
                     });

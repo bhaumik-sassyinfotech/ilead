@@ -8,6 +8,8 @@
 <script src="{{ url('public/newone/jquery.validate.min.js') }}"></script>
 <script src="{{ url('public/newone/additional-methods.min.js') }}"></script>
 <script src="{{ url('public/quickadmin/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ url('public/quickadmin/js') }}/moment.min.js"></script>
+<script src="{{ url('public/quickadmin/js') }}/bootstrap-datetimepicker.min.js"></script>
 
 
 <script type="text/javascript">
@@ -35,8 +37,8 @@
 
                 return true;
             }
-
         });
+     
     });
 </script>
 

@@ -182,13 +182,18 @@
             Route::get('metaSearch' , 'Admin\MetaController@metaSearch');
             
             //International Lead
-            Route::post('international/ajaxInsert' , 'Admin\InternationalLeadController@ajaxInsert')->name('international.ajaxInsert');
             Route::post('international/loadNotes' , 'Admin\InternationalLeadController@loadNotes')->name('international.loadNotes');
+            Route::post('international/ajaxInsert' , 'Admin\InternationalLeadController@ajaxInsert')->name('international.ajaxInsert');
             Route::put('international/ajaxUpdate' , 'Admin\InternationalLeadController@ajaxUpdate')->name('international.ajaxUpdate');
             Route::delete('international/ajaxDelete' , 'Admin\InternationalLeadController@ajaxDelete')->name('international.ajaxDelete');
             Route::post('international/ajax' , 'Admin\InternationalLeadController@ajax')->name('international.ajax');
             Route::post('international/searchLead', 'Admin\InternationalLeadController@searchLead')->name('international.searchLead');
+            Route::post('international/ajaxReminderInsert' , 'Admin\InternationalLeadController@ajaxReminderInsert')->name('international.ajaxReminderInsert');
+            Route::put('international/ajaxReminderUpdate' , 'Admin\InternationalLeadController@ajaxReminderUpdate')->name('international.ajaxReminderUpdate');
+            Route::delete('international/ajaxReminderDelete' , 'Admin\InternationalLeadController@ajaxReminderDelete')->name('international.ajaxReminderDelete');
             Route::resource('international' , 'Admin\InternationalLeadController');
+    
+            
     
     
             Route::post('local/ajaxInsert' , 'Admin\LocalLeadController@ajaxInsert')->name('local.ajaxInsert');

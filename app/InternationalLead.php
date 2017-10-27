@@ -51,4 +51,8 @@
                         ->groupBy('lid');
         }
         
+        public function reminders()
+        {
+            return $this->hasMany('App\InternationalReminder' , 'lid' , 'lead_id');
+        }
     }

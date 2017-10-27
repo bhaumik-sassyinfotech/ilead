@@ -14,5 +14,7 @@
         'DATEPICKER_FORMAT' => 'dd-mm-yyyy' ,
         'DATE_FORMAT'       => 'd-M-Y' ,
         'DATETIME_FORMAT'   => 'd-M-Y H:i' ,
+        'DATETIME_FORMAT'   => 'd-M-Y H:i' ,
+        'JS_DATETIME_FORMAT'   => 'dd-MMM-yyyy HH:mm' ,
         'FETCH_LATEST_NOTES' => '10',
     ];

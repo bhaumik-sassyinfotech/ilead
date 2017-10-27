@@ -253,7 +253,8 @@
                 <div class="col-sm-6"></div>
             </div>
             <br>
-            <div class="row form-group" id="dynamic-div">
+            <div class="row form-group">
+            <div class="col-md-6" id="dynamic-div">
                 <div class="col-sm-12"><h4 class="bold-crm-label">Notes</h4></div>
                 <?php $count = 0; ?>
                 @if(count($leadData->notes) < 1)
@@ -318,7 +319,85 @@
                            aria-invalid="false"><br>
                 </div>
             </div>
+            <div class="col-md-6" id="reminder-dynamic-div">
+                <div class="col-sm-12"><h4 class="bold-crm-label">Reminder</h4></div>
+                <?php $reminderCount = 0; ?>
+                @if(count($leadData->reminders) < 1)
+                    <div id="reminder_{{ $reminderCount }}" class="col-sm-12 reminderContainer">
+                        <div class="note-bg">
+                            <div class="row form-group" style="margin-bottom: 10px;">
+                                <div class="col-md-12 crm-group">
+                                    <label for="time" class="control-label crm-label">Time: </label>
+                                    <input id="remind_time_{{ $reminderCount }}" type="text" value="" class="remindDateTime form-control crm-control">
+                                </div>
+                            </div>
+                            <input type="hidden" id="reminder_id_{{ $reminderCount }}" name="reminder_id_{{ $reminderCount }}" value="">
+                            <textarea data-id="{{ $reminderCount }}" placeholder="Enter notes" name="subject_{{ $reminderCount }}"
+                                      id="reminder_note_{{ $reminderCount }}"
+                                      rows="3" class="form-control notes-area txtArea"></textarea>
+                            <div class="btn-col">
+                                <button type="button" name="save" data-id="{{ $reminderCount }}"
+                                        class="btn btn-success saveReminderBtn">Save
+                                </button>
+                                <button class="btn btn-danger removeReminder" data-id="{{ $reminderCount }}" type="button">Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <?php
+                    
+                    $today = \Carbon\Carbon::now();
+                    ?>
+                    @foreach($leadData->reminders as $reminder)
+                        <?php $allow = FALSE;
+                            $diff = $today->diffInDays($reminder->created_at);
+                            $status = 'disabled';
+                            if ($diff == 0)
+                            {
+                                $status = '';
+                                $allow = TRUE;
+                            }
+                            ?>
+                        <div id="reminder_{{ $reminderCount }}" class="col-md-12 reminderContainer">
+                            <div class="note-bg">
+                                <div class="row form-group" style="margin-bottom: 10px;">
+                                    <div class="col-md-12 crm-group">
+                                        <label for="time" class="control-label crm-label">Time: </label>
+                                        <input id="remind_time_{{ $reminderCount }}" type="text" value="{{ date('d-M-Y h:i A' , strtotime($reminder->remind_at)) }}" class="remindDateTime form-control crm-control">
+                                    </div>
+                                </div>
+                                <input type="hidden" id="reminder_id_{{$reminderCount}}" name="reminder_id_{{$reminderCount}}"
+                                       value="{{ $reminder->reminder_id }}">
+                                <textarea {{ $status }} data-id="{{ $reminderCount }}" placeholder="Enter notes" name="subject_{{$reminderCount}}"
+                                          id="reminder_note_{{$reminderCount}}" rows="3"
+                                          class="form-control notes-area txtArea">{{ nl2br($reminder->subject) }}</textarea>
+    
+                                <label for="">Added by: {{ $reminder->reminderUser->fullname." ".$reminder->reminderUser->lastname }}</label>
+                                <br>
+                                <label for="">Last Updated : {{ Helpers::custom_date_format($reminder->updated_at) }}</label>
+                                
+                                @if($allow)
+                                    <div class="btn-col">
+                                        <button type="button" data-id="{{$reminderCount}}" name="save"
+                                                class="btn btn-success saveReminderBtn"> Save
+                                        </button>
+                                        <input class="btn btn-danger removeReminder" data-id="{{$reminderCount}}" type="button"
+                                               value="Remove">
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <?php $reminderCount++; ?>
+                    @endforeach
+                @endif
+                <div class="col-md-12">
+                    <input type="button" class="btn btn-success addReminder valid" value="Add Note"
+                           aria-invalid="false"><br>
+                </div>
+            </div>
             
+            </div>
             
             <div class="row">
                 <div class="col-sm-12">
