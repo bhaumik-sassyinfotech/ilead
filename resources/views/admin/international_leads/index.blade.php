@@ -204,7 +204,7 @@ $class4 = 'col-xs-2';
             {
                 $('.end').val('');
             });
-            
+
             $('#notes').on('show.bs.modal' , function ( e )
             {
                 var that = $(this);
@@ -215,7 +215,7 @@ $class4 = 'col-xs-2';
                 var leadID = link.data('lead-id');
                 if(leadID)
                 {
-                    {{--var notes = "<tr><td class='{{ $class1 }}'>"+ +"</td><td class='{{ $class2 }}'>"+ +"</td><td class='{{ $class3 }}'>"+ +{{ $a OR '10' }}+"</td>";--}}
+                            {{--var notes = "<tr><td class='{{ $class1 }}'>"+ +"</td><td class='{{ $class2 }}'>"+ +"</td><td class='{{ $class3 }}'>"+ +{{ $a OR '10' }}+"</td>";--}}
                     var dataString = {_token: $("input[name='_token']").val() , lead_id: leadID };
                     $.ajax({
                         url: '{{ route('international.loadNotes') }}',
@@ -232,14 +232,14 @@ $class4 = 'col-xs-2';
                                 var created_at = new Date(val.created_at).toString(js_dateFormat);
                                 var updated_at = new Date(val.updated_at).toString(js_dateFormat);
 //                                console.log(updated_at);
-                                
+
                                 allNotes = allNotes + "<tr><td class='{{ $class1 }}'>"+ val.note_desc +"</td><td class='{{ $class2 }}'>"+ val.note_user.fullname+ ' '+val.note_user.lastname +"</td><td class='{{ $class3 }}'>"+  created_at +"</td><td class='{{ $class4 }}'>"+updated_at+"</td></tr>";
 //                                alert(allNotes);
                             });
 //                            console.log(allNotes);
                             that.find('.modal-body .table-body').empty().append(allNotes);
                         }
-                        
+
                     });
                 }
 

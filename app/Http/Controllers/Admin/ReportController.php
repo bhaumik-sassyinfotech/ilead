@@ -127,7 +127,7 @@
                     } else {
                         $emp = $employees->pluck('id')->toArray();
                         $man = $managers->pluck('id')->toArray();
-                        $userID = array_unique(array_merge((array) $emp , (array) $man));
+                        $userID = array_unique(array_merge((array) $emp , (array) $man , (array) $loggedInUser->id));
                     }
                    
 //                    dd($managers->toArray());
