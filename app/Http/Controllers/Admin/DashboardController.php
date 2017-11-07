@@ -71,7 +71,7 @@
 //                $monthly[ 'achieved' ] = $targetAchieved = $monthlyTargetCalculated < $monthlyTarget ? FALSE : TRUE;
 //            }
             
-            $details   = InternationalLead::select(DB::RAW("SUM(IFNULL(amount, 0)) as tot_amt") , DB::RAW("MONTH(created_at) as month"))
+            $details   = InternationalLead::select(DB::RAW("SUM(amount) as tot_amt") , DB::RAW("MONTH(created_at) as month"))
                          ->where(DB::raw('MONTH(created_at)') , '=' , $currMonth)
                          ->where('status' , 'converted')
                          ->where('user_added_by' , $userID)->whereBetween('created_at',[$start,$end])->first()->toArray();
