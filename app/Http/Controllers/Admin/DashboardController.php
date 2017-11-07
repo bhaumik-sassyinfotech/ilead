@@ -43,7 +43,7 @@
 //
             
             $graphData = InternationalLead::select(DB::RAW("count(DISTINCT lead_id) as tot_cnt") , DB::RAW("DATE(created_at) as date"))->groupBy('date')->orderBy('created_at','ASC')->where('user_added_by' , $userID)->get();
-//            return $graphData;
+
 //          calculations to show whether the monthly target has been achieved or not.
 //            $details                 = InternationalLead::select(DB::RAW("sum(amount) as tot_amt") , DB::RAW("MONTH(created_at) as month"))->groupBy(DB::RAW("MONTH(created_at)"))->where('status' , 'converted')->where('user_added_by' , $userID)->get()->toArray();
 //            $currMonth = date('m');
