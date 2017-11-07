@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-12 col-sm-12 form-group">
+                <div class="col-xs-12 col-md-12 col-sm-12 form-group" style="display: none;">
                     <label class="control-label" style="padding-right: 15px;">Default Currency: </label>
                     <label class="radio-inline"><input
                                 {{ ( $currency->default_currency == 0 ) ? 'checked' : '' }} value="0" type="radio"

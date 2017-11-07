@@ -182,6 +182,7 @@
             Route::get('metaSearch' , 'Admin\MetaController@metaSearch');
             
             //International Lead
+            Route::match( ['get','post'] , 'international/yajra', 'Admin\InternationalLeadController@yajraFilter')->name('international.yajra');
             Route::post('international/loadNotes' , 'Admin\InternationalLeadController@loadNotes')->name('international.loadNotes');
             Route::post('international/ajaxInsert' , 'Admin\InternationalLeadController@ajaxInsert')->name('international.ajaxInsert');
             Route::put('international/ajaxUpdate' , 'Admin\InternationalLeadController@ajaxUpdate')->name('international.ajaxUpdate');
@@ -192,10 +193,9 @@
             Route::put('international/ajaxReminderUpdate' , 'Admin\InternationalLeadController@ajaxReminderUpdate')->name('international.ajaxReminderUpdate');
             Route::delete('international/ajaxReminderDelete' , 'Admin\InternationalLeadController@ajaxReminderDelete')->name('international.ajaxReminderDelete');
             Route::resource('international' , 'Admin\InternationalLeadController');
-    
             
-    
-    
+            Route::match( ['get','post'] , 'local/importExcel', 'Admin\LocalLeadController@importFile')->name('local.importExcel');
+            Route::match( ['get','post'] , 'local/yajra', 'Admin\LocalLeadController@yajraFilter')->name('local.yajra');
             Route::post('local/ajaxInsert' , 'Admin\LocalLeadController@ajaxInsert')->name('local.ajaxInsert');
             Route::put('local/ajaxUpdate' , 'Admin\LocalLeadController@ajaxUpdate')->name('local.ajaxUpdate');
             Route::delete('local/ajaxDelete' , 'Admin\LocalLeadController@ajaxDelete')->name('local.ajaxDelete');

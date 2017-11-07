@@ -91,6 +91,8 @@
             {
                 return redirect()->to('admin/dashboard');
             }
+            
+//            dd(User::where('role_id',Config::get('constant.MANAGER_ID'))->get());
             $relations = [
                 'roles' => \App\Role::get()->pluck('title' , 'id')->prepend('Please select' , '') ,
                 'managers' => User::where('role_id',Config::get('constant.MANAGER_ID'))->get()

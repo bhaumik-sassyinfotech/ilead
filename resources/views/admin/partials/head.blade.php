@@ -78,7 +78,7 @@
             placeholder_text_multiple: "Select Employee(s)"
         });
     });
-    
+
 </script>
 <link rel="stylesheet" type="text/css"
       href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">

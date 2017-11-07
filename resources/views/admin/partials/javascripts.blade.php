@@ -23,7 +23,7 @@
                 $(this).toggleClass("active-menu");
             })
         });
-        
+
         $(".page-sidebar-menu li a").each(function ()
         {
 
@@ -38,7 +38,7 @@
                 return true;
             }
         });
-     
+
     });
 </script>
 
@@ -46,4 +46,4 @@
     window._token = '{{ csrf_token() }}';
 </script>
 
-@yield('javascript')  
+@yield('javascript') 

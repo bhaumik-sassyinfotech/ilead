@@ -7,7 +7,7 @@
         .error {
             color: red;
         }
-
+        
         .hidden {
             display: none;
             /*visibility: hidden;*/
@@ -16,7 +16,7 @@
         {
             resize: none;
         }
-        
+    
     </style>
 </head>
 
@@ -31,19 +31,19 @@
     <div class="page-sidebar-wrapper">
         @include('admin.partials.sidebar')
     </div>
-
+    
     <div class="page-content-wrapper">
         <div class="page-content">
-
+            
             @if(isset($siteTitle))
                 <h3 class="page-title">
                     {{ $siteTitle }}
                 </h3>
             @endif
-
+            
             <div class="row">
                 <div class="col-md-12">
-
+                    
                     @if (Session::has('message'))
                         <div class="note note-info">
                             <p>{{ Session::get('message') }}</p>
@@ -58,9 +58,9 @@
                             </ul>
                         </div>
                     @endif
-
+                    
                     @yield('content')
-
+                
                 </div>
             </div>
         </div>

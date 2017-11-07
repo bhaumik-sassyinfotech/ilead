@@ -13,7 +13,7 @@
         </div>
     @endif
     <div>
-        <div class="col-md-6 nopadding"><h3 class="page-title">International Leadss</h3></div>
+        <div class="col-md-6 nopadding"><h3 class="page-title">International Leads</h3></div>
         <div class="col-md-6 pull-right nopadding"><p style="float:right;"><a href="{{ url('/admin/dashboard') }}">Dashboard</a>
                 > Reports</p></div>
     </div>

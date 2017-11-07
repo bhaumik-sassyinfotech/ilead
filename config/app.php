@@ -197,7 +197,7 @@
             JeroenNoten\LaravelCkEditor\ServiceProvider::class ,
             Yajra\Datatables\DatatablesServiceProvider::class ,
             Barryvdh\Debugbar\ServiceProvider::class ,
-        
+            'Maatwebsite\Excel\ExcelServiceProvider' ,
         ] ,
         
         /*
@@ -252,6 +252,8 @@
             'Html'         => Collective\Html\HtmlFacade::class ,
             'Helpers'      => App\Helpers::class ,
             'Debugbar'     => Barryvdh\Debugbar\Facade::class ,
+            'Excel'        => 'Maatwebsite\Excel\Facades\Excel' ,
         ] ,
     
+        
     ];

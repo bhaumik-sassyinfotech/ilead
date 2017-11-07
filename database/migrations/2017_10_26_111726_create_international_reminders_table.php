@@ -16,9 +16,10 @@ class CreateInternationalRemindersTable extends Migration
         Schema::create('international_reminders', function (Blueprint $table) {
             $table->increments('reminder_id');
             $table->dateTime('remind_at');
+            $table->integer('lid');
+            $table->string('subject','255');
             $table->integer('user_added_by');
             $table->integer('user_updated_by');
-            $table->string('subject','255');
             $table->timestamps();
             $table->softDeletes();
         });

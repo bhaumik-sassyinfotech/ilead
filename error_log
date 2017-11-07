@@ -22,3 +22,117 @@
 [13-Sep-2017 10:32:14 UTC] PHP Warning:  Unterminated comment starting line 93 in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/MetaController.php on line 93
 [13-Sep-2017 10:32:15 UTC] PHP Parse error:  syntax error, unexpected 'source' (T_STRING), expecting function (T_FUNCTION) in /home4/demosh50/public_html/mummaco/app/Http/Controllers/Admin/MetaController.php on line 94
 [13-Sep-2017 11:24:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home4/demosh50/public_html/mummaco/storage/framework/views/8c0a463355efa5edd8ed8322d53a770b18634b87.php on line 58
+[26-Oct-2017 14:00:59 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[26-Oct-2017 14:01:48 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[26-Oct-2017 14:01:50 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[26-Oct-2017 14:02:03 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[26-Oct-2017 14:02:13 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[26-Oct-2017 14:02:59 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[26-Oct-2017 14:07:33 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[26-Oct-2017 15:18:16 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[26-Oct-2017 15:37:42 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[27-Oct-2017 11:32:52 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[27-Oct-2017 11:32:59 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[27-Oct-2017 17:31:19 Asia/Kolkata] PHP Fatal error:  Cannot use object of type Symfony\Component\HttpFoundation\ServerBag as array in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 33
+[27-Oct-2017 17:31:32 Asia/Kolkata] PHP Fatal error:  Cannot use object of type Symfony\Component\HttpFoundation\ServerBag as array in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 33
+[30-Oct-2017 11:21:09 Asia/Kolkata] PHP Fatal error:  Class 'Excel' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 334
+[30-Oct-2017 11:21:24 Asia/Kolkata] PHP Fatal error:  Class 'Excel' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 334
+[30-Oct-2017 11:21:35 Asia/Kolkata] PHP Fatal error:  Cannot use Maatwebsite\Excel\Facades\Excel as Excel because the name is already in use in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 21
+[30-Oct-2017 11:22:12 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Excel' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 333
+[30-Oct-2017 11:22:31 Asia/Kolkata] PHP Fatal error:  Class 'Excel' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 333
+[30-Oct-2017 12:27:13 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ']' in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 354
+[30-Oct-2017 12:52:05 Asia/Kolkata] PHP Fatal error:  Call to a member function count() on array in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 342
+[30-Oct-2017 12:53:35 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 339
+[30-Oct-2017 13:01:24 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 342
+[30-Oct-2017 14:42:04 Asia/Kolkata] PHP Fatal error:  Class 'App\LocalLead' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 362
+[30-Oct-2017 14:51:34 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[30-Oct-2017 14:52:19 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[30-Oct-2017 14:53:25 Asia/Kolkata] PHP Fatal error:  Cannot use Illuminate\Support\Facades\DB as DB because the name is already in use in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 17
+[30-Oct-2017 14:53:40 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[30-Oct-2017 14:56:09 Asia/Kolkata] PHP Fatal error:  Class 'App\LocalLead' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 359
+[30-Oct-2017 15:11:02 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[30-Oct-2017 15:27:51 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[30-Oct-2017 15:32:19 Asia/Kolkata] PHP Fatal error:  Class 'App\LocalLead' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 361
+[30-Oct-2017 15:32:56 Asia/Kolkata] PHP Fatal error:  Class 'App\LocalLead' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 361
+[30-Oct-2017 15:33:17 Asia/Kolkata] PHP Fatal error:  Class 'App\LocalLead' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 361
+[30-Oct-2017 15:34:39 Asia/Kolkata] PHP Fatal error:  Class 'App\LocalLead' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 361
+[31-Oct-2017 10:17:35 Asia/Kolkata] PHP Fatal error:  Class 'App\LocalLead' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 364
+[31-Oct-2017 11:42:52 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'endforeach' (T_ENDFOREACH) in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 11:57:13 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:06:38 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:08:16 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:08:31 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:09:22 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:09:36 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:10:59 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:11:16 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:12:27 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:12:44 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:15:14 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:15:47 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:16:51 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:18:06 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:19:55 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:21:50 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:23:31 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:24:16 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[31-Oct-2017 12:26:29 Asia/Kolkata] PHP Fatal error:  Class 'config' not found in /home1/sassyin2/public_html/crm/storage/framework/views/cadf13806f72263ce3b38be2c2baa9915c490f39.php on line 1
+[01-Nov-2017 11:28:06 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datatables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 384
+[01-Nov-2017 11:30:05 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datatables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 384
+[01-Nov-2017 11:31:04 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datatables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 384
+[01-Nov-2017 11:50:01 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[01-Nov-2017 11:50:05 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[01-Nov-2017 11:50:26 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[01-Nov-2017 11:50:46 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[01-Nov-2017 11:50:51 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[01-Nov-2017 11:50:55 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[01-Nov-2017 11:53:31 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 383
+[01-Nov-2017 11:53:46 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 383
+[01-Nov-2017 11:54:03 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[01-Nov-2017 11:58:30 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:09:59 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:10:15 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:29:13 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:29:38 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:30:06 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:32:45 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:32:57 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:35:21 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:37:05 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:37:27 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:37:41 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:39:57 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:40:37 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:41:34 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 11:41:59 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[02-Nov-2017 12:09:27 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '{' in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 384
+[02-Nov-2017 12:38:37 Asia/Kolkata] PHP Fatal error:  Call to a member function addDay() on string in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 413
+[02-Nov-2017 12:45:05 Asia/Kolkata] PHP Fatal error:  Call to a member function addDay() on string in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 413
+[02-Nov-2017 13:07:12 Asia/Kolkata] PHP Fatal error:  Call to a member function addDay() on string in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 413
+[02-Nov-2017 13:07:22 Asia/Kolkata] PHP Fatal error:  Call to a member function addDay() on string in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 413
+[02-Nov-2017 13:28:10 Asia/Kolkata] PHP Fatal error:  Call to a member function addDay() on string in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 412
+[02-Nov-2017 14:33:45 Asia/Kolkata] PHP Fatal error:  Call to undefined method Symfony\Component\HttpFoundation\ParameterBag::json() in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 384
+[02-Nov-2017 14:33:51 Asia/Kolkata] PHP Fatal error:  Call to undefined method Symfony\Component\HttpFoundation\ParameterBag::json() in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 384
+[02-Nov-2017 14:34:34 Asia/Kolkata] PHP Fatal error:  Call to undefined method Symfony\Component\HttpFoundation\ParameterBag::toJson() in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/LocalLeadController.php on line 384
+[03-Nov-2017 15:32:53 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '{' in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 517
+[03-Nov-2017 15:34:53 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '{' in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 517
+[03-Nov-2017 15:35:06 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '{' in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 517
+[03-Nov-2017 15:44:35 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '{' in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 517
+[03-Nov-2017 15:51:24 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datatables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 511
+[03-Nov-2017 15:52:32 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datatables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 511
+[03-Nov-2017 15:52:42 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datatables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 511
+[03-Nov-2017 15:53:15 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Datatables' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 511
+[03-Nov-2017 16:18:05 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 563
+[03-Nov-2017 17:35:30 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Form' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 531
+[03-Nov-2017 17:39:11 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Form' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 532
+[03-Nov-2017 17:45:19 Asia/Kolkata] PHP Fatal error:  Class 'App\Http\Controllers\Admin\Form' not found in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 532
+[03-Nov-2017 17:48:16 Asia/Kolkata] PHP Parse error:  syntax error, unexpected end of file in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 364
+[03-Nov-2017 18:34:48 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[03-Nov-2017 18:34:54 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[03-Nov-2017 18:35:52 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[03-Nov-2017 18:36:02 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[03-Nov-2017 18:36:11 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[03-Nov-2017 18:40:24 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[03-Nov-2017 18:44:16 Asia/Kolkata] PHP Fatal error:  Call to undefined method Symfony\Component\HttpFoundation\ParameterBag::toArray() in /home1/sassyin2/public_html/crm/app/Http/Controllers/Admin/InternationalLeadController.php on line 536
+[03-Nov-2017 18:46:06 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33
+[03-Nov-2017 18:47:31 Asia/Kolkata] PHP Fatal error:  Interface 'Throwable' not found in /home1/sassyin2/public_html/crm/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/DriverException.php on line 33

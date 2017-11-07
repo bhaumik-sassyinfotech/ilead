@@ -88,11 +88,11 @@
                 </div>
                 <div class="col-xs-6 form-group managerDiv" style="display: none;">
                     {!! Form::label('role_id', 'Manager*', ['class' => 'control-label']) !!}
-                    <select name="manager" id="manager" class="form-control">
+                    <select name="manager" id="manager_list" class="form-control">
                         <option selected value="0">Select Manager</option>
                         @if(count($managers) > 0)
                             @foreach( $managers as $manager)
-                                <option value="{{ $manager->id }}">{{ $manager->fullname." ".$manager->firstname }}</option>
+                                <option value="{{ $manager->id }}">{{ $manager->fullname." ".$manager->lastname }}</option>
                             @endforeach
                         @endif
                     </select>
@@ -136,7 +136,7 @@
                 </div>
             </div>
             
-            <div class="row" style="display: none;">
+            <div class="row" >
                 <div class="col-xs-7 form-group">
                     <label for="status">Status : </label>
                     <select class="form-control" id="status" name="status">

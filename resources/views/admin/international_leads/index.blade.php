@@ -55,7 +55,7 @@ $class4 = 'col-xs-2';
                                placeholder="Select start date" type="text" class="form-control start">
                     </div>
                     <div class="col-md-3">
-                        <input value="{{ isset($end) ? date("d-m-Y" , strtotime($end)):'' }}" name="end" type="text"
+                        <input value="{{ isset($end) ? date('d-m-Y' , strtotime($end)):'' }}" name="end" type="text"
                                placeholder="Select end date" class="form-control end">
                     </div>
                     <div class="col-md-4 input-group">
@@ -189,7 +189,7 @@ $class4 = 'col-xs-2';
         $(document).ready(function ()
         {
             $.fn.datepicker.defaults.orientation = "bottom";
-            $.fn.datepicker.defaults.format      = '{{ Config::get('constant.DATEPICKER_FORMAT') }}';
+            $.fn.datepicker.defaults.format      = '{{ Config::get("constant.DATEPICKER_FORMAT") }}';
 //            $('.end').datepicker();
             var d                                = new Date();
 //            d.setDate(d.getDate()+1);
@@ -200,11 +200,14 @@ $class4 = 'col-xs-2';
             $('.end').datepicker({
                 endDate: d
             });
-            $('.start').on('change' , function ()
+            $('.start').on('change' , function (e)
             {
+//                var currDate = new Date($(this).val());
+//                console.log(currDate);
+//                         .datepicker( { startDate: currDate } );
                 $('.end').val('');
             });
-
+            
             $('#notes').on('show.bs.modal' , function ( e )
             {
                 var that = $(this);
@@ -215,10 +218,9 @@ $class4 = 'col-xs-2';
                 var leadID = link.data('lead-id');
                 if(leadID)
                 {
-                            {{--var notes = "<tr><td class='{{ $class1 }}'>"+ +"</td><td class='{{ $class2 }}'>"+ +"</td><td class='{{ $class3 }}'>"+ +{{ $a OR '10' }}+"</td>";--}}
                     var dataString = {_token: $("input[name='_token']").val() , lead_id: leadID };
                     $.ajax({
-                        url: '{{ route('international.loadNotes') }}',
+                        url: '{{ route("international.loadNotes") }}',
                         data: dataString,
                         type: "POST",
                         success: function (response)
@@ -232,14 +234,14 @@ $class4 = 'col-xs-2';
                                 var created_at = new Date(val.created_at).toString(js_dateFormat);
                                 var updated_at = new Date(val.updated_at).toString(js_dateFormat);
 //                                console.log(updated_at);
-
+                                
                                 allNotes = allNotes + "<tr><td class='{{ $class1 }}'>"+ val.note_desc +"</td><td class='{{ $class2 }}'>"+ val.note_user.fullname+ ' '+val.note_user.lastname +"</td><td class='{{ $class3 }}'>"+  created_at +"</td><td class='{{ $class4 }}'>"+updated_at+"</td></tr>";
 //                                alert(allNotes);
                             });
 //                            console.log(allNotes);
                             that.find('.modal-body .table-body').empty().append(allNotes);
                         }
-
+                        
                     });
                 }
 

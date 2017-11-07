@@ -1,8 +1,10 @@
+{{--{{ dd($monthly) }}--}}
+
 @extends('admin.layouts.app')
 
 @section('content')
     <div class="row">
-        
+
         <div class="col-sm-12">
             <div class="row">
                 <div class="col-md-3">
@@ -18,7 +20,7 @@
               <div class="col-md-3">
                 <div class="well">
                   <h4 class="text-success">
-                    <span class="label label-success pull-right">+ 33%</span> 
+                    <span class="label label-success pull-right">+ 33%</span>
                     <a href="#"> Analytics 2 </a>
                     </h4>
                 </div>
@@ -26,25 +28,53 @@
               <div class="col-md-3">
                 <div class="well">
                   <h4 class="text-primary">
-                    <span class="label label-primary pull-right">201</span> 
+                    <span class="label label-primary pull-right">201</span>
                      <a href="#"> Analytics 3 </a>
                     </h4>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="well">
+
                   <h4 class="text-success">
-                    <span class="label label-success pull-right">+ 24%</span>  
-                     <a href="#"> Analytics 4 </a>
+                    @if($monthly['achieved'] == TRUE)
+                          <span class="label label-success pull-right">
+                        @else
+                          <span class="label label-danger pull-right">
+                    @endif
+                        {{ $monthly['calculated'] }} out of {{ $monthly['target'] }}</span>
+                     <a href="#"> Monthly target</a>
                   </h4>
                 </div>
               </div>
-            </div><!--/row-->    
+            </div><!--/row-->
         </div><!--/col-12-->
     </div>
     <div id="chartContainer" class="graph" >
   </div>
   <script type="text/javascript">
+      var graphData = {!! $graphData !!};
+//        console.log(graphData);
+      var leads=[];
+
+      $.each(graphData, function( index, value ) {
+
+          var date = new Date(value.date);
+          var month = parseInt(date.getMonth());
+          var day = parseInt(date.getUTCDate());
+          var year = parseInt(date.getFullYear());
+          var aa = new Date(year,month,day);
+          //console.log(aa);
+          var transaction_data= new Object();
+          transaction_data.x = aa;
+          transaction_data.y = value.tot_cnt;
+
+          leads.push(transaction_data);
+
+      });
+
+//console.log(leads);
+
       window.onload = function () {
             var chart = new CanvasJS.Chart("chartContainer",
             {
@@ -55,12 +85,13 @@
                   },
                         animationEnabled: true,
                   axisX:{
-
                         gridColor: "Silver",
                         tickColor: "silver",
-                        valueFormatString: "DD/MMM"
+                          interval: 1,
+                          intervalType: "day",
+                        valueFormatString: "DD-MMM-Y"
 
-                  },                        
+                  },
                         toolTip:{
                           shared:true
                         },
@@ -74,50 +105,17 @@
                         horizontalAlign: "right"
                   },
                   data: [
-                  {        
+                  {
                         type: "line",
                         showInLegend: true,
                         lineThickness: 2,
-                        name: "Visits",
+                        name: "Leads",
                         markerType: "square",
-                        color: "#F08080",
-                        dataPoints: [
-                        { x: new Date(2010,0,3), y: 650 },
-                        { x: new Date(2010,0,5), y: 700 },
-                        { x: new Date(2010,0,7), y: 710 },
-                        { x: new Date(2010,0,9), y: 658 },
-                        { x: new Date(2010,0,11), y: 734 },
-                        { x: new Date(2010,0,13), y: 963 },
-                        { x: new Date(2010,0,15), y: 847 },
-                        { x: new Date(2010,0,17), y: 853 },
-                        { x: new Date(2010,0,19), y: 869 },
-                        { x: new Date(2010,0,21), y: 943 },
-                        { x: new Date(2010,0,23), y: 970 }
-                        ]
+                        color: "#09C",
+                        dataPoints: leads
                   },
-                  {        
-                        type: "line",
-                        showInLegend: true,
-                        name: "Unique Visits",
-                        color: "#20B2AA",
-                        lineThickness: 2,
 
-                        dataPoints: [
-                        { x: new Date(2010,0,3), y: 510 },
-                        { x: new Date(2010,0,5), y: 560 },
-                        { x: new Date(2010,0,7), y: 540 },
-                        { x: new Date(2010,0,9), y: 558 },
-                        { x: new Date(2010,0,11), y: 544 },
-                        { x: new Date(2010,0,13), y: 693 },
-                        { x: new Date(2010,0,15), y: 657 },
-                        { x: new Date(2010,0,17), y: 663 },
-                        { x: new Date(2010,0,19), y: 639 },
-                        { x: new Date(2010,0,21), y: 673 },
-                        { x: new Date(2010,0,23), y: 660 }
-                        ]
-                  }
 
-                  
                   ],
           legend:{
             cursor:"pointer",
@@ -125,7 +123,7 @@
               if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
                   e.dataSeries.visible = false;
               }
-             
+
               chart.render();
             }
           }

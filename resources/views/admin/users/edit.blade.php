@@ -119,7 +119,7 @@
                 </div>
             </div>
            
-			<div class="row" style="display: none">
+			<div class="row" >
 				<div class="col-xs-6 form-group">
 					<label for="status">Status : </label>
 					<select  class="form-control" id="status" name="status" >

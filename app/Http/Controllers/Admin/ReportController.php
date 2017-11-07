@@ -108,7 +108,7 @@
 //                    dd($userID);
                 } else if ($loggedInRole == Config::get('constant.EMPLOYEE_ID'))
                 {
-                    dd("emp");
+//                    dd("emp");
                     $userID = (array) $user->id;
                     
                 } elseif ($loggedInRole == Config::get('constant.ADMIN_ID'))

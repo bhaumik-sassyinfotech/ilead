@@ -16,5 +16,10 @@ class LocalLeadNote extends Model
     {
         return $this->belongsTo('App\LocalLead','lid','lead_id');
     }
+    
+    public function noteUser()
+    {
+        return $this->hasOne('App\User', 'id' , 'user_added_by');
+    }
 
 }
