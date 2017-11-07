@@ -38,11 +38,19 @@
             
             $currMonth = date('m');
             
+            $days = date('t');
+            $today = explode("-",date('Y-m-d'));
+            $start = date('Y-m-01');
+            $end = date('Y-m-t');
+    
+            
             $user      = Helpers::getCurrentUserDetails();
             $userID    = $user->id;
 //
             
+            
             $graphData = InternationalLead::select(DB::RAW("count(DISTINCT lead_id) as tot_cnt") , DB::RAW("DATE(created_at) as date"))->groupBy('date')->orderBy('created_at','ASC')->where('user_added_by' , $userID)->get();
+//            return $graphData;
 
 //          calculations to show whether the monthly target has been achieved or not.
 //            $details                 = InternationalLead::select(DB::RAW("sum(amount) as tot_amt") , DB::RAW("MONTH(created_at) as month"))->groupBy(DB::RAW("MONTH(created_at)"))->where('status' , 'converted')->where('user_added_by' , $userID)->get()->toArray();
@@ -63,11 +71,11 @@
 //                $monthly[ 'achieved' ] = $targetAchieved = $monthlyTargetCalculated < $monthlyTarget ? FALSE : TRUE;
 //            }
             
-            $details   = InternationalLead::select(DB::RAW("sum(amount) as tot_amt") , DB::RAW("MONTH(created_at) as month"))
+            $details   = InternationalLead::select(DB::RAW("SUM(IFNULL(amount, 0)) as tot_amt") , DB::RAW("MONTH(created_at) as month"))
                          ->where(DB::raw('MONTH(created_at)') , '=' , $currMonth)
                          ->where('status' , 'converted')
-                         ->where('user_added_by' , $userID)->first()->toArray();
-            
+                         ->where('user_added_by' , $userID)->whereBetween('created_at',[$start,$end])->first()->toArray();
+//            return $details;
             if ( $details[ 'tot_amt' ] == NULL )
                 $details[ 'tot_amt' ] = 0;
             if ( $details[ 'month' ] == NULL )
