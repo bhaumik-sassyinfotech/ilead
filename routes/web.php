@@ -68,7 +68,7 @@
             Route::post('/change-password' , 'Admin\Auth\UpdatePasswordController@update');
             $this->post('logout' , 'Admin\Auth\LoginController@logout')->name('auth.logout');
             
-            Route::get('/dashboard' , 'Admin\DashboardController@index');
+            Route::match(['get' , 'post'],'/dashboard' , 'Admin\DashboardController@index');
             //Route::get('', 'Admin\DashboardController@index');
             Route::get('/' , 'Admin\DashboardController@index');
             Route::post('/userSearch' , 'Admin\UsersController@userSearch');
